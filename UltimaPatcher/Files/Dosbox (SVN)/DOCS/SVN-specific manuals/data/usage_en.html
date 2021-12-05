@@ -1,0 +1,634 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Usage</title>
+<style type="text/css">
+body {
+	background-color: #d0d0d0;
+}
+</style>
+</head>
+
+<body>
+<table border="1">
+  <tr>
+    <td >SVN-specific manuals</td>
+    <td><a href="main_en.html">Main</a> | <a href="usage_en.html">Usage</a> | <a href="index.html">MB6 Patches</a></td>
+  </tr>
+  <tr>
+    <td>Official manuals</td>
+    <td><a href="../../Official Manuals/README.TXT" target="new">README</a> | <a href="../../Official manuals/Video Instructions.txt" target="new">Video Instructions</a></td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <!-- Limiter -->
+  <tr>
+    <td><br /></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><font size="4"><b>USAGE</b></font></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td>Read <a href="../../Official Manuals/README.TXT">official manual</a> for more information.</td>
+  </tr>
+  <tr>
+    <td><br /></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><b>CONTENTS</b><br/>
+      <ol>
+        <li><a href="#GENERAL">GENERAL USAGE</a></li>
+        <li><a href="#SPECIAL">SPECIAL KEYS</a></li>
+        <li><a href="#PARAM">PARAMETERS</a></li>
+        <li><a href="#DOSCMD">DOS COMMANDS</a></li>
+        <li><a href="#SAVE">SAVE STATES</a></li>
+        <li><a href="#MENU">GUI</a></li>
+        <li><a href="#GLIDE">GLIDE EMULATION</a></li>
+        <li><a href="#D3D">DIRECT3D</a></li>
+        <li><a href="#OPENGLHQ">OPENGL-HQ</a></li>
+        <li><a href="#DONGLE">DONGLE SUPPORT</a></li>
+        <li><a href="#DOSBOX-X">DOSBOX-X BRANCH</a></li>
+      </ol></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br /></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><p><a name="GENERAL" id="GENERAL"><b>GENERAL USAGE</b><br/>
+    </a> <strong>For Windows users</strong>:<br />
+    If you obtained setup.exe, please run it to install first. If you obtained an archive
+    (xxxxxxxx.7z), extract it to a new folder. Run DOSBox executable.<br />
+    <br />
+    Go to [Quick Launch] from [Main] menu to choose an executable(*.exe, *.com, *.bat) to run. You may also just drag and drop it into DOSBox window.</p>
+      <p><strong>For Linux users:</strong><br />
+        
+      Tested on Linux Ubuntu. Download xxxxxxxx_32bit.7z and extract it to a new folder. You can simply double click &quot;dosbox&quot; or enter &quot;./dosbox&quot; in terminal.</p>
+      <p><strong>For OS X users:</strong><br />
+        Tested on OS X Mountain Lion.
+        Download xxxxxxxx_Intel_i386.7z and extract it to a new folder. You can simply double click &quot;dosbox&quot; or enter &quot;./dosbox&quot; in terminal.<br />
+      If you are unable to run dosbox, please read LIB_LIST-IMPORTANT_EN.TXT in LIBS directory.</p>
+      <p> <strong>For all users</strong>:<br />
+        Some DOS games complain due to DOS environment settings like XMS/EMS memory. Others might require CD-ROM mounting.<br />
+      You can prepare them via menu or commandline in advance for the games to work properly. For details, open <a href="../../Official Manuals/README.TXT">official manual</a> to see 11. Troubleshooting section.</p>
+      <p> To disable automatic mount on command prompt, open DOSBox configuration file and set automount=false in [dos] section.</p>
+      <p><strong>Tools:<br />
+      </strong>There are several tools provided in TOOLS directory. Currently only for Windows.</p>
+      <ul>
+        <li>          Run DOSBox configuration.bat : Open DOSBox configuration file with notepad. If the file does not exist, DOSBox will automatically create a new configuration file.</li>
+        <li>Reset DOSBox configuration.bat : Remove the existing configuration file and create a new configuration file with default settings.</li>
+        <li>Reset DOSBox mapper.bat : Remove the existing mapper file and create a new mapper file with default settings.</li>
+        <li>Read manuals.bat : View DOSBox manuals.</li>
+        <li>          Install movie codec.bat : Install/uninstall ZMBV movie codec used to edit/watch movies captured by DOSBox.</li>
+        <li>          Run DOSBox without GUI.bat : Run DOSBox without GUI.</li>
+        <li>          Run DOSBox with DirectX driver.bat : Run DOSBox with DirectX driver. Use if you encounter compatibilty issues.</li>
+        <li>Run DOSBox (noconsole).bat : Run DOSBox without console. (not recommended)</li>
+        <li>Run DOSBox with Secondary Display.bat : Enable secondary display with three color modes (amber, green and white)</li>
+        <li>Open Screenshots &amp; Recordings.bat : Open Capture folder for screenshots and recordings.</li>
+        <li>Open Saves.bat : Open Save folder for saved slots.</li>
+      </ul>
+      <p><strong>General notes:</strong></p>
+      <ul>
+        <li> Do not use a configuration file created by older versions of DOSBox.</li>
+        <li>Changing screen output frequently can make DOSBox unstable. (Windows)</li>
+        <li>Hardware scalers(hardware_none, hardware2x, hardware3x, hardware4x, and hardware5x) do not work with output=surface.</li>
+        <li>If you get an error message like &quot;DirectX initialization failed.&quot; then please update your video card driver.<br />
+          Otherwise, please set output=surface or output=ddraw in your DOSBox configuration.
+           (Windows)<br />
+        </li>
+        <li>Disney must be disabled while printer emulation is being enabled. (printer=true, disney=false)</li>
+        <li>Disney must be disabled while MIDI is being enabled. (MB6)</li>
+        <li>Dongle must be disabled if you want to use disney sound. (dongle=false, disney=true, printer=false)</li>
+        <li>To enable MT-32 (MUNT) emulation, you need some ROM files.<br />
+          1) CM32L_CONTROL.ROM, CM32L_PCM.ROM<br />
+          2) MT32_Control.ROM, MT32_PCM.ROM<br />        
+        Follow the instructions from DOSBox Status window.</li>
+        <li>If you encounter graphical issues, try to set linewise, char9, and multiscan to another value. Also search for some utilities like UNIVBE or S3VBE20 that may help.</li>
+        <li>If you get LPT1 creation failed error message, please set parallel1=file in your configuration file.</li>
+        <li>Overscan works properly only if output=surface is set.</li>
+        <li>DOSBox mixer cannot control MIDI volume itself when mididevice is set to win32 (default).</li>
+        <li>The maximum memory sizes are 512MB. (memsize=512 or memsizekb=524288)<br />
+          However, 
+          memory sizes above 200 MB are too big for saving/loading states.</li>
+        <li>xBRZ scaler can be used only if:<br />
+        scaler=xbrz, output=surface, fullscreen=true<br />
+        This scaler is processed by TBB which is not compatible with Windows 2000.</li>
+        <li>If you have the following compatibilty issues on Windows, please run &quot;Run DOSBox with DirectX driver.bat&quot; to disable WINDIB driver.<br />
+          (You may also go to Video-&gt;Driver-&gt;Reset DOSBox with DirectX driver forced)<br />
+          - Simultaneous shift keys not working<br />
+          - Any other issues including unknown crash<br />
+          However, you may encounter the following problems if you are running DOSBox with DirectX driver:<br />
+          - Low performance.<br />
+          - Frequent blinking in some outputs including Direct3D renderer<br />
+          - You may not be able to enable openglide wrapper.<br />
+          - You may not be able to restore your DOSBox window to its original state after maximizing it while using Direct3D.<br />
+          - You may not be able to switch output between DirectDraw and OpenGL on the fly.</li>
+        <li>DOSBox debugger is for debugging, NOT for the average DOSBox user. Here is <a href="http://vogons.zetafleet.com/viewtopic.php?t=3944" target="_new">a guide to the DOSBox debugger</a>.</li>
+        <li>You can install Windows 95 / 98 as a guest OS inside DOSBox while support for the Windows 9x is limited.<br />
+  Recommended settings:<br />
+core=dynamic<br />
+cputype=pentium<br />
+glide=emu<br />
+voodoo=auto<br />
+machine=svga_s3<br />
+vmemsize=4 (or vmemsize=8)<br />
+For more information, refer to
+<br />
+<a href="http://vogons.zetafleet.com/viewtopic.php?t=24936&amp;highlight=windows" target="_new">Guide - Windows 95 on DOSBox 0.74</a> (VOGONS Forum)<br />
+<a href="http://vogons.zetafleet.com/viewtopic.php?t=26973" target="_new">Guide - Windows 98 SE on DOSBox 0.74</a> (VOGONS Forum)<br />
+NOTE: Please install [S3 Inc. 801/805] VGA driver if you are running Windows 95 inside DOSBox. You will encounter blue screen of death if you let the Windows have default VGA driver installed.</li>
+      </ul>
+      <p><strong>Technical details (Windows):</strong><br />
+      </p>
+      <ul>
+        <li>Unlike official releases, DOSBox SVN-Daum build is basically using WINDIB driver for several reasons. (See above) 
+          However, 
+DirectDraw does not work properly with the WINDIB driver. 
+        To resolve the issue, DOSBox will automatically set its driver to DirectX when you set output to DirectDraw.</li>
+        <li>Built with VS 2012. This build was confirmed to work under Windows 8. Added some 
+        assember hacks to support Windows 2000.</li>
+        <li>This build may not work properly without SSE2 support. Please check the following list.<br />
+List of CPUs with SSE2 support<br />
+- AMD K8-based CPUs (Athlon 64, Sempron 64, Turion 64, etc.)<br />
+- AMD Phenom CPUs<br />
+- Intel NetBurst-based CPUs (Pentium 4, Xeon, Celeron, Celeron D, etc.)<br />
+- Intel Pentium M and Celeron M<br />
+- Intel Core family (including Intel Core 2, Intel Core i5, Intel Core i7)<br />
+- Intel Atom<br />
+- Transmeta Efficeon<br />
+- VIA C7<br />
+- VIA Nano</li>
+      </ul></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br/></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><a name="SPECIAL" id="SPECIAL"><b>SPECIAL KEYS</b><br/>
+      </a>Several experimental patches provide the following additional special keys.
+      <p> <strong>CPU Core-switch (from gulikoza)</strong></p>
+      <ul>
+        <li>Ctrl - 1 :     Set to Normal core</li>
+        <li> Ctrl - 2 :      Set to Full core</li>
+        <li> Ctrl - 3 :      Set to Dynamic core</li>
+        <li> Ctrl - 4 :      Set to Simple core</li>
+        <li> Ctrl - = :      Maximize CPU cycles</li>
+      </ul>
+      <p> <strong>SVN-Daum features</strong><br />
+      </p>
+      <ul>
+        <li>Ctrl - Alt - Enter :   Show/Hide menu bar (Windows)</li>
+        <li>Alt - F11 : Continuous turbo mode</li>
+      </ul>
+      <p> <strong>Save / Load states (from ZenJu)</strong><br />
+      </p>
+      <ul>
+        <li>Alt - F5 :  Save States</li>
+        <li> Alt - F6 :  Prev Slot</li>
+        <li> Alt - F7 :  Next Slot</li>
+        <li> Alt - F9 :  Load States</li>
+      </ul>
+      <p><strong>Internal GUI (from Moe)</strong><br />
+      </p>
+      <ul>
+        <li>Alt - F10 :  Start internal GUI</li>
+      </ul>
+<p>For more information about other special keys, read <a href="../../Official Manuals/README.TXT" target="new">official manual</a>.</p></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br/></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><a name="PARAM" id="PARAM"><b>PARAMETERS</b><br/>
+      </a>Several experimental patches provide the following additional parameters.
+      <p> <strong>Usage</strong><br />
+      dosbox [-nomenu] [-nogui] [-startui] [-nolog] [-showcycles] [-opensaves program] [-display2 (option)] [-disable_numlock_check] [-savedir (path)] [-date_host_forced]</p>
+      <ul>
+        <li> -nomenu<br />
+        Hide menu bar at startup. (Windows) To show it, press Ctrl-Alt-Enter.</li>
+        <li> -nogui<br />
+        Disable GUI. (Windows)</li>
+        <li>-startui<br />
+        Start internal UI at startup.</li>
+        <li>-nolog<br />
+        Disable file logging.</li>
+        <li> -showcycles<br />
+          Show details including the current cycles and FPS on title bar.</li>
+        <li>-opensaves program<br />
+          Calls program with as first parameter the location of the SAVE folder. (for example, -opensaves explorer.exe)</li>
+        <li>-display2 (option)<br />
+          Turns on dual display. Three color modes are provided: -display2 &quot;amber&quot;, -display2 &quot;green&quot;, -display2 &quot;white&quot;<br />
+          It works in some software that supports dual display (e.g., Mah Jongg)</li>
+        <li>-disable_numlock_check<br />
+        Do not check numlock at startup. (Windows, useful for DirectX driver)</li>
+        <li>-savedir (path)<br />
+          Set save state directory to a custom folder. (for example, -savedir &quot;c:\game\pre2\savedir&quot;)</li>
+        <li>-date_host_forced<br />
+        Forces DOSBox to always use system date. You cannot change internal date with DATE command.</li>
+      </ul>
+    <p> Creating a shortcut is recommended for easy use. For other DOSBox parameters, read <a href="../../Official Manuals/README.TXT">official manual</a>.</p></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br/></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><a name="DOSCMD" id="DOSCMD"><b>DOS COMMANDS</b><br/>
+      </a>The following additional commands are provided from a patch called  &quot;More parameters support in internal commands.&quot; and FreeDOS, and some other patches provided by Moe and h-a-l-9000. 
+      These commands are unofficial part of DOSBox.
+      <p> <strong>External commands</strong></p>
+      <ul>
+        <li>50.COM, 28.COM : Changes the number of line displayed on shell.</li>
+        <li>EDIT.COM : Opens FreeDOS file editor.</li>
+        <li>APPEND.EXE : Similar to PATH command.</li>
+        <li>COPY.EXE : COPY command with more parameters.</li>
+        <li>XCOPY.EXE : Advanced COPY command.</li>
+        <li> MOUSE.COM : Enables/disables DOSBox mouse driver. To uninstall it, type &quot;mouse /u&quot;. For y-axis reverse, type &quot;mouse /v&quot; (They also can be found in GUI)</li>
+        <li>IMGMAKE.COM : Creates a floppy/harddisk (.img) image. (h-a-l-9000) Just type IMGMAKE for more information.</li>
+        <li> MOVE.COM : Moves a file or directory to another location</li>
+        <li> TREE.EXE : Graphically displays the directory structure of a drive/path.</li>
+        <li>FIND.EXE : Print lines of a file that contains a string</li>
+        <li>DOS32A.EXE, DOS4GW.EXE : DOS Extenders</li>
+      </ul>
+      <p> <strong>Internal commands</strong></p>
+      <ul>
+        <li>ADDKEY : Generates artifical keypresses. (Moe) <a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1022702&amp;group_id=52551&amp;atid=467234" target="_new">[How to use]</a><br />
+  &quot;normal&quot;, &quot;simple&quot;, &quot;dynamic&quot;, &quot;full&quot; also can be used for changing CPU core. (only supports delay)</li>
+        <li>VOL : Views volume name of disk.</li>
+        <li>LABEL : Sets volume name of disk.</li>
+        <li>MORE : Displays output one screen at a time.</li>
+        <li>PROMPT : Shows/Changes command prompt. It supports special characters including escape codes. Default value is PROMPT $P$G.</li>
+      </ul>
+      <p> <strong>CONFIG.SYS commands</strong><br />
+      </p>
+      <ul>
+        <li>LASTDRIV.COM</li>
+        <li> FCBS.COM</li>
+        <li> DEVICE.COM</li>
+        <li>BUFFERS.COM</li>
+        <li>FILES command is provided by DOSBox configuration. (h-a-l-9000)</li>
+      </ul>
+      <p> <strong>The following commands are official part of DOSBox but include some unofficial changes.</strong></p>
+      <ul>
+        <li>INTRO command shows DOSBox introduction. You can select one of the introduction items by pressing arrow keys.</li>
+        <li>DIR displays a list of files and subdirectories in a directory. You can also see volume label and serial number.</li>
+        <li>MEM command is available with some parameters like /C and /P.</li>
+        <li>COPY command is provided as a command file in Z drive.</li>
+      </ul>
+    <p> For more information about DOS commands, type &quot;HELP&quot; on prompt.</p></td>
+  </tr>
+  <tr>
+    <td><br/></td>
+  </tr>
+  <tr>
+    <td bgcolor="e0e0e0"><a name="SAVE" id="SAVE3"><b>SAVE STATES</b><br/>
+      </a>
+      <p>A patch for saving states to memory was provided by ZenJu. For more information, go to <a href="http://vogons.zetafleet.com/viewtopic.php?t=25274" target="_new">http://vogons.zetafleet.com/viewtopic.php?t=25274</a>.<br />
+        You can save, load or remove states by going to Main menu. For shortcut keys, see section &quot;Special keys&quot; above.<br />
+        More enhancements have been implemented. (Thanks to tikalat).<br />
+      </p></td>
+  </tr>
+  <tr>
+    <td><br/></td>
+  </tr>
+  <tr>
+    <td bgcolor="e0e0e0"><a name="MENU" id="SAVE6"><b>GUI</b><br/>
+      </a>There are two types of GUI in SVN-Daum build.<br />
+        <br />
+        <strong>Win32 GUI menu</strong><br />
+      A small GUI menu bar has been integrated into my build. It is currently only for Windows.
+      <ul>
+        <li>Main</li>
+        <li>Cpu</li>
+        <li>Video</li>
+        <li>Sound</li>
+        <li>Dos</li>
+        <li>Capture</li>
+        <li>Drive</li>
+      </ul>
+      <p> Note that this menu bar is still experimental and is NOT supported by DOSBox developers.</p>
+      <p> Mounting images from menu bar provies basic capabilities. If you want to mount image files with various settings like size(cylinders, heads and sectors specification of the drive), please use a command called IMGMOUNT instead. Note that size is only for bootable hard disk images.</p>
+      <p><strong>Internal GUI</strong><br />
+        Moe added a nice crossplatform graphical user interface. Hit Alt-F10
+        or use -startui parameter to start the user interface. You can use this on Linux, OS X, and Windows.<br />
+        <br />
+        Limitations:<br />
+        1)
+        Paused mode while you are in UI.<br />
+        2)
+        As this user interface does not provide specific features for mounting, you can type mount commands in autoexec.</p></td>
+  </tr>
+  <tr>
+    <td><br/></td>
+  </tr>
+  <tr>
+    <td bgcolor="e0e0e0"><a name="GLIDE" id="SAVE7"><b>GLIDE EMULATION</b><br/>
+      </a>
+      <p> NOTE: Make sure that your game directory must not include glide2x.ovl / glide2x.dll / libglide2x.so / libglide2x.dylib</p>
+      <p> There are a couple of options to enable glide emulation: Glide wrapper, Internal 3dfx  Voodoo chipset emulation</p>
+      <ul>
+        <li>Glide wrapper (glide=true)<br />
+          OpenGlide wrapper patch for DOSBox is maintained by Gulikoza.<br />
+          Set glide=true in your DOSBox configuration file to play Glide games.<br />
+          <br />
+          On Linux: libglide2x.so is an OpenGlide library required to run glide games.<br />
+          On OS X: libglide2x.dylib is required to run glide games.<br />
+On Windows: glide2x.dll is required. This can be simply replaced with another glide wrapper library. If you get some other glide wrappers like nGlide, it will put glide2x.dll into your system directory. In this case, you don't have to delete or change glide2x.dll in your dosbox directory.<br />
+<br />
+How to enjoy glide games in FULLSCREEN with OpenGlide<br />
+        1. Hit Alt-Enter to switch to fullscreen. (or set fullscreen=true in your dosbox configuration file)<br />
+      2. Run your glide game and enjoy.<br />
+<br />
+If you are having certain problems using other glide wrappers on Windows, please follow the instruction below.<br />
+        1. Do not replace the existing glide2x.ovl with another one.<br />
+        2. Hit Alt-Enter to switch to fullscreen. (or set fullscreen=true in dosbox.conf)<br />
+        3. Run your glide game and enjoy.<br />
+        </li>
+      </ul>
+      <ul>
+        <li>3dfx Voodoo chip emulation (glide=emu)<br />
+          Kekko's description is here:<br />
+          - higher compatibility with titles (even those with integrated .ovl)<br />
+          - portability<br />
+          - integration with dosbox internal renderer: full-screen, different output modes and video capture would be supported<br />
+          - no need of external libs<br />
+          - d3d support for win9x games<br />
+          <br />
+          Under [pci] section, you can specify mode of the internal voodoo emulation. (voodoo=auto is default)<br />
+voodoo = false | software | auto | opengl<br />
+          <br />
+How to use:<br />
+        Set glide=emu in your DOSBox configuration file. It may result in poor performance because everything will be emulated in software mode.<br />
+        This is an internal emulation which does not require external glide2x library. You need glide2x_emu.ovl instead of glide2x.ovl for this.<br />
+        You may set video output to OpenGL for hardware acceleration. (Set voodoo=auto/opengl with output=opengl/openglnb)<br />
+        <br />
+For more information, go to 
+        <a href="http://vogons.zetafleet.com/viewtopic.php?t=25606" target="_new">http://vogons.zetafleet.com/viewtopic.php?t=25606</a><br />
+      Do not ask how to build or how to speed up there.</li>
+      </ul></td>
+  </tr>
+  <tr>
+    <td><br/></td>
+  </tr>
+  <tr>
+    <td bgcolor="e0e0e0"><a name="D3D" id="SAVE8"><b>DIRECT3D</b><br/>
+      </a>
+      <p>Written by gulikoza</p>
+      <p><strong>New options:</strong><br />
+        Direct3D output now supports the use of custom pixel shaders for picture 
+        scaling.<br />
+        To use it your card has to support PS2.0 (Radeon &gt;=9500, GeForce &gt;=FX5200) or PS1.4 for scale2x_ps14.fx (Radeon &gt;= 8500).</p>
+      <p>** These shaders are currently available :<br />
+        1) General<br />
+      </p>
+      <ul>
+        <li>point.fx - normal (nearest neighbor) resize</li>
+        <li>pilinear.fx - bilinear resize (slightly blurry)</li>
+        <li> scale2x.fx - advmame2x resize</li>
+        <li> scale2x_ps14.fx - advmame2x resize (PS1.4 version)</li>
+        <li> 2xSaI.fx - 2xSaI resize</li>
+        <li> 2xSaI_sRGB.fx - 2xSai (Gamma Corrected) resize</li>
+      </ul>
+      <p>2) The following are all modifications of the GLSL shaders for OGL2 PSX plugin. Ported to .fx format by guest(r).<br />
+      Some of the shaders also have settings you can modify by editing the .fx file.</p>
+      <ul>
+        <li> GS2x.fx</li>
+        <li> GS4x.fx</li>
+        <li> GS4xColorFilter.fx</li>
+        <li> GS4xFilter.fx</li>
+        <li> GS4xScale.fx</li>
+      </ul>
+      <p>3) Other shaders...</p>
+      <p>** How to enable pixelshader<br />
+        1. Open dosbox.conf with notepad.<br />
+        2. Set 'output=direct3d' to enable Direct3D. Follow one of these options.</p>
+      <ol>
+        <li>Set 'scaler=hardware2x', 'scaler=hardware3x', 'scaler=hardware=4x', or 'scaler=hardware=5x'</li>
+        <li>Set 'scaler=none'. Set the values like 640x480 in fullresolution and windowresolution.<br />
+        </li>
+      </ol>
+      <p>3. Then set 'pixelshader=' option to one of the shaders.<br />
+        <br />
+        When pixel shader is active DOSBox will report it in the console: D3D:Pixel shader output enabled<br />
+      If you don't get this line then pixel shader effects are not in use.</p></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br/></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td height="1802" bgcolor="e0e0e0"><a name="OPENGLHQ" id="OPENGLHQ"><b>OPENGL-HQ</b><br/>
+      </a>
+      <p>Written by Moe<br />
+      </p>
+      <p>This readme documents version 2012-10-19 of OpenGL-HQ, if you got a later version there's a slim chance I forgot to update this :) The current version and screenshots can be downloaded from 
+      http://www.syntax-k.de/projekte/sdl-opengl-hq/</p>
+      <p>OpenGL-HQ is a video &quot;driver&quot; for SDL that uses your graphics hardware
+        to scale the output to any size you want. It was originally written for
+      2D games/emulators like dosbox, scummvm or exult.</p>
+      <p><strong>WARNING:<br />
+    </strong>This is beta quality software. While it works nicely for me and several other people, expect bugs to be present. If something 
+    doesn't work, first check for a new version. Please mail me if you 
+    encounter anything that's not yet listed in the README.</p>
+      <p><strong>Features:</strong></p>
+      <ul>
+        <li> uses your hardware to get fast scaling</li>
+        <li>scales any 2D SDL program</li>
+        <li>scales with any scaling factor, even fractional ones</li>
+        <li>switches back to the native driver if an app tries to use OpenGL</li>
+        <li>portable</li>
+        <li>configurable like SDL</li>
+        <li>see the screenshots at the URL above, really</li>
+      </ul>
+      <p><strong>Requirements:</strong><br />
+- a Radeon 9600, GeForce 5700 or higher with current driver; OpenGL extension ARB_fragment_program must be hardware accelerated, EXT_framebuffer_object is recommended<br />
+-- Note: Since 2012, the fragment programs may no longer be compatible with an acutal 9600. In case of problems use an older version of *_pass3.fp<br />
+- OpenGL-support for your OS in SDL (which means Windows, Linux/X11 or MacOS X)</p>
+      <p><strong>Limitations:</strong><br />
+- may show bad performance with programs that already provide high-resolution output or with high-quality driver settings (Radeon 9600-9800 class chips are driven at their limits)<br />
+- might not work with FSAA enabled<br />
+- MacOS X untested (but should work)<br />
+- it has become very unlikely, but it is still possible that desktop resolution is not autodetected correctly; use SDL_OPENGLHQ_FULLRES in that case<br />
+- untested on non-x86 processors/non-mainstream graphics cards, notably embedded/mobile platforms</p>
+      <p><strong>Bugs unlikely to be fixed, or of unknown origin:</strong><br />
+        - ATI's Triple-Buffering feature interferes with some apps; if you see lockups or similar, try setting SDL_OPENGLHQ_DOUBLEBUF as shown below<br />
+        -- needs to be confirmed against current drivers</p>
+      <p><strong>Bugs to be fixed:
+      </strong>none known</p>
+      <p>If you see any problems, CHECK THE TROUBLESHOOTING SECTION BELOW. If your problem is not solved there, please write as detailed as you can: 
+        Tell me what you did (exactly!), what you expected to happen, what 
+        happened instead, and include screen shots of the problem. Include any
+        relevant config files as well (dosbox.conf for dosxbox, for example).<br />
+      </p>
+      <p><strong>How to use (Quickstart):<br />
+      </strong>This is a windows quickstart guide. Other systems adjust as needed.</p>
+      <p>1) Copy SDL.DLL into the application's directory, overwriting the shipped version<br />
+      2) Create a batch file (using Notepad) with these contents:      </p>
+      <blockquote>
+        <p>set SDL_VIDEODRIVER=openglhq<br />
+          set SDL_OPENGLHQ_WINRES=800x600<br />
+          &lt;name of your application&gt;.exe<br />
+        </p>
+      </blockquote>
+      <p>3) Save the file as &lt;name of your application&gt;.bat in the same directory as the EXE file is<br />
+        4) Double-click this batch file to start the application; Create a shortcut or adjust existing shortcuts to use this batch file<br />
+      </p>
+<p><strong>Configuration:</strong><br />
+  Configuration is done via environment variables (just like the rest of SDL). It is recommended to set these options in a batch file (see previous section).<br />
+</p>
+<ul>
+  <li> SDL_VIDEODRIVER - set it to openglhq to use OpenGL-HQ</li>
+  <li>SDL_OPENGLHQ_WINRES</li>
+  <li>SDL_OPENGLHQ_FULLRES - set to a resolution like &quot;960x720&quot; to set the windowed/fullscreen size in all windowed/fullscreen modes; you may add a bit depth as in &quot;960x720-16&quot;; alternatively, you can specify a fixed scaling factor (like &quot;2.5&quot;)<br />
+    default: windowed: &quot;1&quot;, fullscreen: your desktop resolution</li>
+  <li>SDL_OPENGLHQ_VIDEODRIVER - set to the name of your SDL video device (the one you'd normally use for SDL_VIDEODRIVER)</li>
+  <li>SDL_OPENGLHQ_DOUBLEBUF - override application's choice of doublebuffering; if set to 1, doublebuffering is always on, if set to 0, doublebuffering is always off; if unset, the application's choice is respected</li>
+  <li>SDL_OPENGLHQ_STATIC </li>
+  <li>SDL_OPENGLHQ_DYNAMIC - two parameters which tweak the HQ calculation; the defaults (static 10, dynamic 33) are fine in most cases; to optimize rendering, play with these values (static 0-255, dynamic 0-100)</li>
+  <li>SDL_OPENGLHQ_SHOWFPS - print average FPS to the console every ten seconds; this only counts frames actually rendered. See FAQ below.</li>
+  <li> SDL_OPENGLHQ_DATA - a directory with data files for OpenGL-HQ; You can use this to load your own fragment programs or edge detect table.
+Currently, you will have to read the source code for details.</li>
+</ul>
+<p>You must set SDL_VIDEODRIVER to get any effect at all. If you want windowed applications to be scaled, set SDL_OPENGLHQ_WINRES. Everything else is usually not neccessary, the settings are autodetected.</p>
+      <p>If you want to set options for ALL SDL apps, you can do so:<br />
+        Windows: Control Panel -&gt; System Properties -&gt; Advanced -&gt; Environment Variables<br />
+        Unix-like systems: add &quot;export &lt;name of evironment var&gt;=&lt;value&gt;&quot; to ~/.profile<br />
+      </p>
+<p><strong>Performance:<br />
+</strong>To put it short: Absolutely great. On hardware barely meeting the minimal requirements, running a demanding protected-mode high-resolution SVGA program in DOSBox with frameskip 0 and scaling by a factor of 2, performance drops by just 20%. At frameskip 4, performance difference is at 5-10%.<br />
+At VGA resolution scaling by 4, the difference is reduced even more: 12% performance loss at frameskip 0. Software scaling is far worse: Normal2x costs about 20%, advmame2x is at 25%, hq2x (not my optimized version, but the slower HiEnd3D version) about 40%.<br />
+Above measurements done on a single-core Athlon 3700+. On a dual-core processor, there is no noticeable speed impact, since OpenGL-HQ uses a second core if 
+available.<br />
+    </p>
+<p><strong>Troubleshooting:<br />
+</strong>Q: Something doesn't work or looks weird.<br />
+      A: Check that you are running the latest official video drivers. It has not been tested with hacked drivers, and old drivers are known to fail.</p>
+<p>Q: DosBox crashes.<br />
+  A: DosBox has bad error handling at video initialization. Until that's fixed, a crash most probably means your hardware doesn't support OpenGL-HQ.</p>
+<p>Q: DosBox locks up when trying to go fullscreen<br />
+  A: ATI driver issue. Set &quot;fulldouble=false&quot; in your dosbox.conf, or set SDL_OPENGLHQ_DOUBLEBUF</p>
+<p>Q: Performance is terrible!<br />
+  A: You've probably set forced vsync-waiting in Catalsyst Control Center and your app wants double buffering (like &quot;fulldouble=true&quot; in DosBox). On a Radeon 9600-9800 class chip, that's simply too much at higher resolutions. These first fully programmable chips are used to their limits, so that's barely surprising.</p>
+      <p>Q: It works partly, but some video modes look exactly like before.<br />
+        Q: Output looks much worse than in your screenshots, blurry and not sharp at all.<br />
+      Q: WTF? I did everything as shown, and nothing changed?<br />
+      A: Disable all software scaling in your program. Many emulators default to some kind of scaling, but OpenglHQ can only work with x1 (no) scaling. Moreover, if the program's output is larger than the selected window size, the output is scaled down using traditional bilinear filtering.</p>
+      <p>Q: My mouse is slow! How can I speed it up?<br />
+      A: This should mostly be fixed in the last release, but your backend video driver might change acceleration setting when grabbing the mouse. At least the x11 driver does that, and you can configure it using environment variables.</p>
+      <p>Q: I only get 8 FPS! What crap is this software?<br />
+        A: The screen is not continuously rendered like in native 3D programs. If the emulator/emulated program only updates the screen 8 times per second, 
+OpenGL-HQ will show just 8 FPS. If you want to test how fast OpenGL-HQ can
+go on your machine, use a program that does frequent screen updates.</p>
+      <p>For more help, contact me at info@syntax-k.de. Please DO NOT mail Sam Lantinga or the SDL team about this, they aren't involved in this<br />
+      in any way at all.</p>
+      <p><strong>License:<br />
+      </strong>SDL - Simple DirectMedia Layer OpenGL-HQ scaling<br />
+        Copyright (C) 2005, 2006 2012 Jorg Walter &lt;info@syntax-k.de&gt;</p>
+      <p> This library is free software; you can redistribute it and/or modify it under the terms of the GNU Library General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</p>
+      <p> This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Library General Public License for more details.</p>
+      <p> You should have received a copy of the GNU Library General Public License along with this library; if not, write to the Free Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA</p>
+      <p>The SDL patch uses code published on the SDL mailing list in January 2005 for desktop resolution autodetect.</p>
+      <p><strong>Credits:<br />
+      </strong>Many thanks to all VOGONS users who assited in testing and providing windows builds. Even more thanks to gulikoza from the VOGONS forums for porting the code to EXT_framebuffer_object.<br />
+      </p>
+<p><strong>History:<br />
+</strong>2012-10-19  fix 15-bit mode; it never worked, which shows how rarely it is used<br />
+2012-10-17  (b) fix problems with odd video mode widths<br />
+2012-10-17  fix/improve math precision for modern screen resolutions, fix partial screen update bug in (default) fast mode, add optional 
+FPS output<br />
+2006-12-15  fix a subtle mouse movemement bug mainly observable in fullscreen apps, improve API compatibility, reduce needless pixel copying, working MacOS X support<br />
+        2006-11-22  fix 16-bit video modes on ATI cards, improve compilation sequence, improve rendering accuracy and speed by reducing complexity<br />
+    2006-11-21  use EXT_framebuffer_object extension for rendering, fix threading issues, improve performance, port to SDL-1.2, make 64-bit-clean</p></td>
+  </tr>
+  <tr>
+    <td><br/></td>
+  </tr>
+  <tr>
+    <td height="244" valign="top" bgcolor="e0e0e0"><p><strong><a name="DONGLE" id="OPENGLHQ4"><b>DONGLE SUPPORT</b></a></strong><br />
+      This is DosBox handler of 93c46 copy-protection dongle connected to LPT port.<br />
+      At least Rainbow Sentinel Cplus and MicroPhar are 93c46-based dongles.</p>
+      <p>93c46 memory chip contain 64*16 words. More on it:<br />
+        <a href="http://www.atmel.com/dyn/resources/prod_documents/doc0172.pdf" target="_new">http://www.atmel.com/dyn/resources/prod_documents/doc0172.pdf</a></p>
+      <p>Few notes:</p>
+      <p>* It is unable to detect dongle presence on software side, so, software usually reading some cell (often 0x3F) and check magic value.<br />
+        * Wiring scheme may differ from dongle to dongle, but usually, DI (data input), SK (clock), CS (chip select) and power lines are taken from D0..D7 in some order.<br />
+        * DO (data output) may be connected to ACK or BUSY printer lines. </p>
+<p>More information: <a href="http://blogs.conus.info/node/56" target="_new">http://blogs.conus.info/node/56</a></p>
+      <p>-- dennis@conus.info</p></td>
+  </tr>
+  <tr>
+    <td><br/></td>
+  </tr>
+  <tr>
+    <td height="362" valign="top" bgcolor="e0e0e0"><p><strong><a name="DOSBOX-X" id="OPENGLHQ2"><b>DOSBOX-X BRANCH</b></a></strong><br />
+      TheGreatCodeholio provided the following features with his own DOSBox-X branch.</p>
+      <p> - Accurate PS/2 keyboard emulation, support for scan code sets 1, 2, and 3, emulation and response to LED commands, reset commands, mode changes, and obscure commands <br />
+- Gravis Ultrasound panning register fixes<br />
+- PS/2 AUX port emulation.<br />
+- CGA snow emulation. If you set machine=cga and enable the option, video memory I/O is slowed down to CGA speeds and writes will trigger &quot;snow&quot;, just like an actual CGA. <br />
+- Sound Blaster &quot;Goldplay&quot; support.<br />
+- ISA Plug &amp; Play emulation.<br />
+- Serial mouse emulation.<br />
+- Higher memory limit to 512MB.<br />
+- Finer-grained memory sizes. (kb)<br />
+- Refresh rate control.</p>
+      <p><strong>IDE support</strong><br />
+        This is basic IDE emulation for both ATA (hard disk) and ATAPI (CD-ROM).<br />
+Open dosbox configuration file (e.g., dosbox.conf) to find the following ide sections:</p>
+      <p>[ide, primary]<br />
+        # enable: Enable IDE interface<br />
+        enable=false</p>
+      <p>[ide, secondary]<br />
+        # enable: Enable IDE interface<br />
+        enable=false</p>
+      <p>[ide, tertiary]<br />
+        # enable: Enable IDE interface<br />
+        enable=false</p>
+      <p>[ide, quaternary]<br />
+        # enable: Enable IDE interface<br />
+        enable=false</p>
+      <p>Set enable to true in order to enable each IDE interface.<br />
+        <br />
+        IMGMOUNT
+        provides the following parameters (&quot;-ide&quot;).<br />
+-ide 1m - Attach to primary IDE controller as master <br />
+-ide 1s - Attach to primary IDE controller as slave <br />
+-ide 2m - Attach to secondary IDE controller as master <br />
+-ide 2s - Attach to secondary IDE controller as slave <br />
+-ide auto - Attach to unused slot (default) <br />
+-ide none - Do not attach to IDE port</p>
+      <p> Also, [autoexec] section in configuration file can be look like this:<br />
+[autoexec]<br />
+# C: drive for Win95<br />
+imgmount 2 &quot;path_to_hdd_image\hdd.img&quot; -size 512,63,32,512 -t hdd -fs none -ide 1m<br />
+# D: drive with Windows 95 install CD-ROM<br />
+imgmount D &quot;path_to_cd_image\cd.iso&quot; -t iso -fs iso -ide 2m<br />
+# Now start Win95<br />
+boot -l c</p>
+    <p>For more information, visit <a href="http://vogons.zetafleet.com/viewtopic.php?t=31881" target="_new">http://vogons.zetafleet.com/viewtopic.php?t=31881</a>.</p></td>
+  </tr>
+  <!-- Limiter -->  <!-- / Limiter -->  <!-- Limiter -->  <!-- / Limiter -->  <!-- Limiter -->  <!-- / Limiter -->  <!-- end of page -->
+</table>
+<table border="1">
+  <tr>
+    <td >SVN-specific manuals</td>
+    <td><a href="main_en.html">Main</a> | <a href="usage_en.html">Usage</a> | <a href="index.html">MB6 Patches</a></td>
+  </tr>
+  <tr>
+    <td>Official manuals</td>
+    <td><a href="../../Official Manuals/README.TXT" target="new">README</a> | <a href="../../Official manuals/Video Instructions.txt" target="new">Video Instructions</a></td>
+  </tr>
+</table>
+</body>
+</html>

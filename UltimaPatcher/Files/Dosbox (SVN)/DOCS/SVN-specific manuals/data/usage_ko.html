@@ -1,0 +1,630 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<title>사용법</title>
+<style type="text/css">
+body {
+	background-color: #d0d0d0;
+}
+</style>
+</head>
+
+<body>
+<table border="1">
+  <tr>
+    <td >SVN 관련 설명서</td>
+    <td><a href="main_ko.html">기본</a> | <a href="usage_ko.html">사용법</a> | <a href="index.html">MB6 패치</a></td>
+  </tr>
+  <tr>
+    <td>공식 설명서</td>
+    <td><a href="../../Official Manuals/README_KR.TXT" target="new">README</a> | <a href="../../Official manuals/Video Instructions_KR.txt" target="new">비디오 안내</a></td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <!-- Limiter -->
+  <tr>
+    <td><br /></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><font size="4"><b>사용법</b></font></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td>더 자세한 정보를 보려면 <a href="../../Official Manuals/README_KR.TXT">공식 설명서</a>를 참고하십시오.</td>
+  </tr>
+  <tr>
+    <td><br /></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><b>목차</b><br/>
+      <ol>
+        <li><a href="#GENERAL">일반 사용법</a></li>
+        <li><a href="#SPECIAL">바로 가는 키들</a></li>
+        <li><a href="#PARAM">매개 변수</a></li>
+        <li><a href="#DOSCMD">DOS 명령어</a></li>
+        <li><a href="#SAVE">상태 저장 기능</a></li>
+        <li><a href="#MENU">GUI</a></li>
+        <li><a href="#GLIDE">글라이드 에뮬레이션</a></li>
+        <li><a href="#D3D">DIRECT3D</a></li>
+        <li><a href="#OPENGLHQ">OPENGL-HQ</a></li>
+        <li><a href="#DONGLE">동글 지원</a></li>
+        <li><a href="#DOSBOX-X">도스박스 X 브랜치</a></li>
+      </ol></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br /></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><p><a name="GENERAL" id="GENERAL"><b>일반 사용법</b><br/>
+    </a> <strong>Windows 사용자:</strong><br />
+    설치 파일(setup.exe)을 받으신 분은 설치 파일을 실행하여 설치한 뒤 그대로 DOSBox를 실행하십시오. 압축 파일(xxxxxxxx.7z)을 받으신 분은 압축을 풀고 DOSBox 실행 파일을 실행하시면 됩니다. 
+    그 뒤 DOSBox를 실행하시면 됩니다.</p>
+      <p> Main 메뉴→Quick Launch에 들어가서 실행할 프로그램(*.exe, *.com, *.bat)을 선택하십시오. 다른 방법으로 DOSBox 창에 실행하려는 파일을 끌어서 놓으셔도 됩니다.</p>
+      <p> <strong>리눅스 사용자:<br />
+      </strong>리눅스 우분투에서 테스트되었습니다. xxxxxxxx_32bit.7z을 내려받아 새 폴더에 압축을 푸십시오. &quot;dosbox&quot;를 더블 클릭하거나 터미널에서 &quot;./dosbox&quot;라고 입력하여 실행할 수 있습니다.</p>
+      <p><strong>OS X 사용자:</strong><br />
+        OS X 마운틴 라이언에서 테스트되었습니다.
+      xxxxxxxx_Intel_i386.7z을 내려받아 새 폴더에 압축을 푸십시오. &quot;dosbox&quot;를 더블 클릭하거나 터미널에서 &quot;./dosbox&quot;라고 입력하여 실행할 수 있습니다. 필요한 라이브리리가 없어서 실행할 수 없으면 LIBS_FOR_OSX 디렉터리에 있는 LIB_LIST-IMPORTANT_KR.TXT 문서 파일을 읽어 주십시오.<br />
+      <strong>        <br />
+        모든 사용자:</strong><br />
+      일부 DOS 게임들은 XMS/EMS 메모리 등을 별도로 설정해야 동작하는 경우가 있습니다. 어떠한 게임들은 CD-ROM 마운트를 요구할 수도 있습니다. 게임을 정상적으로 구동하기 위하여 이 설정들을 메뉴나 명령 프롬프트를 통하여 미리 바꿀 수 있습니다. 더 자세한 정보를 보려면 <a href="../../Official Manuals/README_KR.TXT">공식 설명서</a>의 11. 문제 해결 단락도 참고하여 주십시오.</p>
+      <p> 명령 프롬프트에서 자동 마운트를 사용하고 싶지 않다면 DOSBox 설정 구성 파일을 열고 automount=false로 설정해 주십시오.</p>
+      <p><strong>도구:<br />
+    </strong>도구는 Windows 전용이며 TOOLS 디렉터리에는 다음의 도구들이 들어 있습니다.</p>
+      <ul>
+        <li>          Run DOSBox configuration.bat : DOSBox 설정 구성 파일을 메모장으로 엽니다. 해당 파일이 없으면 새로운 설정 구성 파일을 자동으로 하나 만들어 줍니다.</li>
+        <li>Reset DOSBox configuration.bat : 기존의 설정 구성 파일을 지우고 기본값의 새로운 설정 구성 파일을 자동으로 하나 만들어 줍니다.</li>
+        <li>Reset DOSBox mapper.bat : 기존의 매퍼 구성 파일을 지우고 기본값의 새로운 매퍼 구성 파일을 자동으로 하나 만들어 줍니다.</li>
+        <li>Read manuals.bat : DOSBox 설명서를 읽는 유틸리티입니다.</li>
+        <li>          Install movie codec.bat : zmbv 동영상 코덱을 설치하고 제거하는 프로그램입니다. DOSBox에서 캡처한 동영상을 편집하거나 감상할 때 이용하는 코덱입니다.</li>
+        <li>          Run DOSBox without GUI.bat : GUI가 없는 상태로 DOSBox를 실행합니다.</li>
+        <li>          Run DOSBox with DirectX driver.bat : DirectX 모드로 DOSBox를 실행합니다. 호환성 문제가 있으면 사용하십시오.</li>
+        <li>Run DOSBox (noconsole).bat : 콘솔 창 없이 DOSBox를 실행합니다. (권장하지 않음)</li>
+        <li>Run DOSBox with Secondary Display.bat : 2차 디스플레이를 사용합니다. 세 가지 색 지원. (황갈색, 녹색, 흰색)</li>
+        <li>Open Screenshots &amp; Recordings.bat : 스크린샷 및 녹화된 영상이 포함된 폴더를 엽니다.</li>
+        <li>Open Saves.bat : 저장 슬롯이 저장된 SAVE 폴더를 엽니다.</li>
+      </ul>
+      <p><strong>참고:</strong></p>
+      <ul>
+        <li> 오래된 버전의 DOSBox에서 생성한 설정 구성 파일을 사용하지 마십시오.</li>
+        <li>화면 출력을 너무 자주 바꾸면 DOSBox가 불안정해질 수 있습니다. (Windows)</li>
+        <li>하드웨어 스케일러(hardware_none, hardware2x, hardware3x, hardware4x, hardware5x)는 output=surface와 동시에 동작하지 않습니다.</li>
+        <li>&quot;DirectX initialization failed.&quot;와 같은 오류 메시지가 나타난다면 그래픽 카드 드라이버를 업데이트해 주십시오.<br />
+        아니면 DOSBox 설정 파일을 열고 output=surface 또는 output=ddraw로 설정해 주십시오. (Windows)</li>
+        <li>프린터 에뮬레이션을 사용하는 동안에는 디즈니(Disney)를 사용하지 않아야 합니다. (printer=true, disney=false)</li>
+        <li>MIDI를 사용하는 동안에는 디즈니(Disney)를 사용하지 않아야 합니다. (MB6)</li>
+        <li>디즈니 사운드를 사용하려면 동글을 사용하지 않아야 합니다. (dongle=false, disney=true, printer=false)</li>
+        <li>MT-32 (MUNT) 에뮬레이션을 사용할 경우 ROM 파일들이 필요합니다. DOSBox 상태 창을 확인하십시오.</li>
+        <li>그래픽 문제가 있다면 linewise, char9, multiscan의 값을 다른 값으로 변경해 보십시오. 또, UNIVBE나 S3VBE20와 같은 유틸리티를 이용해 보십시오.</li>
+        <li>일부 게임에서 LPT1 작성 실패가 뜬다면 parallel1=disabled를 parallel1=file로 설정하시기 바랍니다.</li>
+        <li>오버스캔 기능은 output=surface로 설정된 상태에서 동작합니다.</li>
+        <li>믹서 자체에서는 mididevice가 win32 (default)로 설정되어 있으면 미디 볼륨 조절이 불가능합니다.</li>
+        <li>최대 메모리 크기는 512MB입니다. (memsize=512 또는 memsizekb=524288)<br />
+          그러나 상태 저장/불러오기 기능을 이용하는 경우 200 MB을 초과하여 설정하면 너무 크기 때문에 이용할 수 없습니다.</li>
+        <li>xBRZ 스케일러는 다음의 설정에서만 이용이 가능합니다.<br />
+scaler=xbrz, output=surface, fullscreen=true<br />
+xBRZ는 TBB를 이용하여 처리되며 Windows 2000과는 호환되지 않습니다.</li>
+        <li>Windows에서 다음과 같은 호환성 문제가 있으면 WINDIB 드라이버를 사용하지 않도록 &quot;Run DOSBox with DirectX driver.bat&quot;를 실행하십시오.<br />
+          (Video-&gt;Driver-&gt;Reset DOSBox with DirectX driver forced를 클릭해도 됩니다) <br />
+          - 왼쪽 Shift 키와 오른쪽 Shift 키를 동시에 입력할 수 없는 경우<br />
+          - 알 수 없는 충돌을 포함한 다른 모든 문제          <br />
+          다만 DirectX 드라이버를 사용하면 다음의 문제가 발생할 수 있습니다.<br />
+          - 속도가 느려질 수 있습니다.<br />
+          - Direct3D 출력을 포함한 일부 출력에서 깜빡임 현상이 자주 발생할 수 있습니다.<br />
+          - 오픈글라이드 래퍼를 이용하지 못할 수 있습니다.<br />
+          - Direct3D
+          출력에서 창을 최대화할 때 창의 제목 표시줄을 더블 클릭하여 창을 원래 크기로 복원하지 못할 수 있습니다.<br />
+          - DirectDraw와 OpenGL 간 출력 변환이 불가능할 수 있습니다.</li>
+        <li>DOSBox 디버거는 디버깅 전용이며, 일반 사용자용이 아닙니다. 사용 방법은  <a href="http://vogons.zetafleet.com/viewtopic.php?t=3944" target="_new">여기</a>에 있습니다.<br />
+          한국어 설명은 도스박스 다음 카페를 참고하십시오.</li>
+        <li>Windows 95 / 98을 게스트 운영 체제로 설치할 수 있습니다만 Windows 9x에 대한 지원은 제한적입니다.<br />
+          다음은 권장되는 설정값입니다.<br />
+          core=dynamic<br />
+        cputype=pentium<br />
+        glide=emu<br />
+        voodoo=auto        <br />
+        machine=svga_s3<br />
+        vmemsize=4 (또는 vmemsize=8)<br />
+        더 자세한 정보는 아래를 참고하십시오.<br />
+        <a href="http://vogons.zetafleet.com/viewtopic.php?t=24936&amp;highlight=windows" target="_new">        안내 - Windows 95 설치</a> (VOGONS 포럼의 글, 영어)<br />
+        <a href="http://vogons.zetafleet.com/viewtopic.php?t=26973" target="_new">안내 - Windows 98 SE 설치</a> (VOGONS 포럼의 글, 영어)<br />
+        주의: DOSBox 안에서 Windows 95를 구동하려면 [S3 Inc. 801/805] VGA 드라이버를 설치해 주십시오. 기본 VGA 드라이버를 설치하면 블루 스크린 오류 화면을 마주칠 수 있습니다.<a href="http://vogons.zetafleet.com/viewtopic.php?t=24936&amp;highlight=windows" target="_new"></a><br />
+        한국어 설명은 도스박스 다음 카페를 참고하십시오.<br />
+        </li>
+      </ul>
+    <p><strong>기술 정보 (Windows):</strong></p>
+    <ul>
+      <li>공식 빌드와 달리 DOSBox SVN 다음 빌드는 몇 가지 이유로 기본적으로 WINDIB 드라이버를 사용합니다. (상단 참조) 그러나
+        DirectDraw는 WINDIB 드라이버와 호환되지 않습니다. 이를 해결하기 위해 사용자가 DirectDraw를 사용할 경우 DOSBox는 자동으로 드라이버를 DirectX로 전환합니다.</li>
+      <li>이 빌드는 VS 2012로 빌드되었습니다. Windows 8에서 정상 동작함을 확인했습니다. 어셈블러 핵을 추가하여 Windows 2000에서도 정상 동작하도록 구성하였습니다.</li>
+      <li>이 빌드는 SSE2 지원이 없으면 정상 동작하지 않을 수 있습니다. 다음의 목록을 확인해 주십시오.<br />
+SSE2 지원 CPU 목록<br />
+- AMD K8 기반 CPU (Athlon 64, Sempron 64, Turion 64 등)<br />
+- AMD Phenom CPU<br />
+- Intel 넷버스트 기반 CPU (Pentium 4, Xeon, Celeron, Celeron D 등)<br />
+- Intel Pentium M, Celeron M<br />
+- Intel Core 계열 (Intel Core 2, Intel Core i5, Intel Core i7 포함)<br />
+- Intel Atom<br />
+- Transmeta Efficeon<br />
+- VIA C7<br />
+- VIA Nano</li>
+    </ul></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br/></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><a name="SPECIAL" id="SPECIAL"><b>바로 가는 키들</b><br/>
+      </a>하나 이상의 패치들은 다음의 단축키들을 제공합니다.
+<p> <strong>CPU 코어 관련 기능 (Gulikoza님)</strong></p>
+      <ul>
+        <li>Ctrl - 1 :     Normal 코어로 설정</li>
+        <li> Ctrl - 2 :      Full 코어로 설정</li>
+        <li> Ctrl - 3 :      Dynamic 코어로 설정</li>
+        <li> Ctrl - 4 :      Simple 코어로 설정</li>
+        <li> Ctrl - = :      CPU 사이클 최대화</li>
+      </ul>
+      <p> <strong>다음 카페 빌드만의 기능</strong><br />
+      </p>
+      <ul>
+        <li>Ctrl - Alt - Enter :   메뉴 모음 숨김 / 보임 (Windows)</li>
+        <li>Alt - F11 : 지속적인 터보 모드</li>
+      </ul>
+      <p> <strong>상태 저장 / 불러오기 기능 (ZenJu님)</strong><br />
+      </p>
+      <ul>
+        <li>Alt - F5 :  저장 기능</li>
+        <li> Alt - F6 : 이전 슬롯</li>
+        <li> Alt - F7 : 다음 슬롯</li>
+        <li> Alt - F9 : 불러오기 기능</li>
+      </ul>
+    <p><strong>내부 GUI 기능 (Moe님)</strong><br />
+    </p>
+    <ul>
+      <li>Alt - F10 : 내부 GUI 시작</li>
+    </ul>
+<p>다른 단축키들을 살펴보려면 <a href="../../Official Manuals/README_KR.TXT">공식 설명서</a>를 읽어 보십시오.</p></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br/></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><a name="PARAM" id="PARAM"><b>매개 변수</b><br/>
+      </a>하나 이상의 패치들은 다음의 매개 변수들을 제공합니다.
+      <p> <strong>사용법</strong><br />
+      dosbox [-nomenu] [-nogui] [-startui] [-nolog] [-showcycles] [-opensaves 프로그램] [-display2 옵션] [-disable_numlock_check] [-savedir 경로]  [-date_host_forced]</p>
+      <ul>
+        <li> -nomenu<br />
+          시작하자마자 메뉴를 숨깁니다. (Windows 전용) Ctrl-Alt-Enter 키를 눌러서 메뉴를 다시 불러올 수 있습니다.</li>
+        <li> -nogui<br />
+        GUI 자체를 사용하지 않습니다. (Windows 전용) 중도에 메뉴를 다시 사용할 수도 없습니다.</li>
+        <li>-startui<br />
+        시작하자마자 내부 GUI를 시작합니다.</li>
+        <li>-nolog<br />
+        파일 로그를 출력하지 않습니다.</li>
+        <li> -showcycles<br />
+          시작하자마자 CPU의 빠르기(사이클)와 초당 프레임(FPS) 값을 보여줍니다.</li>
+        <li>-opensaves 프로그램<br />
+        SAVE 폴더 변수로 프로그램을 호출합니다. (예: -opensaves explorer.exe)</li>
+        <li>-display2 옵션<br />
+          듀얼 디스플레이를 사용합니다. 세 가지 모드가 제공됩니다: -display2 &quot;amber&quot;, -display2 &quot;green&quot;, -display2 &quot;white&quot;<br />
+          듀얼 디스플레이를 지원하는 일부 소프트웨어에서 동작합니다. (예: Mah Jongg)</li>
+        <li>-disable_numlock_check<br />
+          시작하자마자 Numlock을 검사하지 않습니다. (Windows 전용, DirectX 드라이버 사용시 유용함)</li>
+        <li>-savedir 경로<br />
+        상태 저장 폴더를 임의로 지정합니다.  (예: -savedir &quot;c:\game\pre2\savedir&quot;)</li>
+        <li>-date_host_forced<br />
+DOSBox가 시스템 날짜를 무조건 사용하도록 합니다. DOSBox 안에서 DATE 명령으로 내부 날짜를 변경할 수 없습니다.</li>
+      </ul>
+    <p> 위의 옵션을 쉽게 쓰려면 바로가기 아이콘을 만들어서 사용하십시오. 다른 매개 변수들을 보려면 <a href="../../Official Manuals/README_KR.TXT" target="new">공식 설명서</a>를 읽어 보십시오.</p></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br/></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><a name="DOSCMD" id="DOSCMD"><b>DOS 명령어</b><br/>
+      </a> 아래의 추가 명령어들은 '내부 명령어의 더 많은 매개 변수 지원' 패치, FreeDOS, 그 밖에도 Moe와 h-a-l-9000님의 패치를 통하여 제공됩니다. 아래의 명령어들은 DOSBox의 비공식적인 부분입니다.
+      <p> <strong>외부 프로그램</strong></p>
+      <ul>
+        <li>50.COM, 28.COM : 도스 셸의 보기 모드를 변경합니다.</li>
+        <li>EDIT.COM : FreeDOS 편집기를 열어 줍니다.</li>
+        <li>APPEND.EXE : PATH 명령어와 비슷하게 특정 파일을 마치 현재의 디렉터리에서 실행한 것처럼 보이는 역할을 합니다.</li>
+        <li>COPY.EXE : 더 많은 변수를 제공하는 파일 복사 명령어</li>
+        <li> XCOPY.EXE : COPY 명령어보다 더 많은 고급 기능을 제공하는 명령어</li>
+        <li> MOUSE.COM : 마우스를 켜고 끄는 프로그램 (/U 변수가 끄는 옵션, /V 옵션은 Y축 반전 옵션, 메뉴에도 존재합니다)</li>
+        <li>IMGMAKE.COM : 플로피 및 하드 디스크 이미지 파일(.img)을 만들어 주는 프로그램 (h-a-l-9000님) 더 자세한 사용법은 매개 변수 없이 IMGMAKE를 실행하시면 볼 수 있습니다.</li>
+        <li> MOVE.COM : 파일이나 디렉터리를 다른 곳으로 이동합니다.</li>
+        <li> TREE.EXE : 드라이브나 경로의 디렉터리 구조를 그래픽으로 보여 줍니다.</li>
+        <li>FIND.EXE : 특정한 문자열을 포함하는 파일의 줄을 보여 줍니다.</li>
+        <li> DOS32A.EXE, DOS4GW.EXE : DOS 확장 프로그램입니다.</li>
+      </ul>
+      <p> <strong>내부 명령어</strong></p>
+      <ul>
+        <li>ADDKEY : 인공적인 키 눌림을 만들어 주는 명령어입니다. (Moe님, ADDKEY [키], <a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1022702&amp;group_id=52551&amp;atid=467234" target="_new">[사용법]</a>)<br />
+        &quot;normal&quot;, &quot;simple&quot;, &quot;dynamic&quot;, &quot;full&quot; 변수를 이용하여 CPU 코어를 변경하는 데 사용할 수 있습니다. (delay만 지원)</li>
+        <li>VOL : 볼륨 레이블을 보여 줍니다.</li>
+        <li>LABEL : 볼륨 레이블을 설정합니다.</li>
+        <li>MORE : 지정된 파일 이름 안에 들어 있는 글자들을 보여줄 때 한 화면마다 끊어서 보여줍니다. (MORE [드라이브:][경로]파일이름)</li>
+        <li>PROMPT : 프롬프트(Z:\&gt; 등)의 표시를 원하는대로 바꾸거나 원래대로 바꿔줍니다. 이스케이프 코드를 포함한 대부분의 특수 코드를 지원합니다. 기본값은 PROMPT $P$G입니다.</li>
+      </ul>
+      <p> <strong>CONFIG.SYS 명령어</strong><br />
+      </p>
+      <ul>
+        <li>LASTDRIV.COM</li>
+        <li> FCBS.COM</li>
+        <li> DEVICE.COM</li>
+        <li>BUFFERS.COM</li>
+        <li>FILES 명령은 기본 설정에서 제공됩니다. (h-a-l-9000님)</li>
+      </ul>
+      <p> <strong>아래의 명령어는 도스박스 정식 버전에서도 제공하는 것들이지만 약간의 변경 사항이 있습니다.</strong></p>
+      <ul>
+        <li>INTRO 명령은 도스박스 소개 화면을 나타내 주는 명령어이며 방향키로 항목을 선택할 수 있게 되어 있습니다.</li>
+        <li>DIR 명령은 볼륨 레이블과 일련 번호까지 보여 줍니다.</li>
+        <li>MEM 명령어에 /C, /P 변수를 사용할 수 있습니다.</li>
+        <li>COPY 명령어는 Z 드라이브에 명령 파일로서 존재합니다.</li>
+      </ul>
+    <p> DOS 명령어에 대한 더 자세한 정보를 보려면, 프롬프트에서 HELP라고 입력하십시오. HELP /ALL이라고 입력하면 모든 명령어에 대한 도움말을 볼 수 있습니다.</p></td>
+  </tr>
+  <tr>
+    <td><br/></td>
+  </tr>
+  <tr>
+    <td bgcolor="e0e0e0"><a name="SAVE" id="SAVE3"><b>상태 저장 기능</b><br/>
+      </a>
+      <p> 메모리로의 상태 저장 기능은 ZenJu님께서 제공해 주셨습니다. 더 자세한 정보를 보려면 여기로 들어가 보십시오: <a href="http://vogons.zetafleet.com/viewtopic.php?t=25274" target="_new">http://vogons.zetafleet.com/viewtopic.php?t=25274</a>.<br />
+상태를 저장하고 불러오거나 삭제하는 기능은 Main 메뉴에서 쉽게 사용할 수 있습니다. 상태를 저장하고 불러오는 키를 보려면 위의 &quot;바로 가는 키들&quot; 단락을 읽어 보십시오.</p>
+      <p>더 많은 개선 사항이 추가되었습니다. (tikalat님께 감사).</p></td>
+  </tr>
+  <tr>
+    <td><br/></td>
+  </tr>
+  <tr>
+    <td bgcolor="e0e0e0"><a name="MENU" id="SAVE6"><b>GUI</b>      </a><br />
+      GUI에는 두 가지 방식이 있습니다.<br />
+      <p><strong>Win32 GUI 메뉴<br />
+      </strong>도스박스 다음 카페에서 제공하는 SVN 빌드를 사용하시면 메뉴 기능을 사용할 수 있습니다. 현재 Windows에서만 이용할 수 있지만 다른 운영 체제에서 사용할 수 있도록 현재 작업 중에 있습니다.</p>
+      <ul>
+        <li> Main : 기본 기능</li>
+        <li>Cpu : 중앙 처리 장치</li>
+        <li>Video : 화면</li>
+        <li>Sound : 소리</li>
+        <li> Dos : 디스크 운영 체제</li>
+        <li> Capture : 화면, 소리 저장</li>
+        <li> Drive : 드라이브</li>
+      </ul>
+      <p> 위의 메뉴를 통해 도스박스의 설정을 쉽게 바꾸실 수도 있습니다. 다음 카페만의 비공식 기능이므로 도스박스 개발자들에게 정식으로 지원 받을 수는 없습니다.</p>
+      <p> 메뉴 한글 패치는 도스박스 다음 카페에서 제공하며 한글 패치를 적용하면 &quot;기본, CPU, 디스플레이, 소리, DOS, 캡처, 드라이브&quot;와 같은 항목들로 바뀝니다.</p>
+      <p>메뉴의 이미지 마운트는 기본적인 기능만 제공됩니다. 실린더, 헤드, 섹터 구성 등의 크기와 같은 다양한 설정을 사용하여 이미지 파일을 마운트하려면 IMGMOUNT 명령어를 대신 사용해 주십시오. (-size 변수는 부팅 가능한 하드 디스크 이미지에만 적용됩니다.)</p>
+      <p><strong>내부 GUI</strong><br />
+      Moe님이 멋진 크로스플랫폼 그래픽 사용자 인터페이스를 추가해 주셨습니다. 사용자 인터페이스를 시작하려면 Alt-F10 키를 누르거나 -startui 변수를 사용하십시오. OS X, 리눅스, Windows에서 사용 가능합니다.</p>
+      <p>제한:<br />
+        1) UI에 있는 동안 일시 정지 모드입니다.<br />
+      2) 마운트를 위한 세세한 기능을 제공하지 않습니다. 대신 autoexec에 마운트 명령어를 입력하십시오.</p></td>
+  </tr>
+  <tr>
+    <td><br/></td>
+  </tr>
+  <tr>
+    <td bgcolor="e0e0e0"><a name="GLIDE" id="SAVE7"><b>글라이드 에뮬레이션</b><br/>
+      </a>
+      <p> 주의: 글라이드 게임을 사용하기 앞서 게임 디렉터리에 반드시 glide2x.ovl, glide2x.dll (Windows), libglide2x.so (리눅스), libglide2x.dylib (OS X) 파일이 없도록 하십시오.</p>
+      <p>  현재 글라이드 제공 방식에는 다음과 같이 두 가지가 있습니다:</p>
+      <ul>
+        <li>글라이드 래퍼 방식 (glide=true)<br />
+글라이드 기능은 Gulikoza님이 관리하고 계시며 OpenGlide를 사용합니다.<br />
+DOSBox 설정 구성 파일을 메모장으로 열고 glide=true로 설정하여 글라이드 게임을 즐길 수 있습니다.<br />
+<br />
+리눅스에서는: 오픈글라이드 라이브러리 파일인 libglide2x.so 파일이 필요합니다.<br />
+OS X에서는: libglide2x.dylib 파일이 필요합니다.<br />
+Windows에서는: glide2x.dll라는 라이브러리 파일이 필요합니다. 다른 글라이드 래퍼 라이브러리로 간단히 대체할 수 있습니다. nGlide와 같은 다른 일부 글라이드 래퍼를 설치하시는 경우 glide2x.dll는 시스템 디렉터리에 제공됩니다. 이 경우 굳이 도스박스 디렉터리 안의 glide2x.dll 파일을 삭제하거나 대체할 필요는 없습니다.<br />
+          <br />
+오픈글라이드로 글라이드 게임을 전체 화면으로 즐기는 방법:<br />
+1. Alt-Enter 키를 눌러서 미리 전체 화면으로 전환하십시오. (또는 설정 구성 파일에서 fullscreen=true로 설정)<br />
+2. 이제 게임을 즐기시면 됩니다.<br />
+<br />
+Windows에서 다른 글라이드 래퍼를 이용하는 동안 문제가 있으면 다음의 지시를 따르십시오.<br />
+1. glide2x.ovl 파일은 다른 것으로 교체하지도, 건들지도 마십시오.<br />
+2. Alt-Enter 키를 눌러서 미리 전체 화면으로 전환하십시오. (또는 설정 구성 파일에서 fullscreen=true로 설정)<br />
+3. 글라이드 게임을 실행한 다음 게임을 즐기시면 됩니다.        </li>
+      </ul>
+      <ul>
+        <li>3dfx 글라이드 자체 에뮬레이션 방식 (glide=emu)<br />
+          kekko님이 이 패치에 관하여 밝히신 사항은 다음과 같습니다:<br />
+- 타이틀 게임과의 더 높은 호환성 (.ovl 통합)<br />
+- 다른 곳으로의 포팅 가능<br />
+- DOSBox 내부 렌더러와의 통합: 전체 화면, 다른 출력 모드, 비디오 캡처 지원<br />
+- 외부 라이브러리 필요 없음<br />
+- Win9x 게임에 대한 D3D 지원<br />
+          <br />
+          glide=emu로 설정한 상태에서 [pci] 단락의 다음 설정을 변경할 수 있습니다. (기본값은 voodoo=auto입니다)
+          <br />
+          voodoo = false | software | auto | opengl<br />
+<br />
+이용 방법:<br />
+소프트웨어 방식으로 모든 것이 에뮬레이트되므로 성능 저하가 발생할 수 있습니다.<br />
+내부 에뮬레이션이므로 외부 glide2x 라이브러리를 요구하지 않습니다. 이 방식은 glide2x.ovl 대신 glide2x_emu.ovl 파일이 필요합니다.<br />
+하드웨어 가속을 통하여 속도를 높이려면 출력을 OpenGL로 설정하시기 바랍니다.(output=opengl/openglnb로 설정, voodoo=auto/opengl로 설정)<br />
+        <br />
+더 자세한 정보를 보려면 여기에 들어가십시오: 
+        <a href="http://vogons.zetafleet.com/viewtopic.php?t=25606" target="_new">http://vogons.zetafleet.com/viewtopic.php?t=25606</a><br />
+        다만 그곳에 빌드하는 방법이나 속도 문제에 대해서는 보고하지 마십시오.</li>
+      </ul></td>
+  </tr>
+  <tr>
+    <td><br/></td>
+  </tr>
+  <tr>
+    <td bgcolor="e0e0e0"><a name="D3D" id="SAVE8"><b>DIRECT3D</b><br/>
+      </a>
+      <p>글쓴이 : gulikoza님<br />
+        옮긴이 : 도스박스 다음 카페</p>
+      <p><strong>새로운 옵션들 :</strong><br />
+Direct3D 출력을 가지고 그림을 스케일할 때에 이제 쓰고 싶은 픽셀 셰이더 효과를 고를 수 있습니다.<br />
+<br />
+<strong>갖추어야 할 것들 :</strong><br />
+픽셀 셰이더 2.0 지원 (Radeon 9500 이상, GeForce FX5200 이상)<br />
+픽셀 셰이더 1.4 지원 (scale2x_ps14.fx : Radeon 8500 이상)      </p>
+      <p>** 아래에 나열된 그림자 효과들을 사용할 수 있습니다 :<br />
+        1) 일반<br />
+      </p>
+      <ul>
+        <li> point.fx - 가장 가깝게 느껴지는 보통 크기</li>
+        <li>bilinear.fx - 쌍방향 크기 (조금 번짐)</li>
+        <li>scale2x.fx - 고급 MAME 2배 크기</li>
+        <li>scale2x_ps14.fx - 고급 MAME 2배 크기 (픽셀 셰이더 1.4 기반)</li>
+        <li>2xSaI.fx - 2xSaI 크기 조절<br />
+        </li>
+        <li>2xSaI_sRGB.fx - 2xSai (감마 수정) 크기</li>
+      </ul>
+      <p>2) OGL2 PSX 플러그인에 맞춘 GLSL 그림자 효과에서 수정된 것들은 모두 아래와 같습니다. guest(r)님이 .fx 형식으로 바꿔 주셨습니다. 아래의 효과들 가운데 몇몇은 .fx 파일을 편집하여 설정을 바꾸실 수 있습니다.</p>
+      <ul>
+        <li> GS2x.fx</li>
+        <li> GS4x.fx</li>
+        <li> GS4xColorFilter.fx</li>
+        <li> GS4xFilter.fx</li>
+        <li> GS4xScale.fx</li>
+      </ul>
+      <p>3) 그 밖의 다른 그림자 효과들...</p>
+      <p>** 사용법<br />
+        1. DOSBox.Conf를 메모장으로 엽니다.<br />
+        2. 'output=direct3d'로 설정합니다. 그 뒤 다음 중 하나의 지시를 따르시기 바랍니다.</p>
+      <ol>
+        <li>'scaler=hardware2x', 'scaler=hardware3x', 'scaler=hardware4x', 또는 'scaler=hardware5x'로 설정합니다.</li>
+        <li>'scaler=none'로 설정합니다. 해상도(fullresolution 또는 windowresolution) 쪽에도 값을 따로 넣으십시오.<br />
+        </li>
+      </ol>
+      <p>3. 'pixelshader=' 뒤에 쓰고 싶은 그림자 효과를 골라 넣으십시오.<br />
+        <br />
+        픽셀 셰이더가 동작할 때 DOSBox 콘솔에 다음의 문자열이 뜹니다: D3D:Pixel shader output enabled<br />
+        이 줄이 없으면 효과는 사용되지 않습니다.</p></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br/></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td height="2022" bgcolor="e0e0e0"><a name="OPENGLHQ" id="OPENGLHQ"><b>OPENGL-HQ</b><br/>
+      </a>
+      <p>글쓴이 : Moe님<br />
+        옮긴이 : 도스박스 다음 카페<br />
+      </p>
+      <p>2012년 10월 19일자에 쓰인 글입니다. 아래의 주소에서 새로운 버전을 받거나 예제 그림들을 보실 수 있습니다. 
+      http://www.syntax-k.de/projekte/sdl-opengl-hq/</p>
+      <p>OpenGL-HQ는 그래픽 하드웨어를 사용하는 비디오 드라이버입니다. 사용자가 쓰고자 하는 크기에 맞춰 출력을 스케일합니다. DOSBox, ScummVM, Exult와 같은 2D 게임/에뮬레이터에 해당합니다.</p>
+      <p><strong>알립니다:<br />
+      </strong>이것은 베타 소프트웨어입니다. 걸림돌 없이 잘 돌아간다면 무슨 버그가 있을지 여러 번 테스트할 것을 당부 드립니다. 제대로 돌아가지 않는 것이 있다면, 먼저 새로운 버전을 찾아 보십시오. 이 문서 안에서 적혀 있지 않은 어떠한 문제와 마주치셨다면 제게 전자우편을 보내 주십시오.</p>
+      <p><strong>기능:</strong></p>
+      <ul>
+        <li>  빠른 스케일링을 위한 하드웨어 가속</li>
+        <li>2D SDL 프로그램의 스케일링</li>
+        <li>알맹이처럼 보이는 것들까지도 스케일링</li>
+        <li>응용 프로그램이 OpenGL을 사용할 때 원래의 드라이버로 되돌리기</li>
+        <li>이식할 수 있음</li>
+        <li>SDL과 같이 구성할 수 있음</li>
+        <li>위의 URL에서 스크린샷을 꼭 한 번 보십시오</li>
+      </ul>
+      <p><strong>갖춰야 할 것들 :</strong><br />
+        - Radeon 9600, GeForce 7500 이상 및 최신 드라이버<br />
+ 　OpenGL 확장 ARB_fragment_program과 하드웨어 가속은 반드시 지원되어야 합니다.<br />
+ 　EXT_framebuffer_object가 권장됩니다.<br />
+        - SDL의 틀 안에서 사용자의 운영 체제에 맞는 OpenGL 지원 (Windows, Linux/X11, 그리고 MacOS X)</p>
+      <p><strong>제한:</strong><br />
+- 높은 해상도의 출력을 제공하는 프로그램을 사용하거나 드라이버 설정을 고품질로 맞추어 두셨다면 오히려 느려질 수도 있습니다 (Radeon 9600-9800 계열의 칩들은 제한이 있습니다)<br />
+- MacOS X에서는 테스트되지 않았습니다 (분명 사용할 수 있을 것입니다)<br />
+- 가능성은 거의 없지만 바탕 화면 해상도가 올바르게 자동 감지되지 않을 수도 있습니다. 이 때에는 SDL_OPENGLHQ_FULLRS를 사용하십시오.<br />
+- 비 x86 프로세서/비주류 그래픽 카드, 특히 임베디드/모바일 플랫폼에서는 테스트되지 않았습니다
+<br />
+      </p>
+      <p><strong>고쳐질 가능성이 없거나 까닭을 알 수 없는 버그 :</strong><br />
+  - ATI의 3중 버퍼링 기능은 몇몇 응용 프로그램들과 충돌을 일으킵니다. 이와 비슷한 일이 일어나면 아래에 보이는 SDL_OPENGLHQ_DOUBLEBUF 설정을 사용해 보시기 바랍니다 (사용하고 있는 드라이버에 맞추어 확인해야 하겠음)</p>
+      <p><strong>고쳐야 할 버그:
+      </strong>이제까지 알려진 버그는 없습니다.</p>
+      <p>또 다른 문제들을 보신 적이 있다면 아래의 [문제 해결] 구문을 찾아 보십시오. 여러분의 문제가 문제 해결 구문에 없다면 되도록 자세하게 글을 써서 제게 보내 주십시오 :<br />
+        1) 어떠한 작업을 하였으며<br />
+        2) 무슨 일이 일어날 것인지 예측했고<br />
+        3) 대신 무슨 일이 일어났는지<br />
+        4) 문제의 스크린샷과 관련된 설정 파일(DOSBox라면 dosbox.conf)        <br />
+      </p>
+      <p><strong>사용 방법 (빠른 발걸음):<br />
+      </strong>Windows에서의 빠른 발걸음입니다. 다른 운영체제에서는 그에 맞게 따로 수정해야 합니다.</p>
+      <p>1) SDL.DLL을 응용 프로그램의 디렉터리에 복사하십시오. 덮어쓰기를 묻는다면 덮어 씌우십시오.<br />
+      2) 다음의 줄이 들어간 일괄 파일을 하나 만드십시오. (메모장을 열고)</p>
+      <blockquote>
+        <p>set SDL_VIDEODRIVER=openglhq<br />
+          set SDL_OPENGLHQ_WINRES=800x600<br />
+          &lt;응용 프로그램의 이름&gt;.exe<br />
+        </p>
+      </blockquote>
+      <p>3) 파일 이름은 &quot;&lt;응용 프로그램의 이름&gt;.bat&quot;로 지정하여 EXE 파일이 들어있는 같은 디렉터리에 저장하십시오.<br />
+        4) 응용 프로그램을 시작하려면 배치 파일을 두 번 누르십시오. 일괄 파일을 사용하려면 바로가기 아이콘을 만들거나 기존의 바로가기를 수정하십시오.<br />
+      </p>
+<p><strong>구성:</strong><br />
+  환경 변수로 구성할 수 있습니다. 되도록 일괄(BAT) 파일에서 사용하십시오. (바로 앞의 구문을 읽어볼 것)<br />
+</p>
+<ul>
+  <li> SDL_VIDEODRIVER - OpenGL-HQ를 사용합니다</li>
+  <li>SDL_OPENGLHQ_WINRES</li>
+  <li>SDL_OPENGLHQ_FULLRES - 창/전체 화면 크기를 &quot;960x720&quot;과 같은 해상도로 설정합니다. 960x720-16 안에서 비트 깊이를 추가합니다. 주기적으로 고정 스케일링 값을 지정할 수 있습니다 (예 : 2.5)<br />
+기본값 - 창: &quot;1&quot;, 전체 화면 : 바탕 화면 해상도</li>
+  <li>SDL_OPENGLHQ_VIDEODRIVER - SDL 비디오 장치의 이름을 설정합니다 (SDL_VIDEODRIVER에 대해 일반적으로 사용하는 것)</li>
+  <li>SDL_OPENGLHQ_DOUBLEBUF - 응용 프로그램에 강제로 이중 버퍼링을 사용하도록 합니다. 일부 응용 프로그램들과 드라이버와의 충돌을 해결하지만 다른 응용 프로그램들이 제대로 동작하지 않을 수도 있습니다.</li>
+  <li>SDL_OPENGLHQ_STATIC </li>
+  <li>SDL_OPENGLHQ_DYNAMIC - HQ를 계산하기 위한 매개변수가 두 개 있습니다. 기본 수치(static 10, dynamic 33)은 대부분의 경우 가장 좋습니다. 렌더링을 최적화하려면 이 값을 사용해 보십시오 : static 0-255, dynamic 0-100</li>
+  <li>SDL_OPENGLHQ_SHOWFPS - 10초에 한 번씩 콘솔에 평균 FPS를 출력합니다. 실제로 렌더링된 프레임만 셉니다. 아래의 FAQ를 읽어 보십시오.</li>
+  <li>SDL_OPENGLHQ_DATA - OpenGL-HQ를 위한 데이터 파일들이 들어있는 디렉터리. 이것을 사용하여 자신만의 파편 프로그램을 불러오거나 테이블을 감지할 수 있습니다. 더 자세한 정보를 확인하려면 소스 코드를 읽어 보셔야 합니다.</li>
+</ul>
+<p>지정된 결과를 제대로 적용하려면 SDL_VIDEODRIVER를 설정해야 합니다. 창으로 된 응용 프로그램들을 스케일하려면 SDL_OPENGLHQ_WINRES를 설정하십시오. 그 밖의 모든 것은 보통 필요하지 않으며 이 설정들은 자동으로 감지됩니다.</p>
+<p>모든 SDL 응용 프로그램들에 대한 옵션을 설정하려면 아래의 과정을 따르십시오:<br />
+  Windows: 제어판 → 시스템 등록 정보 → 고급 → 환경 변수<br />
+        Unix 계열 운영 체제 : ~/.profile에 &quot;export &lt;환경 변수 이름&gt;=&lt;값&gt;&quot;를 추가<br />
+      </p>
+<p><strong>성능:<br />
+</strong>짧게 말하면: 정말 대단합니다. 
+하드웨어적으로 최소 요구사항을 거의 충족하지 않은 상태에서 DOSBox에서 frameskip 0과 scaler를 2x로 쓰며 보호 모드를 쓰는, 리소스를 많이 잡아먹는 높은 해상도의 SVGA 프로그램을 돌리면 성능은 거의 20%까지 떨어집니다. frameskip을 4로 두면 성능차는 5-10% 정도가 됩니다.</p>
+<p>VGA 해상도의 스케일을 4x까지 지정하면 차이는 더 줄어듭니다: frameskip 0에서는 성능이 12% 떨어집니다. 소프트웨어로 스케일링하면 더욱 나빠집니다: Normal2x는 20%, advmame2x는 25%, hq2x(최적화 되지 않은 HiEnd3d 버전)는 심지어 40%까지 떨어집니다.</p>
+<p>위의 내용은 싱글 코어 애슬론 3700+에서 측정된 것입니다. OpenGL-HQ는 가능하면 두 번째 코어를 사용하므로 듀얼 코어 프로세서에서는 눈에 띄는 속도 저하는 없습니다.<br />
+  <br />
+</p>
+<p><strong>문제 해결 :</strong></p>
+<p>1.<br />
+  물음: 무언가가 동작하지 않거나 이상합니다.<br />
+  풀이: 새로 나온 공식 비디오 드라이버를 사용하셔야 합니다. 개인이나 단체가 수정한 드라이버에서는 잘 돌아가는지 알아보지 못했으며 오래된 드라이버에서는 실패할 가능성이 높습니다.</p>
+<p>2.<br />
+  물음: DOSBox가 충돌을 일으킵니다.<br />
+  풀이: DOSBox가 비디오를 띄우려고 할 때 오류를 제대로 관리하지 못하는 것입니다. 이 문제가 수정될 때까지 하드웨어가 OpenGL-HQ를 지원하지 못한다는 것을 뜻합니다.</p>
+<p>3.<br />
+  물음: 전체 화면으로 바꾸면 DOSBox가 멈춰 버립니다<br />
+  풀이: ATI 드라이버 문제입니다. dosbox.conf에서 &quot;fulldouble=false&quot;로 설정하거나 환경 변수에서 SDL_OPENGLHQ_DOUBLEBUF를 사용하십시오</p>
+<p>4.<br />
+  물음: 너무 느립니다!<br />
+  풀이: 아마도 카탈리스트 제어판에서 '수직 동기화 대기'를 강제로 설정하고 응용 프로그램이 이중 버퍼링을 사용하는 것 같습니다 (예 : DOSBox의 fulldouble=true) Radeon 9600-9800 계열의 칩에서 해상도를 높게 잡으면 버거울 수 있습니다. 이렇게 처음으로 완전히 프로그래밍을 거친 칩들은 제한이 있습니다. 그러므로 놀라지 마십시오.</p>
+<p>5.<br />
+  물음: 부분적으로는 돌아가지만 몇몇 비디오 모드는 이전과 같이 스케일되지 않고 그대로입니다.<br />
+  물음: 보이는 것이 스크린샷에서 보던 것 보다 더 나쁩니다. 흐릿하고 깔끔한 데를 찾아 볼 수 없습니다.<br />
+  물음: 엥? 전 그대로 따라했는데 아무 것도 바뀐 게 없는데요?</p>
+<p>풀이: 프로그램 안의 모든 소프트웨어 스케일링을 사용하지 마십시오. 많은 에뮬레이터들은 몇 가지 종류의 스케일링을 기본값으로 두지만 OpenglHQ는 x1 스케일링 (없음, scaler=none) 하고만 동작합니다.</p>
+<p>6.<br />
+  물음: 제 마우스가 느립니다! 어떻게 빠르게 할까요?<br />
+  풀이: 얼마 안 되어서 거의 해결되었습니다. 그러나 마우스를 끌다 보면 비디오 드라이버가 가속 설정을 바꿀 수 있습니다. x11 드라이버를 쓰면 느려지므로 환경 변수를 써서 수정해 보시기 바랍니다.</p>
+<p>7.<br />
+  물음: 8FPS밖에 나오지 않습니다. 왜 이런가요?<br />
+  풀이: 화면이 순수 3D 프로그램에서처러머 연속하여 렌더링되지 않아서입니다. 에뮬레이터가 1초에 화면을 8번 업데이트한다면 OpenGL-HQ는 8 FPS라고만 표시할 것입니다. OpenGL-HQ가 컴퓨터에서 얼마나 빠른지 테스트하려면 자주 화면을 업데이트하는 프로그램을 사용하십시오.<br />
+</p>
+<p>더 자세한 도움말을 보려면, info@syntax-k.de로 연락하십시오.</p>
+<p>Sam Lantinga님이나 SDL 팀에게는 OpenGL-HQ에 관하여 전자우편을 보내지 마십시오. 그들은 OpenGL-HQ와 어떠한 관계도 없습니다.</p>
+<p>개발자 정보는 우리말로 뜻을 옮기지 않았습니다.</p>
+<p><br />
+</p>
+      <p><strong>라이선스:<br />
+      </strong> SDL - Simple DirectMedia Layer OpenGL-HQ scaling<br />
+Copyright (C) 2005 2006 2012 Jorg Walter &lt;info@syntax-k.de&gt;</p>
+      <p> 이 라이브러리는 자유 소프트웨어입니다. 자유 소프트웨어 재단이 공개한 GNU 라이브러리 공공 라이선스의 조항에 따라 다른 곳으로 배포하거나 수정할 수 있습니다.</p>
+      <p> 이 라이브러리는 '유용'을 목적으로 배포됩니다. 그러나 상업에 언급된, 또는 특정 목적에 타당하다고 여겨지는 어떠한 보상도 하지 않습니다. 더 자세한 정보는 GNU 라이브러리 공공 라이선스를 살펴 보십시오.</p>
+      <p> 이 라이브러리에 관련된 일을 하려면 GNU 라이브러리 공공 라이선스의 사본을 취득하여야 합니다. 그렇지 않다면 다음의 주소로 글을 써서 보내 주십시오.<br />
+        Free Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307  USA</p>
+<p>SDL 패치는 바탕화면 해상도 자동 감지를 위해 2005년 1월자의 SDL 전자우편 목록에 있는 코드를 사용합니다.</p>
+      <p><strong>고마움의 말씀 :<br />
+      </strong>Windows 빌드를 제공하고 테스트하는 데 도움을 주신 VOGONS의 모든 분들께 고마운 말씀을 드립니다. EXT_framebuffer_object로 코드를 포팅해 주신 VOGONS 포럼의 gulikoza님께 더욱 고맙다는 말씀을 드립니다.<br />
+      </p>
+<p><strong>바뀐 점 :<br />
+</strong>2012-10-19  15비트 모드 수정. 거의 드물게 쓰이며 전혀 동작하지 않았음.<br />
+2012-10-17  (b) 잘 쓰이지 않는 비디오 모드의 너비의 문제 수정<br />
+2012-10-17  현대의 화면 해상도의 수치 정확도 수정/개선, (기본) 고속 모드에서 부분 화면 업데이트 버그 수정, FPS 출력 옵션 추가<br />
+2006-12-15  마우스를 움직일 때 일어나는, 주로 전체 화면을 쓰는 응용 프로그램에서 나타나는 조그마한 버그 수정 API 호환성 개선, 쓸모 없는 픽셀 복사 줄임, MacOSX 지원<br />
+2006-11-22  ATI 카드의 16비트 비디오 문제 해결, 컴파일 시퀀스 개선, 렌더링 정확도를 높이고, 줄을 간결히 하여 더 빨라짐<br />
+2006-11-21  렌더링을 위해 EXT_framebuffer_object 확장 사용 : 스레딩 문제 고침, 성능 개선, SDL 1.2로 포팅, 64비트 clean make 처리</p></td>
+  </tr>
+  <tr>
+    <td><br/></td>
+  </tr>
+  <tr>
+    <td height="244" valign="top" bgcolor="e0e0e0"><p><strong><a name="DONGLE" id="OPENGLHQ3"><b>동글 지원</b></a></strong><br />
+      LPT 포트에 연결된 93c46 복사 보호 동글을 위한 DOSBox 핸들러입니다.<br />
+      적어도 Rainbow Sentinel Cplus와MicroPhar는 93c46 기반의 동글입니다.</p>
+      <p>93c46 메모리 칩은 64*16개의 글자를 포함할 수 있습니다. 더 자세한 정보는 아래에 있습니다:<br />
+        <a href="http://www.atmel.com/dyn/resources/prod_documents/doc0172.pdf" target="_new">http://www.atmel.com/dyn/resources/prod_documents/doc0172.pdf</a></p>
+      <p>몇 가지 참고할 사항:</p>
+      <p>* 소프트웨어 측면에서 동글을 감지할 수 없습니다. 소프트웨어가 일부 셀 (0x3F)을 읽는 것이 보통이므로 마법의 수를 확인해 보십시오.<br />
+        * 기록 스킴은 동글마다 다를 수 있으나 일반적으로 
+      DI (데이터 입력), SK (클럭), CS (칩 선택), 전력 라인은 D0..D7에서 가져옵니다.<br />
+      * DO (데이터 출력)는 ACK나 BUSY 프린터 라인에 연결할 수 있습니다.</p>
+<p>더 자세한 정보는 여기에 있습니다: <a href="http://blogs.conus.info/node/56" target="_new">http://blogs.conus.info/node/56</a></p>
+      <p>-- dennis@conus.info</p></td>
+  </tr>
+  <tr>
+    <td><br/></td>
+  </tr>
+  <tr>
+    <td height="327" valign="top" bgcolor="e0e0e0"><p><strong><a name="DOSBOX-X" id="OPENGLHQ2"><b>도스박스 X 브랜치</b></a></strong></p>
+      <p>TheGreatCodeholio님께서 제공한 도스박스 X 브랜치의 기능들이 추가되었습니다:</p>
+      <p>- 정확한 PS/2 키보드 에뮬레이션 (1,2,3 스캔 코드 지원, LED 명령 지원, 리셋 명령, 모드 변경 등)<br />
+        - GUS 패닝 레지스터 수정. (스테레오 사운드에 의지하는 도스 프로그램은 도스박스를 통해 스테레오로 재생할 수 있게 됨)<br />
+        - PS/2 AUX 포트 에뮬레이션 (INT 33h를 거치지 않고 도스 프로그램 및 운영 체제가 곧바로 PS/2 마우스와 연결할 수 있게 하는 모드)<br />
+        - CGA 스노 에뮬레이션. (machine을 cga로 설정하고 이 스노 옵션을 켜면, 비디오 메모리 입출력이 CGA 속도에 맞추어 속도가 느려지면서 실제 VGA처럼 스노 현상을 일으킴)<br />
+        - 사운드 블라스터 골드플레이 지원.<br />
+        - ISA 플러그 &amp; 플레이 에뮬레이션.<br />
+        - 시리얼 마우스 에뮬레이션. (serial1=serialmouse로 설정시 마이크로소프트 호환 마우스를 가상으로 구현할 수 있음)<br />
+        - 512MB로의 더 높은 메모리 제한.<br />
+        - 세세한 메모리 크기 조절. (mb가 아닌 kb 단위)<br />
+      - 화면 재생 빈도 조절</p>
+      <p><strong>IDE 지원</strong><br />
+        이 기능은 ATA (하드 디스크), ATAPI (CD-ROM)을 위한 기본 IDE 에뮬레이션입니다.<br />
+      도스박스 설정 구성 파일(예: dosbox.conf) 을 열면 다음과 같은 내용을 볼 수 있습니다:</p>
+      <p>[ide, primary]<br />
+      # enable: Enable IDE interface<br />
+      enable=false</p>
+      <p>[ide, secondary]<br />
+      # enable: Enable IDE interface<br />
+      enable=false</p>
+      <p>[ide, tertiary]<br />
+      # enable: Enable IDE interface<br />
+      enable=false</p>
+      <p>[ide, quaternary]<br />
+      # enable: Enable IDE interface<br />
+      enable=false</p>
+<p>위의 내용에서 
+  enable를 true로 설정하면 해당 IDE를 활성화할 수 있습니다.<br />
+  <br />
+  그 뒤, IMGMOUNT의 다음과 같은 옵션을 사용하시면 됩니다. (&quot;-ide&quot; 옵션)<br />
+  -ide 1m - 프라이머리 IDE 컨트롤러를 마스터로 부착 사용<br />
+  -ide 1s - 프라이머리 IDE 컨트롤러를 슬레이브로 부착 사용<br />
+  -ide 2m - 세컨더리 IDE 컨트롤러를 마스터로 부착 사용<br />
+  -ide 2s - 세컨더리 IDE 컨트롤러를 슬레이브로 부착 사용<br />
+  -ide auto - 사용하지 않는 슬롯에 부착 (기본값)<br />
+  -ide none - IDE 포트에 부착하지 않음</p>
+<p>도스박스 설정 파일에서 [autoexec] 단락에 다음과 같이 추가할 수 있습니다. (예시 코드)<br />
+  [autoexec] <br />
+  # Win95를 위한 C: 드라이브<br />
+  imgmount 2 &quot;path_to_hdd_image\hdd.img&quot; -size 512,63,32,512 -t hdd -fs none -ide 1m <br />
+  # Windows 95 설치 CD-ROM을 위한 D: 드라이브<br />
+  imgmount D &quot;path_to_cd_image\cd.iso&quot; -t iso -fs iso -ide 2m <br />
+  # Win95 시작<br />
+  boot -l c</p>
+<p>자세한 정보는 <a href="http://vogons.zetafleet.com/viewtopic.php?t=31881" target="_new">http://vogons.zetafleet.com/viewtopic.php?t=31881</a>에 있습니다.</p></td>
+  </tr>
+  <!-- Limiter -->  <!-- / Limiter -->  <!-- Limiter -->  <!-- / Limiter -->  <!-- Limiter -->  <!-- / Limiter -->  <!-- end of page -->
+</table>
+<table border="1">
+  <tr>
+    <td >SVN 관련 설명서</td>
+    <td><a href="main_ko.html">기본</a> | <a href="usage_ko.html">사용법</a> | <a href="index.html">MB6 패치</a></td>
+  </tr>
+  <tr>
+    <td>공식 설명서</td>
+    <td><a href="../../Official Manuals/README_KR.TXT" target="new">README</a> | <a href="../../Official manuals/Video Instructions_KR.txt" target="new">비디오 안내</a></td>
+  </tr>
+</table>
+</body>
+</html>

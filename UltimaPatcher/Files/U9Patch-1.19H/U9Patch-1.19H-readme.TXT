@@ -1,0 +1,79 @@
+Ultima IX: Ascension
+Patch version 1.19H
+First Release: August 26, 2012
+
+Patch brought to you by the Forgotten World team.
+
+http://www.forgottenworld.de
+
+
+
+U9Patch-1.19H.zip contains 11 files:
+
+
+U9Patch-1.19H-readme.txt - this file
+
+Static\Activity.flx - file to replace 1.19F version of activity.flx
+
+Static\Highway.dat - file to replace 1.19F version of highway.dat
+
+Static\triggers.flx - file to replace 1.19F version of triggers.flx (only file updated, works with first release of this patch)
+
+Runtime\nonfixed.9 - file to replace 1.19F version of nonfixed.9
+
+Runtime\nonfixed.22 - file to replace 1.19F version of nonfixed.22
+
+Static\Originals\Activity.flx - 1.19F version of activity.flx
+
+Static\Originals\Highway.dat - 1.19F version of highway.dat
+
+Static\Originals\triggers.flx - 1.19F version of triggers.flx
+
+Runtime\Originals\nonfixed.9 - 1.19F version of nonfixed.9
+
+Runtime\Originals\nonfixed.22 - 1.19F version of nonfixed.22
+
+
+
+---------------------------------------------------------------------
+
+Step-by-step Installation (same for first time install or upgrade)
+
+1. After installing Ultima IX and patching to 1.18F, install patch version 1.19F.
+
+2. Extract the contents of this zip into your Ultima IX directory.
+
+3. Enjoy listening to the all of the positive themes as they were meant to be heard.
+
+4. Visit the Moonglow Catacombs as much as you want.
+
+5. Find Dermot at the Pub in the evenings and the Cemetery during the day.
+
+6. Play the game from the beginning and find that two companions now appear in their respective towns after cleansing the respective shrine.
+
+7. Start from the beginning and worry no more about floating Runes and Sigils.
+
+
+
+
+
+---------------------------------------------------------------------
+Notes:
+
+1. This patch is intended to be used with the Ultima IX patch 1.19F. It is probable that it will work with version 1.18F, but this hasn't been tested.
+
+2. Unless explicitedly stated below, this patch will work with your savegames.
+
+3. This patch adds several new scripting objects to the main map along with changes to certain files for both Mariah and Jaana to appear in Moonglow and Yew after cleansing the shrine. Only works with new games.
+
+4. This patch also includes the music fix, which fixes errors for several music triggers throughout the game resulting in the positive music theme for several cities not playing upon shrine cleansing. Specifically this patch fixes several music triggers in Minoc/Cove, one music trigger in Valoria, and several music triggers in Skara Brae.
+
+5. Also, the Rune and Sigil will now appear near the top of the shrine after each cleansing, so you need not cheat or use engine exploits to get them. Must start a new game.
+
+6. Several minor bugs were also fixed:
+
+	a. You can revisit the Moonglow Catacombs more than once.
+
+	b. Dermot will now walk to pub at nightfall and return to the cemetery during the day. Unfortunately, Dermot might not walk if you sleep or experience a time shift. 
+
+      c. This patch also fixes a potential bug where Vasagralem doesn't appear for the first trial scene at Yew.

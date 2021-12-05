@@ -1,0 +1,1665 @@
+Changes to the DOSBox sourcecode since 0.74:
+
+2013-06-16 20:46  h-a-l-9000
+
+	* [r3833] src/hardware/vga_draw.cpp: Fix Hexsider display in
+	  Hercules mode. The game changes the CRTC base address to scroll
+	  in the buffer. Reported by VileRancour.
+
+2013-06-16 20:42  h-a-l-9000
+
+	* [r3832] src/hardware/vga_other.cpp, src/ints/int10_pal.cpp: By
+	  implementing Tandy special handling of the palette:
+	  - fix Starflight background color (reported by HunterZ)
+	  - keep Pirates! map background correct
+	  
+	  Also fix the palette after mode switch on the PCJr. Fixes Frogger
+	  II composite mode color attributes (reported by VileRancour).
+
+2013-05-26 01:03  ripsaw8080
+
+	* [r3831] src/shell/shell_misc.cpp: Initialize last byte of command
+	  tail.
+
+2013-05-21 18:15  qbix79
+
+	* [r3830] src/dos/cdrom_image.cpp: Workaround for using (windows)
+	  directories insides cue files on Linux.
+
+2013-05-09 14:07  qbix79
+
+	* [r3829] src/shell/shell_cmds.cpp: Fix bug 391 by relaxing the SET
+	  /P check.
+
+2013-05-09 14:05  qbix79
+
+	* [r3828] src/debug/debug.cpp: Fix an out of bounds write error.
+	  Some more protection when reading in data and finally fix a few
+	  type casts warnings.
+
+2013-03-25 20:07  qbix79
+
+	* [r3827] src/gui/sdlmain.cpp: Extend fullresolution=0x0 to more
+	  OSes. Tested on Windows, Linux and Mac OS X. Thanks for the hint
+	  about SDL_GetVideoInfo ny00123
+
+2013-03-24 21:12  qbix79
+
+	* [r3826] src/misc/setup.cpp: Silence some warnings in the misc
+	  directory
+
+2013-03-20 14:38  qbix79
+
+	* [r3825] src/shell/shell_cmds.cpp: Use uppercase characters for
+	  ScanCMDBool. Explicitly disallow Set/P
+
+2013-03-18 19:52  qbix79
+
+	* [r3824] src/gui/sdlmain.cpp: Replace NV_PixelDataRange with
+	  ARB_PixelBufferObject extension. Thanks gulikoza
+
+2013-03-18 12:35  qbix79
+
+	* [r3823] src/misc/setup.cpp: Uniform warning message
+
+2013-03-18 12:34  qbix79
+
+	* [r3822] src/dos/dos.cpp: Enable interupts after running INT 25
+	  and 26, fixes Eol-ui Moheom installer (ripsaw)
+
+2013-03-11 08:20  qbix79
+
+	* [r3821] src/ints/bios_disk.cpp: Refinements of an earlier fix.
+	  Thanks ripsaw
+
+2013-02-28 10:30  qbix79
+
+	* [r3820] src/ints/ems.cpp: Make system handler 24 pages, Fixes
+	  Mega Blast and maybe others. Thanks ripsaw
+
+2013-02-26 20:22  qbix79
+
+	* [r3819] src/dos/dos_programs.cpp, src/dos/drive_iso.cpp: A cdrom
+	  has always 65535 clusters on a drive. Fixes regression with titus
+	  CD with mount, fixes usage with an image as well.
+
+2013-02-14 15:00  qbix79
+
+	* [r3818] include/dma.h, src/hardware/dma.cpp: Clean up
+
+2013-02-09 21:11  qbix79
+
+	* [r3817] src/ints/mouse.cpp: Add int 33 0x2a for speed manager 96.
+	  (ripsaw)
+
+2013-02-07 19:25  qbix79
+
+	* [r3816] src/dosbox.cpp: max cycles code now uses averaging as
+	  well when stepping down
+
+2013-01-27 18:27  h-a-l-9000
+
+	* [r3815] src/ints/int10_char.cpp: Use current address instead of
+	  (current page * page size) for the scroll window base. This is
+	  the implementation in S3 and IBM VGA. Tseng BIOSes have the
+	  previous, incompatible implementation. Fixes an advertisement
+	  program and possibly others I don't remember. Patch by ripsaw.
+
+2013-01-27 16:54  qbix79
+
+	* [r3814] include/dos_inc.h: make RealHandle inline to silence some
+	  unused warnings
+
+2013-01-26 22:01  h-a-l-9000
+
+	* [r3813] include/vga.h, src/hardware/vga_attr.cpp,
+	  src/hardware/vga_dac.cpp, src/hardware/vga_draw.cpp,
+	  src/ints/int10_modes.cpp: Add support for monochrome mode:
+	  - EGA and VGA mode 0x0F (implement plane masking in the attribute
+	  controller)
+	  - re-factor EGA monitor emulation (attribute controller bit is
+	  used to detect monochrome mode, horizontal frequency to choose
+	  16/64 colors)
+	  
+	  Hardware blinking in graphics mode is still not supported.
+
+2013-01-15 09:03  qbix79
+
+	* [r3812] acinclude.m4, include/bios.h, include/bios_disk.h,
+	  include/callback.h, include/control.h, include/cpu.h,
+	  include/cross.h, include/debug.h, include/dma.h,
+	  include/dos_inc.h, include/dos_system.h, include/dosbox.h,
+	  include/fpu.h, include/hardware.h, include/inout.h,
+	  include/ipx.h, include/ipxserver.h, include/joystick.h,
+	  include/keyboard.h, include/logging.h, include/mapper.h,
+	  include/mem.h, include/mixer.h, include/mouse.h,
+	  include/paging.h, include/pci_bus.h, include/pic.h,
+	  include/programs.h, include/regs.h, include/render.h,
+	  include/serialport.h, include/setup.h, include/shell.h,
+	  include/support.h, include/timer.h, include/vga.h,
+	  include/video.h, scripts/dosbox-installer.nsi,
+	  src/cpu/callback.cpp, src/cpu/core_dyn_x86.cpp,
+	  src/cpu/core_dyn_x86/cache.h, src/cpu/core_dyn_x86/decoder.h,
+	  src/cpu/core_dyn_x86/dyn_fpu.h,
+	  src/cpu/core_dyn_x86/dyn_fpu_dh.h,
+	  src/cpu/core_dyn_x86/helpers.h, src/cpu/core_dyn_x86/risc_x86.h,
+	  src/cpu/core_dyn_x86/string.h, src/cpu/core_dynrec.cpp,
+	  src/cpu/core_dynrec/cache.h, src/cpu/core_dynrec/decoder.h,
+	  src/cpu/core_dynrec/decoder_basic.h,
+	  src/cpu/core_dynrec/decoder_opcodes.h,
+	  src/cpu/core_dynrec/dyn_fpu.h, src/cpu/core_dynrec/operators.h,
+	  src/cpu/core_dynrec/risc_armv4le-common.h,
+	  src/cpu/core_dynrec/risc_armv4le-o3.h,
+	  src/cpu/core_dynrec/risc_armv4le-s3.h,
+	  src/cpu/core_dynrec/risc_armv4le-thumb-iw.h,
+	  src/cpu/core_dynrec/risc_armv4le-thumb-niw.h,
+	  src/cpu/core_dynrec/risc_armv4le-thumb.h,
+	  src/cpu/core_dynrec/risc_armv4le.h,
+	  src/cpu/core_dynrec/risc_mipsel32.h,
+	  src/cpu/core_dynrec/risc_x64.h, src/cpu/core_dynrec/risc_x86.h,
+	  src/cpu/core_full.cpp, src/cpu/core_full/ea_lookup.h,
+	  src/cpu/core_full/load.h, src/cpu/core_full/loadwrite.h,
+	  src/cpu/core_full/op.h, src/cpu/core_full/optable.h,
+	  src/cpu/core_full/save.h, src/cpu/core_full/string.h,
+	  src/cpu/core_full/support.h, src/cpu/core_normal.cpp,
+	  src/cpu/core_normal/helpers.h, src/cpu/core_normal/prefix_0f.h,
+	  src/cpu/core_normal/prefix_66.h,
+	  src/cpu/core_normal/prefix_66_0f.h,
+	  src/cpu/core_normal/prefix_none.h, src/cpu/core_normal/string.h,
+	  src/cpu/core_normal/support.h, src/cpu/core_normal/table_ea.h,
+	  src/cpu/core_prefetch.cpp, src/cpu/core_simple.cpp,
+	  src/cpu/cpu.cpp, src/cpu/flags.cpp, src/cpu/instructions.h,
+	  src/cpu/lazyflags.h, src/cpu/modrm.cpp, src/cpu/modrm.h,
+	  src/cpu/paging.cpp, src/debug/debug.cpp, src/debug/debug_gui.cpp,
+	  src/debug/debug_inc.h, src/debug/debug_win32.cpp,
+	  src/debug/disasm_tables.h, src/dos/cdrom.cpp, src/dos/cdrom.h,
+	  src/dos/cdrom_aspi_win32.cpp, src/dos/cdrom_image.cpp,
+	  src/dos/cdrom_ioctl_linux.cpp, src/dos/cdrom_ioctl_os2.cpp,
+	  src/dos/cdrom_ioctl_win32.cpp, src/dos/dev_con.h,
+	  src/dos/dos.cpp, src/dos/dos_classes.cpp,
+	  src/dos/dos_devices.cpp, src/dos/dos_execute.cpp,
+	  src/dos/dos_files.cpp, src/dos/dos_ioctl.cpp,
+	  src/dos/dos_keyboard_layout.cpp, src/dos/dos_memory.cpp,
+	  src/dos/dos_misc.cpp, src/dos/dos_mscdex.cpp,
+	  src/dos/dos_programs.cpp, src/dos/dos_tables.cpp,
+	  src/dos/drive_cache.cpp, src/dos/drive_fat.cpp,
+	  src/dos/drive_iso.cpp, src/dos/drive_local.cpp,
+	  src/dos/drive_virtual.cpp, src/dos/drives.cpp, src/dos/drives.h,
+	  src/dosbox.cpp, src/fpu/fpu.cpp, src/fpu/fpu_instructions.h,
+	  src/fpu/fpu_instructions_x86.h, src/gui/dosbox_logo.h,
+	  src/gui/midi.cpp, src/gui/midi_alsa.h, src/gui/midi_coreaudio.h,
+	  src/gui/midi_oss.h, src/gui/midi_win32.h, src/gui/render.cpp,
+	  src/gui/render_loops.h, src/gui/render_scalers.cpp,
+	  src/gui/render_scalers.h, src/gui/render_simple.h,
+	  src/gui/render_templates.h, src/gui/render_templates_hq.h,
+	  src/gui/render_templates_hq2x.h, src/gui/render_templates_hq3x.h,
+	  src/gui/render_templates_sai.h, src/gui/sdl_gui.cpp,
+	  src/gui/sdl_mapper.cpp, src/gui/sdlmain.cpp,
+	  src/hardware/adlib.cpp, src/hardware/adlib.h,
+	  src/hardware/cmos.cpp, src/hardware/dbopl.cpp,
+	  src/hardware/dbopl.h, src/hardware/disney.cpp,
+	  src/hardware/dma.cpp, src/hardware/gameblaster.cpp,
+	  src/hardware/gus.cpp, src/hardware/hardware.cpp,
+	  src/hardware/iohandler.cpp, src/hardware/ipx.cpp,
+	  src/hardware/ipxserver.cpp, src/hardware/joystick.cpp,
+	  src/hardware/keyboard.cpp, src/hardware/memory.cpp,
+	  src/hardware/mixer.cpp, src/hardware/opl.cpp, src/hardware/opl.h,
+	  src/hardware/pci_bus.cpp, src/hardware/pci_devices.h,
+	  src/hardware/pcspeaker.cpp, src/hardware/sblaster.cpp,
+	  src/hardware/serialport/directserial.cpp,
+	  src/hardware/serialport/directserial.h,
+	  src/hardware/serialport/libserial.cpp,
+	  src/hardware/serialport/libserial.h,
+	  src/hardware/serialport/misc_util.cpp,
+	  src/hardware/serialport/misc_util.h,
+	  src/hardware/serialport/nullmodem.cpp,
+	  src/hardware/serialport/nullmodem.h,
+	  src/hardware/serialport/serialdummy.cpp,
+	  src/hardware/serialport/serialdummy.h,
+	  src/hardware/serialport/serialport.cpp,
+	  src/hardware/serialport/softmodem.cpp,
+	  src/hardware/serialport/softmodem.h,
+	  src/hardware/tandy_sound.cpp, src/hardware/timer.cpp,
+	  src/hardware/vga.cpp, src/hardware/vga_attr.cpp,
+	  src/hardware/vga_crtc.cpp, src/hardware/vga_dac.cpp,
+	  src/hardware/vga_draw.cpp, src/hardware/vga_gfx.cpp,
+	  src/hardware/vga_memory.cpp, src/hardware/vga_misc.cpp,
+	  src/hardware/vga_other.cpp, src/hardware/vga_paradise.cpp,
+	  src/hardware/vga_s3.cpp, src/hardware/vga_seq.cpp,
+	  src/hardware/vga_tseng.cpp, src/hardware/vga_xga.cpp,
+	  src/ints/bios.cpp, src/ints/bios_disk.cpp,
+	  src/ints/bios_keyboard.cpp, src/ints/ems.cpp, src/ints/int10.cpp,
+	  src/ints/int10.h, src/ints/int10_char.cpp,
+	  src/ints/int10_memory.cpp, src/ints/int10_misc.cpp,
+	  src/ints/int10_modes.cpp, src/ints/int10_pal.cpp,
+	  src/ints/int10_put_pixel.cpp, src/ints/int10_vesa.cpp,
+	  src/ints/int10_video_state.cpp, src/ints/int10_vptable.cpp,
+	  src/ints/mouse.cpp, src/ints/xms.cpp, src/ints/xms.h,
+	  src/libs/zmbv/drvproc.cpp, src/libs/zmbv/zmbv.cpp,
+	  src/libs/zmbv/zmbv.h, src/libs/zmbv/zmbv_vfw.cpp,
+	  src/libs/zmbv/zmbv_vfw.rc, src/misc/cross.cpp,
+	  src/misc/messages.cpp, src/misc/programs.cpp, src/misc/setup.cpp,
+	  src/misc/support.cpp, src/shell/shell.cpp,
+	  src/shell/shell_batch.cpp, src/shell/shell_cmds.cpp,
+	  src/shell/shell_misc.cpp, src/winres.rc: Year update
+
+2013-01-14 10:22  qbix79
+
+	* [r3811] configure.ac, configure.in: rename configure.in to
+	  configure.ac . autotools people again.....
+
+2013-01-14 10:10  qbix79
+
+	* [r3810] configure.in: autotools people...(1.13.1)
+
+2013-01-01 12:53  qbix79
+
+	* [r3809] src/dos/drive_fat.cpp: Use modification instead of
+	  creation date.(rcblanke)
+
+2012-12-30 17:47  qbix79
+
+	* [r3808] src/dos/dos_programs.cpp: Last part of multi floppy patch
+	  by rcblanke.
+
+2012-12-27 21:24  qbix79
+
+	* [r3807] src/dos/drive_fat.cpp: Add some way to search for the
+	  volume label on a fatDrive. Merged the patch of ripsaw and
+	  rcblanke together..
+
+2012-12-26 16:14  qbix79
+
+	* [r3806] src/dos/dos_programs.cpp, src/dos/drive_fat.cpp,
+	  src/dos/drives.h, src/ints/bios_disk.cpp,
+	  src/shell/shell_cmds.cpp: Move buffer to class for upcomming
+	  multiple floppy support (rcblanke). Remove heavy bios_disk
+	  dependency from drives.h
+
+2012-12-07 20:40  qbix79
+
+	* [r3805] src/debug/debug.cpp, src/debug/debug_gui.cpp: Fix crash
+	  on exit on gnome-terminal 3.4.1.1
+
+2012-11-28 18:35  qbix79
+
+	* [r3804] src/hardware/vga_draw.cpp, src/hardware/vga_other.cpp,
+	  src/shell/shell.cpp: Add composite lite patch by
+	  VileRancour/reenigne.
+	  Thanks to everybody who participated in the discussion on the
+	  subject.
+
+2012-11-28 17:28  qbix79
+
+	* [r3803] src/shell/shell_cmds.cpp: Make Visual Studio happy as
+	  well.
+
+2012-11-14 13:22  qbix79
+
+	* [r3802] src/ints/bios_keyboard.cpp: Enable interrupt flag after
+	  call 0x11 as well. Thanks ripsaw. Fixes a Korean game
+
+2012-11-12 18:39  qbix79
+
+	* [r3801] src/debug/debug_gui.cpp: some tiny sanity checks
+
+2012-11-12 18:32  qbix79
+
+	* [r3800] src/shell/shell_cmds.cpp: Fix some 64 bit warnings
+
+2012-10-30 11:14  qbix79
+
+	* [r3799] src/fpu/fpu_instructions_x86.h: use local labels in
+	  defines so that -lto works with gcc
+
+2012-09-25 20:17  qbix79
+
+	* [r3798] src/dos/dos_files.cpp: Fix oversight in r3666. (danoon)
+
+2012-09-02 14:33  qbix79
+
+	* [r3797] src/dos/dos_files.cpp: undo fix for maagi. it doesn't
+	  work correctly afterall
+
+2012-09-02 13:45  qbix79
+
+	* [r3796] src/dos/dos_files.cpp: Fix Maagi (finnish game)
+
+2012-08-23 04:28  qbix79
+
+	* [r3795] src/dos/dos_mscdex.cpp: Only copy the parts that have
+	  actually data to the requesting client for VTOC and friends.
+	  Fixes kickOff 98 (thanks ripsaw).
+
+2012-08-23 04:26  qbix79
+
+	* [r3794] src/dos/drive_iso.cpp: CDROMs are handled differently
+	  with no label supplied (see findfirst in drive_local.cpp).
+	  Improves College Slam. (thanks ripsaw for spotting this)
+
+2012-08-11 17:47  qbix79
+
+	* [r3793] include/pic.h: remove unused defines
+
+2012-08-11 17:46  qbix79
+
+	* [r3792] src/hardware/pic.cpp: Total rewrite.
+	  The PIC is now split up in 2 units, like the real thing.
+	  There are now less hacks in the code in order to deal with the
+	  irq 2 being active/inservice.
+	  IRQ 2 now needs to be acknowledged by the interrupt handler for
+	  IRQs that happen on the slave PIC.
+	  Fixes Pyl sound effects with low cycles and hopefully others.
+
+2012-08-11 17:40  qbix79
+
+	* [r3791] src/hardware/mpu401.cpp: Several fixes for regressions
+	  (Innocent until caught and curse of enchantia), Add fix for
+	  mechwarrior.)
+	  lowered eoi timeout to 0.06f. (ripsaw, Srecko and h-a-l-9000)
+
+2012-08-03 07:59  qbix79
+
+	* [r3790] src/dos/dos_classes.cpp: don't go lower than 20 files.
+	  Makes little sense and it is incompatible with a clipper program.
+	  (thanks ripsaw)
+
+2012-07-29 19:29  h-a-l-9000
+
+	* [r3789] src/ints/int10_char.cpp, src/ints/int10_put_pixel.cpp:
+	  Fix BIOS text output in 320x200 16 color and 640x200 4 color
+	  modes on the PCJr (it maps only 16kB at 0xB800 and thus access
+	  has to go to the actual address in main memory)
+
+2012-07-29 17:46  h-a-l-9000
+
+	* [r3788] src/ints/int10_pal.cpp: Prepare the PCJR video palette
+	  chip before writing data. Thanks ripsaw.
+
+2012-07-29 17:35  h-a-l-9000
+
+	* [r3787] src/hardware/disney.cpp: Use channel->SetFreq instead of
+	  creating and destroying the channel every time. Thus the mixer
+	  volume control for the Disney/Covox device remains available.
+
+2012-07-21 20:05  qbix79
+
+	* [r3786] include/pic.h: variable not used externally.
+
+2012-07-21 18:22  qbix79
+
+	* [r3785] src/cpu/core_full/string.h, src/cpu/core_normal/string.h:
+	  Add INSD
+
+2012-06-30 11:44  qbix79
+
+	* [r3784] src/dos/dos_files.cpp: black gold installer (ripsaw)
+
+2012-06-26 12:38  qbix79
+
+	* [r3783] src/gui/sdlmain.cpp: Restore Icon and title after
+	  restarting the graphics subsystem.
+	  (tested on a pc with broken directx surface support)
+
+2012-06-08 21:01  qbix79
+
+	* [r3782] src/ints/mouse.cpp: Update mickeys directly instead of
+	  when reporting them to the application. Apply improved handling
+	  of sign switching. Improves Settlers 2(ripsaw)
+
+2012-06-08 14:23  qbix79
+
+	* [r3781] src/cpu/callback.cpp, src/ints/bios.cpp: Model irq 0
+	  stack layout in a more compatible way. Fixes M.U.L.E. booter.
+	  (ripsaw)
+
+2012-05-20 18:41  qbix79
+
+	* [r3780] src/hardware/pic.cpp: Fix bug 3528238: Name clash with
+	  compile option -DPIC
+
+2012-03-28 15:26  qbix79
+
+	* [r3779] src/shell/shell.cpp: Fix handling of a CDROM image
+	  command line option with respect to the -securemode flag
+
+2012-01-27 19:09  qbix79
+
+	* [r3778] README: Add patch 3461824: Readme fixes by clem
+
+2012-01-27 18:38  qbix79
+
+	* [r3777] src/gui/sdlmain.cpp: Add cmd-q => exit for Mac OS X
+
+2012-01-27 12:00  qbix79
+
+	* [r3776] src/dos/dos_execute.cpp: Fix bug 3477126. Don't put junk
+	  chars in the title bar. Mac OS X will crash on it
+
+2012-01-05 12:03  qbix79
+
+	* [r3775] src/dos/dos_devices.cpp: Copy all fields in copy
+	  constructor (wjp and valgrind)
+
+2012-01-03 17:57  qbix79
+
+	* [r3774] src/shell/shell_cmds.cpp: Undo goto:label code. breaks
+	  drive switching. Maybe change drive shouldn't be handled in
+	  shell:execute
+
+2012-01-03 16:36  qbix79
+
+	* [r3773] src/hardware/hardware.cpp: Pointers must stay valid till
+	  after the png_write_info call. Thanks wjp
+
+2012-01-03 16:21  qbix79
+
+	* [r3772] src/hardware/hardware.cpp: Should make DOSBox usage
+	  easier to spot.
+
+2012-01-02 11:14  qbix79
+
+	* [r3771] src/shell/shell_cmds.cpp: Treat : as seperater (for
+	  goto:label)
+
+2011-12-28 11:36  qbix79
+
+	* [r3770] src/debug/debug_disasm.cpp: Improve handling of prefix
+	  0xf in the debugger. Thanks ripsaw
+
+2011-12-18 19:23  qbix79
+
+	* [r3769] include/pci_bus.h, src/hardware/pci_bus.cpp,
+	  src/hardware/pci_devices.h: Add properties
+
+2011-12-11 17:30  c2woody
+
+	* [r3768] include/pci_bus.h, include/vga.h, src/gui/sdlmain.cpp,
+	  src/hardware/pci_bus.cpp, src/hardware/vga_draw.cpp: small
+	  additions: vga override, lazy fullscreen switching, pci read
+	  override
+
+2011-12-08 13:08  qbix79
+
+	* [r3767] src/hardware/sblaster.cpp: Implement 0x7d. Fixed death by
+	  dark shadows (ripsaw)
+
+2011-12-08 13:06  qbix79
+
+	* [r3766] src/ints/ems.cpp: be less restrictive. Hope nothing
+	  breaks. Fixes AS2. (peterferrie)
+
+2011-12-08 12:59  qbix79
+
+	* [r3765] src/ints/mouse.cpp: apply granularity only for stuff
+	  reported to the clientmou
+
+2011-12-08 12:47  qbix79
+
+	* [r3764] src/debug/debug.cpp, src/gui/sdl_mapper.cpp,
+	  src/gui/sdlmain.cpp, src/hardware/hardware.cpp,
+	  src/hardware/mixer.cpp, src/hardware/serialport/libserial.cpp,
+	  src/hardware/vga_draw.cpp, src/hardware/vga_s3.cpp,
+	  src/ints/bios_disk.cpp, src/ints/bios_keyboard.cpp,
+	  src/ints/ems.cpp, src/ints/int10.cpp, src/ints/int10_memory.cpp,
+	  src/ints/int10_modes.cpp, src/ints/int10_pal.cpp,
+	  src/misc/messages.cpp, src/shell/shell.cpp,
+	  src/shell/shell_cmds.cpp, src/shell/shell_misc.cpp: Even our
+	  comments and status messages have less bugs now (jomalin)
+
+2011-11-29 16:45  qbix79
+
+	* [r3763] src/cpu/core_dyn_x86/decoder.h, src/cpu/core_dynrec.cpp,
+	  src/cpu/core_dynrec/cache.h, src/cpu/core_dynrec/decoder.h,
+	  src/cpu/paging.cpp, src/debug/debug.cpp, src/debug/debug_gui.cpp,
+	  src/dos/dev_con.h, src/dos/dos_files.cpp,
+	  src/dos/drive_virtual.cpp, src/ints/int10_memory.cpp: Some typo
+	  corrections of the comments. (jomalin)
+
+2011-11-27 15:22  qbix79
+
+	* [r3762] docs/dosbox.1: Typos reported by debian project
+
+2011-11-23 12:18  qbix79
+
+	* [r3761] src/dos/dos.cpp: Improve behavior when reaching the end
+	  of the buffer. (thanks ripsaw)
+
+2011-11-20 17:33  qbix79
+
+	* [r3760] src/ints/xms.cpp: Include stddef for offsetof here as
+	  well instead of relying on dos_inc.
+
+2011-11-20 17:32  qbix79
+
+	* [r3759] src/cpu/cpu.cpp: Include stddef for offsetof here as well
+	  instead of relying on dos_inc.h through programs.h.cpu.cpp
+
+2011-11-17 23:04  c2woody
+
+	* [r3758] src/dos/drive_cache.cpp, src/ints/mouse.cpp: some warning
+	  fixes (fear the msvc)
+
+2011-11-12 22:14  qbix79
+
+	* [r3757] src/ints/mouse.cpp: Add textmode granulity. Fix cursor
+	  handling in mode 0 and 1. Fixes DOOM-IT (thanks ripsaw)
+
+2011-11-05 17:24  h-a-l-9000
+
+	* [r3756] src/hardware/serialport/serialport.cpp: Consider parity
+	  when calculating the duration of a serial frame. E-mail report by
+	  MB.
+
+2011-11-01 17:00  qbix79
+
+	* [r3755] src/dosbox.cpp: Some small typos
+
+2011-11-01 16:31  qbix79
+
+	* [r3754] src/gui/sdlmain.cpp: Fix compilation on linux. Thank
+	  salty
+
+2011-10-30 15:06  qbix79
+
+	* [r3753] src/gui/sdlmain.cpp: Disable sticky keys in fullscreen
+	  mode. (pressing shift 5 times gives a menu)
+
+2011-09-07 18:43  c2woody
+
+	* [r3752] src/cpu/core_dyn_x86.cpp, src/cpu/core_dyn_x86/cache.h:
+	  small recompiler fixes (missing host fpu usage check; assembler
+	  output update) and enhancements
+
+2011-09-01 12:19  qbix79
+
+	* [r3751] include/callback.h, src/cpu/callback.cpp,
+	  src/ints/bios_disk.cpp: Call int 0xe when resetting a disk. Fixes
+	  a keydisk workaround algorithm. (thanks ripsaw)
+
+2011-09-01 12:08  qbix79
+
+	* [r3750] src/misc/programs.cpp: Keep track of last written
+	  character instead of previous character in buffer. This allow
+	  handling of leading and single newlines.
+
+2011-08-31 09:19  qbix79
+
+	* [r3749] src/dos/drive_cache.cpp: Some refinements.
+
+2011-08-30 13:15  qbix79
+
+	* [r3748] src/cpu/core_full/load.h,
+	  src/cpu/core_normal/prefix_0f.h: Use a fixed cycle rate in auto
+	  cycles mode when calculating RDTSC. Improves Tie break Tennis 98
+
+2011-08-30 13:14  qbix79
+
+	* [r3747] src/debug/debug_disasm.cpp: Decode RDTSC as well. Thanks
+	  ripsaw.
+
+2011-08-30 12:29  qbix79
+
+	* [r3746] src/hardware/sblaster.cpp: Update volume for cda mixer
+	  changes as well.
+
+2011-08-30 08:59  qbix79
+
+	* [r3745] src/shell/shell_cmds.cpp: Ignore verify with copy. Fixes
+	  Grand Prix Unlimited CD installer. Thanks ripsaw and rcblanke
+
+2011-08-30 08:30  qbix79
+
+	* [r3744] src/hardware/vga_draw.cpp: Fix supersaxxon. Regression
+	  from line based updates. Thanks h-a-l-9000
+
+2011-08-30 07:59  qbix79
+
+	* [r3743] src/dos/drive_cache.cpp: Be friendly for other open
+	  source projects: work with WINE style namemangling. Patch 3382938
+	  from Andre_H (modified).
+
+2011-08-16 10:41  qbix79
+
+	* [r3742] README, docs/dosbox.1, src/dos/dos_programs.cpp: Enchance
+	  RESCAN with drive paramater and -All flag
+
+2011-08-15 17:02  qbix79
+
+	* [r3741] src/hardware/keyboard.cpp: Restore old delay.
+
+2011-08-15 12:21  qbix79
+
+	* [r3740] src/hardware/keyboard.cpp: Keep repeating a pressed key
+	  if another key is released. Thanks jazztickets and robertmo
+
+2011-08-15 11:29  qbix79
+
+	* [r3739] src/shell/shell_misc.cpp: Make shift-tab walk through the
+	  completion list in reverse order.
+
+2011-07-30 15:36  h-a-l-9000
+
+	* [r3738] src/hardware/serialport/nullmodem.cpp,
+	  src/hardware/serialport/nullmodem.h: - fix the socket inheritance
+	  feature
+	  - usedtr will now, if the connection was lost in between, attempt
+	  to connect again if there is a rising edge on DTR
+	  - code improvements
+	  - handling of some unused handshake lines was changed a bit
+
+2011-07-29 19:14  qbix79
+
+	* [r3737] src/ints/bios_keyboard.cpp: Xor numlock and shift for
+	  numpad.
+
+2011-07-23 20:23  qbix79
+
+	* [r3736] src/dos/dos_programs.cpp: Rewrite mount without arguments
+	  to display volume label as well.
+	  Some refactoring of the code.
+	  Add mount -z X, where X is the new virtual drive for the Wine
+	  Team.
+
+2011-07-23 19:02  h-a-l-9000
+
+	* [r3735] src/hardware/vga_memory.cpp, src/hardware/vga_other.cpp:
+	  - Fix for Scuba Venture (PCJR booter)
+	  - Added comments for PCJR and Tandy CRT/Processor page register
+	  - Add documented CRTC 3D0/1 access for PCJR
+
+2011-07-22 17:53  qbix79
+
+	* [r3734] src/dos/dos_files.cpp: Some tiny protection against weird
+	  values
+
+2011-07-21 14:26  qbix79
+
+	* [r3733] src/dosbox.cpp, src/gui/midi_coreaudio.h: Add patch
+	  3161987 from Jason C. Penney: Add (optional) SoundFont support to
+	  midi_coreaudio synth. Added some extra info to dosbox.conf to
+	  describe this
+
+2011-07-21 13:57  qbix79
+
+	* [r3732] src/dos/dos_files.cpp: Add patch 3324624 from ano. Some
+	  fixes with respect to mixing normal and extended fcbs.
+
+2011-07-20 20:50  qbix79
+
+	* [r3731] src/ints/bios.cpp: Let's not copy extended memory when we
+	  finish waiting.
+
+2011-07-16 12:26  qbix79
+
+	* [r3730] src/dos/dos_ioctl.cpp: Handle floppies differently in
+	  ioctl calls. Makes windows 3.x happy. Thanks ripsaw
+
+2011-07-16 12:24  qbix79
+
+	* [r3729] include/bios_disk.h, src/dos/dos_programs.cpp,
+	  src/ints/bios_disk.cpp: Increase number of floppies when using
+	  non-disk images as well. Maybe decrease the number on unmount in
+	  the future. Thanks ripsaw
+
+2011-06-24 21:02  qbix79
+
+	* [r3728] include/programs.h, src/misc/setup.cpp,
+	  src/shell/shell.cpp: Allow command /Cdir
+	  Fix quoting so that command /c mount d "/tmp/a b" works
+	  This breaks command /c "dir", but this doesn't work on real DOS
+	  either.
+	  Let's hope everything still works.
+
+2011-06-20 19:25  harekiet
+
+	* [r3727] src/hardware/gus.cpp: GUS pantable fix
+
+2011-06-19 16:27  h-a-l-9000
+
+	* [r3726] src/ints/bios.cpp: Update comments on reboot-shutdown
+	  functionality
+
+2011-06-19 13:21  c2woody
+
+	* [r3725] src/cpu/callback.cpp, src/hardware/iohandler.cpp: fix
+	  manual uninstall functions for callback/io-handler objects;
+	  cleanup
+
+2011-06-18 14:02  c2woody
+
+	* [r3724] visualc_net/dosbox.vcproj: keep strangeness out of this
+
+2011-06-18 13:39  c2woody
+
+	* [r3723] include/Makefile.am, include/logging.h,
+	  include/pci_bus.h, src/debug/debug_gui.cpp, src/dosbox.cpp,
+	  src/hardware/Makefile.am, src/hardware/pci_bus.cpp,
+	  src/hardware/pci_devices.h, src/ints/bios.cpp,
+	  visualc_net/dosbox.vcproj: add PCI framework
+
+2011-06-17 22:00  qbix79
+
+	* [r3722] src/dos/dos.cpp: Refinement of default case.
+
+2011-06-17 14:28  c2woody
+
+	* [r3721] include/callback.h, include/inout.h,
+	  src/cpu/callback.cpp, src/hardware/iohandler.cpp: add manual
+	  uninstall functions for callback/io-handler objects
+
+2011-06-12 16:58  h-a-l-9000
+
+	* [r3720] src/dos/dos.cpp: Patch:
+	  - Fix regression with Romantic Blue caused by the midnight
+	  overflow patch
+	  - Preserve AH
+	  - Derive conversion value from known constants instead of using a
+	  magic number
+	  Thanks to ripsaw8080.
+
+2011-06-12 13:58  qbix79
+
+	* [r3719] configure.in: Wrong file commited
+
+2011-06-12 13:56  qbix79
+
+	* [r3718] configure.in, src/cpu/paging.cpp,
+	  src/hardware/memory.cpp, src/hardware/vga_memory.cpp: Enforce
+	  call order of the functions used in the bitshift. Fixes visual C
+	  /O2 builds. Thanks h-a-l-9000 and wjp.
+
+2011-06-11 13:49  qbix79
+
+	* [r3717] src/hardware/ipx.cpp: Typo alreadu=>already
+
+2011-06-07 20:04  qbix79
+
+	* [r3716] src/dos/dos_files.cpp: Add 0x9d for Duke3d caribbean
+	  launcher. (ripsaw)
+
+2011-06-05 18:28  h-a-l-9000
+
+	* [r3715] include/shell.h, src/dos/dos.cpp, src/ints/bios.cpp,
+	  src/shell/shell.cpp, src/shell/shell_cmds.cpp: - Add
+	  midnight/next day increment
+	  - Add date and time commands (functionality limited)
+
+2011-05-28 20:26  c2woody
+
+	* [r3714] include/bios_disk.h, src/dos/drive_fat.cpp,
+	  src/dos/drives.h, src/ints/bios_disk.cpp: speed up fat drive
+	  access
+
+2011-05-18 21:02  c2woody
+
+	* [r3713] src/dos/dos_programs.cpp, src/dos/drive_virtual.cpp:
+	  reduce reported total drive size to avoid certain installer
+	  bugs/misbehaviour (ripsaw; fixes Front Page Sports Baseball
+	  installer regression)
+
+2011-05-15 20:25  qbix79
+
+	* [r3712] src/debug/debug.cpp, src/dosbox.cpp: Stay within array
+	  limits
+
+2011-05-11 11:06  qbix79
+
+	* [r3711] src/ints/bios_keyboard.cpp: Correct Get Extended Shift
+	  States; Int 16 call 12 (thanks ripsaw).
+
+2011-05-10 18:00  c2woody
+
+	* [r3710] src/cpu/cpu.cpp: cr0 always signals 386-type FPU present
+	  for 486+ target architectures (fixes Biing cdrom version)
+
+2011-05-09 16:19  c2woody
+
+	* [r3709] src/cpu/core_full/load.h, src/cpu/core_full/optable.h,
+	  src/cpu/core_full/support.h: add rdtsc instruction to full core
+	  as well for consistency
+
+2011-05-05 15:40  qbix79
+
+	* [r3708] docs/dosbox.1: Typo. (debian package)
+
+2011-05-05 09:30  qbix79
+
+	* [r3707] src/shell/shell.cpp: less is more
+
+2011-05-02 18:37  c2woody
+
+	* [r3706] src/dos/dos_mscdex.cpp: mscdex device status returns
+	  audio-is-playing flag as well (ripsaw; fixes Blood CDDA track
+	  looping)
+
+2011-05-02 17:15  c2woody
+
+	* [r3705] src/dos/dos_mscdex.cpp: fix unintended fall-through for
+	  mscdex load medium command (ripsaw)
+
+2011-04-28 20:06  qbix79
+
+	* [r3704] src/shell/shell_cmds.cpp: Tiny speed up
+
+2011-04-28 14:07  qbix79
+
+	* [r3703] src/shell/shell_cmds.cpp: Improve wildcard handling with
+	  directories in copy for FA CD installer (ripsaw)
+
+2011-04-27 17:09  c2woody
+
+	* [r3702] src/dos/cdrom_image.cpp, src/dos/cdrom_ioctl_win32.cpp,
+	  src/dos/dos_mscdex.cpp: update audio-cd playing status before
+	  deciding to pause/resume on mscdex stop request (ripsaw; fixes
+	  Shadowcaster playback)
+
+2011-04-26 15:00  c2woody
+
+	* [r3701] INSTALL, scripts/dosbox-installer.nsi,
+	  src/dos/scsidefs.h, src/gui/sdl_gui.cpp,
+	  src/libs/zmbv/zmbv_vfw.rc, src/winres.rc: year/info update for
+	  some other files as well
+
+2011-04-26 09:34  qbix79
+
+	* [r3700] acinclude.m4, include/bios_disk.h, include/callback.h,
+	  include/control.h, include/cpu.h, include/cross.h,
+	  include/debug.h, include/dma.h, include/dos_inc.h,
+	  include/dos_system.h, include/dosbox.h, include/fpu.h,
+	  include/hardware.h, include/inout.h, include/ipx.h,
+	  include/ipxserver.h, include/joystick.h, include/keyboard.h,
+	  include/logging.h, include/mapper.h, include/mem.h,
+	  include/mixer.h, include/mouse.h, include/paging.h,
+	  include/pic.h, include/programs.h, include/regs.h,
+	  include/render.h, include/serialport.h, include/setup.h,
+	  include/shell.h, include/support.h, include/timer.h,
+	  include/vga.h, include/video.h, src/cpu/callback.cpp,
+	  src/cpu/core_dyn_x86.cpp, src/cpu/core_dyn_x86/cache.h,
+	  src/cpu/core_dyn_x86/decoder.h, src/cpu/core_dyn_x86/dyn_fpu.h,
+	  src/cpu/core_dyn_x86/dyn_fpu_dh.h,
+	  src/cpu/core_dyn_x86/helpers.h, src/cpu/core_dyn_x86/risc_x86.h,
+	  src/cpu/core_dyn_x86/string.h, src/cpu/core_dynrec.cpp,
+	  src/cpu/core_dynrec/cache.h, src/cpu/core_dynrec/decoder.h,
+	  src/cpu/core_dynrec/decoder_basic.h,
+	  src/cpu/core_dynrec/decoder_opcodes.h,
+	  src/cpu/core_dynrec/dyn_fpu.h, src/cpu/core_dynrec/operators.h,
+	  src/cpu/core_dynrec/risc_armv4le-common.h,
+	  src/cpu/core_dynrec/risc_armv4le-o3.h,
+	  src/cpu/core_dynrec/risc_armv4le-s3.h,
+	  src/cpu/core_dynrec/risc_armv4le-thumb-iw.h,
+	  src/cpu/core_dynrec/risc_armv4le-thumb-niw.h,
+	  src/cpu/core_dynrec/risc_armv4le-thumb.h,
+	  src/cpu/core_dynrec/risc_armv4le.h,
+	  src/cpu/core_dynrec/risc_mipsel32.h,
+	  src/cpu/core_dynrec/risc_x64.h, src/cpu/core_dynrec/risc_x86.h,
+	  src/cpu/core_full.cpp, src/cpu/core_full/ea_lookup.h,
+	  src/cpu/core_full/load.h, src/cpu/core_full/loadwrite.h,
+	  src/cpu/core_full/op.h, src/cpu/core_full/optable.h,
+	  src/cpu/core_full/save.h, src/cpu/core_full/string.h,
+	  src/cpu/core_full/support.h, src/cpu/core_normal.cpp,
+	  src/cpu/core_normal/helpers.h, src/cpu/core_normal/prefix_0f.h,
+	  src/cpu/core_normal/prefix_66.h,
+	  src/cpu/core_normal/prefix_66_0f.h,
+	  src/cpu/core_normal/prefix_none.h, src/cpu/core_normal/string.h,
+	  src/cpu/core_normal/support.h, src/cpu/core_normal/table_ea.h,
+	  src/cpu/core_prefetch.cpp, src/cpu/core_simple.cpp,
+	  src/cpu/cpu.cpp, src/cpu/flags.cpp, src/cpu/instructions.h,
+	  src/cpu/lazyflags.h, src/cpu/modrm.cpp, src/cpu/modrm.h,
+	  src/cpu/paging.cpp, src/debug/debug.cpp, src/debug/debug_gui.cpp,
+	  src/debug/debug_inc.h, src/debug/debug_win32.cpp,
+	  src/debug/disasm_tables.h, src/dos/cdrom.cpp, src/dos/cdrom.h,
+	  src/dos/cdrom_aspi_win32.cpp, src/dos/cdrom_image.cpp,
+	  src/dos/cdrom_ioctl_linux.cpp, src/dos/cdrom_ioctl_os2.cpp,
+	  src/dos/cdrom_ioctl_win32.cpp, src/dos/dev_con.h,
+	  src/dos/dos.cpp, src/dos/dos_classes.cpp,
+	  src/dos/dos_devices.cpp, src/dos/dos_execute.cpp,
+	  src/dos/dos_files.cpp, src/dos/dos_ioctl.cpp,
+	  src/dos/dos_keyboard_layout.cpp, src/dos/dos_memory.cpp,
+	  src/dos/dos_misc.cpp, src/dos/dos_mscdex.cpp,
+	  src/dos/dos_programs.cpp, src/dos/dos_tables.cpp,
+	  src/dos/drive_cache.cpp, src/dos/drive_fat.cpp,
+	  src/dos/drive_iso.cpp, src/dos/drive_local.cpp,
+	  src/dos/drives.cpp, src/dos/drives.h, src/dosbox.cpp,
+	  src/fpu/fpu.cpp, src/fpu/fpu_instructions.h,
+	  src/fpu/fpu_instructions_x86.h, src/gui/dosbox_logo.h,
+	  src/gui/midi.cpp, src/gui/midi_alsa.h, src/gui/midi_coreaudio.h,
+	  src/gui/midi_oss.h, src/gui/midi_win32.h, src/gui/render.cpp,
+	  src/gui/render_loops.h, src/gui/render_scalers.cpp,
+	  src/gui/render_scalers.h, src/gui/render_simple.h,
+	  src/gui/render_templates.h, src/gui/render_templates_hq.h,
+	  src/gui/render_templates_hq2x.h, src/gui/render_templates_hq3x.h,
+	  src/gui/render_templates_sai.h, src/gui/sdl_gui.cpp,
+	  src/gui/sdl_mapper.cpp, src/gui/sdlmain.cpp,
+	  src/hardware/adlib.cpp, src/hardware/adlib.h,
+	  src/hardware/cmos.cpp, src/hardware/dbopl.cpp,
+	  src/hardware/dbopl.h, src/hardware/disney.cpp,
+	  src/hardware/dma.cpp, src/hardware/gameblaster.cpp,
+	  src/hardware/gus.cpp, src/hardware/hardware.cpp,
+	  src/hardware/iohandler.cpp, src/hardware/ipx.cpp,
+	  src/hardware/ipxserver.cpp, src/hardware/joystick.cpp,
+	  src/hardware/keyboard.cpp, src/hardware/memory.cpp,
+	  src/hardware/mixer.cpp, src/hardware/mpu401.cpp,
+	  src/hardware/opl.cpp, src/hardware/opl.h,
+	  src/hardware/pcspeaker.cpp, src/hardware/pic.cpp,
+	  src/hardware/sblaster.cpp,
+	  src/hardware/serialport/directserial.cpp,
+	  src/hardware/serialport/directserial.h,
+	  src/hardware/serialport/libserial.cpp,
+	  src/hardware/serialport/libserial.h,
+	  src/hardware/serialport/misc_util.cpp,
+	  src/hardware/serialport/misc_util.h,
+	  src/hardware/serialport/nullmodem.cpp,
+	  src/hardware/serialport/nullmodem.h,
+	  src/hardware/serialport/serialdummy.cpp,
+	  src/hardware/serialport/serialdummy.h,
+	  src/hardware/serialport/serialport.cpp,
+	  src/hardware/serialport/softmodem.cpp,
+	  src/hardware/serialport/softmodem.h,
+	  src/hardware/tandy_sound.cpp, src/hardware/timer.cpp,
+	  src/hardware/vga.cpp, src/hardware/vga_attr.cpp,
+	  src/hardware/vga_crtc.cpp, src/hardware/vga_dac.cpp,
+	  src/hardware/vga_draw.cpp, src/hardware/vga_gfx.cpp,
+	  src/hardware/vga_memory.cpp, src/hardware/vga_misc.cpp,
+	  src/hardware/vga_other.cpp, src/hardware/vga_paradise.cpp,
+	  src/hardware/vga_s3.cpp, src/hardware/vga_seq.cpp,
+	  src/hardware/vga_tseng.cpp, src/hardware/vga_xga.cpp,
+	  src/ints/bios.cpp, src/ints/bios_disk.cpp,
+	  src/ints/bios_keyboard.cpp, src/ints/ems.cpp, src/ints/int10.cpp,
+	  src/ints/int10.h, src/ints/int10_char.cpp,
+	  src/ints/int10_memory.cpp, src/ints/int10_misc.cpp,
+	  src/ints/int10_modes.cpp, src/ints/int10_pal.cpp,
+	  src/ints/int10_put_pixel.cpp, src/ints/int10_vesa.cpp,
+	  src/ints/int10_video_state.cpp, src/ints/int10_vptable.cpp,
+	  src/ints/mouse.cpp, src/ints/xms.cpp, src/ints/xms.h,
+	  src/libs/gui_tk/gui_tk.cpp, src/libs/gui_tk/gui_tk.h,
+	  src/libs/zmbv/drvproc.cpp, src/libs/zmbv/zmbv.cpp,
+	  src/libs/zmbv/zmbv.h, src/libs/zmbv/zmbv_vfw.cpp,
+	  src/misc/cross.cpp, src/misc/messages.cpp, src/misc/programs.cpp,
+	  src/misc/setup.cpp, src/misc/support.cpp, src/shell/shell.cpp,
+	  src/shell/shell_batch.cpp, src/shell/shell_cmds.cpp,
+	  src/shell/shell_misc.cpp: Update year. Remove CVS tags
+
+2011-04-23 10:50  c2woody
+
+	* [r3699] src/hardware/sblaster.cpp: add function to manually
+	  trigger the 16bit sb IRQ (ripsaw; fixes sb16 detection for
+	  Assault Wing)
+
+2011-04-22 14:18  c2woody
+
+	* [r3698] include/bios.h, src/ints/bios.cpp: add compatibility POST
+	  chaining, certain game exiting should look better now (ripsaw,
+	  sort of fixes a hangup with Astro Dodge)
+
+2011-04-19 20:38  c2woody
+
+	* [r3697] include/regs.h, src/cpu/cpu.cpp: AC flag toggling depends
+	  on emulated CPU type (486+)
+
+2011-04-19 19:46  c2woody
+
+	* [r3696] src/hardware/sblaster.cpp: fix sb halt/continue sequence
+	  when no transfer in progress (thanks to tcostin, fixes some
+	  GameWizard crash)
+
+2011-04-16 19:24  h-a-l-9000
+
+	* [r3695] src/hardware/iohandler.cpp: Fix I/O exception caused by
+	  callbacks (16 and 32-bit accesses)
+
+2011-04-16 12:23  qbix79
+
+	* [r3694] src/cpu/callback.cpp: Update CALLBACK_Idle to use the
+	  callback offset. Fixes memory corruption.
+
+2011-04-10 15:09  qbix79
+
+	* [r3693] src/shell/shell_cmds.cpp: copy file + file improvements;
+	  care less about spaces around the +. Thanks ripsaw
+
+2011-04-02 20:38  h-a-l-9000
+
+	* [r3692] src/hardware/pic.cpp, src/hardware/timer.cpp: Timer patch
+	  - remember timer value beyond mode switch: Fixes 3DMania, Dunkle
+	  Schatten with Soundblaster, glitch in Panic demo
+	  - set a defined short interrupt response time for CPU-induced
+	  interrupts
+
+2011-03-31 19:31  qbix79
+
+	* [r3691] include/dos_inc.h: Make gcc 4.6 happy
+
+2011-03-29 12:44  qbix79
+
+	* [r3690] src/cpu/core_dyn_x86.cpp, src/cpu/core_dyn_x86/decoder.h,
+	  src/cpu/core_dynrec.cpp, src/cpu/core_dynrec/decoder.h: Make
+	  newer GCCs happy
+
+2011-03-24 10:46  qbix79
+
+	* [r3689] src/gui/sdl_mapper.cpp, src/gui/sdlmain.cpp,
+	  src/ints/bios_keyboard.cpp: Fix startup detection of numlock and
+	  capslock.
+	  Improve behaviour with SDL 1.2.14 with respect to lock keys.
+	  What works:
+	  - dosbox compiled against SDL < 1.2.14 used with SDL < 1.2.14
+	  - dosbox compiled against SDL < 1.2.14 used with SDL >= 1.2.14
+	  - dosbox compiled against SDL >=1.2.14 used with SDL >= 1.2.14
+	  What doesn't work:
+	  - dosbox compiled against SDL >=1.2.14 used with SDL < 1.2.14
+	  - debian/ubuntu SDL < 1.2.14. (Check comment in
+	  src/gui/sdlmain.cpp on how to fix it.)
+	  Untested:
+	  - debian/ubuntu SDL >=1.2.14.
+
+2011-03-23 09:50  qbix79
+
+	* [r3688] src/gui/midi.cpp: Include correct headers
+
+2011-03-23 08:55  qbix79
+
+	* [r3687] src/dosbox.cpp, src/gui/midi.cpp: Add option to delay
+	  sysex processing for sensitive real midi devices. Patch 3159289
+	  from jczorkmid and rcblanke (slightly modified).
+
+2011-03-18 21:39  c2woody
+
+	* [r3686] src/dos/dos_programs.cpp, src/dos/drive_local.cpp,
+	  src/dos/drive_virtual.cpp: reduce reported sectors per cluster
+	  drive (ripsaw; fixes buggy drive geometry calculations in Black
+	  Knight (installer) and Tamper)
+
+2011-03-06 17:20  qbix79
+
+	* [r3685] src/cpu/cpu.cpp: forgot one.
+
+2011-03-06 16:34  h-a-l-9000
+
+	* [r3684] src/ints/int10_modes.cpp, src/ints/int10_vesa.cpp: VESA
+	  patch:
+	  - implement text mode support, add modes 108h through 10Ch
+	  - adjust the S3 text modes to the values found on real hardware
+	  - added defines for VESA return values
+	  - rewrite get/set scanlength and set display start for
+	  completeness
+	  - catch a possible division by zero, part of SF patch 3154782,
+	  thanks Daniel Richard G.
+	  - align display page sizes to 64k for compatibility
+
+2011-03-06 16:29  qbix79
+
+	* [r3683] src/cpu/cpu.cpp: Keep proper track of halted cycles.
+	  h-a-l-9000 and ripsaw. Improves MPXPLAY
+
+2011-03-06 14:52  qbix79
+
+	* [r3682] src/dos/drive_iso.cpp: Handle files without an extension
+	  better.
+
+2011-03-06 10:38  c2woody
+
+	* [r3681] src/dos/dos_keyboard_layout.cpp: keep old key-flags for
+	  buggy layout files that redefine/extend already defined keys
+	  (fixes caps-lock behaviour of key E for us-layout with codepage
+	  858)
+
+2011-03-04 15:54  c2woody
+
+	* [r3680] src/cpu/core_normal/prefix_none.h: normal core IN AX,Ib
+	  should use full 16bit target register (thanks to danoon for
+	  spotting this)
+
+2011-02-24 15:08  qbix79
+
+	* [r3679] src/dos/dos.cpp: Allow DOS time to be temporary reset.
+	  Fixes romantic blue and others (QuickBasic games). Thanks ripsaw.
+
+2011-02-22 18:02  qbix79
+
+	* [r3678] include/dosbox.h: Declare E_Exit as noreturn. Makes gcc
+	  happy
+
+2011-02-19 19:57  qbix79
+
+	* [r3677] include/dos_inc.h, src/dos/dos_classes.cpp,
+	  src/dos/dos_files.cpp: Improve XTreeGold support. Thanks ripsaw
+
+2011-02-19 19:44  qbix79
+
+	* [r3676] src/dos/dos_files.cpp: Reopen closed fcbs, if they were
+	  likely to have been opened before. Fixes Time and Magic. Thanks
+	  ripsaw
+
+2011-02-14 07:42  qbix79
+
+	* [r3675] src/debug/debug_gui.cpp: No need for the internal values
+	  of WINDOW. Improves portability. Thanks for the report John
+	  Daniel
+
+2011-01-22 16:15  c2woody
+
+	* [r3674] src/cpu/core_dynrec/risc_x64.h: update 64bit recompiler
+	  core to handle OSX (memory addressing, stack alignment) from
+	  gulikoza
+
+2011-01-20 21:39  h-a-l-9000
+
+	* [r3673] src/hardware/serialport/nullmodem.cpp: Fix NATIVESOCKETS
+	  macro
+
+2011-01-20 17:33  qbix79
+
+	* [r3672] configure.in: Fix problems with automake 2.68. Inspired
+	  by patch 3152173 of Dominus.
+
+2011-01-20 17:02  qbix79
+
+	* [r3671] src/dos/cdrom_ioctl_linux.cpp: Explicitly test for the
+	  documented return value when failed.
+
+2011-01-20 16:56  qbix79
+
+	* [r3670] src/debug/debug.cpp,
+	  src/hardware/serialport/libserial.cpp: Fix 2 leaks. (unlikely to
+	  occur though)
+
+2011-01-19 18:26  h-a-l-9000
+
+	* [r3669] src/hardware/vga_memory.cpp: Implement video memory
+	  access to all text mode planes. Fixes Fasttracker
+
+2011-01-19 17:22  h-a-l-9000
+
+	* [r3668] include/vga.h: Fix out of bounds access (SF bug 3156587,
+	  thanks danoon for reporting). The unused byte in the 32-bit color
+	  value of the hardware mouse cursor pixels was affected.
+
+2011-01-16 20:49  qbix79
+
+	* [r3667] include/dos_system.h, src/dos/drive_local.cpp: Add dummy
+	  support for openmode 4. Legend Of the Red Dragon 4.07 uses this.
+
+2011-01-05 19:48  qbix79
+
+	* [r3666] include/dos_inc.h, src/dos/dos.cpp,
+	  src/dos/dos_files.cpp: Some FCB read/write refinements. Stop
+	  exiting on weird int 21 0x33 calls. (ripsaw)
+
+2011-01-04 20:37  qbix79
+
+	* [r3665] src/hardware/pic.cpp: Typo. pic[0] should be pics[0].
+	  Thanks for spotting it Danoon.
+
+2011-01-04 10:30  qbix79
+
+	* [r3664] src/misc/programs.cpp: Typo
+
+2010-12-04 14:33  qbix79
+
+	* [r3663] src/dos/drive_local.cpp: Fix FileExists on directories.
+
+2010-11-29 22:26  h-a-l-9000
+
+	* [r3662] src/hardware/vga_crtc.cpp: Potentially resize the screen
+	  when vertical blanking end changes. Fixes Threat v1.40 Intro.
+
+2010-11-10 19:58  h-a-l-9000
+
+	* [r3661] src/hardware/vga_draw.cpp: Implement special case of
+	  vertical blanking register 'usage'. Fixes Threat v1.40.
+	  Thanks ripsaw8080 for reporting.
+
+2010-11-10 13:19  h-a-l-9000
+
+	* [r3660] src/shell/shell_cmds.cpp: Make the shortcut to set values
+	  of properties from the command line work again (regressed in the
+	  previous config-related patch)
+
+2010-11-09 08:35  qbix79
+
+	* [r3659] src/dos/dos_files.cpp: ..\ is valid if the result ends up
+	  in the root dir. Thanks ripsaw
+
+2010-11-06 14:00  qbix79
+
+	* [r3658] src/hardware/sblaster.cpp: soundblaster cd audio control
+	  (this is not the same as mscdex audio control). Thanks ripsaw.
+
+2010-11-06 13:58  qbix79
+
+	* [r3657] src/dos/dos_files.cpp: Close sourcefile if open in
+	  FCB_Rename. Fixes ancient dutch version of wordstart
+
+2010-11-06 13:35  qbix79
+
+	* [r3656] src/dos/dos.cpp: Destroy some registers. Pinball world
+	  installer. (thanks ripsaw)
+
+2010-11-06 13:08  qbix79
+
+	* [r3655] src/dos/cdrom_image.cpp: big endian volume control for cd
+	  images. Thanks ripsaw
+
+2010-11-01 22:21  h-a-l-9000
+
+	* [r3654] src/misc/programs.cpp: config:
+	  - fix crashes when passing unexpected parameter combinations
+	  - config -get 'sectionname' now lists the properties with their
+	  values
+	  - add missing translation string
+	  Thanks robertmo for reporting.
+
+2010-10-29 21:33  c2woody
+
+	* [r3653] AUTHORS, COPYING, ChangeLog, INSTALL, Makefile.am, NEWS,
+	  README, THANKS, VERSION, acinclude.m4, autogen.sh, configure.in,
+	  docs/Makefile.am, docs/PORTING, docs/README.video, docs/dosbox.1,
+	  include/Makefile.am, include/bios.h, include/bios_disk.h,
+	  include/callback.h, include/control.h, include/cpu.h,
+	  include/cross.h, include/debug.h, include/dma.h,
+	  include/dos_inc.h, include/dos_system.h, include/dosbox.h,
+	  include/fpu.h, include/hardware.h, include/inout.h,
+	  include/ipx.h, include/ipxserver.h, include/joystick.h,
+	  include/keyboard.h, include/logging.h, include/mapper.h,
+	  include/mem.h, include/mixer.h, include/modules.h,
+	  include/mouse.h, include/paging.h, include/pic.h,
+	  include/programs.h, include/regs.h, include/render.h,
+	  include/serialport.h, include/setup.h, include/shell.h,
+	  include/support.h, include/timer.h, include/vga.h,
+	  include/video.h, scripts/captures.bat,
+	  scripts/dosbox-installer.nsi, scripts/editconf.bat,
+	  scripts/ega-switch.pl, scripts/font-switch.pl,
+	  scripts/resetconf.bat, scripts/resetmapper.bat, src/Makefile.am,
+	  src/cpu/Makefile.am, src/cpu/callback.cpp,
+	  src/cpu/core_dyn_x86.cpp, src/cpu/core_dyn_x86/Makefile.am,
+	  src/cpu/core_dyn_x86/cache.h, src/cpu/core_dyn_x86/decoder.h,
+	  src/cpu/core_dyn_x86/dyn_fpu.h,
+	  src/cpu/core_dyn_x86/dyn_fpu_dh.h,
+	  src/cpu/core_dyn_x86/helpers.h, src/cpu/core_dyn_x86/risc_x86.h,
+	  src/cpu/core_dyn_x86/string.h, src/cpu/core_dynrec.cpp,
+	  src/cpu/core_dynrec/Makefile.am, src/cpu/core_dynrec/cache.h,
+	  src/cpu/core_dynrec/decoder.h,
+	  src/cpu/core_dynrec/decoder_basic.h,
+	  src/cpu/core_dynrec/decoder_opcodes.h,
+	  src/cpu/core_dynrec/dyn_fpu.h, src/cpu/core_dynrec/operators.h,
+	  src/cpu/core_dynrec/risc_armv4le-common.h,
+	  src/cpu/core_dynrec/risc_armv4le-o3.h,
+	  src/cpu/core_dynrec/risc_armv4le-s3.h,
+	  src/cpu/core_dynrec/risc_armv4le-thumb-iw.h,
+	  src/cpu/core_dynrec/risc_armv4le-thumb-niw.h,
+	  src/cpu/core_dynrec/risc_armv4le-thumb.h,
+	  src/cpu/core_dynrec/risc_armv4le.h,
+	  src/cpu/core_dynrec/risc_mipsel32.h,
+	  src/cpu/core_dynrec/risc_x64.h, src/cpu/core_dynrec/risc_x86.h,
+	  src/cpu/core_full.cpp, src/cpu/core_full/Makefile.am,
+	  src/cpu/core_full/ea_lookup.h, src/cpu/core_full/load.h,
+	  src/cpu/core_full/loadwrite.h, src/cpu/core_full/op.h,
+	  src/cpu/core_full/optable.h, src/cpu/core_full/save.h,
+	  src/cpu/core_full/string.h, src/cpu/core_full/support.h,
+	  src/cpu/core_normal.cpp, src/cpu/core_normal/Makefile.am,
+	  src/cpu/core_normal/helpers.h, src/cpu/core_normal/prefix_0f.h,
+	  src/cpu/core_normal/prefix_66.h,
+	  src/cpu/core_normal/prefix_66_0f.h,
+	  src/cpu/core_normal/prefix_none.h, src/cpu/core_normal/string.h,
+	  src/cpu/core_normal/support.h, src/cpu/core_normal/table_ea.h,
+	  src/cpu/core_prefetch.cpp, src/cpu/core_simple.cpp,
+	  src/cpu/cpu.cpp, src/cpu/flags.cpp, src/cpu/instructions.h,
+	  src/cpu/lazyflags.h, src/cpu/modrm.cpp, src/cpu/modrm.h,
+	  src/cpu/paging.cpp, src/debug/Makefile.am, src/debug/debug.cpp,
+	  src/debug/debug_disasm.cpp, src/debug/debug_gui.cpp,
+	  src/debug/debug_inc.h, src/debug/debug_win32.cpp,
+	  src/debug/disasm_tables.h, src/dos/Makefile.am,
+	  src/dos/cdrom.cpp, src/dos/cdrom.h, src/dos/cdrom_aspi_win32.cpp,
+	  src/dos/cdrom_image.cpp, src/dos/cdrom_ioctl_linux.cpp,
+	  src/dos/cdrom_ioctl_os2.cpp, src/dos/cdrom_ioctl_win32.cpp,
+	  src/dos/dev_con.h, src/dos/dos.cpp, src/dos/dos_classes.cpp,
+	  src/dos/dos_codepages.h, src/dos/dos_devices.cpp,
+	  src/dos/dos_execute.cpp, src/dos/dos_files.cpp,
+	  src/dos/dos_ioctl.cpp, src/dos/dos_keyboard_layout.cpp,
+	  src/dos/dos_keyboard_layout_data.h, src/dos/dos_memory.cpp,
+	  src/dos/dos_misc.cpp, src/dos/dos_mscdex.cpp,
+	  src/dos/dos_programs.cpp, src/dos/dos_tables.cpp,
+	  src/dos/drive_cache.cpp, src/dos/drive_fat.cpp,
+	  src/dos/drive_iso.cpp, src/dos/drive_local.cpp,
+	  src/dos/drive_virtual.cpp, src/dos/drives.cpp, src/dos/drives.h,
+	  src/dos/scsidefs.h, src/dos/wnaspi32.h, src/dosbox.cpp,
+	  src/dosbox.ico, src/fpu/Makefile.am, src/fpu/fpu.cpp,
+	  src/fpu/fpu_instructions.h, src/fpu/fpu_instructions_x86.h,
+	  src/gui/Makefile.am, src/gui/dosbox_logo.h,
+	  src/gui/dosbox_splash.h, src/gui/midi.cpp, src/gui/midi_alsa.h,
+	  src/gui/midi_coreaudio.h, src/gui/midi_coremidi.h,
+	  src/gui/midi_oss.h, src/gui/midi_win32.h, src/gui/render.cpp,
+	  src/gui/render_loops.h, src/gui/render_scalers.cpp,
+	  src/gui/render_scalers.h, src/gui/render_simple.h,
+	  src/gui/render_templates.h, src/gui/render_templates_hq.h,
+	  src/gui/render_templates_hq2x.h, src/gui/render_templates_hq3x.h,
+	  src/gui/render_templates_sai.h, src/gui/sdl_gui.cpp,
+	  src/gui/sdl_mapper.cpp, src/gui/sdlmain.cpp,
+	  src/hardware/Makefile.am, src/hardware/adlib.cpp,
+	  src/hardware/adlib.h, src/hardware/cmos.cpp,
+	  src/hardware/dbopl.cpp, src/hardware/dbopl.h,
+	  src/hardware/disney.cpp, src/hardware/dma.cpp,
+	  src/hardware/gameblaster.cpp, src/hardware/gus.cpp,
+	  src/hardware/hardware.cpp, src/hardware/iohandler.cpp,
+	  src/hardware/ipx.cpp, src/hardware/ipxserver.cpp,
+	  src/hardware/joystick.cpp, src/hardware/keyboard.cpp,
+	  src/hardware/memory.cpp, src/hardware/mixer.cpp,
+	  src/hardware/mpu401.cpp, src/hardware/opl.cpp,
+	  src/hardware/opl.h, src/hardware/pcspeaker.cpp,
+	  src/hardware/pic.cpp, src/hardware/sblaster.cpp,
+	  src/hardware/serialport/Makefile.am,
+	  src/hardware/serialport/directserial.cpp,
+	  src/hardware/serialport/directserial.h,
+	  src/hardware/serialport/libserial.cpp,
+	  src/hardware/serialport/libserial.h,
+	  src/hardware/serialport/misc_util.cpp,
+	  src/hardware/serialport/misc_util.h,
+	  src/hardware/serialport/nullmodem.cpp,
+	  src/hardware/serialport/nullmodem.h,
+	  src/hardware/serialport/serialdummy.cpp,
+	  src/hardware/serialport/serialdummy.h,
+	  src/hardware/serialport/serialport.cpp,
+	  src/hardware/serialport/softmodem.cpp,
+	  src/hardware/serialport/softmodem.h,
+	  src/hardware/tandy_sound.cpp, src/hardware/timer.cpp,
+	  src/hardware/vga.cpp, src/hardware/vga_attr.cpp,
+	  src/hardware/vga_crtc.cpp, src/hardware/vga_dac.cpp,
+	  src/hardware/vga_draw.cpp, src/hardware/vga_gfx.cpp,
+	  src/hardware/vga_memory.cpp, src/hardware/vga_misc.cpp,
+	  src/hardware/vga_other.cpp, src/hardware/vga_paradise.cpp,
+	  src/hardware/vga_s3.cpp, src/hardware/vga_seq.cpp,
+	  src/hardware/vga_tseng.cpp, src/hardware/vga_xga.cpp,
+	  src/ints/Makefile.am, src/ints/bios.cpp, src/ints/bios_disk.cpp,
+	  src/ints/bios_keyboard.cpp, src/ints/ems.cpp, src/ints/int10.cpp,
+	  src/ints/int10.h, src/ints/int10_char.cpp,
+	  src/ints/int10_memory.cpp, src/ints/int10_misc.cpp,
+	  src/ints/int10_modes.cpp, src/ints/int10_pal.cpp,
+	  src/ints/int10_put_pixel.cpp, src/ints/int10_vesa.cpp,
+	  src/ints/int10_video_state.cpp, src/ints/int10_vptable.cpp,
+	  src/ints/mouse.cpp, src/ints/xms.cpp, src/ints/xms.h,
+	  src/libs/Makefile.am, src/libs/gui_tk/Doxyfile,
+	  src/libs/gui_tk/Makefile.am, src/libs/gui_tk/gui_tk.cpp,
+	  src/libs/gui_tk/gui_tk.h, src/libs/zmbv/Makefile.am,
+	  src/libs/zmbv/drvproc.cpp, src/libs/zmbv/resource.h,
+	  src/libs/zmbv/zmbv.cpp, src/libs/zmbv/zmbv.def,
+	  src/libs/zmbv/zmbv.h, src/libs/zmbv/zmbv.inf,
+	  src/libs/zmbv/zmbv.sln, src/libs/zmbv/zmbv.vcproj,
+	  src/libs/zmbv/zmbv_vfw.cpp, src/libs/zmbv/zmbv_vfw.h,
+	  src/libs/zmbv/zmbv_vfw.rc, src/misc/Makefile.am,
+	  src/misc/cross.cpp, src/misc/messages.cpp, src/misc/programs.cpp,
+	  src/misc/setup.cpp, src/misc/support.cpp,
+	  src/platform/Makefile.am, src/platform/sdl-win32.diff,
+	  src/platform/visualc/Makefile.am, src/platform/visualc/config.h,
+	  src/platform/visualc/ntddcdrm.h, src/platform/visualc/ntddscsi.h,
+	  src/platform/visualc/unistd.h, src/shell/Makefile.am,
+	  src/shell/shell.cpp, src/shell/shell_batch.cpp,
+	  src/shell/shell_cmds.cpp, src/shell/shell_misc.cpp,
+	  src/winres.rc, visualc_net/Makefile.am, visualc_net/dosbox.sln,
+	  visualc_net/dosbox.vcproj: update svn properties
+
+2010-10-29 21:18  h-a-l-9000
+
+	* [r3652] include/cross.h, src/misc/programs.cpp,
+	  src/misc/setup.cpp: GCC compilation and test for empty string fix
+	  related to the config patch.
+	  Thanks TeaRex and ripsaw8080 for reporting.
+
+2010-10-28 17:35  h-a-l-9000
+
+	* [r3651] README, include/control.h, include/cross.h,
+	  include/mapper.h, include/programs.h, include/setup.h,
+	  src/debug/debug.cpp, src/dosbox.cpp, src/gui/sdl_gui.cpp,
+	  src/gui/sdl_mapper.cpp, src/gui/sdlmain.cpp, src/misc/cross.cpp,
+	  src/misc/messages.cpp, src/misc/programs.cpp, src/misc/setup.cpp:
+	  Add new features to the config command for control of the config
+	  file:
+	  - manipulate the autoexec section
+	  - display information on sections and values
+	  - show the used config files and startup command line parameters
+	  - restart capability
+	  - save config files either in the config or program directory
+
+2010-10-18 13:49  qbix79
+
+	* [r3650] src/gui/sdlmain.cpp: Check return code of
+	  SDL_LockYUVOverlay. Should fix some rare crashes.
+
+2010-10-09 13:49  c2woody
+
+	* [r3649] src/cpu/instructions.h: fix dimul flags calculation for
+	  corner cases (thanks to bavi)
+
+2010-10-04 21:46  h-a-l-9000
+
+	* [r3648] src/hardware/vga_draw.cpp: - Use temporary storage for
+	  linear scanline, fixes corruption in Fractint SVGA modes
+	  - Implement wrapping on lower-order bit, fixes black line in
+	  Titan
+
+2010-10-01 19:39  h-a-l-9000
+
+	* [r3647] src/hardware/vga_draw.cpp, src/hardware/vga_other.cpp,
+	  src/ints/int10.cpp, src/ints/int10_modes.cpp,
+	  src/ints/int10_pal.cpp: - implement Tandy special 4-color palette
+	  handling
+	  - remove 3d8/3d9 from PCJr mode (PCJr didn't have it)
+	  - update INT10 palette functions accordingly
+	  - add a level of indirection to Tandy and PCjr palette deconding
+	  to fix video recording with on-screen palette changes
+	  - enable line-by-line emulation for Tandy too
+	  - machine-specific implementation of the color when display is
+	  disabled (vgaonly too)
+	  - enable the light pen stub on all machines that it is documented
+	  for
+	  - mask off a bank-selection bit that is not used under a specific
+	  circumstance
+	  
+	  Fixes Alley Cat palette on PCJr, Gauntlet, Ghostbusters, Pirates!
+	  on Tandy, Video recording on Tandy/PCJr where the palette is
+	  changed on-screen
+
+2010-09-28 18:16  c2woody
+
+	* [r3646] src/ints/ems.cpp: change EMS driver attribute word
+	  (ripsaw, fixes David Leadbetter's Greens)
+
+2010-09-27 21:07  c2woody
+
+	* [r3645] README, src/gui/sdlmain.cpp: minor typos
+
+2010-09-27 20:32  c2woody
+
+	* [r3644] src/ints/ems.cpp: allow arbitrary segments to be remapped
+	  by the EMM functions (peter ferrie; fixes Airline Simulator 2)
+
+2010-09-26 16:16  c2woody
+
+	* [r3643] README: small readme updates
+
+2010-09-26 15:26  c2woody
+
+	* [r3642] include/dma.h, src/dosbox.cpp, src/ints/ems.cpp,
+	  src/ints/xms.cpp: different EMS emulation types (ems board style,
+	  emm386 extended compatibility),
+	  fixes sound crackling in certain emm386-aware games
+
+2010-09-26 14:16  c2woody
+
+	* [r3641] src/hardware/dma.cpp: disable forced exit on DMA segment
+	  wrapping
+
+2010-09-25 19:59  c2woody
+
+	* [r3640] src/ints/int10.cpp: special handling of attribute for
+	  write character function in certain monochrome VGA mode (ripsaw)
+
+2010-09-25 17:31  c2woody
+
+	* [r3639] src/ints/int10.cpp, src/ints/int10.h,
+	  src/ints/int10_pal.cpp: small VGA grayscale summing fix
+
+2010-09-09 18:59  h-a-l-9000
+
+	* [r3638] src/ints/int10.cpp: SF patch 2923483: INT10: Accept the
+	  page argument when loading font bitmaps. Thanks makovick.
+
+2010-08-27 12:52  qbix79
+
+	* [r3637] src/hardware/hardware.cpp: Fix video capture problems.
+
+2010-08-12 14:58  h-a-l-9000
+
+	* [r3636] src/ints/bios.cpp: BIOS serial port interface: Do not
+	  misinterpret DCD as timeout.
+
+2010-08-07 18:49  qbix79
+
+	* [r3635] src/dos/dos.cpp: Only flush buffer if we are reading from
+	  the console.
+
+2010-08-07 18:46  qbix79
+
+	* [r3634] src/dos/dos_mscdex.cpp: Fix long standing weirdness with
+	  LBA: Copying of speech files failed. Don't cut off the next level
+	  if we stay in the same (large) directory. Thanks ripsaw
+
+2010-08-07 18:39  qbix79
+
+	* [r3633] src/dos/drive_iso.cpp, src/dos/drives.h: Hide associated
+	  files. Fixes Last Express when installing from an ISO. Thanks
+	  ripsaw
+
+2010-08-07 18:36  qbix79
+
+	* [r3632] configure.in, src/platform/visualc/config.h: Make it
+	  clear to people that they don't use a stable version.
+
+2010-08-07 18:32  qbix79
+
+	* [r3631] src/dos/cdrom.h, src/dos/cdrom_image.cpp,
+	  src/dos/cdrom_ioctl_win32.cpp, src/dos/dos_mscdex.cpp: Add audio
+	  volume control for mscdex. Implemented it in images and
+	  win32ioctl. Others are still open. Thanks ripsaw.
+
+2010-08-07 18:25  qbix79
+
+	* [r3630] include/dos_system.h, src/dos/drive_cache.cpp: Add patch
+	  3011706 by bredbored: remove double weirdness with free and
+	  dirsearch being 0. More sensible clearing of the directory cache.
+	  Fixes skynet crashes related to corrupted drive cache.
+
+2010-08-07 18:15  qbix79
+
+	* [r3629] src/dos/dos_mscdex.cpp: Improve image shuffling when
+	  adding a drive which doesn't end up at the last place, but at the
+	  first place. (thanks ripsaw).
+
+2010-08-07 18:12  qbix79
+
+	* [r3628] src/shell/shell.cpp, src/shell/shell_cmds.cpp: Add patch
+	  3027944 from ripsaw: Subst /d
+
+2010-07-28 21:58  h-a-l-9000
+
+	* [r3627] src/hardware/vga_draw.cpp: Update the rendering output
+	  even when only the refresh rate changed. Previously there might
+	  have been problems with video recording under some rare
+	  circumstances.
+
+2010-07-28 20:56  h-a-l-9000
+
+	* [r3626] src/dos/dos_memory.cpp, src/ints/bios.cpp: Tandy: Add
+	  16kb of DOS memory. Fixes bad graphics in Mickey's Space
+	  Adventure and Chuck Yeager's Air Combat, as well as flickering
+	  screens in Ghostbusters.
+	  Patch by ripsaw8080
+
+2010-07-28 20:18  h-a-l-9000
+
+	* [r3625] src/hardware/sblaster.cpp: - Fix SB16 16-bit interrupt
+	  cause identification (makes games using CT-VOICE.DRV work).
+	  - Add SB16 identification bit for an older version of
+	  CT-VOICE.DRV
+	  Thanks ripsaw8080.
+
+2010-07-24 21:18  qbix79
+
+	* [r3624] src/dos/drive_local.cpp: Flush the buffer of handles for
+	  the same file. (Betrayal in Antara). Thanks ripsaw
+
+2010-07-22 13:30  h-a-l-9000
+
+	* [r3623] src/hardware/vga_attr.cpp: More line endings
+
+2010-07-22 12:36  h-a-l-9000
+
+	* [r3622] src/hardware/vga_draw.cpp: Fix some wrong line endings
+	  that sneaked it
+
+2010-07-12 21:41  h-a-l-9000
+
+	* [r3621] include/vga.h, src/hardware/vga_attr.cpp,
+	  src/hardware/vga_draw.cpp: - Fix EGA panning to behave as on real
+	  hardware (fixes Beverly Hills Cop, Faery Tale Adv., Secret Agent
+	  1)
+	  - EGA splitscreen updates (Megademo, Secret Agent 1)
+	  - Change display address latch timing (Beverly Hills Cop)
+	  - Code style adoptions
+
+2010-07-10 11:36  qbix79
+
+	* [r3620] src/cpu/callback.cpp: Extend int29 to include page and
+	  colour. Thanks for your input ripsaw8080. Change removesetup to
+	  remove the right amount of bytes.
+
+2010-07-09 20:56  h-a-l-9000
+
+	* [r3619] src/ints/int10.cpp, src/ints/int10_memory.cpp,
+	  src/ints/int10_pal.cpp: INT10 EGA: Implement font
+	  intensity/blinking switch, fix font height calculation, screen
+	  parameters - makes Norton Commander work with machine=ega.
+
+2010-06-28 21:32  h-a-l-9000
+
+	* [r3618] include/vga.h, src/hardware/vga_attr.cpp,
+	  src/hardware/vga_draw.cpp: Text mode panning patch for the
+	  vgaonly machine
+
+2010-06-28 12:16  h-a-l-9000
+
+	* [r3617] src/hardware/vga_other.cpp: Fix regression in Spacewar
+	  with Hercules video. Thanks ripsaw8080 for reporting.
+
+2010-06-26 11:17  qbix79
+
+	* [r3616] src/dos/dos_files.cpp: Fix Dactylus Installer. (thanks
+	  ripsaw8080)
+
+2010-06-12 08:54  qbix79
+
+	* [r3615] include/setup.h: gcc 4.4 on FreeBSD. (Alex)
+
+2010-06-09 19:09  qbix79
+
+	* [r3614] src/fpu/fpu_instructions.h: Detect +/- INF when loading a
+	  80bit
+
+2010-06-05 10:35  qbix79
+
+	* [r3613] src/debug/debug.cpp, src/debug/debug_gui.cpp: Add history
+	  to debugger and cleanup. Patch 2991413 from etillite
+
+2010-05-25 07:58  qbix79
+
+	* [r3612] docs/dosbox.1: Spelling fix.
+
+2010-05-16 19:02  h-a-l-9000
+
+	* [r3611] src/hardware/vga_draw.cpp: Disable blanking if its start
+	  value is beyond the total display height. Fixes Ms. Pac-PC and
+	  Pac-PC II.
+
+2010-05-14 07:33  qbix79
+
+	* [r3610] README: Tiny fixes

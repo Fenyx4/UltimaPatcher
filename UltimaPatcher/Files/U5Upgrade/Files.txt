@@ -1,0 +1,54 @@
+
+		**** The Exodus Project: ****
+		*     Ultima V  Upgrade     *
+		*                           *
+		*        Release 1.0        *
+		*****************************
+
+File List:
+
+	** Text Files:
+	README.TXT	- Readme file for U5 Upgrade
+	HISTORY.TXT	- History of updates to U5 Upgrade
+	FILES.TXT	- Describes files in package (this file)
+
+	** Music:
+	U5THEME.XMI	- Ultima V Theme
+	BRITLAND.XMI	- Britannic Lands
+	HORNPIPE.XMI	- Cap'n Johne's Hornpipe
+	ENGGMNT.XMI	- Engagement and Melee
+	STONES.XMI	- Stones
+	GREYSON.XMI	- Greyson's Tale
+	FANFARE.XMI	- Fanfare for the Virtuous
+	MONARCH.XMI	- The Missing Monarch
+	TRNTLLA.XMI	- Villager Tarantella
+	HALLS.XMI	- Halls of Doom
+	WRLDBLW.XMI	- Worlds Below
+	BLCKTHRN.XMI	- Lord Blackthorn
+	LADYNAN.XMI	- Dream of Lady Nan
+	REUNION.XMI	- Joyous Reunion
+	RULEBRIT.XMI	- Rule Britannia
+	AMIGA.XMI	- Amiga Theme
+
+	** Programs:
+	ULTIMA5.COM	- U5 Launcher program
+	U5CFG.EXE	- U5 Configuration program
+	ULTIMA.EXE	- Main game binary
+	U5DATA.EXE	- DATA.OVL patch
+
+	** U5 Internal Code:
+	INTRO.OVL	- Introduction code
+	FONT.OVL	- Special fonts (used in char creation)
+	MAINOUT.OVL	- Code for Overworld/Underworld
+	TOWN.OVL	- Code for towns, castles, etc
+	DUNGEON.OVL	- Code for within dungeons
+	ENDGAME.OVL	- Endgame code
+	MID.DRV		- Midpak MIDI Driver
+
+	** MIDPAK Drivers:
+	*.ADV		- Midpak Soundcard Driver
+	*.ADD		- Midpak Soundcard MIDI Map
+	?MIDPAK.COM	- Midpak TSR's
+	FAT.OPL		- OPL chipset data file
+	SETM.XMI	- Test XMI for SETM.EXE
+	SETM.EXE	- Music configuration program

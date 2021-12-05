@@ -1,0 +1,19 @@
+You can change the assignment of voices to MIDI channels by altering this
+file.  The default voices are preset for the Roland MT-32.  The format for
+each voice is the MIDI channel number followed by the program change, for
+example, 2/89 means "channel 2, program change 89."  Channels from 1-16 and
+program changes from 1-128 are recognized.  If you change any data, copy this
+file onto the program, introduction, and endgame disks.
+
+1: Ultima Theme             (2/63,3/53,4/69,5/64)
+2: Bootup                   (2/100,3/12)
+3: Introduction             (2/28,3/26,4/43,5/117,6/117)
+4: Character Creation       (2/6,3/2,4/80)
+5: Forest                   (2/25,3/26)
+6: Captain Johne's Hornpipe (2/23,3/26,4/25)
+7: Engagement and Melee     (2/49,3/63,4/7,5/7)
+8: Stones                   (2/6,3/89)
+9: Dungeon                  (2/100,3/118,4/43)
+0: Rule Britannia           (2/17)
+-: Audchar Gargl Zenmur     (2/12,,3/5)
+=: Endgame Music            (2/12,3/17,4/49,5/59)

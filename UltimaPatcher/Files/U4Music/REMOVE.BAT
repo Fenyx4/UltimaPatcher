@@ -1,0 +1,16 @@
+@echo off
+del *.add
+del u4.asc
+del setup.bat
+del ?midpak.com
+del setm.*
+del fat.opl
+del a*.adv
+del g*.adv
+del p*.adv
+del s*.adv
+del v*.adv
+del wss.adv
+del mt*.adv
+del mu*.adv
+del remove.bat

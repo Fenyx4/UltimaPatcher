@@ -1,0 +1,2 @@
+call SETUP.BAT
+exit

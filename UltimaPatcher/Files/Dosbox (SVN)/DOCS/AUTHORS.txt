@@ -1,0 +1,12 @@
+The DOSBox Team
+---------------
+
+Sjoerd v.d. Berg <harekiet>
+Peter Veenstra <qbix79>
+Ulf Wohlers <finsterr>
+Tommy Fr?sman <fanskapet>
+Dean Beeler <canadacow>
+Sebastian Strohh?ker <c2woody>
+Ralf Grillenberger <h-a-l-9000>
+
+nick_without_<> @ users.sourceforge.net

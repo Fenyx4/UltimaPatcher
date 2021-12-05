@@ -1,0 +1,6 @@
+
+"Script" (Domestic Manners) and "Roman" (Dustimo Roman) fonts provided by Dustin Norlander
+   Homepage: http://www.cheapskatefonts.com
+
+"Courier" and "Sans Serif" fonts provided by the Free UCS outline font project
+   Homepage: http://savannah.nongnu.org/projects/freefont/

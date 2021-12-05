@@ -1,0 +1,82 @@
+
+        **** The Exodus Project ****
+        *    Ultima III Upgrade    *
+        *                          *
+        *        Release 3.2       *
+        ****************************
+
+
+File List:
+
+    ** Text Files:
+    README.TXT      - Readme file for U3 Upgrade
+    HISTORY.TXT     - History of updates to U3 Upgrade
+    FILES.TXT       - Describes files in package (this file)
+
+    ** Music:
+    WANDER.XMI      - Utlima III Overworld Theme
+    TOWNS.XMI       - Towne Music
+    CASTLES.XMI     - Castle of Lord British
+    RULEBRIT.XMI    - Rule Britannia
+    COMBAT.XMI      - Combat Theme
+    DUNGEON.XMI     - Dungeon Theme
+    FANFARE.XMI     - Ambrosian Fanfare
+    EXODUS.XMI      - Exodus Theme
+    ALIVE.XMI       - Alive
+
+    ** Programs:
+    ULTIMA3.COM     - U3 Launcher program
+    U3CFG.EXE       - U3 Configuration program (DOS)
+    U3CFGW.EXE      - U3 Configuration program (Windows)
+    u3cfgl          - U3 Configuration program (Linux)
+    U3RESET.EXE     - Sosaria Map Reset program (DOS)
+    U3RESETW.EXE    - Sosaria Map Reset program (Windows)
+    u3resetl        - Sosaria Map Reset program (Linux)
+
+    ** Binary Patch:
+    U3UP-32.PAT     - U3 Binary patch file
+    BINPAT.EXE      - Patcher program (DOS)
+    BINPATW.EXE     - Patcher program (Windows)
+    binpatl         - Patcher program (Linux)
+    BINUNPAT.EXE    - Unpatcher program (DOS)
+    BINUNPATW.EXE   - Unpatcher program (Windows)
+    binunpatl       - Unpatcher program (Linux)
+
+    ** Drivers:
+    CGA.DRV         - CGA Video Driver
+    CGACOMP.DRV     - CGA Composite Video Driver
+    EGA.DRV         - EGA Video Driver
+    VGA.DRV         - VGA Video Driver
+    NOMIDI.DRV      - No Music Driver
+    MIDPAK.DRV      - MIDPAK MIDI Music Driver
+    SFX.DRV         - Untimed Sound Effects Driver
+    SFXTIMED.DRV    - Timed Sound Effects Driver
+
+    ** U3 Graphics Files:
+    MOONS.ULT       - CGA Moon Icons
+    BLANK.EGA       - EGA Initial Intro
+    EXOD.EGA        - EGA Final Intro
+    ANIMATE.EGA     - EGA Intro Dragon Animation
+    CHARSET.EGA     - EGA Character Set
+    SHAPES.EGA      - EGA Tiles
+    MOONS.EGA       - EGA Moon Icons
+    BLANK.VGA       - VGA Initial Intro
+    EXOD.VGA        - VGA Final Intro
+    ANIMATE.VGA     - VGA Intro Dragon Animation
+    CHARSET.VGA     - VGA Character Set
+    SHAPES.VGA      - VGA Tiles
+    MOONS.VGA       - VGA Moon Icons
+
+    ** MIDPAK Drivers:
+    *.ADV           - Midpak Soundcard Driver
+    *.ADD           - Midpak Soundcard MIDI Map
+    ?MIDPAK.COM     - Midpak TSR's
+    FAT.OPL         - OPL chipset data file
+    SETM.XMI        - Test XMI for SETM.EXE
+    SETM.EXE        - Music configuration program
+    MIDPAK.ADV      - Default Midpak Driver (GENMIDI)
+    MIDPAK.COM      - Default Midpak TSR
+    MIDPAK.AD       - Default MIDI Map
+
+    ** Configuration:
+    U3.CFG          - Default Configuration Options

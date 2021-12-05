@@ -1,0 +1,81 @@
+
+		**** The Exodus Project: ****
+		*     Ultima V  Upgrade     *
+		*                           *
+		*        Release 1.0        *
+		*****************************
+
+Project Status:
+
+	08-21-2001 - Release 1.0:
+
+	This is the first full release of the U5 MIDI Upgrade.  This is
+	all the stuff that I added:
+
+	- The game plays "Ultima Theme" to the main menu.
+
+	- I added various songs from U5 to the Introduction and Endgame
+	  sequences.  I tried to choose songs that best fit the sequences.
+
+	- The Character Creation sequence plays the Amiga music.
+
+	- The game plays the Apple II / Commodore 128 arrangement of songs
+	  in their appropriate places in the game.  I received most of this
+	  information from playing parts of these versions on an emulator and
+	  from other Dragons on news:rec.games.computer.ultima.dragons.
+
+	- I made sure that Death and the Blackthorn capture sequence were both
+	  handled properly: no music should be playing during these sequences.
+
+	- Some people are not aware that you can Exit to DOS using "CTL-E"
+	  during the game.  Unfortunately, you cannot use it all the time, for
+	  example, during combat or dungeon rooms which is a big disadvantage.
+	  While I hope to add that capability in a future release, and perhaps
+	  even a restore feature, I did add the ability to exit in three key
+	  places of the game:  the main menu (with CTL-E), the last scene of
+	  the endgame sequence (with any key), and the "bad" ending.  (the one
+	  if you tell LB "no" -- again with any key)
+
+	- Since the Tandy video driver is no longer in use, I used that as a
+	  good place to store the name of the midi driver, MID.DRV.  This is
+	  included in DATA.OVL, where all the game data is stored, and this is
+	  the only update that needs to be made to that file.  To conserve zip
+	  file size and reduce the amount of original game files that I am
+	  including in this package, I've decided to write a separate patch,
+	  "U5DATA.EXE" which will make this update for you.  Please execute
+	  this before you begin the game or the MIDI will not work.
+
+	- The MIDI files have been enhanced and suited to the game setting for
+	  their appropriate scenes.  I have also improved most of the MIDI
+	  files such that they loop more smoothly.
+
+	Please see below for an abbreviated project history or visit the
+	project website (http://exodus.voyd.net/) for the complete status
+	history.  I also post relevant information on project updates to
+	the rec.games.computer.ultima.series and .dragons newsgroups.
+
+
+Known Issues:
+
+	Beware, this gets technical.
+
+	If you let the game sit at the demonstration sequence on the main
+	menu screen (where the introduction is pretty much acted out in tile
+	graphics), and the "Ultima Theme" music ends, it will not loop back
+	to the beginning.  The reason for this is that I refresh the music
+	during each int 16h call (which essentially checks for another key
+	press).  In the demonstration, the int 16h call is made in the EGA
+	driver, which is the only part of the game that checks for keypresses
+	in the driver.  Thus, it is the only part of the game affected.  The
+	reason why this is a problem is because the ega driver is in a different
+	code segment from the rest of the game, so it cannot make function calls
+	back the functions that I wrote in ULTIMA.EXE.  There are, as usual,
+	other ways around this, but I am looking for the least messy.  ;)
+
+
+Abbreviated History:
+
+	08-21-2001 - 1.0
+		- This release.  See above for full details.
+
+	07-01-2001 - Project Begins

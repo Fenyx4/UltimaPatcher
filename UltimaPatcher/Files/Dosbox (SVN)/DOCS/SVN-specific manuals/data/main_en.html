@@ -1,0 +1,946 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>main</title>
+<style type="text/css">
+body {
+	background-color: #d0d0d0;
+}
+</style>
+</head>
+
+<body>
+<table border="1">
+  <tr>
+    <td >SVN-specific manuals</td>
+    <td><a href="main_en.html">Main</a> | <a href="usage_en.html">Usage</a> | <a href="index.html">MB6 Patches</a></td>
+  </tr>
+  <tr>
+    <td>Official manuals</td>
+    <td><a href="../../Official Manuals/README.TXT" target="new">README</a> | <a href="../../Official manuals/Video Instructions.txt" target="new">Video Instructions</a></td>
+  </tr>
+</table>
+<table border="0">
+  <!-- Limiter -->
+  <tr>
+    <td><br /></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><font size="4"><b>MAIN</b></font></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br /></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><b>CONTENTS</b><br/>
+      <ol>
+        <li><a href="#NOTICE">NOTICE</a></li>
+        <li><a href="#FEATURES">FEATURES</a></li>
+        <li><a href="#THANKS">THANKS</a></li>
+        <li><a href="#WHATSVN">WHAT ARE SVN BUILDS?</a></li>
+        <li><a href="#WHATNEW">WHAT'S NEW</a></li>
+      </ol></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br /></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><p><a name="NOTICE" id="NOTICE"><b>NOTICE</b><br/>
+      </a></p>
+      <ul>
+        <li>This build is an enhanced SVN build which incorporates unofficial features and fixes that are not officialy part of DOSBox.</li>
+        <li>This build is NOT supported by the DOSBox team and the developers.</li>
+        <li>          Some experimental features in this build might affect the performance or compatibility.</li>
+    </ul></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br/></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><a name="FEATURES" id="FEATURES"><b>FEATURES</b><br/>
+      </a>Source and debugger-enabled build are available.
+      <ul>
+        <li><strong>Included Patches</strong><br />
+        Direct3D with pixelshaders, OpenglHQ, Innovation, Glide, zip/7z mount, Beep, NE2000 Ethernet, Graphical user interface (menu), Save/Load states, Vertical sync, CPU flags optimization, Various DOS commands (PROMPT VOL, LABEL, MOUSE, etc) and CONFIG.SYS commands (DEVICE, BUFFERS, FILES, etc), Continuous turbo key, Core-switch key, Show details (from menu bar), Nice DOSBox icon, Font patch (cp437), MAKEIMG command, INTRO, Ctrl-break patch, DBCS support patch, Automatic mount, Printer output, MT-32 emulation (MUNT), MP3CUE, Overscan border, Stereo-swap, SDL_Resize, Internal 3dfx voodoo chip emulation, Amstrad &amp; PS/1 sound emulation, Fluidsynth soundfont support, Timidity++ backend support, CGA w/ Monochrome Monitor Support, Improve PC Speaker emulation accuracy patch, Pentium MMX, Dongle support, Secondary display, DOSBox-X branch, File-locking support patch, xBRZ scaler, etc.</li>
+        <li><strong>Libaries</strong><br />
+          -lSDL_sound -lvorbisfile -lvorbis -logg -lmpg123 -lSDL -lpng -lfreetype -lpcap -lSDL_net -lphysfs -ld3dx9 -lfluidsynth -lz -ltbb</li>
+        <li><strong>Build environment</strong><br />
+    Windows: Microsoft Visual Studio 2012<br />
+    Linux: Linux Ubuntu (GCC 4.7.2)<br />
+    OS X: Mountain Lion (GCC 4.7.2)</li>
+      </ul></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br/></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><a name="THANKS" id="THANKS"><b>THANKS</b><br/>
+      </a> I would like to thank:<br />
+Qbix, c2woody, H-a-l-9000, Moe, gulikoza, Canadacow, ripsaw8080, Krounz, ZenJu, eobet, and many other patch creators and DOSBox enthusiasts.</td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br/></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><a name="WHATSVN" id="WHATSVN"><b>WHAT ARE SVN BUILDS?</b><br/>
+      </a>SVN builds are versions of dosbox.exe that people have built from the latest version of the DOSBox source code, which is stored on sourceforge.net in something called a SVN repository. SVN builds contain changes that have been made by Qbix and Harekiet since the latest official release. Some enhanced SVN builds also contain unofficial features and fixes that have been created by enthusiasts in the DOSBox development community.
+      <p>For more information, go to <a href="http://www.dosbox.com/wiki/SVN_Builds" target="_new">http://www.dosbox.com/wiki/SVN_Builds</a></p></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br/></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><a name="WHATNEW" id="WHATNEW"><b>WHAT'S NEW</b><br/>
+      </a>
+      <p># 07. 25. 2013 - SVN 0.74<br />
+        1. UPDATE: Based on SVN r3833<br />
+        2. UPDATE: Direct3D (gulikoza)<br />
+- add inputDims to shader<br />
+- support forceUpdating the screen (alphablend shaders, use &quot;FORCEUPDATE&quot; in the shader fx)<br />
+- support forcing shaders (&quot;forced&quot; keyword)<br />
+- fix crash when the shader does not compile (LOG_MSG limit)<br />
+- support dynamically changing pixelshader= option from cli<br />
+- fix pixelshader=none crash<br />
+- fix a possible win8 crash<br />
+3. UPDATE: Menu bar (Windows)<br />
+- clean up: move menu data from sdlmian.cpp to menu.cpp<br />
+- add missing options including voodoo, keyboard rate/delay, etc.<br />
+- remove every video resolutions that may not exist on every computer.<br />
+specify them with user-defined instead.<br />
+- support entering the following values manually:<br />
+CPU cycles, Vertical-sync rate, Default local freesize<br />
+- add &quot;always on top&quot;<br />
+4. ADD: D3D pixelshaders: (cgwg, Themaister, DOLLS, gulikoza)<br />
+CRT-geom-blend<br />
+CRT-geom-curved<br />
+5. ADD: Kisai's ZMBV 64bit codec (Windows)<br />
+http://www.vogons.org/viewtopic.php?p=306810<br />
+&quot;Install Movie Codec&quot; in TOOLS directory will install both x86 and x64 codecs on x86-64 system.<br />
+6. FIX: Crash DOSBox when loading state while audio is muted<br />
+7. FIX: MT-32 emulation did not work properly after loading state (tikalat)<br />
+Borrowed very part of tikalat's patch due to possible crashes<br />
+8. FIX: Linux build did not work properly on Ubuntu 13.04<br />
+9. Borrowed some fixes for EF2000+glide from DOSBox-G (truth5678)
+      </p>
+      <p># 05. 06. 2013 - SVN 0.74<br />
+        1. Fixed broken forcerate and cgasnow<br />
+        2. Fixed crash 
+      when mt32.partials is set to &gt; 32<br />
+      3. Added a parameter -date_host_forced to force DOSBox to use server date. You cannot change internal date with DATE command.<br />
+      You may also execute &quot;Run DOSBox with Host Date Synchronization.bat&quot;
+       in TOOLS directory. (Windows)<br />
+       4. Added  
+      support for mounting hard drive images larger than 8GB (gulikoza)<br />
+       <a href="http://vogons.zetafleet.com/viewtopic.php?p=302954">http://vogons.zetafleet.com/viewtopic.php?p=302954</a><br />
+       5. Set appropriate rpath for dosbox binary. (Linux)<br />
+      6. Fixed some minor bugs.
+      </p>
+      <p># 04. 21. 2013 - SVN 0.74<br />
+        1. Based on SVN r3827<br />
+        2. Added  
+      support for mounting hard drive images larger than 2GB (gulikoza)<br />
+      Currently for bootable images only.<br />
+      3. Updated openglide patch
+      (gulikoza)<br />
+      4. Fixed file locking issue on Linux (s3freak)<br />
+      5. Added scalers:<br />
+      - normal4x<br />
+      - normal5x<br />
+      - hardware_none<br />
+      - hardware4x<br />
+      - hardware5x<br />
+      6. Updated MUNT
+      (MT-32 emulation)<br />
+      7. Fixed some minor bugs.
+      </p>
+      <p>        # 02. 05. 2013 - SVN 0.74<br />
+        1. Removed svga_s3_full which breaks European Championship 1992<br />
+Now use svga_s3 as default again.<br />
+2. Fixed isapnpbios issue<br />
+3. Added xBRZ scaler (ZenJu)<br />
+Available only if:<br />
+scaler=xbrz, output=surface, fullscreen=true<br />
+Confirmed to work on Windows.<br />
+4. Use GCC 4.7.2 instead of llvm-gcc (OS X)<br />
+5. Fixed restart bug (Windows)</p>
+      <p># 01. 24. 2013 - SVN 0.74<br />
+        1. Based on SVN r3812<br />
+        2. Includes libraries for OS X build<br />
+Read LIB_LIST-IMPORTANT_EN.TXT in LIBS directory for details<br />
+3. Improved boot and IDE mount support in menu bar (Windows)<br />
+4. Fixed some minor bugs.      </p>
+      <p># 01. 07. 2013 - SVN 0.74<br />
+        1. Based on SVN r3809<br />
+        2. OS X build is provided. Read manual for details.<br />
+        3. 
+      Updated DOSBox-X branch patch (r117)<br />
+      4. You can now mount 
+      .img files as floppy/harddisk/cd-rom on the fly. (win32 menu)<br />
+      5. 
+      You can place .sf2 and .rom files in CAPTURE directory. (fluidsynth, mt32 emulation)<br />
+      6. Added EGAfilter.fx (D3D shader, VileRancour)<br />
+      7. Fixed some minor bugs. </p>
+      <p>        # 12. 10. 2012 - SVN 0.74<br />
+        1. Based on SVN r3805<br />
+        2. Fixed some minor bugs</p>
+      <p># 12. 6. 2012 - SVN 0.74<br />
+        1. Improved the performance of saving/loading states.<br />
+        2. DOSBox will search for glide2x.dll in your system directory first. (Windows)<br />
+        3. Fixed the following issues (when installed by running setup.exe on Windows 8)<br />
+- Library files were not loaded.<br />
+- Save/load states did not work at all.</p>
+      <p># 12. 4. 2012 - SVN 0.74<br />
+        1. Based on SVN r3804
+          <br />
+          2. Updated Visual Studio 2012 to VS Update 1 (Windows build)<br />
+          - This update adds support for Windows XP (c++)<br />
+          - Still supports Windows 2000 with some hacks<br />
+          3. If Direct3D initialization fails, output will be automatically set to surface without exit.<br />
+          4. Save slots are stored into one file, not into individual files for better management.<br />
+          Code borrowed from 
+          Minizip which depends on zlib (http://www.winimage.com/zLibDll/minizip.html)<br />
+        5. Fixed some minor bugs</p>
+      <p># 11. 23. 2012 - SVN 0.74<br />
+        1. Based on SVN r3802<br />
+        2. Updated OpenglHQ (20121109, Moe)<br />
+        3. Updated save states<br />
+- Check memory size<br />
+- Compress save slots with zlib<br />
+4. Added the following patches<br />
+- add sanity check to UMB linking - fixes commander keen (galexand123)<br />
+http://sourceforge.net/p/dosbox/patches/254/<br />
+- DosBox fully bindable Joystick Patch (cfoesch)<br />
+http://vogons.zetafleet.com/viewtopic.php?t=27452<br />
+xbox360 controllers can be used in dosbox<br />
+5. Changed a hotkey for continuous turbo mode from Ctrl-Alt-F12 to Alt-F11<br />
+6. Added a hotkey(Alt-F10) and a parameter(-startui) for internal crossplatform GUI.<br />
+7. Fixed a crash on Win2k/XP<br />
+8. Fixed some minor bugs<br />
+      </p>
+      <p># 11. 10. 2012 - SVN 0.74<br />
+        Both Linux and Windows releases are now available as of 20121110.<br />
+        You can simply compile for Win32/Linux with source provided here.<br />
+        (Also take a look at openglhq-dosbox-for-sdl-202121108_msvc_gcc.patch<br />
+        or visit http://www.syntax-k.de/projekte/sdl-opengl-hq/<br />
+        if you are going to build SDL w/ openglhq)<br />
+        1. Based on SVN r3799<br />
+        2. Updated OpenglHQ (Moe)<br />
+        3. Added svga_s3_full to video output (Moe)<br />
+        4. A new build for Linux (x86 or 32bit) is now available. (Moe)<br />
+Compiled and tested on Ubuntu (GCC 4.7.2)<br />
+Includes every necessary libraries.<br />
+No debugger-enabled build and GUI are available.<br />
+5. Removed dosbox_noopt.exe (win32)<br />
+6. Fixed COPY command<br />
+7. Fixed some minor bugs.<br />
+      </p>
+      <p># 10. 3. 2012 - SVN 0.74<br />
+        1. Based on SVN r3798<br />
+        2. Fixed Fluidsynth<br />
+        3. Updated save states (tikalat)<br />
+        4. Added DOSIDLE.EXE (DOS idling disabled by default)<br />
+        5. Fixed some capital letters not being recognized by debugger<br />
+        6. d3dx9_43.dll will not be preloaded. (used only when using pshader)<br />
+        7. Added two D3D pixel shaders: DotnBloom, CRT-simple (gulikoza)<br />
+        8. Fixed some minor bugs<br />
+      </p>
+      <p>
+        # 8. 23. 2012 - SVN 0.74<br />
+        1. Based on SVN r3795<br />
+        2. Windows 8 supported (vs2012)<br />
+        3. Windows 2000
+        supported (asm hack)<br />
+        4. File locking (share.exe) supported (patch from http://dose.0wnz.at/)<br />
+        5. Added mount/unmount for drive Z to menubar for &quot;mount -z drivename:&quot;<br />
+        6. Updated SDL 1.2 hg (b1c1b7ac4b39) w/ openglhq patch<br />
+        7. Fixed secondary display from ripsaw8080<br />
+- Three color modes(white, amber and green) are all working fine<br />
+- No text distortions<br />
+- Added &quot;Run DOSBox with Secondary Display.bat&quot; for convenience<br />
+8. Fixed resizing issue in openglhq<br />
+9. Updated save states (tikalat)<br />
+10. Added dosbox_noopt.exe (see readme for details)<br />
+11. Updated readme for more information<br />
+12. Fixed some minor bugs</p>
+      <p># 7. 1. 2012 - SVN 0.74<br />
+        1. Based on SVN r3784<br />
+2. Updated save states (tikalat)<br />
+3. Updated DOSBox X branch patch (TheGreatCodeholio)<br />
+4. Updated secondary display patch (ripsaw8080)<br />
+5. Fixed some minor bugs</p>
+      <p># 5. 21. 2012 - SVN 0.74<br />
+        1. Based on SVN r3780<br />
+        2. Improved performance<br />
+        3. Supports for Windows XP SP2<br />
+        4. Added several commandline parameters<br />
+- &quot;-nolog&quot;: no file logging<br />
+- &quot;-display2&quot;: secondary display (thanks to ripsaw8080)<br />
+Two modes are provided: -display2 &quot;amber&quot;, -display2 &quot;green&quot;<br />
+It works in some software that supports dual display (e.g., Mah Jongg)<br />
+http://vogons.zetafleet.com/viewtopic.php?t=26110&amp;postdays=0&amp;postorder=asc&amp;start=0<br />
+- &quot;-disable_numlock_check&quot;: does not check numlock at startup (useful for directx driver)<br />
+- &quot;-savedir (path)&quot;: sets save state directory to a custom folder (useful for frontends)<br />
+5. Fixed crash when restrating DOSBox in fullscreen<br />
+6. Fixed MUNT emulation<br />
+7. Set Fluidsynth gain to zero<br />
+8. Updated every libraries including SDL<br />
+9. Updated ADDKEY command (four core settings &quot;normal&quot;, &quot;simple&quot;, &quot;dynamic&quot;, &quot;full&quot; with delay support)<br />
+10. Fixed OpenGlide emulation<br />
+11. Added &quot;Send Key&quot; to menu bar (Crtl-Esc / Alt-Tab / Ctrl-Alt-Del)<br />
+12. Removed external MSVCR/MSVCP runtime libraries<br />
+13. Added splash to [glide] section<br />
+14. Stablized save states (thanks to tikalat)<br />
+http://vogons.zetafleet.com/viewtopic.php?p=266689#266689<br />
+Fixed pallete issue.<br />
+15. Added DOSBox-X branch features (Thanks to TheGreatCodeholio)<br />
+- Accurate PS/2 keyboard emulation, support for scan code sets 1, 2, and 3, emulation and response to LED commands, reset commands, mode changes, and obscure commands <br />
+- Gravis Ultrasound panning register fixes<br />
+- PS/2 AUX port emulation.<br />
+- CGA snow emulation. If you set machine=cga and enable the option, video memory I/O is slowed down to CGA speeds and writes will trigger &quot;snow&quot;, just like an actual CGA. <br />
+- Sound Blaster &quot;Goldplay&quot; support. (Disabled by default, You can change the setting in configuration file)<br />
+- ISA Plug &amp; Play emulation.<br />
+- Serial mouse emulation.<br />
+- Higher memory limit to 512MB.<br />
+- Finer-grained memory sizes. (kb)<br />
+- Refresh rate control.<br />
+These new sections can be found in configuration file.<br />
+[dosbox]: memsizekb, memalias<br />
+[cpu]: forcerate, cgasnow, isapnpbios<br />
+[keyboard]: aux, auxdevice<br />
+[sblaster]: sbtype=sb16vibra<br />
+[dos]: int33, biosps2<br />
+[ide, primary], [ide, secondary], [ide, tertiary], [ide, quaternary]
+<br />
+16. Fixed some other bugs</p>
+      <p>        # 2. 20. 2012 - SVN 0.74<br />
+        1. Based on SVN r3778<br />
+2. Added inpout32 (easyw3), Removed PortTalk dependency<br />
+http://www.highrez.co.uk/Downloads/InpOut32/default.htm<br />
+3. Set version to SVN-Daum<br />
+4. Updated SDL_sound (mp3cue works)<br />
+5. Updated SDL to the latest hg (since SDL 1.2.15)<br />
+6. Updated FluidSynth<br />
+7. Stabilized saved states a bit<br />
+8. Added Mute, Swap stereo to the menu bar<br /> 
+9. Removed save states manager
+<br />
+10. Both installer and archive provided<br />
+11. Fixed some minor bugs</p>
+      <p># 1. 11. 2012 - SVN 0.74<br />
+        1. Based on SVN 
+      r3775<br />
+      2. Added 
+      dongle support (dennis714)<br />
+      3. Added pentium_mmx as a cputype (experimental, kekko)<br />
+4. Added missing SDL_sound support<br />
+      5. Updated MUNT (Dec. 10. 2011)<br />
+      6.  Added CRT.D3D.bright.fx for D3D pixelshader (almost the same as CRT.D3D.fx)<br />
+      7. &quot;-noconsole&quot; 
+      works fine as expected<br />
+      8. 
+        Set synth.gain  to 0.5 from 1.0 in Fluidsynth<br />
+9. Fixed some minor bugs</p>
+      <p><br />
+        # 12. 25. 2011 - SVN 0.74<br />
+       1. Based on SVN r3769<br />
+        2. Fixed a crash with -noconsole<br />
+        3. Fixed a problem that DOSBox could not load any parameter with restart (for example by pressing Ctrl-Alt-Home)<br />
+        4. Fixed a problem related to d3dx9_43.dll when using pixel shaders<br />
+        5. Fixed PCI functionality<br />
+        6. Fixed a problem that DOSBox could not find msvcp100.dll in some environments<br />
+        7. Fixed numlock issue<br />
+      8. Fixed some minor bugs</p>
+      <p># 12. 9. 2011 - SVN 0.74<br />
+        1. Based on SVN r3767<br />
+      2. Fixed a serious bug that DOSBox cannot run in some environments</p>
+      <p># 12. 8. 2011 - SVN 0.74<br />
+        1. Based on SVN r3763<br />
+        2. Moved from GCC 4.6 to Microsoft Visual Studio 2010 (Improved performance)<br />
+        Debugger-enabled build will still use GCC (Updated to GCC 4.6.2)
+        <br />
+        3. 
+        Updated PCJRCart patch (VileRancour)<br />
+        4. Updated pcspeaker improvement patch from ripa<br />
+      5. Updated SDL hg (including openglhq + dx fix, compiled by Visual Studio 2010)<br />
+      6. Fixed some minor bugs</p>
+      <p># 10. 12. 2011 - SVN 0.74<br />
+        1. Based on SVN r3752<br />
+        2. Added SSE2 support to enable Tramboi's SSE2 render patch<br />
+Improved the overall performance<br />
+3. Included debugger enabled build. (dosbox_debug.exe)<br />
+4. Removed prev from pcspeaker option<br />
+Updated pcspeaker improvement patch from ripa<br />
+5. Updated MT-32 emulation (MUNT) patch (08e1515d6b08665a680355f84f562ed94b22e64e)<br />
+6. Updated SDL hg (including openglhq + dx fix)<br />
+7. Added video driver selection to menu bar (WINDIB or DirectX forced, Auto)<br />
+8. Menu bar loads program names from saved state slots<br />
+9. Fixed some typos in menu bar<br />
+10. Fixed some minor bugs<br />
+<br />
+Also, I modified part of DOSBox vc project and source to make it compile with Visual Studio 2010 / 11 (Development Preview)<br />
+However, there are a couple of problems within a binary compiled with Visual Studio 2010 / 11 (Not applied to MinGW/MSYS)<br />
+* Restart (Ctrl-Alt-Home) may not work. (crash)<br />
+* Saving/loading states may not work. (crash)<br />
+Check for a source archive (source.7z) from my website if you are interested in.
+      </p>
+      <p># 9. 22. 2011 - SVN 0.74<br />
+        1. Based on SVN r3752<br />
+2. Removed &quot;auto&quot; from ps1audio (ripsaw8080)<br />
+3. Fixed a bug that DOS could not directly load printer fonts<br />
+4. Fixed a bug that D3DX9 pixel shaders could not be used in some circumstances (VileRancour)<br />
+5. Added &quot;prev&quot; to PC speaker option<br />
+6. Updated libpng<br />
+7. Updated MT-32 emulation (MUNT) patch (6d689111dc8df53e46826e61e5830eb33511f899)<br />
+8. Fixed a bug in default local free size<br />
+9. Fixed some minor bugs</p>
+      <p># 9. 3. 2011 - SVN 0.74<br />
+        1. Based on SVN 3751<br />
+        2. Upgraded to GCC 4.6.1<br />
+        3. Fixed a crash when unmounting and mounting in GUI<br />
+        4. Fixed a bug that always shows 100 on the titlebar after pressing Alt-F12 while maximizing CPU cycles.<br />
+        5. Updated OpenGlide wrapper (gulikoza)<br />
+- Fix polygon rendering<br />
+6. Updated README (RESCAN)<br />
+7. Added CGA w/ Monochrome Monitor Support patch (VileRancour)<br />
+- You can set machine=cga_mono<br />
+- Alt+F11 cycles between green, amber, and grey + brightness/contrast settings<br />
+8. Updated Direct3D patch (gulikoza)<br />
+- Added CRT.D3D shader<br />
+9. Disables continuous turbo mode by default<br />
+- Press Ctrl-Alt-F12 to use the mode when you are using DirectDraw output or DirectX driver<br />
+10. Set vmemsize=2 by default<br />
+11. Included glide2x.dll for Win9x (robertmo)<br />
+- 
+Take a look at win9x-glide2x directory<br />
+12. Updated MT-32 emulation (MUNT) patch (64134907cdc788c9927f)<br />
+13. Added &quot;Improve PC Speaker emulation accuracy patch&quot; (NY00123, ripsaw8080)<br />
+(ex., &quot;trophy&quot; sound from Dangerous Dave)<br />
+14. Fixed some minor bugs</p>
+      <p># 7. 5. 2011 - SVN 0.74<br />
+        1. Based on SVN r3728<br />
+2. Added DOS_IDLE (Borrowed from MB6), Removed DOSIDLE.EXE from Z drive<br />
+3. &quot;Forced&quot; can be used with Hardware2x/3x scalers<br />
+4. No two lines of menu bar if  scaler is set to none<br />
+5. Updated MT-32 emulation (MUNT) patch (6b14d3a10084dea65f05)<br />
+6. Added some optimization patches (Tramboi, Except 001)<br />
+http://vogons.zetafleet.com/viewtopic.php?t=28938<br />
+7. Added 0x5C (800x600 M_LIN8) to Paradise graphics<br />
+8. Continuous turbo mode should work only when shortly pressing Alt-F12<br />
+9. Fixed some minor bugs</p>
+      <p># 5. 25. 2011 - SVN 0.74<br />
+        1. Based on SVN r3713<br />
+        2. Fixed Xargon Trilogy<br />
+        3. Updated MT-32 emulation (MUNT) patch (63841aa02013487daa34)<br />
+- Improved accuracy<br />
+- Added mt32DAC, mt32ReverseStereo<br />
+- Set gain to 1.5 in this build<br />
+4. Threaded movie capturing (kekko)<br />
+5. Fixed a slow performance while keys are being pressed<br />
+6. Rearranged menu items<br />
+- Added overscan (only works when output=surface)<br />
+- Added two more options for MT-32 settings<br />
+- Fixed CheckMenuItem for soundblaster=none<br />
+- Merged linewise, multiscan, char9 options into Compatibility<br />
+7. Updated saved states manager<br />
+8. Fixed some minor bugs<br />
+      </p>
+      <p># 5. 1. 2011 - SVN 0.74<br />
+        1. Based on SVN 3704<br />
+        2. Updated MUNT (MT-32 emulation, commit 1e61e5006aba57c085a4)<br />
+* Speed improvement up to about 40%<br />
+* Improved reverb<br />
+* Fixed a crackle in some games like Prince of Persia II<br />
+* Removed MT-32 rate variable<br />
+* Added mt32reverb.mode, mt32reverb.time, mt32.reverblevel (sergm)<br />
+3. Fixed some file missing issues: LBA2 and Megatron (ripsaw8080)<br />
+4. Fixed Eclipse, one of Korean games (ripsaw8080)<br />
+5. Improved COPY command<br />
+6. Updated 3dfx voodoo emulation update (kekko)<br />
+7. Set WINDIB driver as default (Automatically changing to DirectX driver when using DirectDraw)<br />
+* Improved switching from/to window/fullscreen in every output except ddraw<br />
+* Fixed an issue switching between OpenGL and DirectDraw<br />
+* Imprved compatibility with some other wrappers like nGlide (Tested under Win7)<br />
+8. Fixed a bug that DOSBox exits at startup when using WINDIB driver + OpenGL<br />
+9. Changed &quot;toggle menu&quot; hot key to Ctrl-Alt-Enter<br />
+10. Fixed an issue running REVE demo (unofficial change)<br />
+11. Continuous turbo mode was integrated into the existing turbo mode (Alt-F12), Removed Ctrl-Alt-F12.<br />
+12. Added CWSDPMI.EXE to drive Z<br />
+13. Fixed some minor bugs<br />
+<br />
+<br />
+        # 4. 4. 2011 - SVN 0.74<br />
+        1. Based on SVN 3692<br />
+- Read Changelog_SVN.txt for details.<br />
+2. Upgraded to GCC 4.6.0.<br />
+- Improved performance<br />
+- Fixed an exit error with char* message.<br />
+3. Added IBM PS/1 audio emulation with AMSTRAD machine (jmk)<br />
+- Provided variables: machine=amstrad, ps1audio=on/off/auto<br />
+4. Updated MUNT (MT-32 emulation)<br />
+- Improved accuracy and reverbs<br />
+- Included sergm's WG fix<br />
+5. Updated COPY command<br />
+- Borrowed from FreeDOS project<br />
+- File timestamp verification<br />
+- More parameters support<br />
+6. Updated MOUSE command<br />
+- Added /V paramter for Y-axis reverse (useful for FPS games)<br />
+7. Fixed a low volume issue while playing FluidSynth soundfont.<br />
+8. Fixed some minor bugs
+      </p>
+      <p># 3. 20. 2011 - SVN 0.74<br />
+        1. Based on SVN 3686<br />
+- Read Changelog_SVN.txt for details.<br />
+2. Updated OpenGLHQ (moe, gulikoza)<br />
+3. Updated SDL HG<br />
+4. Updated Direct3D (gulikoza)<br />
+5. Added Fluidsynth, Timidity server backend (soundfonts available)<br />
+6. Updated MT-32 emulation (MUNT)  (sergm, KingGuppy)<br />
+- More accurate but less reverb<br />
+- Removed WAVEFORM directory<br />
+7. Added OpenGL glide hardware acceleration (kekko)<br />
+- You need to set glide=emu (Internal emulation)<br />
+- Also set your output to OpenGL.<br />
+8. Fixed a blank screen in Blue Force<br />
+9. Fixed some minor bugs<br />
+      </p>
+      <p># 2. 19. 2011 - SVN 0.74<br />
+        1. Based on SVN 3675<br />
+        2. Fixed a keyboard input issue when using WINDIB driver and GUI<br />
+        3. Fixed a distortion when using MT-32 emulation in some games like Police of Quest 2 and Zeliard<br />
+        4. Added hercules blending patch (ripsaw8080)<br />
+        5. Fixed a bug related to writing in ZIP/7Z mounting from GUI<br />
+        6. More accurate vertical sync in Direct3D, OpenGL (vsyncmode=host)<br />
+        7. Fixed some minor bugs<br />
+      </p>
+      <p># 1. 25. 2011 - SVN 0.74<br />
+        1. Fixed some fatal bugs in zip/7z image mounting (physfs)<br />
+- Fixed: Couldn't run any executable in an acrhive<br />
+- 
+      Fixed: Nullifies file contents of images right after mounting it with GUI<br />
+      2. Fixed a clipping issue in MT-32 emulation (MUNT) : reported by kode54      </p>
+      <p># 1. 22. 2011 - SVN 0.74<br />
+        1. Based on SVN r3674<br />
+2. No compression for every binary and library.<br />
+- Removes false-positive virus warnings. (http://www.virustotal.com/)<br />
+Older releases also do not include viruses, so you don't have to worry about this.<br />
+- Frees more memory usage.<br />
+3. Added HTML-style user manuals.<br />
+4. Removed an existing hack for some games in MUNT code. (Thanks, TeaRex)<br />
+5. Fixed some minor bugs.      </p>
+      <p># 1. 4. 2011 - SVN 0.74<br />
+        1. Added some changes on DOS commands (Mostly borrowed from FreeDOS)<br />
+        Updated: MOVE, MEM, EDIT, CLS<br />
+        Added: FIND, TREE, DOSIDLE<br />
+        Added DOS Extenders (DOS4GW and DOS32A) for DOS games/utilities.<br />
+        2. Updated save/load state feature.<br />
+        - Fixed a bug that DOSBox cannlot load states in some programs.<br />
+        - Displays a program title if it is not correct for a saved state.<br />
+        - Creates a save directory if it does not exist.<br />
+        - Added an item &quot;remove state&quot; into Main menu.<br />
+        - Added &quot;Run save states manager.bat&quot; in TOOLS directory.<br />
+        3. Updated MUNT code a bit<br />
+        - Disables multi-threading support on single core CPU without hyperthreading. <br />
+        - Removed all hacks for noise fix.<br />
+      4. Fixed some minor bugs.      </p>
+      <p># 12. 25. 2010 - SVN 0.74<br />
+        1. Fixed some bugs in save/load state feature<br />
+        - Added a verification for files to check if they are properly saved.<br />
+        - Saves a name of program running in DOSBox.<br />
+        - Saved state files are reusable even after DOSBox exits.<br />
+        * Disabled saving/loading of paging and part of memory functions.<br />
+        As of this update, you can share saved files with others.<br />
+        2. Updated Munt code a bit<br />
+        - Mastertune is set to 0x4a for MT-32. (reported by Cloudschatze)<br />
+        - Borrowed recent changes from SVN branch of ScummVM.<br />
+        (Fix uninitialised memory reads in MT-32 Emulator, reported by Valgrind.)<br />
+        For more information, go to http://vogons.zetafleet.com/viewtopic.php?t=26833<br />
+        3. Added Carmageddon fix for OpenGlide from gulikoza.<br />
+        4. Updated 3dfx voodoo chip emulation patch (voodoo_20101127)<br />
+        5. Fixed some minor bugs      </p>
+      <p># 12. 16. 2010 - SVN 0.74<br />
+        1. Based on SVN r3663<br />
+        2. Updated to latest Munt (MT-32 emulation) code<br />
+        Borrowed mostly from ScummVM project, including some fixes:<br />
+        - More accurate than previous version of MUNT<br />
+        - More speed as it detects SIMD and 3DNow technology of CPU.<br />
+        - Every time you change the sample rate, waveform cache needs to be newly generated.<br />
+        The cache file will be saved in waveform directory.<br />
+        - Added more samples rates.<br />
+        - Added a hack for some games.<br />
+        - Mastertune will be automatically set depending on ROM files.<br />
+        - Fixed endless echo while resetting all controllers (e.g., Little Witch)<br />
+        - Fixed noise on some games (e.g., Lotus, MegaMan X)<br />
+        - Fixed some other noticeable bugs<br />
+        For more information, go to http://vogons.zetafleet.com/viewtopic.php?t=26833<br />
+        3. Saved state slots now will be restored to files, not to memory for reducing memory burden.<br />
+        Take a look at save directory. These saved files may not be reusable after DOSBox exits.<br />
+        4. Fixed some minor bugs      </p>
+      <p># 12. 4. 2010 - SVN 0.74<br />
+        1. Based on SVN r3662<br />
+        2. Upgraded GCC to 4.5.0.<br />
+        3. Modified optimization flags a bit for speed. (not a big improvement)<br />
+        4. Removed DLL directory so that DOSBox does not use a relative location to libraries.<br />
+        5. Fixed a compatibility issue in Windows 98/ME and 2000. (Thanks to Shelling Ford)<br />
+        GUI will be automatically disabled in Win98/ME.<br />
+        If you still cannot start DOSBox, set output=ddraw in dosbox.conf.<br />
+        6. Reduced memory burden a bit.<br />
+        7. Fixed some minor bugs.<br />
+      </p>
+      <p># 11. 21. 2010. - SVN 0.74<br />
+        1. Based on SVN r3661<br />
+        2. Fixed: LABEL command worked only once.<br />
+        3. Changed &quot;Exit Alt-F9&quot; to &quot;Exit Ctrl-F9&quot; in menubar (typo)<br />
+        4. Restart (Ctrl-Alt-Home) works under Windows without administrative previlege.<br />
+        5. Applied other h-a-l-9000's patches except DOS idling.<br />
+        See also http://home.arcor.de/h-a-l-9000/ (megabuilds) for details.<br />
+        Take a look at some changes in dosbox configuration file. (cputype, sblaster opl, render, and so on)<br />
+        If you are running Win95 inside DOSBox, please install S3 801/805 driver (video card).<br />
+        6. Fixed some minor bugs.<br />
+      </p>
+      <p># 11. 10. 2010. - SVN 0.74<br />
+        1. Based on SVN r3660<br />
+        2. Added kekko's 3dfx voodoo chip emulation.<br />
+        According to kekko's description:<br />
+        - higher compatibility with titles (even those with integrated .ovl)<br />
+        - portability<br />
+        - integration with dosbox internal renderer: full-screen, different output modes and video capture would be supported<br />
+        - no need of external libs<br />
+        - d3d support for win9x games<br />
+        Set glide=emu in config if you want to use this. It will use glide2x_emu.ovl instead.<br />
+        For more information, go to http://vogons.zetafleet.com/viewtopic.php?t=25606<br />
+        Do not ask how to build or how to speed up there.<br />
+        NOTE: Read USAGE_EN.TXT for details.<br />
+        3. Updated openglide patch (Thanks, gulikoza)<br />
+        Fixed a text output problem caused by my error in GTA1.<br />
+        4. Fixed Save &amp; Load state a bit<br />
+        5. Fixed some minor bugs<br />
+      </p>
+      <p># 10. 30. 2010. - SVN 0.74<br />
+        1. Based on SVN r3653<br />
+        - Add new features to the config command for control of the config file<br />
+        2. Fixed: Checking menu items like Serial, Parallel, Printer did not work.<br />
+        3. Added &quot;Restart&quot; menuitem.<br />
+        4. Removed CPU optimization patch due to the performance loss.<br />
+        5. Added support for .jrc (boot) and .ima (mount) in Drives menu.<br />
+        6. Pause item in Main menu will work while paused.<br />
+        7. Added gulikoza's highres rendering patch for Openglide. (glide2x.dll)<br />
+        8. Uses Direct3D as the default output with scaler=hardware2x.<br />
+        9. Fixed some minor bugs<br />
+      </p>
+      <p># 10. 21. 2010. - SVN 0.74<br />
+        1. Based on SVN r3650<br />
+        2. Fixed: -nogui did not work at all.<br />
+        3. Fixed: Double-clicking titlebar did not work.<br />
+        4. Fixed: tv2x scaler slowed down the overall emulation (Thanks, Lupin2)<br />
+        5. Added save slots selections into menu.<br />
+        6. Added the following menu items : Serial / Parallel ports, Printer, MT32 rate<br />
+        7. Fixed some minor bugs.<br />
+      </p>
+      <p># 10. 11. 2010. - SVN 0.74<br />
+        1. Based on SVN r3649<br />
+        2. Added mt32rate into [midi] section for MT-32 samplerates. (Default value is auto.)<br />
+        3. &quot;-nogui&quot; parameter is available again for disabling GUI. It differs from &quot;-nomenu&quot; to hide menubar.<br />
+        4. You can use other glide wrappers like nGlide. (read manuals)<br />
+        5. Added dosbox_readme.bat to read manuals easily. (see Tools directory)<br />
+        6. Added zmbv codec installer/uninstaller (see Tools directory)<br />
+        7. Fixed zero FPS on titlebar when using &quot;Show details&quot; mode with Direct3D.<br />
+        8. Fixed some minor bugs.<br />
+      </p>
+      <p># 10. 1. 2010. - SVN 0.74<br />
+        1. Based on SVN r3646<br />
+        2. Removed libgcc and msvcr100 library dependencies<br />
+        It does not require to install external libraries.<br />
+        3. Fixed Desktop/Original selection problems in resolution menu.<br />
+        4. Added EMS items (emsboard, emm386) into DOS menu<br />
+        according to the changes r3642.<br />
+        5. Fixed a crash if you go to fullscreen in OpenglHQ.<br />
+        6. Aero_fix patch will only work on Windows ver 6(Vista) or later.<br />
+        Direct3D will ignore aero_fix as it is not needed.<br />
+        7. Added CPU cores(full, simple) into CPU menu, following DOSBox configuration.<br />
+        8. Menubar will not be displayed in fullscreen if using &quot;-fullscreen&quot; parameter.<br />
+        9. Fixed menu responses.<br />
+        10. Added a patch: CGA/Tandy/PCJr palette patch (h-a-l-9000) by someone's request<br />
+        11. Added AUTHORS, THANKS, VERSION, INSTALL to DOCS directory.<br />
+        12. Fixed some minor bugs.<br />
+      </p>
+      <p># 9. 26. 2010. - SVN 0.74<br />
+        1. Fixed menu events for speed (Thanks to Jed Clampett)<br />
+        2. Fixed an error occured when pressing Ctrl-F9 in fullscreen. (Thanks to Chris Spurr)<br />
+        If you press Ctrl-F9 then DOSBox will go back to window for exit.<br />
+        3. Menu will be disabled right after switiching to fullscreen.<br />
+        4. Fixed some minor bugs.<br />
+      </p>
+      <p># 9. 22. 2010. - SVN 0.74<br />
+        1. Fixed: A wrong event location slowed down the emulation.<br />
+        2. Fixed: A bug in resolution menu (1280x800 enabled/disabled)<br />
+        3. Cleaned up manuals.<br />
+        4. Disabled MT-32 logging when playing due to the performance loss<br />
+        5. Added sdlresize patch.<br />
+        - Maximize button switches to fullscreen.<br />
+        - Scaler size can be changed just by resizing the window. (it works if windowresolution=original)<br />
+        6. Fixed some minor bugs.<br />
+      </p>
+      <p># 9. 18. 2010. - SVN 0.74<br />
+        1. Added the following patches<br />
+        - Printer output (freetype)<br />
+        - MT-32 MIDI (this might require ROM files)<br />
+        - Stereo swap<br />
+        - MP3/Wave Cue support<br />
+        - Overscan (only works if output=surface)<br />
+        2. Fixed the following bugs<br />
+        - Alt-key combination shows popup menu.<br />
+        - Windows Aero might be turned off in some cirumstances.<br />
+        3. Fixed some other bugs.</p>
+      <p># 9. 9. 2010. - SVN 0.74<br />
+        1. Upgraded gcc to 4.4.0 for compilation.<br />
+        2. Fixed dosbox_admin.exe for some anti-virus software.<br />
+        3. Changed the internal icon.<br />
+        4. Ouput help messages at startup (Korean).<br />
+        5. Fixed Numlock bugs.<br />
+        6. Fixed some keypress bugs.<br />
+        7. Changed the existing menu system.<br />
+        8. Rearranged and added some menu items.<br />
+        9. Fixed mouse cursor bugs.<br />
+        10. Improved stability.<br />
+        11. OK, Cancel buttons can be pressed in GUI.<br />
+        12. Added Hardware2x/3x scalers.<br />
+        13. Fixed OpenglHQ scailing.<br />
+        14. Fixed 3dfx voodoo graphics for games.<br />
+        15. Fixed some other bugs.</p>
+      <p># 8. 4. 2010. - SVN 0.74<br />
+        1. Based on SVN source<br />
+        2. Updated some libraries including latest Direct SDK.<br />
+        3. Added Direct3D and pixelshaders implemented again<br />
+        4. OpenglHQ output implemented again<br />
+        5. Innovation implemented again<br />
+        6. Glide implemented again<br />
+        7. Zip/7z mount with libphysfs<br />
+        8. NE2000 Ethernet (hal)<br />
+        9. Save/Load state (ZenJu) - experimental<br />
+        10. Beep (hal)<br />
+        11. Added some missing sample rates (tandy/pcspeaker)<br />
+        12. Some other fixes and patches applied<br />
+      </p>
+      <p>&nbsp;</p>
+      <p>SUMMARY<br />
+        ------------------<br />
+        SVN 0.74    : 2010/08/04 ~<br />
+        CVS 0.73     : 2010/04/11<br />
+        CVS 0.72     : 2007/09/03 ~ 2009/05/19<br />
+        CVS 0.71     : 2007/07/30 ~ 2007/08/15<br />
+        CVS 0.70     : 2007/03/05 ~ 2007/07/29<br />
+        CVS 0.66rc3 : 02/25/2007<br />
+        CVS 0.66rc1 : 02/06/2007 ~ 02/09/2007<br />
+        CVS 0.65     : 03/31/2006 ~ 01/21/2007<br />
+        CVS 0.63     : 11/22/2004 ~ 03/21/2006<br />
+        CVS 0.62     : 10/01/2004 ~ 11/13/2004<br />
+        CVS 0.61     : 01/17/2004 ~ 09/25/2004<br />
+        CVS 0.60     : 10/31/2003 ~ 01/13/2004</p>
+      <p>* 2010<br />
+        04/11/2010 : Based on 0.73 CVS source. Fixed minor bugs.</p>
+      <p>* 2009<br />
+        05/19/2009 : Removed ZIP/7Z mount. Pressing Alt-pause will be used to pause DOSBox, not showing a configuration window.</p>
+      <p>* 2008<br />
+        09/28/2008 : Removed MT-32, Direct3D, OpenglHQ, Printer, VGAParts, Innovation, Overscan. Pressing Alt-tab in fullscreen works fine. Some patches were updated.</p>
+      <p>* 2007<br />
+        11/28/2007 : Fixed some bugs related to capture and sound. &quot;Pause&quot; is integrated into user interface. Fixed some other bugs.<br />
+        10/19/2007 : Added a slightly modified version of User Interface (Moe). Added glide emulation (gulikoza). Fixed some other bugs.<br />
+        10/07/2007 : Added support for wildcard substitution in copy, Updated SVGA. A new machine &quot;ega&quot; was added. Added some keyboard layouts to menu.<br />
+        09/03/2007 : Based on 0.72 source. Added XGA enhancement and 16550A FIFO. Updated glide, printer emulation, and menu bar.<br />
+        08/15/2007 : Removed HU104 due to the change of keyb structure. Direct3D works.<br />
+        08/06/2007 : Added Aspect correction fix. Updated menu bar for boot/freesize. Solved a crash when d3d pshader is frequently switched. Updated ETC document. Added -nogui to disable GUI.<br />
+        07/30/2007 : Based on 0.71 CVS. Fixed the opposite numlock. Fixed a screen synch trouble that occurs when keyboardlayout is set in dosbox.conf.<br />
+        06/16/2007 : Menu bar is based on SDL_WindowID. Added &quot;host&quot; for vsyncmode. Added part of demovga patch. Quick start-up. Dragging an executable into dosbox window is possible. Added dosbox_admin.exe<br />
+        04/16/2007 : Removed menu bar patch temoporailly. Does not crash when console window is closed. -ioctl is the default value for WinNT-family OSes.<br />
+        04/10/2007 : Changed the overall system of menu bar.<br />
+        03/25/2007 : Fixed MT32 broken, Added some DOS commands like XCOPY, APPEND, and EDIT into the internal drive. Moved GLIDE2X.OVL into the internal drive.<br />
+        03/17/2007 : Added &quot;Quick Launch&quot; to menu bar, Added support for mounting img/iso/zip files<br />
+        03/10/2007 : Added two 3.0 pixel shaders for Direct3D (gulikoza), Updated menu bar for mounting drives, Changed an internal icon.<br />
+        03/05/2007 : Support for special characters for dir/file names, Updated glide emulation, Fixed a bug that DOSBox crashes with -fullscreen, Fixed a bug related to menu bar<br />
+        02/25/2007 : Based on RC3, Hide hercules startup screen, Added a new option for joystick : buttonwrap, Fixed more possible crashes related to glide patch<br />
+        02/09/2007 : Fixed a bug that dosbox crashes, Added hal's one line fix so that screen shows correctly in some games<br />
+        02/06/2007 : Based on 0.66rc1 source, IODelay problem was fixed, Megablast's icon, Default cycles value is 3000<br />
+        01/21/2007 : Easier UMB management, Improved compatibility of some games, You can turn on/off IO-Delay, Mapper now supports joystick, Fixed a crash when unmounting while running a program<br />
+        01/05/2007 : Changed ctrl-alt-f10 to ctrl-alt-f9 (menu) for windows vista, Disables menu bar during paused/keymapper, IO Delay fix</p>
+      <p>* 2006<br />
+        12/03/2006 : Fixed Hungarian KB 104, F10 key does not trigger menu bar any more, Addded config.sys commands<br />
+        11/20/2006 : Updated OpenglHQ and some patches, Menu bar can enable/disable XMS, EMS, and UMB<br />
+        11/06/2006 : Added Innovation SSI-2001 emulation, DBCS console patch now works, Automount now handles floppy drives, Hide cycles at startup, Fixed a bug in optimization patch<br />
+        10/29/2006 : Added 25.COM, 28.COM, and 50.COM for screen modes, Added KEYB.COM, Updated libpng library, DirectDraw support<br />
+        10/15/2006 : Added auto/dynamic_dhfpu core into menu bar, Added prompt command, Fixed a problem related to line handling when echo=off<br />
+        10/07/2006 : New options for joystick, Modified part of MT-32 emulation<br />
+        09/29/2006 : SDL ver updated to 1.2.11, Fix cdrom detection, Removed printer font files, Automount now handles CD-ROM<br />
+        09/18/2006 : Menu bar supports automount, Set file date &amp; time, Added CMOS clock patch, Added support for 15/16/24-bit color in Win3<br />
+        09/09/2006 : Updated CD image recycling, Fix for JetFighter 2 and Alien Breed, Fixed a crash between glide and menu bar<br />
+        08/09/2006 : Modified direct3d patch a little bit for pixel shaders, Some games like wc3 that use JEMM memory manager work again, Timer fix for 1000 Miglia<br />
+        08/01/2006 : Fixed bugs in some patches, Added SET VER, Updated SVGA chipset patch<br />
+        07/15/2006 : Multiple configfiles support, Moved MOUSE to Z drive, Updated some libraries, Added Mhz indicator<br />
+        06/27/2006 : Updated MUNT CVS (mt-32), Added cycles=max (different from cycles=auto), Added CD image disk cycling<br />
+        06/16/2006 : Added &quot;Forcescaler&quot;, Added a parameter -nomenu to disable menu bar, Divided document directory into EN and KR. Added etc_en.txt and etc_kr.txt, Added runtime icon<br />
+        06/06/2006 : Added &quot;Graphics optimization and Time synched&quot;, Added an icon from eobet<br />
+        05/28/2006 : Joystick polling_reduction, New scalers including Super2xSaI, 2xSaI, SuperEagle, and HQ2X/3X<br />
+        05/15/2006 : Added HQ2X/HQ3X, Fixed a bug in physfs, Added some patches related to turbo mode, Show real FPS<br />
+        04/27/2006 : Protocos game now works. Added &quot;Joystick (experimental)&quot;<br />
+        04/12/2006 : Added &quot;Timer improvements&quot;<br />
+        04/07/2006 : Added &quot;Better Up/Down Arrow handling in Shell&quot;<br />
+        03/31/2006 : Added &quot;Support socket inheritance&quot;<br />
+        03/21/2006 : Added &quot;Virtual Printer&quot; and &quot;Core-switch&quot;. Supports Direct3D again. Added new directories &quot;Shaders&quot; and &quot;Fonts&quot;<br />
+        03/08/2006 : Updated Native IPX and modem patches. VGA_Parts now works properly. Fixed a strange bug when Ctrl-F7/Ctrl-F8 keys are pressed.<br />
+        02/14/2006 : Updated Native IPX. Added &quot;Unaligned memory improvents&quot;, and &quot;Improved font&quot;, New DOSBox icon, AVI capture support, Auto cycle guessing, vesa 16/24/32bit support<br />
+        01/30/2006 : Alt-Pause is now used for pause emulation. Percentage of speed meter is displayed on title bar. Added some new pshaders for Direct3d.<br />
+        01/07/2006 : Added &quot;SB DSP&quot; and &quot;Directory iterators for the iso drive&quot;</p>
+      <p>* 2005<br />
+        12/26/2005 : Added &quot;SB MIDI Interface&quot;, &quot;Modem improvements&quot;, and &quot;Vertical retrace sync&quot;<br />
+        12/17/2005 : Modified startup messages in shell. Fixed a bug that opengl doesn't work on nvidia vga cards. Added all of the dx3d pshaders to dll directory.<br />
+        12/08/2005 : VGA parts and overscan border work again. Updated scalers performance boost, physfs, etc.<br />
+        11/29/2005 : Scalers performance boost patch by Krounz. Fixed a crash in glide emulation with svga. Set aspect=false (default) <br />
+        11/15/2005 : Fixed a bug in 'copy' command (Thanks to Eric Wright). Added a library file 'glide2x.dll' for openglide.<br />
+        11/03/2005 : Added &quot;Glide emulation&quot; from gulikoza, Fixed a bug in CD-ROM mount (limited support)<br />
+        10/31/2005 : Disables speed-meter in debug mode, Added &quot;Lost surface fix for DirectDraw display path (Win32)&quot; and &quot;chain4 optimization&quot;<br />
+        10/13/2005 : Direct3d update, Added &quot;Fix for permanent keyboard lockup (Ctrl+Esc)&quot; and &quot;Backspace and overflow fixes to line input&quot;<br />
+        10/04/2005 : Added &quot;Virtual printer support (freetype2)&quot;, &quot;Fix for XMS subfunction 0E (GetHandleInformation)&quot;, and &quot;chain4&quot;<br />
+        09/23/2005 : Added &quot;Native IPX&quot; &amp; &quot;VGA corrections/vgatest accuracy&quot;, Updated openglhq and (physfs zip mount) patches<br />
+        09/11/2005 : Added &quot;Netbios support&quot;, Updated &quot;Overscan border&quot;<br />
+        09/04/2005 : Added &quot;CGA composite&quot; and &quot;cga fix&quot;<br />
+        08/31/2005 : Intro improvement patch added, Normal4x patch, console patch bug fixes<br />
+        08/26/2005 : Added &quot;Blended overscan borders&quot;, a new svga type &quot;et4000new&quot; supports<br />
+        08/20/2005 : Made codes somewhat smaller (optimized), updated mingw-runtime &amp; w32api<br />
+        08/14/2005 : Added &quot;More keyboard commands handled&quot; and &quot;Supress SET statements at the beginning of DOSBox&quot;<br />
+        08/11/2005 : CVS refresh<br />
+        08/10/2005 : UMB Support, ANSI improvement, SQL clients run from DOSBox on win32, some patches updated<br />
+        08/05/2005 : Added Memsize128 (max : 127), Added &quot;More parameters support in internal commands&quot;<br />
+        07/30/2005 : Normal3x support, Zip mount support<br />
+        07/22/2005 : % var % support, optimization patches<br />
+        07/19/2005 : Removed fexs patch for compatibility, Supports ZIP Mount<br />
+        07/16/2005 : Added a patch for CON to handle DBCS(Korean/Japanese/Chinese) characters, F11/F12 works, Removed all of svga-excluded builds on my page<br />
+        07/14/2005 : Added README_EN.TXT, Added new patches (ADDKEY and Improved Serial port)<br />
+        07/11/2005 : Tandy correction, Keyboard Buffer 3x<br />
+        07/06/2005 : SVGA supports paradise card (basic), EMS supports VCPI<br />
+        07/01/2005 : SDL.DLL now has a feature OpenglHQ, Added two new Direct3D filters<br />
+        06/23/2005 : Updated SDL 1.3.x CVS, Added smart screen update &amp; Mapper (for joystick) patches, Uploaded english version of optimization mode for DOSBox<br />
+        06/15/2005 : OpenGL works fine again, a little bit faster than previous build<br />
+        06/05/2005 : First build uploaded (since CVS 0.63) - English page of DOSBox Daum Cafe (ykhwong's page)<br />
+        06/03/2005 : Added mouse-unlock patch and automatic mount, etc. OpenGL does not work(?)<br />
+        05/14/2005 : SDL library was updated to 1.3.x. (experimental) Added improved CD detection patch and Setmode/crtc patch.<br />
+        05/07/2005 : HQ2X was added. again. Fixed some bugs in Dynamic core.<br />
+        05/03/2005 : HQ2X was removed. Possible to change memory size for SuperVGA. Optimized mixer.<br />
+        04/20/2005 : Supports Vesa 16bit. Added Dynamic FPU. Improved adlib.<br />
+        04/06/2005 : LOCK is implemented into Full and Dynamic cores. XADD is implemented into Normal and Full cores.<br />
+        03/26/2005 : Mouse sensitivity can be set to 100 (maximum). Improved performance a lot. Fixed some bugs.<br />
+        03/21/2005 : Updated MT-32 (Munt) a lot.<br />
+        03/10/2005 : Updated compiler. Added three patches including speed meter.<br />
+        02/27/2005 : Modified redirection file management. FPU core now uses a new assembly x86.<br />
+        02/17/2005 : Fixed FILES= settings detection. Changed part of extension keyboard handling.<br />
+        02/05/2005 : Fixed DirectDraw problems. (Changed SDL), Added CHANGES and DOCS directories.<br />
+        02/03/2005 : Added some exceptions when installing Windows 3.1. Used an official SDL library.<br />
+        01/21/2005 : Removed SDL_Sound external library. (Included in the binary) Updated SDL and libPNG.<br />
+        01/03/2005 : Updated source file year to 2005. Added support for MT-32. (Munt)</p>
+      <p>* 2004<br />
+        12/25/2004 : Busy for vacation... nothing done in 10 days.<br />
+        12/24/2004 : Reduced the size of DOSBox.exe and DOSBox_debug.exe. Fixed optimization flags.<br />
+        12/24/2004 : No plan for CVS compilation yet.<br />
+        12/19/2004 : Updated Direct3D output. Removed README. Fixed some mouse bugs in some games.<br />
+        12/13/2004 : Every DOS4GW game now works.<br />
+        12/12/2004 : Crusader works.<br />
+        12/11/2004 : Crusader does not work.<br />
+        12/08/2004 : Removed debugger-enabled build.<br />
+        12/02/2004 : Quarantine and some games seem to work.<br />
+        11/30/2004 : Supports debugger-enabled build. Fixed FAT write access.<br />
+        11/24/2004 : Included CVS build. DPMI is nice except paging.<br />
+        11/22/2004 : Applied optimization flags as default. Added PIC command 48.<br />
+        11/21/2004 : Included CVS test build. Set DPMI=FALSE.<br />
+        11/13/2004 : Changed CXXFLAGS flag. Refresh the internal cache when pressing Ctrl-F4.<br />
+        11/12/2004 : Fixed some loops when switching to fullscreen.<br />
+        11/04/2004 : DOSBox CVS now supports GUS.<br />
+        10/31/2004 : DOSBox CVS builds are now compressed by ASPack, not UPX.<br />
+        10/30/2004 : Applied adlib patch. Applied CXXFLAGS optimization. Fixed some crashes with some programs.<br />
+        10/24/2004 : Added some call information. Every settings will work okay except [autoexec] even if DOSBox.Conf is removed.<br />
+        10/18/2004 : Set FILES=127, not FILES=100. Removed NULL device. Supports basic FXTRACT. Modified keyboard input speed.<br />
+        10/10/2004 : Fixed SDL for Win32 OS. Stable image file management. Applied optimization patch for dynamic core.<br />
+        10/01/2004 : Added some experimental patches. Changed font banks.<br />
+        09/25/2004 : Modified country information. Supports Direct3D better. Stable screenshot feature.<br />
+        09/22/2004 : Removed the following features temporarially<br />
+        09/07/2004 : Added DOSBox icon. Added a patch for European keyboards. Many games now work like a charm. Supports double-buffering.<br />
+        08/25/2004 : Added Simple core for CPU. Improved DOS games compatibility a bit. Fixed sound part.<br />
+        08/23/2004 : CPU priority is automatically set to high. Supports debugger-enabled build and screenshot. Removed optimization mode. Diversified new sound output methods.<br />
+        08/12/2004 : Network mode will be disabled as default. HQ2X support. DOSBox title bar is translated in Korean. Games now load CD labes fine.<br />
+        08/03/2004 : Supports 3DNow! and SSE. Supports DirectSerial and Direct3D. Removed HQ2X, screenshot, and debugger-enabled build.<br />
+        07/20/2004 : Reduced size of ZLIB1.dll. Fixed some problems when installing Windows 3.1.<br />
+        07/13/2004 : HQ2X is supported. Moved SNAPS to CAPTURE. Displays realtime speed<br />
+        06/27/2004 : Fixed some games emulation. HQ2X will not be supported. Program name will be displayed on DOSBox titlebar. Fixed GUS problems.<br />
+        06/06/2004 : Improved optimization mode - CPU priority, Help, etc.<br />
+        05/31/2004 : Added DIFF and DOCS directories.<br />
+        05/20/2004 : Compressed by PECompact. Improved CD-ROM functions. Improved optimization mode.<br />
+        05/12/2004 : Pause key works for pausing DOSBox. Added options for SB mixer.<br />
+        05/04/2004 : Modified part of DOSBox executables with reduced size.<br />
+        04/29/2004 : Added screenshot feature. CURSES.DLL (external lib) is not required. Supports IPX and modem again. Removed compilation information temporarially.<br />
+        04/28/2004 : Fixed serious compatibilty problems (Dynamic), Fixed some bugs in sound and memory.<br />
+        04/24/2004 : Fixed some CPU core data.<br />
+        04/22/2004 : Fixed bugs in DOS, drive cache, FAT, local, virtual mount, Sound Blaster, etc.<br />
+        04/15/2004 : Supports IPX modem again. Refreshed debugger-enabled build. Changed shell messages. Improved some compatibilties.<br />
+        04/11/2004 : Improved optimization mode. Fixed some bugs.<br />
+        04/09/2004 : Keypads are available. Fixed cacheblock underruns in some games.<br />
+        04/07/2004 : Optimized curses for debugger-enabled build. Added SDL_Net. Fixed some bugs related to real mode.<br />
+        04/05/2004 : Improved games compatibility a bit. Fixed a delay when switching from<br />
+        04/02/2004 : Reduced the size of executable. Updated optimization mode.<br />
+        03/31/2004 : Improved dynamic core compatibiltiy with fixes for some DOS games.<br />
+        03/22/2004 : Improved compatibility. Removed Boxer in my build.<br />
+        03/13/2004 : Improved compatibility for some DOS games. Supports OPL, MIDI Intelligent, and IPX.<br />
+        03/11/2004 : Noticed that an upcoming DOSBox CVS build will be released soon.<br />
+        03/07/2004 : Released a new build. Boxer was translated into Korean.<br />
+        02/29/2004 : Compiled with i686 format. Added optimization mode.<br />
+        02/22/2004 : Fixed compatibility problems related to some games, again.<br />
+        02/13/2004 : Fixed compatibility problems related to some games.<br />
+        02/09/2004 : Fixed some graphics problems in previous builds.<br />
+        02/03/2004 : DOSBox CVS more stable.<br />
+        01/31/2004 : Added OpenGL, hardware scailing. Some games like Prehistorik 2 now work.<br />
+        01/22/2004 : Updated date-style on first screen displayed right after running DOSBox CVS.<br />
+        01/17/2004 : Stable<br />
+        01/13/2004 : CPU core configuration was changed (CPU configuration is possible in DOSBox.Conf)<br />
+        01/11/2004 : CVS 0.60<br />
+        01/10/2004 : Posted how to compile DOSBox CVS on DOSBox Daum Cafe (Korean page)<br />
+        01/07/2004 : Fixed some compatibilty problems and some information.<br />
+        01/04/2004 : Borrowed some contents from rjpa's source.<br />
+        01/03/2004 : Included a new file &quot;doxbox_nodyn.exe&quot; which excludes Dynamic CPU core.</p>
+      <p>* 2003<br />
+        12/08/2003 : First build uploaded (since CVS 0.60) - Korean page of DOSBox Daum Cafe<br />
+        11/02/2003 : Opened DOSBox Daum Cafe.<br />
+        09/24/2003 : Linux x86 ELF binary was included in CVS compilation. (dosbox.bz2)<br />
+        09/02/2003 : Released debugger-enabled build of DOSBox CVS.<br />
+        09/02/2003 : Reduced the size of .exe, .dll compiled as win32 binary.<br />
+        09/01/2003 : Linux x86 ELF binary was included in CVS compilation. (dosbox)<br />
+        08/25/2003 : Compiled a new CPU core.</p>
+      <p>* 2002<br />
+        DOSBox developers uploaded DOSBox source on sourceforge site.<br />
+      </p>
+      <p></p></td>
+  </tr>
+  <!-- Limiter -->  <!-- / Limiter -->  <!-- Limiter -->  <!-- / Limiter -->  <!-- Limiter -->  <!-- / Limiter -->  <!-- end of page -->
+</table>
+<table border="1">
+  <tr>
+    <td >SVN-specific manuals</td>
+    <td><a href="main_en.html">Main</a> | <a href="usage_en.html">Usage</a> | <a href="index.html">MB6 Patches</a></td>
+  </tr>
+  <tr>
+    <td>Official manuals</td>
+    <td><a href="../../Official Manuals/README.TXT" target="new">README</a> | <a href="../../Official manuals/Video Instructions.txt" target="new">Video Instructions</a></td>
+  </tr>
+</table>
+</body>
+</html>

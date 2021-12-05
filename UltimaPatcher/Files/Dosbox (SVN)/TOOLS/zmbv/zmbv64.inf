@@ -1,0 +1,74 @@
+[Version]
+Signature="$CHICAGO$"
+Provider=%ZMBV_PUBLISHER%
+Class=MEDIA
+
+
+[DefaultInstall]
+CopyFiles=ZMBV.Files.Inf,ZMBV.Files.Dll.NTamd64
+AddReg=ZMBV.RegNTamd64
+UpdateInis=ZMBV.INIs
+
+[DefaultInstall.ntamd64]
+CopyFiles=ZMBV.Files.Inf,ZMBV.Files.Dll.NTamd64
+AddReg=ZMBV.RegNTamd64
+UpdateInis=ZMBV.INIs
+
+[DefaultUnInstall]
+DelFiles=ZMBV.Files.Dll.NTamd64,ZMBV.Files.Inf,ZMBV.Files.Ini
+DelReg=ZMBV.RegNTamd64
+UpdateInis=ZMBV.INIs.Del
+
+[DefaultUnInstall.ntamd64]
+DelFiles=ZMBV.Files.Dll.NTamd64,ZMBV.Files.Inf,ZMBV.Files.Ini
+DelReg=ZMBV.RegNTamd64
+UpdateInis=ZMBV.INIs.Del
+
+[SourceDisksNames]
+1="Zip Motion Block Video codec x64","",1
+
+[SourceDisksFiles]
+ZMBV64.INF=1
+
+[DestinationDirs]
+ZMBV.Files.Inf=17
+ZMBV.Files.Dll=10,System32
+ZMBV.Files.Dll.NTamd64=10,System32
+ZMBV.Files.Ini=25
+
+[ZMBV.Files.Inf]
+zmbv64.inf
+
+[ZMBV.Files.Dll]
+zmbv64.dll
+
+[ZMBV.Files.Dll.NTamd64]
+zmbv64.dll
+
+[ZMBV.Files.Ini]
+zmbv.ini
+
+[ZMBV.RegNTamd64]
+HKLM,SOFTWARE\Microsoft\Windows NT\CurrentVersion\drivers.desc,zmbv.dll,,"%ZMBV_DISPLAY_NAME%"
+HKLM,SOFTWARE\Microsoft\Windows NT\CurrentVersion\drivers32,vidc.zmbv,,zmbv64.dll
+
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ZMBV64
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ZMBV64,DisplayName,,"%ZMBV_UNINST_DISPLAY_NAME%"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ZMBV64,Publisher,,"%ZMBV_PUBLISHER%"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ZMBV64,URLInfoAbout,,"%ZMBV_URL_HOMEPAGE%"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ZMBV64,NoRepair,0x10001,01,00,00,00
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ZMBV64,NoModify,0x10001,01,00,00,00
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ZMBV64,UninstallString,,"rundll32.exe setupapi.dll,InstallHinfSection DefaultUninstall 132 %17%\ZMBV64.INF"
+
+[ZMBV.INIs]
+system.ini, drivers32,, "VIDC.ZMBV=zmbv64.dll"
+
+[ZMBV.INIs.Del]
+system.ini, drivers32, "VIDC.ZMBV=zmbv64.dll"
+
+[Strings]
+ZMBV_PUBLISHER = "DOSBox Team"
+ZMBV_DISPLAY_NAME = "Zip Motion Block Video [ZMBV] x64"
+ZMBV_UNINST_DISPLAY_NAME = "Zip Motion Block Video codec x64 (Remove Only)"
+ZMBV_URL_HOMEPAGE = "http://www.dosbox.com/"
+CODEC_INSTALLATION_FINISHED = "Zip Motion Block Video codec x64 installation is complete."

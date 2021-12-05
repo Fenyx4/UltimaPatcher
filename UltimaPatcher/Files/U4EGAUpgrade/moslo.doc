@@ -1,0 +1,51 @@
+				Mo'Slo v.1.1
+			Copyright (c) David Perrell 1990
+
+Mo'Slo allows you to slow the speed of your computer to 1-99% of normal in
+1% increments. To use it, you supply the program you want to run slow as a
+commandline argument. Slowness is adjusted via a command line switch. If
+the switch is not supplied, Mo'Slo slows your computer to 4.77MHz PC/XT
+speed. 
+
+Mo'Slo doesn't check the environment for path statements. You must give it
+the complete filename to be run, including extension, and a path if the
+file isn't in the current directory. 
+      
+To run pcgame.com or pcgame.exe at IBM PC/XT speed, type: 
+
+moslo pcgame.com
+                   
+To run at 5% normal speed, type: 
+
+moslo /5 pcgame.com
+                   
+To run a game that you type "START" to play, at 50% its speed
+
+moslo /50 start.exe
+
+(.COM OR .EXE EXTENSION MUST BE INCLUDED. You may also include commandline
+arguments to the program being called.)
+
+When you exit pcgame, you'll exit Mo'Slo, and normal speed will be
+restored. (Mo'Slo doesn't affect the system clock -- it keeps on tickin'.)
+
+Mo'Slo will not slow a computer below its ability to operate. For a
+4.77MHz PC/XT, 5% is minimum. A 25MHz machine will run (crawl) at 1%. 
+
+Mo'Slo without argument (or bad argument) gets you instructions. 
+
+Mo'Slo is free of charge for private, personal use. (If you think of a way
+to make some money with it, I'd like a cut.) It works for me, but I do not
+warrant it in any way. USE Mo'Slo AT YOUR OWN RISK. 
+
+Mo'Slo requires PC/MS-DOS 2.0 or above. 
+
+Got a programming project for Intel 8'86 CPUs that requires elegant design
+and efficient implementation? Crave a utility that doesn't seem to exist?
+I'd like to hear from you. 
+
+David Perrell
+CompuServe #: 71170,1701
+
+IBM PC, XT are trademarks of International Business Machines
+MS-DOS is a trademark of Microsoft Corporation

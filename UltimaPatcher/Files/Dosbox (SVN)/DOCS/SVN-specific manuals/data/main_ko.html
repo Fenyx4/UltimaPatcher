@@ -1,0 +1,959 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<title>main</title>
+<style type="text/css">
+body {
+	background-color: #d0d0d0;
+}
+</style>
+</head>
+
+<body>
+<table border="1">
+  <tr>
+    <td >SVN 관련 설명서</td>
+    <td><a href="main_ko.html">기본</a> | <a href="usage_ko.html">사용법</a> | <a href="index.html">MB6 패치</a></td>
+  </tr>
+  <tr>
+    <td>공식 설명서</td>
+    <td><a href="../../Official Manuals/README_KR.TXT" target="new">README</a> | <a href="../../Official manuals/Video Instructions_KR.txt" target="new">비디오 안내</a></td>
+  </tr>
+</table>
+<table border="0">
+  <!-- Limiter -->
+  <tr>
+    <td><br /></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><font size="4"><b>기본</b></font></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br /></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><b>목차</b><br/>
+      <ol>
+        <li><a href="#NOTICE">알리는 말</a></li>
+        <li><a href="#FEATURES">이 빌드에 추가된 기능</a></li>
+        <li><a href="#THANKS">감사드립니다</a></li>
+        <li><a href="#WHATSVN">SVN 빌드란?</a></li>
+        <li><a href="#WHATNEW">새로운 것은</a></li>
+      </ol></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br /></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><p><a name="NOTICE" id="NOTICE"><b>알리는 말</b><br/>
+      </a></p>
+      <ul>
+        <li>이 빌드는 도스박스의 공식적이지 않은 기능들과 수정 사항이 포함된 강화된 SVN 빌드입니다.</li>
+        <li>이 빌드는 도스박스 팀과 개발자들로부터 공식적으로 지원을 받지 못합니다.</li>
+        <li>          이 빌드 안에 있는 몇 가지 비공식 기능들은 도스박스의 성능이나 호환성에 영향을 미칠 수 있습니다.</li>
+    </ul></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br/></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><a name="FEATURES" id="FEATURES"><b>이 빌드에 추가된 기능</b><br/>
+      </a>소스와 디버그 강화 빌드를 이용할 수 있습니다.
+      <ul>
+        <li><strong>포함된 패치</strong><br />
+          Direct3D 및 픽셀셰이더, OpenglHQ, Innovation, Glide, Zip/7z 마운트, BEEP 기능, NE2000 이더넷, 그래픽 사용자 인터페이스 (메뉴), 상태 저장/불러오기 기능, 수직 동기화 기능, CPU 플래그 최적화,
+수많은 도스 명령어 (PROMPT, VOL, LABEL, MOUSE 등) 및 CONFIG.SYS 명령어 (DEVICE, BUFFERS, FILES 등), 
+연속적인 터보 기능, 코어 전환 단축 키, 자세한 내용 표시 토글, 새로운 도스박스 아이콘,
+글꼴 다듬기, MAKEIMG 명령어, 인트로(INTRO) 개선, 키보드(Ctrl-C) 패치,
+동아시아 언어 지원(이를테면 한글로 된 이름의 파일 허용), 자동 마운트, 프린터 출력, MT-32 에뮬레이션,
+MP3CUE 패치, Overscan, 스테레오 좌우 변환 패치, SDL_Resize, 내부 3dfx 칩 에뮬레이션, Amstrad 및 PS/1 오디오 사운드 에뮬레이션, Fluidsynth 사운드폰트 지원, Timidity++ 백엔드 지원, CGA 모노크롬 모니터 지원, PC 스피커 소리 개선, Pentium MMX 패치, 동글 지원, 2차 디스플레이, 도스박스-X 브랜치, 파일 잠금 기능, xBRZ 스케일러 등</li>
+        <li><strong>라이브러리</strong><br />
+        -lSDL_sound -lvorbisfile -lvorbis -logg -lmpg123 -lSDL -lpng -lfreetype -lpcap -lSDL_net -lphysfs -ld3dx9 -lfluidsynth -lz -ltbb</li>
+        <li><strong>빌드 환경</strong><br />
+          Windows: Microsoft Visual Studio 2012<br />
+리눅스: 우분투 (GCC 4.7.2)<br />
+OS X: 마운틴 라이언 (GCC 4.7.2)</li>
+      </ul></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br/></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><a name="THANKS" id="THANKS"><b>감사 드립니다</b><br/>
+      </a> 제 빌드를 만들도록 도와 주신 아래의 분들께 감사 말씀을 드리고 싶습니다:<br />
+Qbix, c2woody, H-a-l-9000, Moe, gulikoza, Canadacow, ripsaw8080, Krounz, ZenJu, eobet를 비롯한 다른 많은 패치 제작자분들과 DOSBox에 열정을 주신 분들</td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br/></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><a name="WHATSVN" id="WHATSVN"><b>SVN 빌드란?</b><br/>
+      </a>더 자세한 정보를 보려면 여기를 참고하십시오: <a href="http://www.dosbox.com/wiki/SVN_Builds" target="_new">http://www.dosbox.com/wiki/SVN_Builds</a></td>
+  </tr>
+  <!-- Limiter -->
+  <tr>
+    <td><br/></td>
+  </tr>
+  <!-- / Limiter -->
+  <tr>
+    <td bgcolor="e0e0e0"><a name="WHATNEW" id="WHATNEW"><b>새로운 것은</b><br/>
+      </a>
+      <p>◆ 2013년 7월 25일<br />
+        1. 업데이트: SVN r3833 기반<br />
+        2. 업데이트: Direct3D (gulikoza님)<br />
+- inputDims를 셰이더에 추가<br />
+- 화면 강제 업데이트 지원 (알파벳 순, &quot;FORCEUPDATE&quot;를 shader.fx에 사용하면 됨)<br />
+- 셰이더 무조건 사용 지원 (&quot;forced&quot; 키워드)<br />
+- 셰이더가 컴파일되지 않을 때의 충돌 수정 (LOG_MSG 제한)<br />
+- 명령 줄에서 pixelshader= 옵션을 유동적으로 변경 가능 지원<br />
+- pixelshader=none 충돌 수정<br />
+- 가능성 있는 Windows 8 충돌 수정<br />
+3. 업데이트: 메뉴 모음 (Windows)<br />
+- 정리: 메뉴 데이터를 sdlmain.cpp에서 menu.cpp로 이동<br />
+- 부두, 키보드 속도/지연 등을 포함한 일부 존재하지 않는 옵션 추가.<br />
+- 모든 컴퓨터에 존재하지 않을 수 있는 비디오 해상도는 제거.<br />
+대신 사용자 정의 항목을 통해 직접 지정 가능.<br />
+- 다음의 값을 수동으로 입력 가능.<br />
+CPU 사이클, 수직 동기화 값, 기본 로컬 여유 공간 크기.<br />
+- &quot;항상 위에&quot; 추가<br />
+4. 추가: D3D 픽셀셰이더 (cgwg님, Themaister님, DOLLS님, gulikoza님)<br />
+5. 추가: Kisai님의 ZMBV 64비트 코덱 (Windows)<br />
+http://www.vogons.org/viewtopic.php?p=306810<br />
+&quot;Install Movie Codec&quot; in TOOLS directory will install both x86 and x64 codecs on x86-64 system.<br />
+6. 수정: 음소거 되어 있는 동안 상태를 불러올 때 충돌 문제<br />
+7. 수정: 상태를 불러올 때 MT-32 에뮬레이션이 정상 동작하지 않던 문제 (tikalat님)<br />
+잠재적인 충돌 문제 때문에 tikalat님의 패치 중 일부만 가져옴<br />
+8. 수정: 우분투 13.04에서 리눅스 빌드가 정상 동작하지 않던 문제<br />
+9. DOSBox-G로부터 EF2000+글라이드를 위한 일부 수정 가져옴 (truth5678님)<br />
+      </p>
+      <p>◆ 2013년 5월 6일<br />
+        1. forcerate, cgasnow이 동작하지 않던 문제 수정<br />
+2. mt32.partials가 32 이상일 때 충돌이 일어나던 점 수정<br />
+3. DOSBox가 무조건 시스템 날짜를 사용하게 하는 -date_host_forced 변수 추가. 이 변수를 사용하면 DATE 명령어로 내부 날짜 수정 불가.<br />
+TOOLS 디렉터리의 &quot;Run DOSBox with Host Date Synchronization.bat&quot;를 실행해도 됨.<br />
+4. 8GB 이상 하드 드라이브 이미지 마운트 지원 추가 (gulikoza님)<br />
+<a href="http://vogons.zetafleet.com/viewtopic.php?p=302954">http://vogons.zetafleet.com/viewtopic.php?p=302954</a><br />
+5. 도스박스 이진 파일에 대한 rpath를 올바르게 설정. (리눅스)<br />
+6. 기타 버그 수정.</p>
+      <p>◆ 2013년 4월 21일<br />
+        1. SVN r3827 기반<br />
+        2. 2GB 이상 하드 드라이브 이미지 마운트 지원 추가 (gulikoza님)<br />
+        현재 시동 가능한 이미지에서만 사용 가능.<br />
+        3. 오픈글라이드 패치 업데이트
+        (gulikoza님)<br />
+        4. 리눅스에서 파일 잠금 문제 수정 (s3freak님)<br />
+        5. 스케일러 추가:<br />
+        - normal4x<br />
+        - normal5x<br />
+        - hardware_none<br />
+        - hardware4x<br />
+        - hardware5x<br />
+        6. MUNT 업데이트
+        (MT-32 에뮬레이션)<br />
+        7. 기타 버그 수정.</p>
+      <p>◆ 2013년 2월 5일<br />
+        1. svga_s3_full 제거. (European Championship 1992의 정상 동작 문제 있음)<br />
+svga_s3를 다시 기본값으로 사용.<br />
+2. isapnpbios 문제 수정<br />
+3. xBRZ 스케일러 추가 (ZenJu)<br />
+아래의 조건에서만 사용 가능:<br />
+scaler=xbrz, output=surface, fullscreen=true<br />
+Windows에서 정상 동작 확인.<br />
+4. llvm-gcc 대신 GCC 4.7.2 사용. (OS X)<br />
+5. 다시 시작 버그 수정 (Windows)</p>
+      <p>◆ 2013년 1월 24일<br />
+        1. SVN r3812 기반<br />
+        2. OS X용 빌드에도 라이브러리 포함<br />
+LIBS 디렉터리의 LIB_LIST-IMPORTANT_KR.TXT 파일 참고<br />
+3. 메뉴에서 시동 기능 개선 및 DOSBox-X의 IDE 마운트 지원. (Windows)<br />
+4. 기타 버그 수정      </p>
+      <p>◆ 2013년 1월 7일<br />
+        2013년 1월 7일자부터 리눅스, Windows, OS X용 빌드가 모두 제공됩니다.<br />
+1. SVN r3809 기반<br />
+2. OS X 빌드가 제공됩니다. 자세한 사항을 보려면 설명서를 참고하세요.<br />
+3. 
+      DOSBox-X 브랜치 업데이트 (r117)<br />
+4. 메뉴에서 .img 이미지 파일을 마운트할 때 플로피, 하드 디스크, CD-ROM 중 하나를 선택할 수 있습니다. (win32 메뉴)<br />
+5. 
+      CAPTURE 디렉터리에 .sf2와 .rom 파일을 위치시킬 수 있습니다. (fluidsynth, mt32 에뮬레이션)<br />
+6. EGAfilter.fx 추가 (D3D 셰이더, VileRancour)<br />
+7. 기타 버그 수정. </p>
+      <p>◆ 2012년 12월 10일<br />
+        1. SVN r3805 기반<br />
+        2. 기타 버그 수정      </p>
+      <p>◆ 2012년 12월 6일<br />
+        1. 상태 저장/불러오기 성능 개선<br />
+        2. 시스템 디렉터리에서 먼저 glide2x.dll이 있는지 찾아봅니다. (Windows)<br />
+        3. 다음의 문제를 수정합니다. (Windows 8에서 setup.exe를 실행하여 설치했을 때)<br />
+- 라이브러리 파일을 불러들일 수 없던 문제<br />
+- 상태/저장 기능이 아예 동작하지 않던 문제</p>
+      <p>◆  2012년 12월 4일<br />
+        1. SVN r3804 기반<br />
+        2. 비주얼 스튜디오 2012를 업데이트 1으로 갱신 (Windows 빌드)<br />
+        - 이 업데이트는 Windows XP에 대한 지원을 추가합니다 (c++)<br />
+        - 그러나 일부 핵을 사용하여 Windows 2000도 계속 지원합니다.<br />
+        3. Direct3D 초기화를 실패하면 종료하지 않고 출력을 자동으로 surface로 설정합니다.<br />
+        4. 더 나은 관리를 위해 상태 저장 슬롯을 여러 개의 파일이 아닌, 하나의 파일에 저장합니다.<br />
+        zlib에 의존하는 Minizip 소스를 가져왔습니다. (http://www.winimage.com/zLibDll/minizip.html)<br />
+        5. 기타 버그 수정</p>
+      <p>◆ 2012년 11월 23일 - SVN 0.74<br />
+        1. SVN r3802 기반<br />
+        2. OpenglHQ 업데이트 (20121109, Moe)<br />
+        3. 상태 저장 기능 업데이트<br />
+- 메모리 크기도 검사<br />
+- 상태 슬롯은 zlib으로 압축<br />
+4. 패치 추가<br />
+- UMB 연결 무결성 검사 추가: Commander Keen 수정 (galexand123)<br />
+http://sourceforge.net/p/dosbox/patches/254/<br />
+- 완전히 바인드 가능한 조이스틱 패치 (cfoesch)<br />
+http://vogons.zetafleet.com/viewtopic.php?t=27452<br />
+xbox360 컨트롤러를 사용할 수 있음<br />
+5. 지속적인 터보 모드 키 수정 (Ctrl-Alt-F12 &rarr; Alt-F11)<br />
+6. 내부 GUI로 들어가는 바로가는 키(Alt-F10) 및 변수(-startui) 추가 (Moe)<br />
+7. Win2k/XP에서의 충돌 문제 수정<br />
+8. 기타 버그 수정</p>
+      <p>◆ 2012년 11월 10일 - SVN 0.74<br />
+        2012년 11월 10일자부터 리눅스용 빌드와 윈도용 빌드를 동시에 배포합니다.<br />
+        제공되는 소스로 Windows와 리눅스에서 동시에 컴파일이 가능합니다.<br />
+        (openglhq를 포함한 SDL을 빌드하려면 openglhq-dosbox-for-sdl-202121108_msvc_gcc.patch를<br />
+        참고하거나 http://www.syntax-k.de/projekte/sdl-opengl-hq/를 방문하십시오)<br />
+        1. SVN r3799 기반<br />
+        2. OpenglHQ 업데이트 (Moe님께 감사)<br />
+        3. 출력부에 svga_s3_full 추가 (Moe님께 감사)<br />
+        4. x86(32비트)용 리눅스 빌드 배포 (Moe님께 감사)<br />
+우분투 리눅스 배포판에서 컴파일 및 테스트되었음 (GCC 4.7.2)<br />
+필요한 모든 라이브러리를 포함하였음<br />
+GUI 기능 및 디버그 기능은 제공되지 않음<br />
+5. dosbox_noopt.exe 제거 (win32)<br />
+6. COPY 명령어 문제 수정<br />
+7. 기타 버그 수정<br />
+      </p>
+      <p>◆ 2012년 10월 3일 - SVN 0.74<br />
+        1. SVN r3798 기반<br />
+        2. Fluidsynth 문제 수정<br />
+        3. 상태 저장 기능 업데이트 (tikalat님)<br />
+        4. DOSIDLE.EXE 추가 (기본적으로 DOS 유휴 상태 비활성화)<br />
+        5. 디버그 모드에서 대문자 입력 문제 수정<br />
+        6. d3dx9_43.dll 파일을 미리 불러들이지 않음 (픽셀 셰이더 사용시에만 사용)<br />
+        7. D3D 픽셀 셰이더 추가: DotnBloom, CRT-simple (gulikoza님)<br />
+      8. 기타 버그 수정</p>
+      <p>◆ 2012년 8월 23일 - SVN 0.74<br />
+        1. SVN r3795 기반<br />
+        2. Windows 8 지원 (vs2012)<br />
+        3. Windows 2000 지원 (어셈블러 핵)<br />
+        4. 파일 잠금 (share.exe) 지원 (패치 출처: http://dose.0wnz.at/)<br />
+        5. 메뉴에 Z 드라이브에 대한 마운트/언마운트 지원 추가 (&quot;mount -z 드라이브:&quot; 에 대응하여)<br />
+        6. SDL 1.2 hg (b1c1b7ac4b39) 업데이트 (openglhq 패치 포함)<br />
+        7. ripsaw8080님의 2차 디스플레이 패치 수정<br />
+- 세 가지 색 모드 정상 동작<br />
+- 텍스트 왜곡 없음<br />
+- 편의를 위해 &quot;Run DOSBox with Secondary Display.bat&quot; 추가<br />
+8. OpenglHQ의 크기 조절 문제 수정<br />
+9. 상태 저장 기능 업데이트 (tikalat님)<br />
+10. dosbox_noopt.exe 추가 (자세한 사항은 설명서 참고)<br />
+11. 더 많은 정보를 위해 설명서 업데이트<br />
+12. 기타 버그 수정</p>
+      <p>◆ 2012년 7월 1일 - SVN 0.74<br />
+        1. SVN r3784 기반<br />
+        2. 상태 저장 기능 업데이트 (tikalat님께 감사)<br />
+        3. DOSBox X 브랜치 패치 업데이트 (TheGreatCodeholio님)<br />
+        4. 2차 디스플레이 출력 패치 업데이트 (ripsaw8080님)<br />
+        5. 기타 버그 수정</p>
+      <p>◆ 2012년 5월 21일 - SVN 0.74<br />
+        1. SVN r3780 기반<br />
+        2. 성능 개선<br />
+        3. Windows XP SP2 지원 (이전에는 SP3 이상만 지원했음)<br />
+        4. 몇 가지 매개변수 추가<br />
+- &quot;-nolog&quot; 옵션 추가 (파일 로그 출력 없음)<br />
+- &quot;-display2&quot; 옵션 추가 (2차 디스플레이 출력, ripsaw8080님의 패치)<br />
+다음의 두 옵션 사용 가능: -display2 &quot;amber&quot;, -display2 &quot;green&quot;<br />
+Mah Jongg 등의 일부 소프트웨어에서 동작<br />
+http://vogons.zetafleet.com/viewtopic.php?t=26110&amp;postdays=0&amp;postorder=asc&amp;start=0<br />
+제목 표시줄에서 &quot;DOSBox Status Window&quot; 대신 &quot;DOSBox Secondary Display&quot;로 뜨는 것을 확인할 것<br />
+- &quot;-disable_numlock_check&quot; 옵션 추가 (DirectX 드라이버 사용시 유용)<br />
+- &quot;-savedir (경로)&quot;: 상태 저장 폴더를 임의로 지정합니다.
+ (프론트엔드 사용시 유용)<br />
+5. 전체 화면에서 다시 시작(Ctrl-Alt-Home)할 때 충돌이 일어나던 점 수정<br />
+6. MT-32 에뮬레이션(MUNT) 동작 문제 수정<br />
+7. FluidSynth의 gain을 0으로 설정<br />
+8. SDL 등의 모든 라이브러리 업데이트<br />
+9. ADDKEY 명령어 업데이트<br />
+CPU 코어 설정(&quot;normal&quot;, &quot;simple&quot;, &quot;dynamic&quot;, &quot;full&quot;) - delay만 지원<br />
+10. 일부 환경에서 오픈글라이드 문제 수정<br />
+11. 키 보내기(Send Key) 기능을 메뉴에 추가 (Crtl-Esc / Alt-Tab / Ctrl-Alt-Del)<br />
+12. MSVCR/MSVCP 외부 런타임 라이브러리 의존 제거<br />
+13. [glide] 단락에 splash 옵션 추가<br />
+14. 상태 저장 기능 안정화 (tikalat님께 감사)<br />
+http://vogons.zetafleet.com/viewtopic.php?p=266689#266689<br />
+팔레트 문제 개선.<br />
+15. DOSBox X 브랜치의 패치 적용 (TheGreatCodeholio님께 감사)<br />
+http://vogons.zetafleet.com/viewtopic.php?t=31881<br />
+- 정확한 PS/2 키보드 에뮬레이션 (1,2,3 스캔 코드 지원, LED 명령 지원, 리셋 명령, 모드 변경 등)<br />
+- GUS 패닝 레지스터 수정. (스테레오 사운드에 의지하는 도스 프로그램은 도스박스를 통해 스테레오로 재생할 수 있게 됨)<br />
+- PS/2 AUX 포트 에뮬레이션 (INT 33h를 거치지 않고 도스 프로그램 및 운영 체제가 곧바로 PS/2 마우스와 연결할 수 있게 하는 모드)<br />
+- CGA 스노 에뮬레이션. (machine을 cga로 설정하고 이 스노 옵션을 켜면, 비디오 메모리 입출력이 CGA 속도에 맞추어 속도가 느려지면서 실제 VGA처럼 스노 현상을 일으킴)<br />
+- 사운드 블라스터 골드플레이 지원. (기본적으로 사용 안 함. 설정 파일에서 활성화할 수 있음)<br />
+- ISA 플러그 &amp; 플레이 에뮬레이션.<br />
+- 시리얼 마우스 에뮬레이션. (serial1=serialmouse로 설정시 마이크로소프트 호환 마우스를 가상으로 구현할 수 있음)<br />
+- 512MB로의 더 높은 메모리 제한.<br />
+- 세세한 메모리 크기 조절. (mb가 아닌 kb 단위)<br />
+- 화면 재생 빈도 조절<br />
+설정 파일에서 다음을 확인하십시오.<br />
+[dosbox]: memsizekb, memalias<br />
+[cpu]: forcerate, cgasnow, isapnpbios<br />
+[keyboard]: aux, auxdevice<br />
+[sblaster]: sbtype=sb16vibra<br />
+[dos]: int33, biosps2<br />
+[ide, primary], [ide, secondary], [ide, tertiary], [ide, quaternary] 
+<br />
+16. 기타 버그 수정</p>
+      <p>◆ 2012년 2월 20일 - SVN 0.74<br />
+        1. SVN r3778 기반<br />
+        2. inpout32 추가 (easyw3님), PortTalk 의존성 제거<br />
+        http://www.highrez.co.uk/Downloads/InpOut32/default.htm<br />
+        3. 버전을 SVN-Daum으로 설정<br />
+        4. SDL_sound 업데이트 (cue 정상 동작)<br />
+        5. 최신 버전의 SDL hg로 업데이트 (SDL 1.2.15 이후)<br />
+        6. FluidSynth 업데이트<br />
+        7. 상태 저장 기능 안정화 (셸에서의 충돌 문제 해결)<br />
+        8. 음소거, 스테레오 전환 기능을 메뉴에 추가<br />
+        9. 상태 저장 슬롯 관리자 제거
+        <br />
+        10. 설치 버전과 압축 파일로 제공<br />
+      11. 기타 버그 수정</p>
+      <p>◆ 2012년 1월 11일 - SVN 0.74<br />
+        1. SVN r3775 기반<br />
+        2. 동글 지원 추가 (dennis714님)<br />
+        3. cputype으로 pentium_mmx 추가 (실험적인 기능, kekko)<br />
+        4. 한 동안 제거된 SDL_sound 지원 추가<br />
+        5. MUNT 업데이트 (2011년 12월 10일자)<br />
+        6.  D3D 픽셀셰이더로 CRT.D3D.bright.fx 추가 (CRT.D3D.fx와 거의 동일)<br />
+        7. &quot;-noconsole&quot;이 이제 제대로 동작함<br />
+        8. 
+        Fluidsynth에서 synth.gain를 1.0에서 0.5로 수정<br />
+        9. 기타 버그 수정</p>
+      <p>◆ 2011년 12월 25일 - SVN 0.74<br />
+        1. SVN r3769 기반<br />
+        2. 매개변수 -noconsole이 정상 동작하지 않던 문제 수정<br />
+        3. Ctrl-Alt-Home 등으로 재시작할 때 매개변수를 읽지 못하던 문제 수정<br />
+        4. 픽셀 셰이더 선택시 d3dx9_43.dll 관련 오류가 뜨던 점 수정<br />
+        5. PCI 기능 문제 수정<br />
+        6. 일부 환경에서 msvcp100.dll 파일을 찾을 수 없다는 문제가 뜨던 점 수정<br />
+        7. Numlock 설정 문제 수정<br />
+        8. 기타 버그 수정</p>
+      <p>◆ 2011년 12월 9일 - SVN 0.74<br />
+        1. SVN r3767 기반<br />
+2. 일부 환경에서 DOSBox를 실행하지 못하던 문제 수정</p>
+      <p>◆ 2011년 12월 8일 - SVN 0.74<br />
+        1. SVN r3763 기반<br />
+2. GCC 4.6에서 Microsoft Visual Studio 2010으로 이동
+(속도 개선)<br />
+디버그 적용 빌드는 기존의 GCC를 사용 (GCC 4.6.2로 업데이트)<br />
+3. 
+        PCJRCart 패치 업데이트 (VileRancour님)<br />
+4. PC 스피커 개선 패치 업데이트 (ripa님)<br />
+5. SDL hg 업데이트 (openglhq + dx 수정 포함, Visual Studio 2010으로 컴파일)<br />
+6. 기타 버그 수정</p>
+      <p>◆ 2011년 10월 12일 - SVN 0.74<br />
+        1. SVN r3752 기반<br />
+        2. Tramboi님의 SSE2 렌더링 패치를 이용하기 위해 SSE2 지원 추가, 전반적인 성능 향상<br />
+3. 디버그 빌드(dosbox_debug.exe)를 기본으로 포함<br />
+4. pcspeaker 옵션에서 prev를 제거, ripa님의 PC 스피커 개선 패치 적용<br />
+5. MT-32 에뮬레이션 (MUNT) 패치 (08e1515d6b08665a680355f84f562ed94b22e64e) 업데이트<br />
+6. SDL hg 업데이트 (openglhq + dx 수정 포함)<br />
+7. 그래픽 드라이버 선택 기능은 메뉴 모음에 추가 (WINDIB 또는 DirectX 강제, 자동)<br />
+8. 메뉴 모음이 상태 저장 슬롯으로부터 프로그램 이름을 가져옴<br />
+9. 메뉴에 있던 일부 오타 수정<br />
+10. 기타 버그 수정<br />
+<br />
+또, DOSBox VC 프로젝트와 소스를 일부 수정하여 Visual Studio 2010 / 11 (개발자 프리뷰)에서 컴파일될 수 있게 하였습니다.<br />
+        그러나 이 컴파일러를 이용하면 다음과 같은 문제들이 있습니다. (MinGW/MSYS에는 해당 없음)<br />
+        * 다시 시작 (Ctrl-Alt-Home) 사용 불가 (충돌)<br />
+        * 상태 저장/불러오기 기능 사용 불가 (충돌)</p>
+      <p>◆ 2011년 9월 22일 - SVN 0.74<br />
+        1. SVN r3752 기반<br />
+        2. ps1audio에서 auto를 제거 (불필요, ripsaw8080님)<br />
+        3. 도스에서 프린터 글꼴을 불러오지 못하던 점 수정 (이전에는 FONTS 디렉터리에 있는 글꼴들을 도스박스 디렉터리로 복사하여야 했음)<br />
+        4. D3DX9 픽셀 셰이더들이 일부 환경에서 정상 동작하지 않던 문제 수정(VileRancour님)<br />
+        5. PC 스피커 출력 옵션 prev 추가 (이전 버전을 이용하고 싶은 사람들을 위해)<br />
+        6. libpng 업데이트<br />
+        7. MUNT 업데이트 (6d689111dc8df53e46826e61e5830eb33511f899)<br />
+        8. 기본 로컬 여유 공간 크기 조절시 50MB 용량을 10MB로 설정하던 문제 수정<br />
+        9. 기타 버그 수정</p>
+      <p>◆ 2011년 9월 3일 - SVN 0.74<br />
+        1. SVN 3751 기반<br />
+        2. GCC 4.6.1 업데이트<br />
+        3. GUI에서 드라이브의 마운트 해제 후 다시 마운트할 때 도스박스가 멈추는 문제 해결<br />
+        4. Alt-F12 키를 누른 뒤 계속 100으로 머무는 문제 수정<br />
+        5. OpenGlide 업데이트 (gulikoza님)<br />
+- 폴리곤 렌더링 수정<br />
+6. 설명서 업데이트 (RESCAN)<br />
+7. 모노크롬 모니터 포함 CGA 기능 추가 (VileRancour님)<br />
+- machine=cga_mono 설정 옵션 추가<br />
+- Alt-F11 키를 누르면 녹색, 황갈색, 회색 선택 및 밝기/대비 설정 가능<br />
+8. Direct3D 패치 업데이트 (gulikoza님)<br />
+- CRT.D3D 셰이더 추가<br />
+9. 지속적인 터보 모드 기본적으로 사용 안 함<br />
+- 사용하려면 DirectX 모드 또는 DirectDraw 출력 사용 시 Ctrl-Alt-F12 키를 누르면 사용 가능<br />
+10. vmemsize=2로 기본값으로 설정<br />
+11. Win9x용 glide2x.dll 포함 (win9x-glide2x 디렉터리 참고, robertmo님)<br />
+12. MT-32 에뮬레이션 (MUNT) 업데이트 (64134907cdc788c9927f)<br />
+13. PC 스피커 개선 패치 적용 (NY00123님, ripsaw8080님)<br />
+(예: 위험한 데이브의 트로피 먹는 소리 등을 정확하게 처리)<br />
+14. 기타 버그 수정</p>
+      <p>◆ 2011년 7월 5일 - SVN 0.74<br />
+        1. SVN r3728 기반<br />
+        2. DOS IDLE을 기본으로 지원 (MB6 소스에서 가져옴)<br />
+따라서 Z 드라이브에 있던 DOSIDLE.EXE를 제거<br />
+3. Hardware2x/3x 스케일러에도 무조건 사용(Forced)을 할 수 있음<br />
+4. scaler=none 설정시 메뉴가 두 줄로 뜨지 않게 하였음<br />
+5. MUNT (MT-32 에뮬레이션) 패치 업데이트 (6b14d3a10084dea65f05)<br />
+6. 일부 최적화 패치 적용 (001 패치 제외, Tramboi님)<br />
+http://vogons.zetafleet.com/viewtopic.php?t=28938<br />
+7. 파라다이스 그래픽에 0x5C (800x600 M_LIN8) 추가<br />
+8. Alt-F12 키를 짧게 누를 때에만 지속적인 터보 모드 기능이 동작하게 하였음<br />
+9. 기타 버그 수정</p>
+      <p>◆ 2011년 5월 25일 - SVN 0.74<br />
+        1. SVN r3713 기반<br />
+        2. Xargon Trilogy 게임 동작 문제 수정<br />
+        3. MT-32 에뮬레이션 (MUNT) 패치 업데이트 (63841aa02013487daa34)<br />
+- 정확도 개선<br />
+- mt32DAC, mt32ReverseStereo 추가<br />
+- 이 빌드에서 MT-32의 기본 게인(gain)을 1.5로 수정<br />
+4. 동영상 캡처 스레드 처리 패치 추가 (kekko)<br />
+5. GUI 사용시 키가 눌리는 동안 속도가 저하되는 문제 수정<br />
+6. 일부 메뉴 구조 변경<br />
+- Overscan 항목 추가 (Surface 출력에서만 지원)<br />
+- MT-32의 새로운 설정 2개 추가<br />
+- SoundBlaster의 종류를 None으로 설정할 때 메뉴에 반영되지 않던 문제 수정<br />
+- linewise, multiscan, char9 옵션을 Compatibility 메뉴로 통합<br />
+7. 상태 저장 관리자 업데이트<br />
+8. 기타 버그 수정 <br />
+      </p>
+      <p>◆ 2011년 5월 1일 - SVN 0.74<br />
+        1. SVN 3704 기반<br />
+        2. MUNT (MT-32 에뮬레이션) 업데이트  (1e61e5006aba57c085a4 기준)<br />
+* 약 40% 속도 향상<br />
+* 반향 효과 향상<br />
+* 페르시아의 왕자 2 등의 게임에서의 소리 깨짐 현상 수정<br />
+* MT-32 속도 변수 제거<br />
+* 반향 모드, 반향 시간, 반향 수준 설정 추가<br />
+3. LBA2를 C:\에 설치할 경우 파일을 찾을 수 없는 문제 / 메가트론 게임 실행시 파일을 찾을 수 없는 문제 수정 (ripsaw8080)<br />
+4. 게임 일식 실행 문제 수정 (ripsaw8080)<br />
+5. COPY 명령어 처리 개선 (도스박스 셸과 Z 드라이브의 COPY와의 연계)<br />
+6. 3dfx 내장 부두 에뮬레이션 업데이트 (kekko)<br />
+7. WINDIB 모드를 기본으로 사용 (DirectDraw 사용시 DirectX 모드로 자동 전환)<br />
+* DirectDraw를 제외한 모든 출력에서 창&harr;전체 화면 전환 속도 개선<br />
+* OpenGL과 DirectDraw를 오갈 때 DirectDraw를 사용하지 못하던 점 수정<br />
+* nGlide와 같은 다른 래퍼를 사용할 때 미리 전체 화면으로 전환해야 했던 문제 수정 (Windows 7에서 정상 동작 확인)<br />
+8. 도스박스 시작시 WINDIB 드라이버와 OpenGL을 함께 사용할 수 없는 문제 수정<br />
+9. 메뉴 숨김/표시 단축키 수정 (Ctrl-Alt-Enter)<br />
+10. REVE 데모 실행 문제 수정 (비공식)<br />
+11. 지속적인 터보 모드 (Ctrl-Alt-F12) 기능을 기존의 터보 모드(Alt-F12)에 통합. 따라서 기존의 Ctrl-Alt-F12 단축키는 제거됨.<br />
+12. CWSDPMI.EXE를 Z 드라이브에 추가<br />
+13. 기타 버그 수정</p>
+      <p>◆ 2011년 4월 4일 - SVN 0.74<br />
+        1. SVN 3692 기반<br />
+- 자세한 것은 Changelog_SVN.txt 파일을 참고하십시오.<br />
+2. GCC 4.6.0 정식 버전으로 업그레이드<br />
+- 일부 성능 개선<br />
+- char* 메시지로 종료되는 문제 해결<br />
+3. IBM PS/1 오디오 에뮬레이션, AMSTRAD 머신 기능 추가 (jmk)<br />
+- 제공되는 변수: machine=amstrad, ps1audio=on/off/auto<br />
+4. MUNT (MT-32 에뮬레이션) 업데이트<br />
+- 정확도 및 리버브(반향 효과) 개선<br />
+- sergm님의 WG 수정 사항 포함<br />
+5. COPY 명령어 업데이트<br />
+- FreeDOS 프로젝트에서 가져옴<br />
+- 파일 시간표 확인 (복사된 파일의 날짜까지 복사됨)<br />
+- 더 많은 변수 지원<br />
+6. MOUSE 명령어 업데이트<br />
+- Y축 이동 반전 변수 추가 (매개변수 /V) - FPS 게임에서 유용<br />
+7. Fluidsynth 사운드폰트의 낮은 볼륨 문제 수정<br />
+8. 기타 버그 수정
+      </p>
+      <p>◆ 2011년 3월 20일 - SVN 0.74<br />
+        1. SVN 3686 기반<br />
+- 자세한 것은 Changelog_SVN.txt 파일을 참고하십시오.<br />
+2. OpenGLHQ 업데이트 (Moe, gulikoza님)<br />
+3. SDL HG 업데이트<br />
+4. Direct3D 업데이트 (gulikoza님)<br />
+5. Fluidsynth, Timidity 서버 백엔드 기능 추가 (사운드 폰트 이용 가능)<br />
+6. MT-32 에뮬레이션 (MUNT) 업데이트 (sergm님, KingGuppy님)<br />
+- 반향 효과(reverb)가 떨어지지만 정확도는 향상됨<br />
+- 캐시 생성이 없으므로 WAVEFORM 디렉터리 제거<br />
+7. 글라이드 내부 에뮬레이션 OpenGL 하드웨어 가속 지원 (kekko님)<br />
+- glide=emu (내부 에뮬레이션)으로 설정하십시오.<br />
+- OpenGL 출력을 활성화해야 사용할 수 있습니다.<br />
+8. Blue Force 게임 빈 화면 문제 수정<br />
+9. 기타 버그 수정<br />
+      </p>
+      <p>◆ 2011년 2월 19일 - SVN 0.74<br />
+        1. SVN 3675 기반<br />
+        2. WINDIB 드라이버를 사용하는 경우에 GUI와 함께 키보드를 사용할 수 있게 수정<br />
+        3. 일부 게임(Police of Quest 2, Zeliard)에서 MT-32 에뮬레이션 사용시 음이 왜곡되는 현상 수정<br />
+        4. 허큘레스 블렌드 패치 추가 (ripsaw8080님)<br />
+        5. GUI에서의 ZIP/7Z 마운트의 파일 쓰기 문제 수정<br />
+        6. Direct3D, OpenGL 출력에서 더 정확한 수직 동기화 처리<br />
+        7. 기타 버그 수정      </p>
+      <p>◆ 2011년 1월 25일 - SVN 0.74<br />
+        1. zip/7z 이미지 마운트(physfs)에서 치명적인 버그를 수정하였습니다.<br />
+- 압축 파일에서 실행 파일을 실행할 수 없던 문제 해결<br />
+- 
+      GUI로 마운트한 직후 이미지 파일의 내용이 0이 되는 문제 해결<br />
+2. MT-32 에뮬레이션 (MUNT)의 소리 잘림 문제를 수정하였습니다. (kode54님께 감사)      </p>
+      <p>◆ 2011년 1월 22일 - SVN 0.74<br />
+        1. SVN r3674 기반<br />
+        2. 모든 이진 파일과 라이브러리 파일에 대한 실행 압축을 제거하였습니다.<br />
+        - 모든 파일에 대한 바이러스 오진 요인을 없앴습니다. (http://www.virustotal.com/ 참조)<br /> 
+        이전에 배포한 빌드들에도 바이러스가 없는 것이 확실하므로 안심하고 사용하셔도 됩니다.<br />
+        - 메모리 사용량이 더 줄었습니다.<br />
+        3. 사용 설명서를 보기 편한 HTML 형식으로 바꾸었습니다.<br />
+        4. MUNT 코드에서 일부 게임을 위한 핵을 제거하였습니다. (TeaRex님께 감사)<br />
+        5. 기타 버그 수정</p>
+      <p>&nbsp;</p>
+      <p>◆ 2011년 1월 4일 - SVN 0.74<br />
+        1. 도스 명령어들을 수정되었습니다. (대부분 FreeDOS에서 가져옴)<br />
+        업데이트된 명령어: MOVE, MEM, EDIT, CLS<br />
+        추가된 명령어: FIND, TREE, DOSIDLE<br />
+        도스 확장 프로그램(DOS4GW, DOS32A)도 추가되었습니다.<br />
+        2. 파일 저장 기능 사용시 다음과 같은 사항을 수정하였습니다.<br />
+        - 특정 글자로 된 프로그램을 불러오지 못했던 문제를 수정하였습니다.<br />
+        - 저장된 파일의 프로그램과 일치하지 않을 때 일치하지 않는 프로그램의 이름을 보여 줍니다.<br />
+        - SAVE 디렉터리가 존재하지 않으면 새로 만듭니다.<br />
+        - 상태 제거 기능을 메뉴에 추가하였습니다.<br />
+        - Tools 디렉터리에 Run save states manager.bat 파일을 추가하였습니다.<br />
+        3. MUNT 코드를 조금 업데이트하였습니다.<br />
+        - 하이퍼스레딩이 없는 단일 코어 CPU에서 멀티스레딩 지원을 비활성화합니다.<br />
+        - 정확도를 위하여 기존의 소음 문제를 위한 핵을 제거하였습니다.<br />
+        4. 기타 버그 수정      </p>
+      <p>◆ 2010년 12월 25일 - SVN 0.74<br />
+        1. 상태 저장/불러오기 기능에서 일부 버그를 수정하였습니다.<br />
+        - 파일이 올바르게 저장되었는지 확인하는 코드를 추가하였습니다.<br />
+        - DOSBox에서 실행 중인 프로그램의 이름을 저장합니다.<br />
+        - 세이브 파일은 DOSBox를 종료한 뒤에도 다시 사용할 수 있습니다.<br />
+        * 메모리 기능 중 일부 및 페이징을 저장하고 불러오는 기능은 비활성화하였습니다.<br />
+        이번 업데이트부터 다른 사람들과 세이브 파일을 공유할 수 있습니다.<br />
+        2. MUNT 코드를 조금 업데이트하였습니다.<br />
+        - MT-32에도 마스터튠을 0x4a로 설정하였습니다. (Cloudschatze님이 보고해 주셨음)<br />
+        - ScummVM의 SVN 브랜치에서의 최근 변경 사항을 가져왔습니다.<br />
+        (MT-32 에뮬레이터의 초기화되지 않은 메모리 읽기 수정, Valgrind님의 보고)<br />
+        더 자세한 정보는 여기를 참고하십시오: http://vogons.zetafleet.com/viewtopic.php?t=26833<br />
+        3. gulikoza님이 제공한 오픈글라이드용 Carmageddon의 문제 수정 패치를 적용하였습니다.<br />
+        4. 3dfx 부두 칩 에뮬레이션 패치를 업데이트하였습니다. (voodoo_20101127)<br />
+        5. 기타 버그 수정      </p>
+      <p>◆ 2010년 12월 16일 - SVN 0.74<br />
+        1. SVN r3663 기반<br />
+        2. 최신 Munt (MT-32 에뮬레이션) 코드로 업데이트하였습니다.<br />
+        대부분은 ScummVM 프로젝트에서 가져왔습니다. 여기에 일부 수정 사항을 포함하였습니다.<br />
+        - 이전에 비해 더 정확한 구현<br />
+        - 속도 향상 (CPU의 SIMD, 3DNow 기술 등을 감지)<br />
+        - MT-32 소리 크기를 높임<br />
+        - 더 많은 샘플 레이트를 사용할 수 있습니다.<br />
+        샘플 레이트를 바꿀 때마다 캐시를 다시 생성하여야 합니다.<br />
+        캐시 파일은 waveform 디렉터리에 저장됩니다.<br />
+        - 일부 게임을 위한 핵을 추가하였습니다.<br />
+        - 마스터튠 설정을 롬 파일에 따라 자동으로 설정합니다.<br />
+        - 컨트롤러를 다시 설정할 때 반향 효과가 끊이지 않는 문제를 수정하였습니다. (예: 꼬마마녀 게임)<br />
+        - 일부 게임에서의 노이즈 문제를 수정하였습니다. (예: 로터스, 메가맨X)<br />
+        - 자잘한 버그들을 수정하였습니다.<br />
+        더 자세한 정보는 여기를 참고하십시오: http://vogons.zetafleet.com/viewtopic.php?t=26833<br />
+        3. 상태 저장 기능은 메모리 부담을 덜기 위하여 메모리에 저장을 하지 않고 파일로 저장합니다.<br />
+        save 폴더를 참고하십시오. 이 저장된 파일들은 DOSBox가 종료된 뒤 다시 이용할 수는 없을 수도 있습니다.<br />
+        4. 기타 버그 수정      </p>
+      <p>◆ 2010년 12월 4일 - SVN 0.74<br />
+        1. SVN r3662 기반<br />
+        2. GCC를 4.5.0으로 업데이트하였습니다.<br />
+        3. 최적화 플래그를 조금 수정하여 속도를 향상시켰습니다. (큰 개선은 아님)<br />
+        4. DLL 디렉터리를 제거하였으며 DOSBox가 상대적 위치를 사용하지 않게 했습니다.<br />
+        5. Windows 98/ME, 2000에서의 호환성 문제를 수정하였습니다. (Shelling Ford님께 감사 드립니다)<br />
+        Windows 98/ME에서는 GUI 메뉴 시스템을 자동으로 비활성화합니다.<br />
+        그래도 DOSBox를 시작할 수 없는 경우 dosbox.conf에서 output=ddraw로 설정하십시오.<br />
+        6. 메모리 점유율을 조금 낮추었습니다.<br />
+        7. 기타 버그 수정<br />
+      </p>
+      <p>◆ 2010년 11월 21일 - SVN 0.74<br />
+        1. SVN r3661 기반<br />
+        2. LABEL 명령어가 한 번만 동작하던 문제를 수정하였습니다.<br />
+        3. &quot;Exit Alt-F9&quot; 문자열을 &quot;Exit Ctrl-F9&quot; 문자열로 바꾸었습니다. (메뉴 오타 수정)<br />
+        4. 다시 시작 기능 (Ctrl-Alt-Home)이 관리자 권한이 없어도 Windows 상에서 정상 동작합니다.<br />
+        5. DOS Idle 패치를 제외한 h-a-l-9000님의 모든 패치를 적용하였습니다.<br />
+        - 지원하지 않는 전체 화면 모드에서 종료하지 않습니다.<br />
+        - 페이징 개선 (실험적인 기능)<br />
+        - 타이머 및 인터럽트 레이턴시 패치: 일부 게임 수정<br />
+        - vgaonly 기능을 다른 그래픽 카드에도 사용할 수 있으며 가능하면 스케일러가 스캔라인 에뮬레이션<br />
+        모드에서 동작할 수 있게 하였음<br />
+        - 9 픽셀 와이드 문자 사용 여부 선택 가능<br />
+        - 비디오 메모리 크기의 설정 옵션 추가 (최대 8MB) = 1600x1200@32bpp<br />
+        - DIR 명령어에 대한 /B 매개변수 지원 추가<br />
+        - 실제 하드웨어 OPL 칩 통과<br />
+        - 다시 시작 기능 - ctrl+alt+POS1 또는 config -r [변수] 또는 FJMP F000:FFF0<br />
+        - APM 종료 (Win95)<br />
+        - 시리얼 FIFO 지원 및 로깅 기능 지원<br />
+        - 최대 해상도를 1600x1200까지 늘리고 수많은 고해상도 VESA 모드 추가<br />
+        - s3 해상도 핸들링, 가로세로비 수정, LDGFXROM 사용 가능 (비디오 바이오스를 읽어들이지만<br />
+        디버깅에만 유용함)<br />
+        - vgaonly 모드에서 Transgression 2 데모(tgr2 -hc)에 대한 특이한 비디오 DAC 지원<br />
+        - CGA 비디오 메모리 속도 낮춤<br />
+        - DOSBox는 스플래시 화면이 나타나는 동안에도 계속 실행을 진행할 수 있음<br />
+        - FILES= 수정 가능 (Kippesoep님의 것. 이미 지원되고 있는 것이었지만 내용물을 다시<br />
+        수정하였습니다.)<br />
+        이 밖에도 IMGMAKE, DATE, TIME 명령어 및 NE2000, 병렬 포트 통과, 파일 리다이렉션, 로깅 지원, 콘솔 비프<br />
+        지원 등도 밝히고 있으나 이것들은 전에 공개했던 빌드에도 포함된 것들입니다.<br />
+        또, DOSBox 설정 구성 정보가 조금 바뀌었으니 살펴 보시기 바랍니다. (cputype, sblaster opl, render 등)<br />
+        DOSBox 안에서 Windows 95를 실행하고 계신 분들은 Windows를 다시 설치할 필요 없이 S3 801/805 그래픽 드라이버를<br />
+        다시 설치해 주시기 바랍니다.<br />
+        6. 기타 버그 수정.<br />
+      </p>
+      <p>◆ 2010년 11월 10일 - SVN 0.74<br />
+        1. SVN r3660 기반<br />
+        2. kekko님의 자체 3dfx 부두 칩 에뮬레이션 기능을 추가하였습니다.<br />
+        kekko님이 이 패치에 관하여 밝히신 사항은 다음과 같습니다.<br />
+        - 타이틀 게임과의 더 높은 호환성 (.ovl 통합)<br />
+        - 다른 곳으로의 포팅 가능<br />
+        - DOSBox 내부 렌더러와의 통합: 전체 화면, 다른 출력 모드, 비디오 캡처 지원<br />
+        - 외부 라이브러리 필요 없음<br />
+        - Win9x 게임에 대한 D3D 지원<br />
+        DOSBox 설정 파일에서 glide=emu로 설정하면 glide2x_emu.ovl을 사용합니다. (속도가 느립니다!)<br />
+        더 자세한 정보를 보려면 여기에 들어가십시오: http://vogons.zetafleet.com/viewtopic.php?t=25606<br />
+        다만 이곳에 빌드하는 방법이나 속도 문제에 대해서 보고하지는 마십시오.<br />
+        알림: 속도 문제 등 자세한 사항은 USAGE_KR.TXT 파일을 참고하십시오.<br />
+        3. 오픈글라이드 패치 업데이트 (Gulikoza님, 감사합니다)<br />
+        저의 실수로 인하여 일어난 GTA1에서 글자 출력이 되지 않았던 문제를 수정하였습니다.<br />
+        4. 상태 저장 및 불러오기 기능이 조금 더 안정화되었습니다. (조용한그녀석님, 보고해 주셔서 감사합니다)<br />
+        5. 기타 버그 수정<br />
+      </p>
+      <p>◆ 2010년 10월 30일 - SVN 0.74<br />
+        1. SVN r3653 기반<br />
+        - 설정 파일 제어를 위한 새로운 기능들이 config 명령어에 추가되었습니다.<br />
+        2. DOS 메뉴에서 Serial, Parallel, Printer 메뉴 항목에 체크 표시가 되지 않던 점이 수정되었습니다.<br />
+        3. &quot;다시 시작&quot; 메뉴 항목을 추가하였습니다.<br />
+        4. 속도 저하 문제가 있던 CPU 최적화 패치 제거를 통하여 속도가 향상되었습니다.<br />
+        5. 메뉴 상에서 이미지 마운트를 할 때 .ima를, 시동할 때 .jrc를 사용할 수 있습니다.<br />
+        6. 일시 중지 상태에서 Main 메뉴의 Pause를 누르면 일시 중지 상태에서 벗어납니다.<br />
+        7. gulikoza님의 &quot;오픈글라이드를 위한 고해상도 렌더링 패치&quot;를 적용하였습니다. (glide2x.dll 업데이트)<br />
+        8. 다음 설정을 기본으로 사용합니다.<br />
+        scaler=hardware2x, output=direct3d<br />
+        9. 기타 버그 수정<br />
+      </p>
+      <p>◆ 2010년 10월 21일 - SVN 0.74<br />
+        1. SVN r3650 기반<br />
+        2. -nogui 매개변수가 아예 동작하지 않는 문제를 수정하였습니다.<br />
+        3. 제목 표시줄을 두 번 클릭하였을 때 동작이 되지 않았던 문제를 수정하였습니다.<br />
+        4. TV2x 스케일러의 속도 문제를 해결하였습니다. (루팡2세님께 감사)<br />
+        5. 메뉴 상에서 상태 저장 / 상태 불러오기를 위한 슬롯 선택을 가능하게 하였습니다.<br />
+        6. 메뉴에 일부 항목들을 추가하였습니다: 직렬, 병렬 통신, 프린터, MT32 속도<br />
+        7. 기타 버그 수정<br />
+      </p>
+      <p>◆ 2010년 10월 11일 - SVN 0.74<br />
+        1. SVN r3649 기반<br />
+        2. MT-32 샘플레이트를 개별 설정할 수 있도록 mt32rate 항목 추가<br />
+        (기본값: mt32rate=auto - 이 항목은 믹서의 rate 설정값에 따라 자동으로 결정합니다)<br />
+        3. GUI와의 결합을 끊는 -nogui 매개변수를 다시 사용할 수 있습니다.<br />
+        4. nGlide와 같은 다른 글라이드 래퍼도 사용할 수 있습니다. (설명서를 읽으십시오)<br />
+        5. 설명서 내용 보충 (Direct3D 픽셀 셰이더 이용 설명 등) 및 dosbox_readme.bat 추가 (Tools 디렉터리 참고)<br />
+        6. zmbv 코덱 설치/제거 프로그램 추가 (Tools 디렉터리 참고)<br />
+        7. Main 메뉴의 Show details 사용시 Direct3D 출력에서 제목 표시줄에 FPS가 뜨지 않던 문제 수정<br />
+        8. 기타 버그 수정<br />
+      </p>
+      <p>◆ 2010년 10월 1일 - SVN 0.74<br />
+        1. SVN r3646 기반<br />
+        2. libgcc 및 msvcr100 라이브러리 의존 제거<br />
+        (별도의 라이브러리를 설치할 필요 없음)<br />
+        3. 메뉴 해상도에서 Desktop/Original 선택 문제 수정<br />
+        4. r3642 변경에 따른 EMS 항목(emsboard, emm386)을 메뉴에 추가<br />
+        5. OpenglHQ를 사용할 때 전체 화면 전환 문제 수정<br />
+        6. Aero_fix 패치는 Windows 버전 6(Vista) 이상에서만 동작하게 하였음<br />
+        또, Direct3D에서는 Aero_fix를 무효화하게 하였음<br />
+        7. DOSBox 설정 구성 파일의 설명에 따라 CPU 코어(full, simple)를 메뉴에 추가<br />
+        8. &quot;-fullscreen&quot; 옵션을 Direct3D와 함께 사용할 때 메뉴가 전체 화면에 뜨는 문제 수정<br />
+        9. 메뉴 반응 문제 해결<br />
+        10. CGA/Tandy/PCJr 팔레트 패치 추가 (h-a-l-9000님) - 어느 분의 요청에 따라 추가<br />
+        11. 일부 도스박스 정보 파일을 DOCS 디렉터리에 추가<br />
+        12. 기타 버그 수정</p>
+      <p>기타 버그 수정에는 사적인 코드 수정으로 인한 일부 게임 동작 이상 수정 등이 포함됩니다.<br />
+        위의 사항 이외에도 다음과 같은 수정 사항이 있었습니다.<br />
+        - Extened breaking check에서 case 7 예외 추가<br />
+        - 한국어 코드 페이지 949 추가 (keyb ko 949를 통해 사용 가능.)<br />
+      </p>
+      <p>◆ 2010년 9월 26일 - SVN 0.74<br />
+        1. 메뉴 이벤트로 인한 일부 속도 저하 문제 해결 (Jed Clampett님께 감사)<br />
+        2. 전체 화면에서 끝내기 위하여 Ctrl-F9 키를 누르면 오류가 뜨던 문제 수정 (Chris Spurr님께 감사)<br />
+        - Ctrl-F9 키를 누르면 창 모드로 복귀한 다음 종료되게 하였음<br />
+        3. 전체 화면으로 들어갈 때 메뉴 비활성화<br />
+        (Direct3D 출력에서 전체 화면으로 들어갈 때 높이가 맞지 않는 문제 수정)<br />
+        4. 기타 버그 수정<br />
+      </p>
+      <p>◆ 2010년 9월 22일 - SVN 0.74<br />
+        메뉴 이벤트의 순서가 잘못되어 속도가 느려지는 문제가 긴급하게 수정되었습니다.<br />
+        1. 잘못된 이벤트 순서 처리로 인한 속도 문제 수정<br />
+        2. 해상도 메뉴에서 1280x800을 선택할 때 체크 표시가 되지 않던 문제 수정<br />
+        3. 속도 저하 문제로 인해 MT-32 재생시 로그 비활성화<br />
+        4. sdlresize 패치 추가<br />
+        - 최대화 단추를 누르면 전체 화면으로 이동합니다.<br />
+        - 창 크기를 바꾸면 스케일러의 크기가 바뀝니다. (windowresolution=original 일 경우 동작함)<br />
+        5. 설명서 내용 일부 보완<br />
+        6. 기타 버그 수정<br />
+      </p>
+      <p>◆ 2010년 9월 18일 - SVN 0.74<br />
+        1. 다음의 패치들이 추가되었습니다.<br />
+        - 프린터 출력 패치 (freetype 라이브러리 이용, h-a-l님)<br />
+        - MT-32 패치<br />
+        - 스테레오 좌우 변경 패치 (일부 게임에 유용, ezzetabi2님)<br />
+        - MP3/Wave Cue 지원 패치<br />
+        - Overscan 패치 (output=surface에만 지원)<br />
+        2. Alt 키 조합으로 인하여 메뉴가 뜨는 문제 수정<br />
+        3. OGG 등의 CUE 이미지 지원을 위해 libvorbis 업데이트<br />
+        4. 창과 전체 화면을 전환할 때 일부 환경에서 Windows Aero가 꺼지는 문제 수정<br />
+        5. 기타 버그 수정<br />
+      </p>
+      <p>◆ 2010년 9월 9일 - SVN 0.74<br />
+        1. 컴파일러 (MinGW/MSYS)의 gcc 버전 4.4.0으로 업그레이드<br />
+        2. dosbox_admin.exe의 바이러스 오진 문제를 완전하게 해결<br />
+        3. 내부 아이콘 변경<br />
+        4. 한국어 버전의 Windows를 사용하는 경우 상태 창에 한국 사용자들을 위한 한글 메시지 출력<br />
+        5. NumLock 문제 수정<br />
+        6. 자동 키 눌림 현상 해결<br />
+        7. 메뉴 시스템 변경<br />
+        8. 메뉴 재배치 및 일부 항목 추가 및 정리<br />
+        9. 특정 게임이나 응용 프로그램을 실행할 때 마우스 좌표와 Windows의 마우스가 따로 노는 문제 해결<br />
+        10. 전반적인 안정성 확보<br />
+        11. GUI 안에서 OK, Cancel 단추가 눌러지지 않는 문제 수정<br />
+        12. Hardware2x/3x 스케일러 추가<br />
+        13. OpenglHQ 스케일링 문제 수정<br />
+        14. 3dfx 부두 그래픽스 화면 출력 수정<br />
+        15. 기타 버그 수정<br />
+      </p>
+      <p>◆ 2010년 8월 4일 - SVN 0.74<br />
+        1. CVS가 아닌 SVN 시스템을 이용합니다.<br />
+        2. 일부 라이브러리를 업데이트하고 최신 DirectX SDK의 라이브러리를 사용하였습니다.<br />
+        3. 한때 사용할 수 있었던 Direct3D 출력을 다시 사용할 수 있게 됩니다.<br />
+        더 업데이트된 Direct3D를 사용함으로써 더 빠른 속도를 느낄 수 있게 됩니다.<br />
+        더 많은 셰이더를 추가하였습니다.<br />
+        4. 한때 사용할 수 있었던 OpenglHQ 기능은 SDL 라이브러리를 이용하여 다시 사용할 수 있게 됩니다.<br />
+        5. 한때 사용할 수 있었던 Innovation 사운드를 다시 사용할 수 있습니다.<br />
+        6. 한때 사용할 수 있었던 Glide (3dfx) 기능을 다시 사용할 수 있습니다.<br />
+        7. physfs 라이브러리를 사용하여 한때 사용할 수 있었던 Zip/7z 마운트를 다시 사용할 수 있습니다.<br />
+        간단한 팁 및 정보 게시판에 있는 Windows 3.1 설치 및 사용을 따르실 수 있습니다.<br />
+        8. 이미 테스트 빌드로도 공개 한 바 있는 Save/Load 기능이 추가되었습니다.<br />
+        9. NE2000 Ethernet Patch 추가 (hal9000님)<br />
+        10. 비프 기능을 사용할 수 있습니다. (hal9000님)<br />
+        11. Tandy와 PC Speaker 메뉴의 샘플링 레이트에 빠진 부분들을 추가하였습니다.<br />
+        12. 기타 버그 수정</p>
+      <p>&nbsp;</p>
+      <p>간추림<br />
+        ─────────────────────────────────────────────────<br />
+        SVN 0.74    : 2010/08/04 ~<br />
+        CVS 0.73     : 2010/04/11<br />
+        CVS 0.72     : 2007/09/03 ~ 2009/05/19<br />
+        CVS 0.71     : 2007/07/30 ~ 2007/08/15<br />
+        CVS 0.70     : 2007/03/05 ~ 2007/07/29<br />
+        CVS 0.66rc3  : 2007/02/25 ~ 2007/02/25<br />
+        CVS 0.66rc1  : 2007/02/06 ~ 2007/02/09<br />
+        CVS 0.65     : 2006/03/31 ~ 2007/01/21<br />
+        CVS 0.63     : 2004/11/22 ~ 2006/03/21<br />
+        CVS 0.62     : 2004/10/01 ~ 2004/11/13<br />
+        CVS 0.61     : 2004/01/17 ~ 2004/09/25<br />
+      CVS 0.60     : 2003/10/31 ~ 2004/01/13</p>
+      <p>* 2010<br />
+        2010/04/11 : 0.73 CVS 소스 기반, 일부 버그 수정</p>
+      <p>* 2009<br />
+        2009/05/19 : ZIP 마운트 제거, Alt-Pause 키가 일시 중지 모드로 동작하며 설정 변경 메뉴를 띄우지 않음</p>
+      <p>* 2008<br />
+        2008/09/28 : MT-32, Direct3D, OpenglHQ, 프린터 패치, VGAParts, Innovation, 오버스캔 제거, 전체 화면에서 Alt-Tab 동작, 일부 패치 업데이트</p>
+      <p>* 2007<br />
+        2007/11/28 : 캡처와 사운드에 관련된 버그 수정, 일시 중지 기능을 사용자 인터페이스에 통합, 기타 버그 수정<br />
+        2007/10/19 : 사용자 인터페이스 수정 버전 추가 (Moe), 글라이드 에뮬레이션 업데이트, 기타 버그 수정<br />
+        2007/10/07 : COPY 명령어에 특수 문자 대체 지원 기능 추가, SuperVGA 칩셋 업데이트, machine의 값에 ega 추가, 메뉴에 더 많은 키보드 레이아웃 추가<br />
+        2007/09/03 : 0.72 버전 소스 기반, XGA 개선 및 16550A 기능 추가, 글라이드와 프린터 에뮬레이션 업데이트<br />
+        2007/08/15 : HU104 제거, Direct3D 정상 동작<br />
+        2007/08/06 : 허큘레스 모드에서 모노크롬 화면 속성화 패치 추가, 메뉴 표시줄 업데이트, -nogui 옵션 추가, ETC 문서 업데이트<br />
+        2007/07/30 : 0.71 CVS 소스 기반, Numlock 반전 수정, 마운트 메뉴 개선, DirectX 라이브러리 변경<br />
+        2007/07/29 : 메뉴 표시줄이 SDL_WindowID 기반, vsyncrate에 host 추가, 전 보다 빨라진 시작, dosbox_admin.exe 추가, 아이콘을 eobet님의 것으로 변경, 강제 스케일링 기능 강화<br />
+        2007/06/16 : 메뉴 표시줄 일시 제거, 콘솔 창을 닫아도 충돌하지 않음, WinNT 계열에서 시디롬 마운트할 때 -ioctl 자동 적용, 타이머 정확도 수정<br />
+        2007/04/10 : 메뉴 표시줄이 GUI 외부 창을 사용하고 OpenglHQ와 호환, 전체 화면 사용시 문제점 수정<br />
+        2007/03/25 : 배치 파일에 대한 조그마한 버그 수정, 메뉴의 마운트에서 CUE/BIN, 7z 지원, 메뉴의 빠른 실행에서 배치 파일 지원, MT32 다시 지원, 글라이드 게임의 OVL 기능 내부 지원<br />
+        2007/03/17 : 메뉴 표시줄에 빠른 실행(Quick Launch) 기능 추가, IMG/ISO/ZIP 파일에 대한 마운트 지원 추가, sdlresize 기능 추가<br />
+        2007/03/10 : Direct3D 업데이트 및 픽셸 셰이더(v3) 두 개 추가, 메뉴 표시줄에서 드라이브 마운트 기능 추가, 내부 아이콘 변경<br />
+        2007/03/05 : 패치 추가:터보 모드와 PC 스피커를위한 수정, 디렉터리와 파일 이름에 대한 특수 문자 지원, 글라이드 패치 업데이트, -fullscreen 문제 수정<br />
+        2007/02/25 : RC3 기반, 쥬라기 공원 게임 동작, 허큘레스 모드에서 시작 화면 숨김, 매퍼 화면 조금 수정, buttonwrap 조이스틱 옵션 추가, 글라이드 패치 충돌 문제 수정<br />
+        2007/02/09 : 충돌 버그 수정, 일부 게임/응용 프로그램들에서 화면 출력 문제 해결<br />
+        2007/02/06 : 0.66rc1 소스 기반, IODelay 문제 수정, MegaBlast님의 아이콘 사용, 기본 사이클 값을 3000으로 놓음<br />
+        2007/01/21 : 프로그램 실행 도중 마운트 해제시 충돌하던 점 수정, 매퍼가 조이스틱 지원, README와 Changelog 업데이트, IODelay 켜고 끌 수 있음, 일부 게임 호환성 개선<br />
+        2007/01/05 : s3accel 패치 수정, Vista 사용자들을 위해 메뉴 토글 키를 Ctrl-alt-f9키로 변경, 일시 중지 또는 키보드 매퍼 사용 도중 메뉴 비활성화, 일부 타이머 패치들 추가</p>
+      <p>* 2006<br />
+        2006/12/03 : 헝가리어 키보드 104 패치 수정, F10키를 누를 때 더 이상 마우스가 메뉴로 가지 않음, CONFIG.SYS 명령어 지원 추가<br />
+        2006/11/20 : core의 기본값은 auto, OpenglHQ 업데이트, XMS/EMS/UMB 실시간으로 켜고 끌 수 있음, 헝가리어 104 키보드 지원, 일부 패치 업데이트<br />
+        2006/11/06 : Innovation SSI-2001 가상 구현 추가, DBCS 콘솔 패치 다시 동작, 자동 마운트가 플로피 드라이브도 다룸, 시작하자마자 사이클/FPS 보이지 않음, 최적화 패치 버그 수정<br />
+        2006/10/29 : SDL 라이브러리의 수정으로 하드웨어 표면과 DirectDraw 지원, Libpng 라이브러리 업데이트, KEYB.COM 및 화면 모드 변경 명령어 추가, README 업데이트<br />
+        2006/10/15 : 메뉴 표시줄에 일부 코어(auto 등) 추가, PROMPT 명령어 추가, echo=off일 때 줄이 내려가지 않는 버그 수정<br />
+        2006/10/07 : 조이스틱의 새 옵션 제공, DOSBox를 켜자마자 CD-ROM을 찾는 창이 나타나는 버그 수정, MT-32 에뮬레이션 조금 수정<br />
+        2006/09/29 : SDL 버전을 1.2.11로 업데이트, SVGA 패치 업데이트, VOL과 LABEL 명령어 추가, 메뉴 표시줄의 자동 마운트/마운트의 CD-ROM 지원, 프린터 글꼴 파일 제거<br />
+        2006/09/18 : CMOS 시계 패치 추가, 메뉴 표시줄의 화면 아래 여백 제거<br />
+        2006/09/09 : CD 이미지 디스크 바꾸기 기능 지원, 글라이드 기능과 메뉴와의 충돌 제거<br />
+        2006/08/09 : 메뉴에서 마운트된 드라이브 쉽게 해제할 수 있음, JEMM 메모리 관리자를 쓰는 게임 동작<br />
+        2006/08/01 : 시간 동기화 기능 추가, 스케일러 강제 동작을 위한 매개변수 추가, ver set 명령 지원<br />
+        2006/07/15 : 다중 구성 파일 지원, 제목 표시줄에 Mhz 표시, 메뉴 표시줄로 인한 창 이동 문제 수정, 일부 라이브러리 업데이트<br />
+        2006/06/27 : MUNT 라이브러리 업데이트, cycles=max 추가, README_ETC.TXT에 명령어 지원 설명 추가, 패치 추가 : CD 이미지 디스크 바꾸기, FAT 버그 수정<br />
+        2006/06/16 : GUS/SB 버그 수정, 패치 업데이트 : 메뉴 표시줄(-nomenu), 패치 추가 : 스케일러 강제 동작, 최적화 패치, 약간의 콘솔 변화, 런타임 아이콘 수정, 설명서 영문/한국어로 나눔<br />
+        2006/06/06 : eobet님의 아이콘 추가, 패치 업데이트 : 메뉴 표시줄, 자동 마운트, 패치 추가 : CD 이미지 버그 수정, CD 이미지 언마운트 기능, 그래픽 최적화, 자동 사이클 추측 개선 패치의 일부, 시간 동기화<br />
+        2006/05/28 : Direct3D 픽셀 셰이더 몇 개 더 추가, DOS 명령어 shift 제대로 동작, 실행 파일 용량 줄임, 패치 추가 : 조이스틱 상태 확인 횟수 줄임, 새로운 스케일러<br />
+        2006/05/15 : 패치 추가 : HQ2X/HQ3X, 실제 FPS 보기, 자동 사이클 추측 및 터보 모드 동시 시작, 계속적인 터보 모드, 메뉴 표시줄, 인트로 개선, 패치 버그 수정 : physfs<br />
+        2006/04/27 : 프로토코스 게임 지원, 조이스틱 패치 추가<br />
+        2006/04/12 : 타이머 개선 추가<br />
+        2006/04/07 : 셸에서 더 나아진 위 아래 방향키 관리 추가<br />
+        2006/03/31 : Socket inheritance 지원 추가<br />
+        2006/03/21 : 가상 프린터, 코어 전환 패치 업데이트, Direct3D 다시 지원, Shaders 및 Fonts 디렉터리 새로 추가<br />
+        2006/03/08 : NativeIPX 패치와 모뎀 패치 업데이트, VGA_Parts 정상 동작, Ctrl-F7/F8 제대로 동작<br />
+        2006/02/14 : NativeIPX 패치 업데이트, 더 나아진 글꼴 패치 추가, Normal4x 제거, 도스박스 내장 녹화 및 사이클 자동 추측 기능 추가, Vesa16/24/32비트 색 지원<br />
+        2006/01/30 : ALT-PAUSE가 이제 에뮬레이션 일시 중지 키, 스피드 미터가 제목 표시졸로 이동, 픽셀 셰이더 추가<br />
+        2006/01/07 : 사운드 블라스터 DSP 등 일부 패치 추가 및 업데이트</p>
+      <p>* 2005<br />
+        2005/12/26 : 모뎀 개선, SB MIDI 인터페이스, 수직 동기화 패치 등 추가<br />
+        2005/12/17 : 셸의 첫 시작 화면 수정, Direct3D의 픽셀 셰이더 파일들을 DLL 폴더로 이동<br />
+        2005/12/08 : 오버스캔 테두리 다시 추가, SET 구문 생략 패치 추가, 일부 패치 업데이트<br />
+        2005/11/29 : 스케일러 성능 개선 패치 추가, 글라이드 에뮬레이션이 SVGA와 충돌되는 버그 수정<br />
+        2005/11/15 : 내부 명령어의 더 많은 매개변수 지원, Glide2x.dll 라이브러리 추가<br />
+        2005/11/03 : 글라이드 에뮬레이션 기능 추가, 제한된 CD-ROM 마운트의 버그 수정<br />
+        2005/10/31 : 일부 패치 업데이트, 디버그 모드에서 속도 표시 사용 안함, Chain4 최적화 추가<br />
+        2005/10/13 : Direct3D 업데이트, UNMOUNT 명령어 추가, 줄 입력에 대한 백스페이스 및 오버플로우 수정<br />
+        2005/10/04 : 가상 프린터 지원 추가<br />
+        2005/09/23 : NativeIPX 지원 추가 (NetBIOS 포함), ZIP 마운트 업데이트<br />
+        2005/09/11 : Netbios 지원 추가<br />
+        2005/09/04 : CGA 컴포지트, CGA 수정 패치 추가<br />
+        2005/08/31 : MOVE 명령어 추가, 콘솔 패치 버그 수정, 자동 마운트 패치 버그 수정, Normal4x 추가<br />
+        2005/08/26 : 혼합 오버스캔 테두리 패치 추가, SVGA 칩셋에서 et4000new 지원<br />
+        2005/08/20 : 코드 최적화, MinGW 런타임/w32api 업데이트, CPU 업데이트, CPU 일부 로그 출력 제거<br />
+        2005/08/14 : DOSBox 시작시 SET 문장 표시 안함, Super VGA 업데이트, 라이브러리 용량 줄임<br />
+        2005/08/11 : EGA/VGA 데이터가 쓰기 모드 0일 때에만 회전<br />
+        2005/08/10 : ANSI 개선 패치 및 Config 쪽의 render 개선 패치 추가, Direct3D 및 SVGA 패치 업데이트<br />
+        2005/08/05 : MemSize128 패치 추가(최대 memsize=127), 내부 명령어 및 더 많은 매개 변수 지원 패치 추가<br />
+        2005/07/30 : Normal3x 스케일러 패치 추가, Zlib 및 PHYSFS 라이브러리 업데이트, 0바이트로 된 파일 실행 안함<br />
+        2005/07/22 : 변수 지원 패치 및 최적화 패치<br />
+        2005/07/19 : FEXS 패치 임시 제거 (호환성 때문), SmartUpdate 패치 사용시 뜨는 로그 제거, ZIP 파일 마운트 지원<br />
+        2005/07/16 : CON이 동양어 문자열들(한국어, 중국어, 일본어)을 다룰 수 있음, SmartUpdate 패치 정상 동작<br />
+        2005/07/14 : README_EN.TXT 추가, ADDKEY 명령어 및 개선된 시리얼 포트 패치 추가<br />
+        2005/07/11 : Tandy 수정, 키보드 버퍼 크기 3배, Full 코어에 crX 예외 추가<br />
+        2005/07/06 : SVGA 패치에서 Paradise 그래픽 카드 지원, EMS 메모리에서 VCPI 지원<br />
+        2005/07/01 : OpenglHQ 가 SDL.DLL와 연동, HQ2X 및 16비트 VESA 업데이트, 새로운 Direct3D 필터 추가<br />
+        2005/06/23 : SDL 1.3.x CVS 업데이트, Smart Screen Update 패치, Mapper 패치 추가<br />
+        2005/06/15 : OpenGL 정상 동작, 조이스틱 종류 설정 가능, 이미지 파일 용량 버그 수정<br />
+        2005/06/03 : 마우스 잠금 풀기 패치, 자동 마운트 패치 등 적용, OpenGL 비정상 동작<br />
+        2005/05/14 : SDL 라이브러리 1.3.x로 업데이트, 개선된 CD 감지 패치 및 Setmode/crtc 패치 추가<br />
+        2005/05/07 : HQ2X 업데이트 다시 시작, Dynamic 코어의 일부 버그 수정<br />
+        2005/05/03 : HQ2X 업데이트 잠정 중단, SuperVGA에서 비디오 메모리 크기 수정 가능, 음량 조절 최적화<br />
+        2005/04/20 : Vesa 16비트 지원, Dynamic FPU 기능 추가, 애드립 소리 개선<br />
+        2005/04/06 : LOCK 기능이 Full 코어와 Dynamic 코어에 들어감, XADD 기능이 Normal 코어와 Full 코어에 들어감<br />
+        2005/03/26 : 마우스 민감도 최대 수치는 100으로 수정, 수 많은 최적화 및 성능 향상, 그리고 버그 수정<br />
+        2005/03/21 : MT-32 대폭 업데이트<br />
+        2005/03/10 : 컴파일 프로그램 새로 업데이트, 제목 표시줄 다시 한글화, 속도 미터기 등 3가지 패치 적용<br />
+        2005/02/27 : 리다이렉션 파일 관리 수정, FPU 코어가 새로운 어셈블리 x86 사용<br />
+        2005/02/17 : FILES= 설정값 발견 방식 일부 추가, 확장 키보드 핸들링 일부 변경<br />
+        2005/02/05 : DirectDraw 사용 문제 수정 (SDL 교체), CHANGES 및 DOCS 폴더 추가<br />
+        2005/02/03 : Win 3.1 설치시 예외 부분 추가, 공식 SDL 라이브러리 파일 사용<br />
+        2005/01/21 : SDL_Sound 외부 라이브러리 제거 - 내부 포함, SDL 및 libPNG 업데이트<br />
+        2005/01/03 : 소스 파일 연도 2005년으로 갱신, MT-32 미디 하드웨어 지원 추가</p>
+      <p>* 2004<br />
+        2004/12/25 : 휴일 때문에 좀 바쁨, 앞으로 10일 동안 카페에서 지원이 되지 않았음<br />
+        2004/12/24 : DOSBox.exe 및 DOSBox_debug.exe 용량 줄임, 최적화 플레그 수정, 시작시 마우스 사용 안함<br />
+        2004/12/24 : DOSBox 카페에서 이 날짜를 끝으로 CVS 컴파일을 잠정 계획하지 않음<br />
+        2004/12/19 : Direct3D 출력 업데이트, optimize.bat 및 README 제거, 일부 게임들의 마우스 버그 수정<br />
+        2004/12/13 : DOS4GW 게임이 이제 완전히 돌아감<br />
+        2004/12/12 : Crusader 가 정상 동작<br />
+        2004/12/11 : Crusader: 실행시 이상이 있음<br />
+        2004/12/08 : 디버그 모드 적용 안함<br />
+        2004/12/02 : Quarantine 과 몇몇 게임들이 잘 돌아가는 것으로 보임<br />
+        2004/11/30 : 디버그 모드 지원, FAT 쓰기 접근 수정, 최적화 모드 수정<br />
+        2004/11/24 : 테스트 버전을 끝내고, 안정적인 CVS 버전 포함. DPMI가 완벽합니다. 페이지는 아직 초기단계<br />
+        2004/11/22 : 최적화 플레그 기본 사용, PIC 명령어 48 추가<br />
+        2004/11/21 : CVS 테스트 버전 포함. DPMI=FALSE<br />
+        2004/11/13 : CXXFLAGS 다시 수정, Ctrl+F4 키를 누르면 내부 캐시 새로 고침<br />
+        2004/11/12 : 전체 화면에 여러번 전환하는 버그 수정<br />
+        2004/11/04 : DOSBox CVS 가 이제 Gravis Ultrasound Emulation을 지원<br />
+        2004/10/31 : DOSBox CVS 버전을 ASPack으로 압축합니다. 다른 포럼 측에서는 UPX 사용<br />
+        2004/10/30 : 애드립 패치 적용, CXXFLAGS 최적화 적용, 일부 프로그램 충돌 문제 수정<br />
+        2004/10/24 : DOSBox.Conf 파일을 지워도 autoexec를 제외한 기본 설정 그대로 사용, 호출 정보 일부 추가<br />
+        2004/10/18 : FILES=100을 FILES=127로 수정, NULL 장치 제거, 기본 FXTRACT 지원, 키보드 입력 속도 수정<br />
+        2004/10/10 : Win32 OS의 SDL 문제 수정, 이미지 파일 구동 안정화, Dynamic 코어용 최적화 패치 적용<br />
+        2004/10/01 : 기존의 정식 버전 기능에 그 동안의 패치들 추가, 글꼴 뱅크 변경<br />
+        2004/09/25 : 컴파일 안정화, 국가 정보 수정, Direct3D 정상 지원, 제목 표시줄 다시 한글화, 스크린샷 모드 안정화<br />
+        2004/09/22 : 디버그, 매퍼, 유럽 키보드 사용 문제 해결 등 잠정 중단, 버퍼 오버플로우 현상 해결, NUL 리다이렉션 추가<br />
+        2004/09/07 : DOSBox 아이콘 추가, 유럽 키보드 사용자용 패치 적용, 실제로 그 동안 안돌아가던 많은 게임들이 돌아감, 더블 버퍼링 지원<br />
+        2004/08/25 : Simple 코어 추가, DOS용 게임 호환성 조금 개선, 소리 부분 수정<br />
+        2004/08/23 : CPU 우선 순위 자동으로 [높음], 디버그/스크린샷 모드 지원, 최적화 모드 제거, 새로운 소리 출력 방식 다양화<br />
+        2004/08/12 : 네트워크 모드의 기본값 : 사용 안함, HQ2X 지원, DOSBox 창 표시줄 한글화, 게임에서 CD Label을 제대로 읽음<br />
+        2004/08/03 : 3DNow! 및 SSE 지원, DirectSerial 지원, Direct3D 지원, HQ2X 잠정 중단, 스크린샷 및 디버그 모드 잠정 중단<br />
+        2004/07/20 : Windows 3.1 설치시 특정 파일이 감지되었다면서 오류가 뜨는 문제 해결, ZLIB1.DLL 용량 줄임<br />
+        2004/07/13 : HQ2X 지원, SNAPS -&gt; CAPTURE로 변경, 실시간 속도/코어 표시, 해상도 고정 안함, 다른 스케일러 추가, 화질 향상<br />
+        2004/06/27 : 일부 게임 에뮬레이션 수정, HQ2X 미지원, 프로그램 이름이 DOSBox 창 표시줄에 뜸, GUS 문제 수정<br />
+        2004/06/06 : 최적화 모드 개선 - CPU 우선순위 설정, 도움말 등<br />
+        2004/05/31 : DIFF와 DOCS 폴더 추가<br />
+        2004/05/20 : PECompact로 EXE 압축, CD-ROM 기능 개선, 최적화 모드 기능 개선<br />
+        2004/05/12 : 컴파일 버전을 다른 사람의 것으로 임시 대체, Pause 키 누르면 일시 중지 가능, SB 음량 조절 옵션 추가<br />
+        2004/05/04 : DOSBox 실행 부분 수정, 용량 줄임<br />
+        2004/04/29 : 스크린샷 저장 가능, CURSES.DLL 불필요, IPX 및 모뎀 다시 지원, 컴파일 정보 임시 삭제<br />
+        2004/04/28 : 심각한 호환성 문제 해결 (Dynamic), 사운드 및 메모리 쪽의 일부 버그 수정<br />
+        2004/04/24 : CPU 코어의 데이터 일부 수정, DOSBox.Conf를 지워도 변경값은 변경 안되게 하였음<br />
+        2004/04/22 : DOS, 드라이브 캐시, FAT, 로컬, 가상 마운트 등의 버그 수정, SB 일부 문제 수정<br />
+        2004/04/15 : IPX 모뎀 다시 지원, 디버그 모드 새로 고침, 셸 메시지 바꿈, 호환성 약간 개선<br />
+        2004/04/11 : 최적화 모드 기능 개선, 버그 수정<br />
+        2004/04/09 : 숫자 키패드 사용 가능, 몇몇 게임의 Cacheblock underruns 문제 수정<br />
+        2004/04/07 : 디버그 모드에 대한 Curses 최적화, SDL_Net 최적화, 실시간 모드 사용시 사소한 버그 수정<br />
+        2004/04/05 : 전체 화면의 화면 전환 지연 버그 수정, 게임 호환성 약간 개선, SDL_NET.DLL 임시 제거<br />
+        2004/04/02 : 용량 줄임, DOSBox 실행 화면에 DOSBox 다음 카페 출처 추가, 최적화 모드 구조 변경<br />
+        2004/03/31 : Dynamic 코어 호환성 개선, 일부 DOS용 게임의 호환성 개선<br />
+        2004/03/22 : 호환성 개선, Boxer 제거<br />
+        2004/03/13 : 일부 DOS용 게임과의 호환성 향상, OPL 사운드 지원, MIDI 인텔리전트 지원, IPX 지원<br />
+        2004/03/11 : DOSBox CVS 버전 공개 연기 발표<br />
+        2004/03/07 : 새로운 빌드, Boxer 버전 한글화<br />
+        2004/02/29 : i686 포맷으로 컴파일됨. 속도 향상. 최적화 모드 추가<br />
+        2004/02/22 : 몇몇 게임과의 호환성 해결 (rjpa님이 컴파일하지 않을 수도 있음)<br />
+        2004/02/13 : 약간의 게임과의 호환성 문제 해결<br />
+        2004/02/09 : 정식 버전과 이전 CVS에 문제가 있었던 그래픽 등의 문제 해결<br />
+        2004/02/03 : DOSBox CVS 버전 안정화. 정식 버전 출시 임박.<br />
+        2004/01/31 : OpenGL, 하드웨어 스케일링 추가, 고인돌2와 같은 몇몇 게임들이 돌아감.<br />
+        2004/01/22 : DOSBox CVS 를 실행할 때 나타나는 업데이트 날짜 표기 방식 변경<br />
+        2004/01/17 : DOSBox 가 0.61 버전으로 업데이트 - 버전 안정화<br />
+        2004/01/13 : CPU 코어의 구성이 바뀜 (DOSBox.Conf 파일 속에서 CPU 구성 선택 가능)<br />
+        2004/01/11 : CVS 0.60 : EMS 메모리 문제가 해결된 것으로 보임, 펩시맨 게임 돌아감 - 직접 컴파일<br />
+        2004/01/10 : CVS 컴파일 방법 공개 (Q&amp;A 란 참조)<br />
+        2004/01/07 : 몇몇 정보 수정 및 호환성 해결.<br />
+        2004/01/04 : DOSBox 카페에서 직접 컴파일을 하지 않고, rjpa 님이 만드신 파일로 대체하여 카페에 공개.<br />
+        2004/01/03 : 새로운 파일인 doxbox_nodyn.exe 이 포함, 이것은 Dynamic CPU 코어가 빠진 CVS임</p>
+      <p>* 2003<br />
+        2003/12/08 : 도스박스 다음 카페 한국어 페이지에 처음으로 도스박스 빌드가 올라갔습니다. (CVS 0.60 이후)<br />
+        2003/11/02 : 도스박스 다음 카페를 개장하였습니다.<br />
+        2003/09/24 : 리눅스 x86 ELF 바이너리 CVS 컴파일 포함. (파일: dosbox.bz2)<br />
+        2003/09/02 : DOSBox 의 CVS 가 이제 DOSBox 의 디버그 모드 버전이 공개되었습니다.<br />
+        2003/09/02 : Win32 로 컴파일된 .EXE, .DLL 파일의 크기를 줄였습니다!<br />
+        2003/09/01 : 리눅스 x86 ELF 바이너리 CVS 컴파일이 포함되었습니다. (파일 : dosbox)<br />
+        2003/08/25 : 새로운 CPU 코어가 컴파일되었습니다! </p>
+      <p>* 2002<br />
+    도스박스 소스가 소스포지 프로젝트에 등록되었습니다.</p></td>
+  </tr>
+  <!-- Limiter -->  <!-- / Limiter -->  <!-- Limiter -->  <!-- / Limiter -->  <!-- Limiter -->  <!-- / Limiter -->  <!-- end of page -->
+</table>
+<table border="1">
+  <tr>
+    <td >SVN 관련 설명서</td>
+    <td><a href="main_ko.html">기본</a> | <a href="usage_ko.html">사용법</a> | <a href="index.html">MB6 패치</a></td>
+  </tr>
+  <tr>
+    <td>공식 설명서</td>
+    <td><a href="../../Official Manuals/README_KR.TXT" target="new">README</a> | <a href="../../Official manuals/Video Instructions_KR.txt" target="new">비디오 안내</a></td>
+  </tr>
+</table>
+</body>
+</html>

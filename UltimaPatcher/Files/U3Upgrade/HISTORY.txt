@@ -1,0 +1,218 @@
+
+        **** The Exodus Project ****
+        *    Ultima III Upgrade    *
+        *                          *
+        *        Release 3.2       *
+        ****************************
+
+
+Project Status:
+
+    12-19-2016 - Release 3.2:
+
+        This release adds perhaps the most common request I've received
+        over the years: improved PC-speaker sound effects.  More
+        specifically, the sound effects are now timed and should sound
+        mostly consistent with the original intent.
+
+        Ultima 3's sound effects where designed to sound great on a
+        4.77 MHz 8086, but do not scale well as CPU speed increases.
+        This is because the game code directly manipulates the PC
+        speaker without being hooked to any kind of timer.  Thus, as the
+        CPU frequency (or VM speed) increases, the faster the PC speaker
+        oscillates which makes the sound not only shorter but also
+        higher pitched.
+
+        In this latest patch, if the SFXTIMED driver is configured, the 
+        sound effects will now be paced against a timer interrupt.  It's
+        recommended that you run DOSBOX at around 3000 cycles (or 9000 if
+        using CGA Composite mode) to get a good playable experience.
+
+        Some Additional Technical Notes:
+
+        Note that DOSBOX needs to be above at least 1000 cycles for the timer to
+        operate properly otherwise the timer interrupt will begin thrashing.
+        This is because the interrupt routine will execute too slowly and
+        never return before the next interrupt is fired, thus freezing
+        the game.
+
+    07-23-2014 - Release 3.1:
+
+        This release adds a few gameplay fixes to the game and
+        addresses a few issues/concerns folks had with version 3.0.
+
+        - A set of gameplay fixes that can be enabled/disabled in the
+          configuration program.  The fixes must be toggled as a group;
+          they cannot be toggled individually.  If enabled, they will
+          do the following:
+          - Double the overworld monster generation rate.  Perhaps one
+            of the largest complaints of this port of U3 is the low
+            monster generation rate and, by extension, the ship
+            generation rate.
+          - Increase the dungeon monster generation rate.  Rate increase
+            varies by level such that it is double the original on the
+            first level, but only 25% more on the bottom level.  Note
+            that the effective rate increases with each dungeon level.
+            This results in more lucrative dungeon runs, but also
+            potentially more dangerous.
+          - Halve the food consumption rate.  Food is supposed to be
+            taxing on a party, but weighs too heavily against poorer
+            parties.
+        - A streamlined installation procedure.  This package ships with
+          default configuration for the most common or recommended
+          settings.  You are of course free to customize it as needed,
+          but it's no longer required.
+        - Windows-native (32-bit) and Linux-native (i686 ELF) versions
+          of the U3RESET, U3CFG, and BINPAT tools.  Windows versions
+          end in "w" and Linux versions end in "l".  This should make it
+          simpler to run these programs without having to boot into
+          Dosbox and manually run them.  Sorry MacOS users - I'd love to
+          have OSX native versions as well, but I don't have a great
+          cross-compile solution to build Mac binaries from Windows.
+        - The DOS 16-bit version of U3RESET was missing from the v3.0
+          package.  It's included again now.
+        - A bugfix where a resurrection would cause the game to crash.
+        - A minor VGA graphics update to the dragon animation on startup.
+
+    01-13-2011 - Release 3.0:
+
+        After many years, the 3.0 release is finally available.
+        The major feature of this release is its support for 256-
+        color VGA graphics.
+
+        It's worthwhile to note that the video and music code was
+        entirely re-written and extracted into external drivers.
+        This makes it easier for me to maintain, but also enabled
+        the ability to "switch" between video modes with a config
+        program by merely swapping drivers.
+
+        In addition to the headline VGA graphics, users have the
+        option of playing in EGA and CGA modes if they so choose.
+        Furthermore, for "classic mode" enthusiasts, there is now
+        a CGA Composite driver which simulates the blending of
+        CGA colors on composite monitors.  This is actually how
+        U3 on the IBM PC was intended to be played!  More info
+        at https://sourceforge.net/p/ultima-exodus/wiki/CGA%20Composite/
+
+        Besides the graphics drivers, a number of other things
+        have been updated/added:
+
+        - You can replace those 0-7 moon phase numbers with actual
+          moon phase icons.  Make sure "moon phases" is set as
+          "enabled" in the config.
+        - The EXE programs included with the upgrade (U3CFG.EXE
+          and U3RESET.EXE) have been recompiled to work properly
+          under 16-bit DOS without a DPMI interface (e.g. DOS4GW).
+        - A bug was fixed that would give inaccurate Marks/Cards
+          information in Ztats.
+        - The frame limiter was rewritten using the PIT (Programmable
+          Interrupt Timer) as opposed to date milisecond comparisons.
+          Some of the timings have been adjusted.
+        - The Exodus Project is now open source!  Find us on
+          SourceForge at the following URL:
+          https://sourceforge.net/projects/ultima-exodus/
+
+        Lastly, I no longer include the modified binaries in the
+        release packages.  I found that as I modified more and
+        more of the files in the Ultima games I was coming
+        awefully close to including the entire game in the zip
+        file.  Now, the release packages include a patch file that
+        contains only the differences.  You'll need to use the
+        binpat program to patch your executable and data files.
+        There's more on this in the install instructions.
+
+    Please see below for an abbreviated project history or visit the
+    project website (http://exodus.voyd.net/) for the complete status
+    history.  I also post relevant information on project updates to
+    the rec.games.computer.ultima.series and .dragons newsgroups.
+
+
+Known Issues:
+
+    None at this time.
+
+
+Abbreviated History:
+
+    01-08-2002 - 2.5
+        - Fixed bug with Sosaria map getting reset when entering
+          or leaving Ambrosia.
+
+    08-31-2001 - 2.4
+        - Fixed bug that would save your game when your party dies
+          with AutoSave disabled.
+        - U3RESET program added.  Disperse your party before use.
+
+    04-06-2001 - 2.3
+        - No longer opens all files in r/w mode.  It now chooses
+          either the read or write modes depending on the use of
+          the data.
+         - Updating some timing on intro
+
+    01-01-2001 - 2.2
+        - Fixed major AutoSave bug where Sosaria map was not
+          getting cached and reloaded when you entered/exited a
+          town.
+        - Created U3CFG.EXE to configure game options.
+        - Created launcher program ULTIMA3.COM which passes
+          parameters to midpak, bypassing a bug in the Win2K
+          command-line.  Reads game options from U3.CFG.
+        - Added int 66 wrapper to ULTIMA3.COM so NT/2K does not
+          crash if MIDI is disabled.
+        - Game can no longer be launched from U3EGA.COM.
+        - Improved memory handling.
+        - Play "Alive" during endgame sequence.
+        - Upgraded file I/O (removed DOS 1.0 FCB's)
+
+    11-27-2000 - 2.1
+        - Created u3autosv.exe AutoSave patch
+        - Edited MIDI music to loop properly
+        - Fixed bug w/ AutoSave when entering or leaving Ambrosia
+
+    11-19-2000 - 2.0
+        - Added MIDI music via Midpak driver
+        - Disabled AutoSave (temporarily)
+        - Added special keystrokes to combat
+        - Removed erroneous cursor from endgame sequence
+        - Added mane to horse tile
+
+    09-10-2000 - 1.0
+        - Frame limiter support added improved overall
+        - Added frame limiter to peer gems, intro animations,
+          and demonstration screen.
+        - Added special keystrokes ALT-X/R/M
+        - Finished coloring all tiles
+        - Colored intro dragon animation
+        - Slowed down sound in dragon breath so it is audible
+
+    08-29-2000 - 0.5 beta
+        - Colored peer-gems in overworld
+        - Transformed slow-down mechanism into a full-fleged
+          frame limiter.
+
+    08-25-2000 - 0.4 alpha
+        - Dungeons work, now in color
+        - Peer gems work (although the colors are strange)
+        - Colored more tiles
+
+    08-22-2000 - 0.3 alpha
+        - Updated slow-down mechanism to yield to keyboard input
+        - Colored more tiles
+        - Screen blinks on area-affect spells
+        - Party member box blinks on hit or poison
+        - Number above party member box is highlighted when it
+          is his/her turn in combat.
+    
+    08-15-2000 - 0.2 alpha
+        - Game now plays in all normal tile-based views.
+        - Dungeons and gems do not yet work.
+        - Added preliminary internal slow-down mechanism
+
+    08-13-2000 - 0.1 alpha
+        - First alpha release
+        - Added preliminary coloring to convert tiles to EGA
+        - Can only watch intro, watch demo, navigate main menu,
+          and set up a party.
+        - The game itself does not play.
+
+    07-30-2000 - Project Begins

@@ -1,0 +1,2 @@
+call changega.bat
+exit
