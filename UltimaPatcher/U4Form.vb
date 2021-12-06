@@ -9,6 +9,7 @@ Public Class Ultima4Form
     Dim HythlothFixInstalled As Boolean
     Dim RunicFontInstalled As Boolean
     Dim U4v101Installed As Boolean
+    Dim U4v102Installed As Boolean
     Dim U4EGADowngradeInstalled As Boolean
     Dim EnhMusicInstalled As Boolean
     Dim EnhMusic2Installed As Boolean
@@ -70,10 +71,23 @@ Public Class Ultima4Form
                 U4v101Button.Text = "Uninstall"
                 U4v101Installed = True
                 U4v101Status.Text = "Installed"
+                U4v101Button.Enabled = True
+                U4v102Button.Enabled = False
             Else
                 U4v101Button.Text = "Install"
                 U4v101Installed = False
                 U4v101Status.Text = "Not installed"
+            End If
+            If FileComp("Files\U4v102\AVATAR.EXE", U4Location & "\AVATAR.EXE") Then
+                U4v102Button.Text = "Uninstall"
+                U4v102Installed = True
+                U4v102Status.Text = "Installed"
+                U4v101Button.Enabled = False
+                U4v102Button.Enabled = True
+            Else
+                U4v102Button.Text = "Install"
+                U4v102Installed = False
+                U4v102Status.Text = "Not installed"
             End If
             If FileComp("Files\U4_NEW_LARGE.XMI", U4Location & "\LARGE.XMI") Then
                 EnhMusicInstalled = True
@@ -287,6 +301,8 @@ Public Class Ultima4Form
             For Each file In fileNames
                 My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
             Next
+            U4v101Button.Enabled = True
+            U4v102Button.Enabled = True
         End If
         SetGameLocation(U4Location)
     End Sub
@@ -368,5 +384,30 @@ Public Class Ultima4Form
 
     Private Sub LinkLabel4_LinkClicked(sender As System.Object, e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel4.LinkClicked
         Shell("explorer.exe http://exodus.voyd.net/")
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        MessageBox.Show("This updated version of Ultima IV fixes some minor bugs in the data files." & vbCrLf & "This is a list of the fixes:" & vbCrLf & "Charm in Cove, Water in Lord British's castle, Alkerion in Minoc, and Shamino in Skara Brae asks their questions, fixed mispelling of keyword of prisoner in Yew, fixed incorrect guard indices in Serpents Hold", "Details", MessageBoxButtons.OK)
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles U4v102Button.Click
+        If Not U4v102Installed Then
+            Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v102", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+            For Each file In fileNames
+                My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
+            Next
+        Else
+            Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v102\ORIG", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+            For Each file In fileNames
+                My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
+            Next
+            U4v101Button.Enabled = True
+            U4v102Button.Enabled = True
+        End If
+        SetGameLocation(U4Location)
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        MessageBox.Show("This updated version of Ultima IV fixes some minor bugs in the data file and executables." & vbCrLf & "This is a list of the fixes:" & vbCrLf & "Charm in Cove, Water in Lord British's castle, Alkerion in Minoc, and Shamino in Skara Brae asks their questions, fixed mispelling of keyword of prisoner in Yew and, fixed incorrect guard indices in Serpents Hold, fixed keyword conflicts in Moonglow and Serpent's Hold, add missing dialogue for Serpent's Hold gate guards, fixes Serpent's Hold's healer, Fixes errors with monster behaviour and maps and the edge of maps", "Details", MessageBoxButtons.OK)
     End Sub
 End Class

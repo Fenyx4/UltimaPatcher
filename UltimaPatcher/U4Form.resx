@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -125,11 +125,6 @@ The following commands are added in game: Restore (ALT-R), Exit (ALT-X), Main Me
   <metadata name="Ultima4DirectoryDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="TextBox6.Text" xml:space="preserve">
-    <value>This updated version of Ultima IV fixes some minor bugs in the data files.  This is a list of the fixes:
-Charm in Cove asks her question, Water in Lord British's castle asks its question, Alkerion in Minoc asks his question, Shamino in Skara Brae asks his question, fixed mispelling of keyword of prisoner in Yew, fixed incorrect guard indices in Serpents Hold
-</value>
-  </data>
   <data name="TextBox7.Text" xml:space="preserve">
     <value>This patch by Natreg Dragon can be used in addition to the VGA Upgrade patch to put the original EGA graphics back but still allow you to use all the other enhancements in the upgrade.  Use this if you want to keep the original graphics but still add music.</value>
   </data>

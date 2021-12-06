@@ -63,6 +63,7 @@ Partial Class Ultima4Form
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.U4v101Button = New System.Windows.Forms.Button()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.U4v101Status = New System.Windows.Forms.Label()
@@ -92,6 +93,14 @@ Partial Class Ultima4Form
         Me.Label27 = New System.Windows.Forms.Label()
         Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.Label28 = New System.Windows.Forms.Label()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.U4v102Button = New System.Windows.Forms.Button()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.U4v102Status = New System.Windows.Forms.Label()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.Label31 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -101,6 +110,7 @@ Partial Class Ultima4Form
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox2
@@ -222,7 +232,7 @@ Partial Class Ultima4Form
         Me.TextBox4.ReadOnly = True
         Me.TextBox4.Size = New System.Drawing.Size(803, 26)
         Me.TextBox4.TabIndex = 6
-        Me.TextBox4.Text = "An EGA graphics upgrade patch for Ultima 4. Cannot be installed at same time as t" & _
+        Me.TextBox4.Text = "An EGA graphics upgrade patch for Ultima 4. Cannot be installed at same time as t" &
     "he VGA Upgrade."
         '
         'Label11
@@ -280,8 +290,8 @@ Partial Class Ultima4Form
         Me.TextBox2.ReadOnly = True
         Me.TextBox2.Size = New System.Drawing.Size(803, 36)
         Me.TextBox2.TabIndex = 10
-        Me.TextBox2.Text = "When installing/configuring the patch, you will be asked to choose a sound card d" & _
-    "river. MPU401-General MIDI Synth is recommended, although you can choose Adlib i" & _
+        Me.TextBox2.Text = "When installing/configuring the patch, you will be asked to choose a sound card d" &
+    "river. MPU401-General MIDI Synth is recommended, although you can choose Adlib i" &
     "f preferred. "
         '
         'VGAPatchButton
@@ -495,6 +505,7 @@ Partial Class Ultima4Form
         '
         'GroupBox6
         '
+        Me.GroupBox6.Controls.Add(Me.Button2)
         Me.GroupBox6.Controls.Add(Me.U4v101Button)
         Me.GroupBox6.Controls.Add(Me.Label14)
         Me.GroupBox6.Controls.Add(Me.U4v101Status)
@@ -503,16 +514,25 @@ Partial Class Ultima4Form
         Me.GroupBox6.Controls.Add(Me.Label19)
         Me.GroupBox6.Location = New System.Drawing.Point(12, 566)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(879, 123)
+        Me.GroupBox6.Size = New System.Drawing.Size(434, 123)
         Me.GroupBox6.TabIndex = 22
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "GroupBox6"
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(406, 16)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(22, 24)
+        Me.Button2.TabIndex = 15
+        Me.Button2.Text = "?"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'U4v101Button
         '
-        Me.U4v101Button.Location = New System.Drawing.Point(755, 16)
+        Me.U4v101Button.Location = New System.Drawing.Point(308, 16)
         Me.U4v101Button.Name = "U4v101Button"
-        Me.U4v101Button.Size = New System.Drawing.Size(118, 24)
+        Me.U4v101Button.Size = New System.Drawing.Size(92, 24)
         Me.U4v101Button.TabIndex = 12
         Me.U4v101Button.Text = "Install"
         Me.U4v101Button.UseVisualStyleBackColor = True
@@ -550,9 +570,9 @@ Partial Class Ultima4Form
         Me.TextBox6.Multiline = True
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.ReadOnly = True
-        Me.TextBox6.Size = New System.Drawing.Size(803, 62)
+        Me.TextBox6.Size = New System.Drawing.Size(358, 62)
         Me.TextBox6.TabIndex = 6
-        Me.TextBox6.Text = resources.GetString("TextBox6.Text")
+        Me.TextBox6.Text = "This updated version of Ultima IV fixes some minor bugs in the data files."
         '
         'Label19
         '
@@ -704,7 +724,7 @@ Partial Class Ultima4Form
         Me.TextBox9.ReadOnly = True
         Me.TextBox9.Size = New System.Drawing.Size(356, 37)
         Me.TextBox9.TabIndex = 6
-        Me.TextBox9.Text = "A complementary script for the VGA upgrade to use extracted MIDI from the Apple I" & _
+        Me.TextBox9.Text = "A complementary script for the VGA upgrade to use extracted MIDI from the Apple I" &
     "I port with additional voices. Use MPU-401 only for sound."
         '
         'Label26
@@ -798,6 +818,87 @@ Partial Class Ultima4Form
         Me.Label28.TabIndex = 4
         Me.Label28.Text = "Music Upgrade Patch 2"
         '
+        'GroupBox10
+        '
+        Me.GroupBox10.Controls.Add(Me.Button4)
+        Me.GroupBox10.Controls.Add(Me.U4v102Button)
+        Me.GroupBox10.Controls.Add(Me.Label24)
+        Me.GroupBox10.Controls.Add(Me.U4v102Status)
+        Me.GroupBox10.Controls.Add(Me.Label30)
+        Me.GroupBox10.Controls.Add(Me.TextBox10)
+        Me.GroupBox10.Controls.Add(Me.Label31)
+        Me.GroupBox10.Location = New System.Drawing.Point(452, 566)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(434, 123)
+        Me.GroupBox10.TabIndex = 25
+        Me.GroupBox10.TabStop = False
+        Me.GroupBox10.Text = "GroupBox10"
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(406, 16)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(22, 24)
+        Me.Button4.TabIndex = 15
+        Me.Button4.Text = "?"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'U4v102Button
+        '
+        Me.U4v102Button.Location = New System.Drawing.Point(308, 16)
+        Me.U4v102Button.Name = "U4v102Button"
+        Me.U4v102Button.Size = New System.Drawing.Size(92, 24)
+        Me.U4v102Button.TabIndex = 12
+        Me.U4v102Button.Text = "Install"
+        Me.U4v102Button.UseVisualStyleBackColor = True
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(6, 58)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(63, 13)
+        Me.Label24.TabIndex = 7
+        Me.Label24.Text = "Description:"
+        '
+        'U4v102Status
+        '
+        Me.U4v102Status.AutoSize = True
+        Me.U4v102Status.Location = New System.Drawing.Point(67, 27)
+        Me.U4v102Status.Name = "U4v102Status"
+        Me.U4v102Status.Size = New System.Drawing.Size(72, 13)
+        Me.U4v102Status.TabIndex = 14
+        Me.U4v102Status.Text = "(Not Installed)"
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Location = New System.Drawing.Point(6, 27)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(40, 13)
+        Me.Label30.TabIndex = 6
+        Me.Label30.Text = "Status:"
+        '
+        'TextBox10
+        '
+        Me.TextBox10.Location = New System.Drawing.Point(70, 55)
+        Me.TextBox10.Multiline = True
+        Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.ReadOnly = True
+        Me.TextBox10.Size = New System.Drawing.Size(358, 62)
+        Me.TextBox10.TabIndex = 6
+        Me.TextBox10.Text = "This updated version of Ultima IV fixes some minor bugs in the data files and exe" &
+    "cutable"
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(6, 0)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(107, 13)
+        Me.Label31.TabIndex = 4
+        Me.Label31.Text = "Ultima 4 Version 1.02"
+        '
         'Ultima4Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -805,6 +906,7 @@ Partial Class Ultima4Form
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(900, 842)
         Me.ControlBox = False
+        Me.Controls.Add(Me.GroupBox10)
         Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.GroupBox8)
         Me.Controls.Add(Me.GroupBox7)
@@ -836,6 +938,8 @@ Partial Class Ultima4Form
         Me.GroupBox8.PerformLayout()
         Me.GroupBox9.ResumeLayout(False)
         Me.GroupBox9.PerformLayout()
+        Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox10.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -908,4 +1012,13 @@ Partial Class Ultima4Form
     Friend WithEvents Label27 As System.Windows.Forms.Label
     Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
     Friend WithEvents Label28 As System.Windows.Forms.Label
+    Friend WithEvents Button2 As Button
+    Friend WithEvents GroupBox10 As GroupBox
+    Friend WithEvents Button4 As Button
+    Friend WithEvents U4v102Button As Button
+    Friend WithEvents Label24 As Label
+    Friend WithEvents U4v102Status As Label
+    Friend WithEvents Label30 As Label
+    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents Label31 As Label
 End Class
