@@ -300,7 +300,7 @@ Partial Class Ultima4Form
         Me.VGAPatchButton.Name = "VGAPatchButton"
         Me.VGAPatchButton.Size = New System.Drawing.Size(118, 24)
         Me.VGAPatchButton.TabIndex = 12
-        Me.VGAPatchButton.Text = "Button2"
+        Me.VGAPatchButton.Text = "Install"
         Me.VGAPatchButton.UseVisualStyleBackColor = True
         '
         'Label3
