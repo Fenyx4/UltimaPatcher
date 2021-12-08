@@ -129,6 +129,6 @@ The following commands are added in game: Restore (ALT-R), Exit (ALT-X), Main Me
     <value>This patch by Natreg Dragon can be used in addition to the VGA Upgrade patch to put the original EGA graphics back but still allow you to use all the other enhancements in the upgrade.  Use this if you want to keep the original graphics but still add music.</value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
+    <value>48</value>
   </metadata>
 </root>

@@ -67,7 +67,7 @@ Public Class Ultima4Form
                 RunicStatus.Text = "Not installed"
                 RunicButton.Text = "Install"
             End If
-            If FileComp("Files\U4v101\COVE.TLK", U4Location & "\COVE.TLK") Then
+            If FileComp("Files\U4v101\COVE.TLK", U4Location & "\COVE.TLK") And FileComp("Files\U4v101\SERPENT.ULT", U4Location & "\SERPENT.ULT") Then
                 U4v101Button.Text = "Uninstall"
                 U4v101Installed = True
                 U4v101Status.Text = "Installed"
@@ -75,10 +75,11 @@ Public Class Ultima4Form
                 U4v102Button.Enabled = False
             Else
                 U4v101Button.Text = "Install"
+                U4v101Button.Enabled = True
                 U4v101Installed = False
                 U4v101Status.Text = "Not installed"
             End If
-            If FileComp("Files\U4v102\AVATAR.EXE", U4Location & "\AVATAR.EXE") Then
+            If FileComp("Files\U4v102\AVATAR.EXE", U4Location & "\AVATAR.EXE") Or FileComp("Files\U4v102VGA\AVATAR.EXE", U4Location & "\AVATAR.EXE") Then
                 U4v102Button.Text = "Uninstall"
                 U4v102Installed = True
                 U4v102Status.Text = "Installed"
@@ -257,7 +258,15 @@ Public Class Ultima4Form
 
         objStreamWriter.Close()
         Shell("Files\Dosbox\DOSBox.exe -conf .\Files\U4VGAPatch.conf -noconsole ", , True)
+        Dim v101Installed = U4v101Installed
+        Dim v102Installed = U4v102Installed
         SetGameLocation(U4Location)
+        If v101Installed And Not U4v101Installed Then
+            U4v101Button_Click(sender, e)
+        End If
+        If v102Installed Then
+            U4v102Button_Click(sender, e)
+        End If
     End Sub
 
     Private Sub HythlothPatchButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles HythlothPatchButton.Click
@@ -390,19 +399,35 @@ Public Class Ultima4Form
         MessageBox.Show("This updated version of Ultima IV fixes some minor bugs in the data files." & vbCrLf & "This is a list of the fixes:" & vbCrLf & "Charm in Cove, Water in Lord British's castle, Alkerion in Minoc, and Shamino in Skara Brae asks their questions, fixed mispelling of keyword of prisoner in Yew, fixed incorrect guard indices in Serpents Hold", "Details", MessageBoxButtons.OK)
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles U4v102Button.Click
-        If Not U4v102Installed Then
-            Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v102", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
-            For Each file In fileNames
-                My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
-            Next
+    Private Sub U4v102Button_Click(sender As Object, e As EventArgs) Handles U4v102Button.Click
+        If Not VGAUpgradeInstalled Then
+            If Not U4v102Installed Then
+                Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v102", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+                For Each file In fileNames
+                    My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
+                Next
+            Else
+                Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v102\ORIG", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+                For Each file In fileNames
+                    My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
+                Next
+                U4v101Button.Enabled = True
+                U4v102Button.Enabled = True
+            End If
         Else
-            Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v102\ORIG", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
-            For Each file In fileNames
-                My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
-            Next
-            U4v101Button.Enabled = True
-            U4v102Button.Enabled = True
+            If Not U4v102Installed Then
+                Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v102VGA", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+                For Each file In fileNames
+                    My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
+                Next
+            Else
+                Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v102\ORIG", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+                For Each file In fileNames
+                    My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
+                Next
+                U4v101Button.Enabled = True
+                U4v102Button.Enabled = True
+            End If
         End If
         SetGameLocation(U4Location)
     End Sub
