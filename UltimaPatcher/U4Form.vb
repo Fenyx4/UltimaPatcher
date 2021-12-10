@@ -10,6 +10,7 @@ Public Class Ultima4Form
     Dim RunicFontInstalled As Boolean
     Dim U4v101Installed As Boolean
     Dim U4v102Installed As Boolean
+    Dim U4v200Installed As Boolean
     Dim U4EGADowngradeInstalled As Boolean
     Dim EnhMusicInstalled As Boolean
     Dim EnhMusic2Installed As Boolean
@@ -67,76 +68,76 @@ Public Class Ultima4Form
                 RunicStatus.Text = "Not installed"
                 RunicButton.Text = "Install"
             End If
+            U4v101Installed = False
+            U4v102Installed = False
+            U4v200Installed = False
+            U4v101Status.Text = "Not installed"
             If FileComp("Files\U4v101\COVE.TLK", U4Location & "\COVE.TLK") And FileComp("Files\U4v101\SERPENT.ULT", U4Location & "\SERPENT.ULT") Then
-                U4v101Button.Text = "Uninstall"
                 U4v101Installed = True
                 U4v101Status.Text = "Installed"
-                U4v101Button.Enabled = True
-                U4v102Button.Enabled = False
-            Else
-                U4v101Button.Text = "Install"
-                U4v101Button.Enabled = True
-                U4v101Installed = False
-                U4v101Status.Text = "Not installed"
+                ComboBox1.SelectedIndex = 1
             End If
             If FileComp("Files\U4v102\AVATAR.EXE", U4Location & "\AVATAR.EXE") Or FileComp("Files\U4v102VGA\AVATAR.EXE", U4Location & "\AVATAR.EXE") Then
-                U4v102Button.Text = "Uninstall"
                 U4v102Installed = True
-                U4v102Status.Text = "Installed"
-                U4v101Button.Enabled = False
-                U4v102Button.Enabled = True
-            Else
-                U4v102Button.Text = "Install"
-                U4v102Installed = False
-                U4v102Status.Text = "Not installed"
+                U4v101Status.Text = "Installed"
+                ComboBox1.SelectedIndex = 2
             End If
+            If FileComp("Files\U4v200\AVATAR.EXE", U4Location & "\AVATAR.EXE") Or FileComp("Files\U4v200VGA\AVATAR.EXE", U4Location & "\AVATAR.EXE") Then
+                U4v200Installed = True
+                U4v101Status.Text = "Installed"
+                ComboBox1.SelectedIndex = 3
+            End If
+            If -1 = ComboBox1.SelectedIndex Then
+                ComboBox1.SelectedIndex = 0
+            End If
+
             If FileComp("Files\U4_NEW_LARGE.XMI", U4Location & "\LARGE.XMI") Then
-                EnhMusicInstalled = True
-                EnhMusicStatus.Text = "Installed"
-                EnhMusicButton.Text = "Uninstall"
-                EnhMusic2Button.Enabled = False
-                EnhMusicButton.Enabled = True
-            Else
-                EnhMusicInstalled = False
-                EnhMusicStatus.Text = "Not installed"
-                EnhMusicButton.Text = "Install"
-                EnhMusicButton.Enabled = True
-                EnhMusic2Button.Enabled = True
-            End If
-            If FileComp("Files\U4Music2\LARGE.XMI", U4Location & "\LARGE.XMI") Then
-                EnhMusic2Installed = True
-                EnhMusic2Status.Text = "Installed"
-                EnhMusic2Button.Text = "Uninstall"
-                EnhMusicButton.Enabled = False
-                EnhMusic2Button.Enabled = True
-            Else
-                EnhMusic2Installed = False
-                EnhMusic2Status.Text = "Not installed"
-                EnhMusic2Button.Text = "Install"
+                    EnhMusicInstalled = True
+                    EnhMusicStatus.Text = "Installed"
+                    EnhMusicButton.Text = "Uninstall"
+                    EnhMusic2Button.Enabled = False
+                    EnhMusicButton.Enabled = True
+                Else
+                    EnhMusicInstalled = False
+                    EnhMusicStatus.Text = "Not installed"
+                    EnhMusicButton.Text = "Install"
+                    EnhMusicButton.Enabled = True
+                    EnhMusic2Button.Enabled = True
+                End If
+                If FileComp("Files\U4Music2\LARGE.XMI", U4Location & "\LARGE.XMI") Then
+                    EnhMusic2Installed = True
+                    EnhMusic2Status.Text = "Installed"
+                    EnhMusic2Button.Text = "Uninstall"
+                    EnhMusicButton.Enabled = False
+                    EnhMusic2Button.Enabled = True
+                Else
+                    EnhMusic2Installed = False
+                    EnhMusic2Status.Text = "Not installed"
+                    EnhMusic2Button.Text = "Install"
 
-            End If
-            Dim lOpenFile As System.IO.StreamReader
-            Dim fileText As String
+                End If
+                Dim lOpenFile As System.IO.StreamReader
+                Dim fileText As String
 
-            Try
-                lOpenFile = My.Computer.FileSystem.OpenTextFileReader(U4Location & DosboxExeConfig)
-                fileText = lOpenFile.ReadToEnd
-                lOpenFile.Close()
-            Catch ex As Exception
-                fileText = ""
-            End Try
-            If FileComp("Files\U4EGADowngrade\SHAPES.VGA", U4Location & "\SHAPES.VGA") Then
-                U4EGADowngradeInstalled = True
-                MusicButton.Text = "Uninstall"
-                MusicStatus.Text = "Installed"
+                Try
+                    lOpenFile = My.Computer.FileSystem.OpenTextFileReader(U4Location & DosboxExeConfig)
+                    fileText = lOpenFile.ReadToEnd
+                    lOpenFile.Close()
+                Catch ex As Exception
+                    fileText = ""
+                End Try
+                If FileComp("Files\U4EGADowngrade\SHAPES.VGA", U4Location & "\SHAPES.VGA") Then
+                    U4EGADowngradeInstalled = True
+                    MusicButton.Text = "Uninstall"
+                    MusicStatus.Text = "Installed"
+                Else
+                    U4EGADowngradeInstalled = False
+                    MusicButton.Text = "Install"
+                    MusicStatus.Text = "Not installed"
+                End If
+                Return True
             Else
-                U4EGADowngradeInstalled = False
-                MusicButton.Text = "Install"
-                MusicStatus.Text = "Not installed"
-            End If
-            Return True
-        Else
-            Return False
+                Return False
         End If
     End Function
 
@@ -260,12 +261,16 @@ Public Class Ultima4Form
         Shell("Files\Dosbox\DOSBox.exe -conf .\Files\U4VGAPatch.conf -noconsole ", , True)
         Dim v101Installed = U4v101Installed
         Dim v102Installed = U4v102Installed
+        Dim v200Installed = U4v200Installed
         SetGameLocation(U4Location)
         If v101Installed And Not U4v101Installed Then
-            U4v101Button_Click(sender, e)
+            ComboBox1.SelectedIndex = 1
         End If
         If v102Installed Then
-            U4v102Button_Click(sender, e)
+            ComboBox1.SelectedIndex = 2
+        End If
+        If v200Installed Then
+            ComboBox1.SelectedIndex = 3
         End If
     End Sub
 
@@ -299,21 +304,8 @@ Public Class Ultima4Form
         SetGameLocation(U4Location)
     End Sub
 
-    Private Sub U4v101Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles U4v101Button.Click
-        If Not U4v101Installed Then
-            Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v101", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
-            For Each file In fileNames
-                My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
-            Next
-        Else
-            Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v101\ORIG", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
-            For Each file In fileNames
-                My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
-            Next
-            U4v101Button.Enabled = True
-            U4v102Button.Enabled = True
-        End If
-        SetGameLocation(U4Location)
+    Private Sub U4v101Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
     End Sub
 
     Private Sub MusicButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MusicButton.Click
@@ -396,43 +388,79 @@ Public Class Ultima4Form
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        MessageBox.Show("This updated version of Ultima IV fixes some minor bugs in the data files." & vbCrLf & "This is a list of the fixes:" & vbCrLf & "Charm in Cove, Water in Lord British's castle, Alkerion in Minoc, and Shamino in Skara Brae asks their questions, fixed mispelling of keyword of prisoner in Yew, fixed incorrect guard indices in Serpents Hold", "Details", MessageBoxButtons.OK)
+        MessageBox.Show("Updated versions of Ultima IV fixes some minor bugs and/or provides quality of life improvements" & vbCrLf & "1.01:" & vbCrLf & "Charm in Cove, Water in Lord British's castle, Alkerion in Minoc, and Shamino in Skara Brae asks their questions, fixed mispelling of keyword of prisoner in Yew, fixed incorrect guard indices in Serpents Hold" & vbCrLf & "1.02:" & vbCrLf & "All of the above and fixed keyword conflicts in Moonglow and Serpent's Hold, fixes Serpent's Hold's healer and fixes errors with monster behaviour and maps and the edge of maps" & vbCrLf & "2.00:" & vbCrLf & "All of the above and sacrifice on last coin, save in towns, spell mix quantity, active character, hit chance fix, diagonal attacks, daemon spawn in Abyss and other gender.", "Details", MessageBoxButtons.OK)
     End Sub
 
-    Private Sub U4v102Button_Click(sender As Object, e As EventArgs) Handles U4v102Button.Click
-        If Not VGAUpgradeInstalled Then
-            If Not U4v102Installed Then
-                Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v102", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
-                For Each file In fileNames
-                    My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
-                Next
-            Else
-                Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v102\ORIG", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
-                For Each file In fileNames
-                    My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
-                Next
-                U4v101Button.Enabled = True
-                U4v102Button.Enabled = True
-            End If
-        Else
-            If Not U4v102Installed Then
-                Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v102VGA", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
-                For Each file In fileNames
-                    My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
-                Next
-            Else
-                Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v102\ORIG", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
-                For Each file In fileNames
-                    My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
-                Next
-                U4v101Button.Enabled = True
-                U4v102Button.Enabled = True
-            End If
+    Private Sub U4v102Button_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs)
+        MessageBox.Show("This updated version of Ultima IV fixes some minor bugs in the data file and executables." & vbCrLf & "This is a list of the fixes:" & vbCrLf & "Charm in Cove, Water in Lord British's castle, Alkerion in Minoc, and Shamino in Skara Brae asks their questions, fixed mispelling of keyword of prisoner in Yew and, fixed incorrect guard indices in Serpents Hold, fixed keyword conflicts in Moonglow and Serpent's Hold, add missing dialogue for Serpent's Hold gate guards, fixes Serpent's Hold's healer, fixes errors with monster behaviour and maps and the edge of maps", "Details", MessageBoxButtons.OK)
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        Dim combo = CType(sender, ComboBox)
+        If U4v101Installed Then
+            Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v101\ORIG", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+            For Each file In fileNames
+                My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
+            Next
+        ElseIf U4v102Installed Then
+            Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v102\ORIG", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+            For Each file In fileNames
+                My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
+            Next
+        ElseIf U4v200Installed Then
+            Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v200\ORIG", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+            For Each file In fileNames
+                My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
+            Next
         End If
-        SetGameLocation(U4Location)
-    End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        MessageBox.Show("This updated version of Ultima IV fixes some minor bugs in the data file and executables." & vbCrLf & "This is a list of the fixes:" & vbCrLf & "Charm in Cove, Water in Lord British's castle, Alkerion in Minoc, and Shamino in Skara Brae asks their questions, fixed mispelling of keyword of prisoner in Yew and, fixed incorrect guard indices in Serpents Hold, fixed keyword conflicts in Moonglow and Serpent's Hold, add missing dialogue for Serpent's Hold gate guards, fixes Serpent's Hold's healer, Fixes errors with monster behaviour and maps and the edge of maps", "Details", MessageBoxButtons.OK)
+        Select Case combo.SelectedIndex
+        ' The following is the only Case clause that evaluates to True.
+            Case 1
+                If Not U4v101Installed Then
+                    Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v101", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+                    For Each file In fileNames
+                        My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
+                    Next
+                End If
+            Case 2
+                If Not VGAUpgradeInstalled Then
+                    If Not U4v102Installed Then
+                        Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v102", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+                        For Each file In fileNames
+                            My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
+                        Next
+                    End If
+                Else
+                    If Not U4v102Installed Then
+                        Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v102VGA", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+                        For Each file In fileNames
+                            My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
+                        Next
+                    End If
+                End If
+            Case 3
+                If Not VGAUpgradeInstalled Then
+                    If Not U4v200Installed Then
+                        Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v200", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+                        For Each file In fileNames
+                            My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
+                        Next
+                    End If
+                Else
+                    If Not U4v200Installed Then
+                        Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4v200VGA", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+                        For Each file In fileNames
+                            My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
+                        Next
+                    End If
+                End If
+        End Select
+
+        SetGameLocation(U4Location)
     End Sub
 End Class

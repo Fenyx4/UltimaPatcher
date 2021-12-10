@@ -1,6 +1,16 @@
-## https://github.com/Fenyx4/U4DosRandomizer Release v0.3.4-beta "--fixes -o 1"
+## https://github.com/Fenyx4/U4DosRandomizer Release v0.3.4-beta "--fixes --overworld 1 --mixQuantity --activePlayer --appleHitChance --diagonalAttack --sacrificeFix --townSaves --daemonTrigger --other "
 
-### Other
+### Randomizer Upgrades
+ * The shrine says giving of your last coin will help with sacrifice but it doesn't. Fixes this.
+ * You can now save in towns and horses don't get lost when you leave them on the first floor of LCB
+ * Lets you input how much of a spell you want to mix.
+ * Allow selecting which characters are active in combat.
+ * Change hit chance to behave like the original Apple II version. (Because it is really weird in the PC version)
+ * Allow diagonal attacks in combat.
+ * Fix daemon spawn in Abyss
+ * Allow other gender like in Ultima III.
+
+### Other Randomizer Fixes
 * Fixes Serpent Hold healer so you can speak to the healer
 * Capilization of 'Rabindranath tagore'
 * Fixes errors with monster behaviour and maps and the edge of maps

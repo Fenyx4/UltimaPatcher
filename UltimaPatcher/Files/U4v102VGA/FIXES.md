@@ -1,4 +1,4 @@
-## https://github.com/Fenyx4/U4DosRandomizer Release v0.3.4-beta "--fixes -o 1"
+## https://github.com/Fenyx4/U4DosRandomizer Release v0.3.4-beta "--fixes -o 1 --vgaPatch"
 
 ### Other
 * Fixes Serpent Hold healer so you can speak to the healer
@@ -34,10 +34,3 @@
 * Shamino in Skara Brae asks his question
 * fixed mispelling of keyword of prisoner in Yew
 * fixed incorrect guard indices in Serpents Hold
-
-## --hythlothFix
-* Fixes level 6 of Hythloth connecting the dungeon rooms so you can get through the dungeon without zdown, yup or xit spells
- - This uses cambragols fix and not Fenyx4's fix (ironically)
-
-## --sacrificeFix
- * The shrine says giving of your last coin will help with sacrifice but it doesn't. Fixes this.
