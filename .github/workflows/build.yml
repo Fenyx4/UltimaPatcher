@@ -1,0 +1,45 @@
+name: Build
+
+on: [push]
+ 
+jobs:
+  build:
+ 
+    runs-on: windows-latest
+ 
+    steps:
+    - uses: actions/checkout@v1
+      name: Checkout Code
+     
+    - name: Setup MSBuild Path
+      uses: microsoft/setup-msbuild@v1.1
+       
+#    - name: Setup NuGet
+#      uses: NuGet/setup-nuget@v1.0.2
+     
+#    - name: Restore NuGet Packages
+#      run: nuget restore UltimaPatcher.sln
+ 
+    - name: Build
+      run: msbuild UltimaPatcher.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
+      
+    - name: Compress
+      run: | 
+       Compress-Archive UltimaPatcher\bin\Release UltimaPatcher.zip
+       dir *.zip
+    
+    - name: Publish
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+         files: |
+            UltimaPatcher.zip
+      env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+     
+ 
+#    - name: Upload Artifact
+#      uses: actions/upload-artifact@v1.0.0
+#      with:
+#        name: published_webapp
+#        path: bin\Release\Publish
