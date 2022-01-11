@@ -20,13 +20,22 @@ jobs:
 #    - name: Restore NuGet Packages
 #      run: nuget restore UltimaPatcher.sln
  
-    - name: Build and Publish Web App
+    - name: Build
       run: msbuild UltimaPatcher.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
       
-    - name: Build and Publish Web App
+    - name: Compress
       run: | 
        Compress-Archive UltimaPatcher\bin\Release UltimaPatcher.zip
        dir *.zip
+    
+    - name: Publish
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+         files: |
+            UltimaPatcher.zip
+      env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      
  
 #    - name: Upload Artifact
