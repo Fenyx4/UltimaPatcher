@@ -25,7 +25,6 @@ jobs:
       
     - name: Build and Publish Web App
       run: | 
-       dir /b /s
        Compress-Archive UltimaPatcher\bin\Release UltimaPatcher.zip
        dir *.zip
      
