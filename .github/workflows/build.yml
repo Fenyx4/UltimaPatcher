@@ -25,7 +25,7 @@ jobs:
       
     - name: Compress
       run: | 
-       Compress-Archive UltimaPatcher\bin\Release UltimaPatcher.zip
+       Compress-Archive UltimaPatcher\bin\Release\* UltimaPatcher.zip
        dir *.zip
     
     - name: Publish
