@@ -48,9 +48,18 @@ Partial Class Ultima3Form
         Me.Label10 = New System.Windows.Forms.Label()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.LinkLabel3 = New System.Windows.Forms.LinkLabel()
+        Me.UltimoreButton = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.UltimoreStatus = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
         'GraphicsModeButton
@@ -222,7 +231,8 @@ Partial Class Ultima3Form
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(639, 470)
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.Location = New System.Drawing.Point(639, 569)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 18
@@ -300,12 +310,96 @@ Partial Class Ultima3Form
         Me.Label11.TabIndex = 4
         Me.Label11.Text = "Alternative EGA Tileset Patch"
         '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.LinkLabel3)
+        Me.GroupBox4.Controls.Add(Me.UltimoreButton)
+        Me.GroupBox4.Controls.Add(Me.Label2)
+        Me.GroupBox4.Controls.Add(Me.UltimoreStatus)
+        Me.GroupBox4.Controls.Add(Me.Label12)
+        Me.GroupBox4.Controls.Add(Me.TextBox3)
+        Me.GroupBox4.Controls.Add(Me.Label13)
+        Me.GroupBox4.Location = New System.Drawing.Point(12, 471)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(702, 88)
+        Me.GroupBox4.TabIndex = 21
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "GroupBox4"
+        '
+        'LinkLabel3
+        '
+        Me.LinkLabel3.AutoSize = True
+        Me.LinkLabel3.Location = New System.Drawing.Point(435, 0)
+        Me.LinkLabel3.Name = "LinkLabel3"
+        Me.LinkLabel3.Size = New System.Drawing.Size(261, 13)
+        Me.LinkLabel3.TabIndex = 22
+        Me.LinkLabel3.TabStop = True
+        Me.LinkLabel3.Tag = "https://daemon-master.itch.io/ultimore-a-world-divided"
+        Me.LinkLabel3.Text = "https://daemon-master.itch.io/ultimore-a-world-divided"
+        '
+        'UltimoreButton
+        '
+        Me.UltimoreButton.Location = New System.Drawing.Point(564, 16)
+        Me.UltimoreButton.Name = "UltimoreButton"
+        Me.UltimoreButton.Size = New System.Drawing.Size(118, 24)
+        Me.UltimoreButton.TabIndex = 12
+        Me.UltimoreButton.Text = "Install"
+        Me.UltimoreButton.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(6, 58)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(63, 13)
+        Me.Label2.TabIndex = 7
+        Me.Label2.Text = "Description:"
+        '
+        'UltimoreStatus
+        '
+        Me.UltimoreStatus.AutoSize = True
+        Me.UltimoreStatus.Location = New System.Drawing.Point(67, 27)
+        Me.UltimoreStatus.Name = "UltimoreStatus"
+        Me.UltimoreStatus.Size = New System.Drawing.Size(72, 13)
+        Me.UltimoreStatus.TabIndex = 14
+        Me.UltimoreStatus.Text = "(Not Installed)"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(6, 27)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(40, 13)
+        Me.Label12.TabIndex = 6
+        Me.Label12.Text = "Status:"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(70, 55)
+        Me.TextBox3.Multiline = True
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.ReadOnly = True
+        Me.TextBox3.Size = New System.Drawing.Size(612, 26)
+        Me.TextBox3.TabIndex = 6
+        Me.TextBox3.Text = "Unofficial expansion created by Joel Fenton in 1985 and ported to PC by Daemon Ma" &
+    "ster in 2022."
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(6, 0)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(128, 13)
+        Me.Label13.TabIndex = 4
+        Me.Label13.Text = "Ultimore: A World Divided"
+        '
         'Ultima3Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(724, 498)
+        Me.ClientSize = New System.Drawing.Size(724, 597)
         Me.ControlBox = False
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.GroupBox1)
@@ -319,6 +413,8 @@ Partial Class Ultima3Form
         Me.GroupBox1.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -347,4 +443,12 @@ Partial Class Ultima3Form
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents LinkLabel1 As System.Windows.Forms.LinkLabel
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents UltimoreButton As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents UltimoreStatus As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents LinkLabel3 As LinkLabel
 End Class

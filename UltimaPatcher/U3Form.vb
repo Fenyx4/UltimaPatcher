@@ -7,6 +7,7 @@ Public Class Ultima3Form
     Dim EGAVersion As Boolean
     Dim AltEGA As Boolean
     Dim DosboxExeConfig As String
+    Dim UltimoreInstalled As Boolean
 
 
     Private Sub U3Form_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -77,6 +78,15 @@ Public Class Ultima3Form
                 AltEGAStatusLabel.Text = "Not Installed"
                 AltEGAToggleButton.Text = "Install"
             End If
+            If FileComp("Files\U3UltimoreWorldDivided\EXODUS.BIN", U3Location & "\EXODUS.BIN") OrElse FileComp("Files\U3UltimoreWorldDivided\EXODUS.BIN.UPGRADEPATCHVERSION", U3Location & "\EXODUS.BIN") Then
+                UltimoreInstalled = True
+                UltimoreStatus.Text = "Installed"
+                UltimoreButton.Text = "Uninstall"
+            Else
+                UltimoreInstalled = False
+                UltimoreStatus.Text = "Not Installed"
+                UltimoreButton.Text = "Install"
+            End If
             Return True
         Else
             Return False
@@ -138,7 +148,11 @@ Public Class Ultima3Form
             My.Computer.FileSystem.WriteAllText(U3Location & DosboxExeConfig, fileText, False, System.Text.Encoding.ASCII)
         Catch exp As System.Exception
         End Try
+        Dim ultimore = UltimoreInstalled
         SetGameLocation(U3Location)
+        If ultimore And Not UltimoreInstalled Then
+            UltimoreButton_Click(vbNull, e)
+        End If
     End Sub
 
     Private Sub GraphicsModeButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GraphicsModeButton.Click
@@ -182,7 +196,11 @@ Public Class Ultima3Form
             My.Computer.FileSystem.WriteAllText(U3Location & DosboxExeConfig, fileText, False, System.Text.Encoding.ASCII)
         Catch exp As System.Exception
         End Try
+        Dim ultimore = UltimoreInstalled
         SetGameLocation(U3Location)
+        If ultimore And Not UltimoreInstalled Then
+            UltimoreButton_Click(vbNull, e)
+        End If
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
@@ -214,11 +232,33 @@ Public Class Ultima3Form
         Shell("explorer.exe http://exodus.voyd.net")
     End Sub
 
-    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged
+    Private Sub UltimoreButton_Click(sender As Object, e As EventArgs) Handles UltimoreButton.Click
+        If UltimoreInstalled Then
+            Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U3UltimoreWorldDivided\ORIG", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+            For Each file In fileNames
+                My.Computer.FileSystem.CopyFile(file, U3Location & "\" & System.IO.Path.GetFileName(file), True)
+            Next
+            If My.Computer.FileSystem.DirectoryExists(U3Location & "\cloud_saves") Then
+                My.Computer.FileSystem.CopyFile("Files\U3UltimoreWorldDivided\ORIG\SOSARIA.ULT", U3Location & "\cloud_saves\SOSARIA.ULT", True)
+            End If
+        Else
+            Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U3UltimoreWorldDivided", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+            For Each file In fileNames
+                My.Computer.FileSystem.CopyFile(file, U3Location & "\" & System.IO.Path.GetFileName(file), True)
+            Next
+            If My.Computer.FileSystem.DirectoryExists(U3Location & "\cloud_saves") Then
+                My.Computer.FileSystem.CopyFile("Files\U3UltimoreWorldDivided\SOSARIA.ULT", U3Location & "\cloud_saves\SOSARIA.ULT", True)
+            End If
 
+            If PatchInstalled Then
+                My.Computer.FileSystem.CopyFile("Files\U3UltimoreWorldDivided\EXODUS.BIN.UPGRADEPATCHVERSION", U3Location & "\EXODUS.BIN", True)
+            End If
+        End If
+
+        SetGameLocation(U3Location)
     End Sub
 
-    Private Sub Label7_Click(sender As System.Object, e As System.EventArgs) Handles Label7.Click
-
+    Private Sub LinkLabel3_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel3.LinkClicked
+        Shell("explorer.exe https://daemon-master.itch.io/ultimore-a-world-divided")
     End Sub
 End Class

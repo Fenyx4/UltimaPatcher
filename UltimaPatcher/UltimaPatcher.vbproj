@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -600,6 +600,150 @@
     <None Include="Files\U3alt_shapes.ega">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Files\U3UltimoreWorldDivided\AMBROSIA.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\BRITISH.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\DARDIN.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\DAWN.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\DEATH.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\DEVIL.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\EXODUS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\EXODUS.BIN.UPGRADEPATCHVERSION">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\EXODUS.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\FAWN.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\FIRE.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\GREY.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\LCB.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\M.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\MINE.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\MONTOR_E.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\MONTOR_W.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\MOON.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\AMBROSIA.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\BRITISH.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\DARDIN.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\DAWN.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\DEATH.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\DEVIL.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\EXODUS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\EXODUS.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\FAWN.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\FIRE.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\GREY.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\LCB.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\M.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\MINE.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\MONTOR_E.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\MONTOR_W.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\MOON.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\P.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\PERINIAN.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\SOSARIA.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\TIME.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\ORIG\YEW.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\P.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\PERINIAN.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\SOSARIA.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\TIME.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\Ultimore A World Divided Introduction - Joel Fenton 1985.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\UltimoreAWorldDividedMaps.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\UltimoreAWorldDividedNotes.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\YEW.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Files\U3Upgrade\ADLIB.ADD">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -1006,6 +1150,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Files\U4v102VGA\AVATAR.EXE">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreWorldDivided\INSTALL INSTRUCTIONS.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Content Include="Files\U4v102\FIXES.md">
