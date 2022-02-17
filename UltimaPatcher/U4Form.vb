@@ -213,7 +213,6 @@ Public Class Ultima4Form
             Return
         End If
         If Not VGAUpgradeInstalled Then
-            If (MsgBox("You must create your party in the game before installing this patch. Continue installing?", MsgBoxStyle.YesNo) = MsgBoxResult.No) Then Return
             Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U4VGAUpgrade", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
             For Each file In fileNames
                 My.Computer.FileSystem.CopyFile(file, U4Location & "\" & System.IO.Path.GetFileName(file), True)
