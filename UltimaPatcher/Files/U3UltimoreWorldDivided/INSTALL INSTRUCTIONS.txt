@@ -1,0 +1,40 @@
+Ultimore: A World Divided (IBM PC Version 1.1)
+
+Released 08/12/2021
+
+Original Apple II Version by Joel Fenton
+
+IBM PC adaption by Dameon Master
+UltiExo map editor by Lord Ponsonby
+
+
+Thanks for downloading 'Ultimore: A World Divided' for IBM PC. After initially playing Joel's scenario on an Apple II emulator this year, I really wanted to port the entire experience over to the IBM PC to allow for updated visuals and greater accessibility. After Lord Ponsonby spent many hours working on a map editor for Ultima III from scratch I then spent many hours porting Joel's maps over by hand. What you now have in your possession is the fruits of that labour.
+
+
+INSTALL INSTRUCTIONS
+
+This scenario requires the 'later' version of Ultima III (which is conveniently found on GOG). New characters will begin with 150 Food and 150 Health. The original version will not work with this scenario, characters in that version begin with 100 Food  and 100 Health.
+
+Before installing this scenario it is recommended that you backup your existing installation of Ultima III, especially if you already have a game in progress. 
+
+To install, simply extract all of the files in this ZIP file into your Ultima III installation directory, overwriting all files as needed. This should include 21 .ULT map files and EXODUS.BIN
+
+For those using the Ultima Upgrade Patch (allowing for 256 colours and improved sound) please backup your original EXODUS.BIN and copy EXODUS.BIN.UPGRADEPATCHVERSION to your install directory, then rename the latter to EXODUS.BIN
+The Ultima Upgrade Patch is slightly different than the vanilla file and will not run with the basic game.
+
+For those running the GOG version of the game makes sure that you disable 'Cloud Saves' in GOG Galaxy. Click the sliding toggles button next to 'Play', select 'Manage Installion', select 'Configure...', and uncheck the 'Sync local saves with GOG Galaxy Cloud' box. You will also need to edit the 'dosboxULTIMA3_single.conf' file in your Ultima III install directory. Find the line that reads "mount C "..\cloud_saves" -t overlay" and put a # at the start of the line. If you don't perform these steps GOG will replace your SOSARIA.ULT map with the original each time you load the game. 
+  
+Then, start your copy of Ultima III as you would normally. I'd recommend creating a new party from scratch. 
+
+I've included two PDF's in this archive from my Apple II re-release of A World Divided. The first is a colletion of all the maps that I created for my playthough, they are 99.9% identical to those used in this IBM PC release. If you don't fancy making your own maps, feel free to use mine. The second is a document explaining a little about what Ultimore: A World Divided is, the key towns, castles, and dungeons within it, and a brief walkthough should you become stuck.
+
+For more information, updates, and conversation regarding Ultimore and other Ultima III modification head over to my website - https://daemonmaster.com
+
+Thanks again for the download and I hope you have fun! If you encounter any bugs please don't hesitate to leave a comment on the itch.io page.
+
+
+PATCH NOTES - 1.1
+
+Included a new EXODUS.BIN for the 'vanilla' version of the game not using the Ultima Upgrade Patch. I wasn't aware that there was a difference.
+Discovered that GOG cloud saving was automatically replacing the SOSARIA.ULT map and included notes on how to disable it.
+Thanks to Fenyx4 for discover both problems and both solutions.
