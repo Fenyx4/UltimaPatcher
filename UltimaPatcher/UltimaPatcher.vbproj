@@ -1267,6 +1267,9 @@
     <None Include="Files\U4v200VGA\SKARA.TLK">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Files\U4v200VGA\TOWNMAP.SAV">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Files\U4v200VGA\TRINSIC.TLK">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -1352,6 +1355,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Files\U4v200\SKARA.TLK">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U4v200\TOWNMAP.SAV">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Files\U4v200\TRINSIC.TLK">
