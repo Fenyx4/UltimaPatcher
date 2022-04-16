@@ -512,6 +512,7 @@ Partial Class Ultima4Form
         '
         'ComboBox1
         '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Original", "1.01", "1.02", "2.00"})
         Me.ComboBox1.Location = New System.Drawing.Point(720, 19)

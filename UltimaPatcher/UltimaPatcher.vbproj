@@ -1243,6 +1243,12 @@
     <None Include="Files\U4v200VGA\LCB.TLK">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Files\U4v200VGA\LCB_1.SAV">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U4v200VGA\LCB_2.SAV">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Files\U4v200VGA\LYCAEUM.TLK">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -1283,6 +1289,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Files\U4v200\LCB.TLK">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U4v200\LCB_1.SAV">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U4v200\LCB_2.SAV">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Files\U4v200\LYCAEUM.TLK">
