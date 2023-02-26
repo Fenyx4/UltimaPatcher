@@ -556,7 +556,7 @@ Partial Class U9Form
         Me.TextBox5.ReadOnly = True
         Me.TextBox5.Size = New System.Drawing.Size(803, 32)
         Me.TextBox5.TabIndex = 6
-        Me.TextBox5.Text = "Available language packs."
+        Me.TextBox5.Text = "Available language packs. Italian is text only. "
         '
         'U9Form
         '
