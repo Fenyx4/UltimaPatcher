@@ -59,7 +59,8 @@ Public Class U9Form
             Else
                 If LanguageComboBox.SelectedIndex <> -1 Then
                     If System.IO.Directory.Exists("Files\" & LanguageComboBox.SelectedItem) Then
-                        If FileComp("Files\" & LanguageComboBox.SelectedItem & "\static\TYPENAME.FLX", U9Location & "\static\TYPENAME.FLX") Then
+                        If FileComp("Files\" & LanguageComboBox.SelectedItem & "\static\TYPENAME.FLX", U9Location & "\static\TYPENAME.FLX") _
+                              Or (FileComp("Files\U9Fanpatch160\TYPENAME.FLX", U9Location & "\static\TYPENAME.FLX") AndAlso LanguageComboBox.SelectedItem = "En") Then
                             LanguagePacksDownloaded(LanguageComboBox.SelectedIndex) = True
                             LanguageComboBox.Enabled = True
                             LanguagePackDownloadInstallButton.Enabled = False
@@ -213,10 +214,15 @@ Public Class U9Form
                 Else
                     EcoStatus.Text = "Not installed"
                 End If
+                If Not FileComp("Files\U9Fanpatch160\originals\TYPENAME.FLX", U9Location & "\static\TYPENAME.FLX") Then
+                    DialogButton.Enabled = False
+                Else
+                    DialogButton.Enabled = True
+                End If
             End If
 
 
-            LoadingForm = False
+                LoadingForm = False
             Return True
         Else
             Return False
@@ -729,6 +735,7 @@ Public Class U9Form
                     End Using
                 End Using
                 FileCopy(newFilePath2, signatureBaseFilePath)
+                MessageBox.Show("You will need to set your Windows language settings to Japanese for text to work properly.", "Details", MessageBoxButtons.OK)
             Else
                 ' If it isn't Japanese version then make sure we have the original version of the exe
                 FileCopy("Files\u9.exe", U9Location & "\u9.exe")
