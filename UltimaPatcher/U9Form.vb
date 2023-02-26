@@ -1,5 +1,7 @@
 ﻿Imports System.IO
 Imports System.Net
+Imports Octodiff.Core
+Imports Octodiff.Diagnostics
 
 Public Class U9Form
     Dim U9Directories = {"C:\Program Files (x86)\GOG.com\Ultima IX - Ascension", "C:\Program Files\GOG.com\Ultima IX - Ascension", "C:\GOG Games\Ultima IX - Ascension", "C:\GOG Games\Ultima 9", "C:\Program Files (x86)\GOG Galaxy\Games\Ultima 9"}
@@ -37,11 +39,18 @@ Public Class U9Form
         Dim Systemdrive As String
         Systemdrive = System.Environment.SystemDirectory.Substring(0, 3)
 
+
         If Dir(directory & "\u9.exe") <> "" Then
             BBStatusLabel.Text = "Not Installed"
             LoadingForm = True
             U9Location = directory
             Ultima9DirectoryTextbox.Text = directory
+
+            ' Save the original file for later use...
+            If Not File.Exists("Files\u9.exe") Then
+                FileCopy(U9Location & "\u9.exe", "Files\u9.exe")
+            End If
+
             If DownloadingLanguagePacks Then
                 LanguageComboBox.Enabled = False
                 LanguagePackDownloadInstallButton.Text = "Downloading"
@@ -366,7 +375,7 @@ Public Class U9Form
         Dim subStart = fileText.IndexOf(Param)
         Dim paramString = fileText.Substring(subStart, fileText.IndexOf(vbCr, subStart) - subStart)
 
-        subStart = ParamString.LastIndexOf("=")
+        subStart = paramString.LastIndexOf("=")
         If paramString.LastIndexOf(" ") > subStart Then
             subStart = paramString.LastIndexOf(" ")
         End If
@@ -444,18 +453,18 @@ Public Class U9Form
         Dim lOpenFile As System.IO.StreamReader
         Dim fileText As String = ""
         Dim newline As String
-            If Dir(U9VSLocation & "\static\BOOKS-EN.FLX") <> "" Then
-                My.Computer.FileSystem.DeleteFile(U9VSLocation & "\static\BOOKS-EN.FLX")
-            End If
-            If Dir(U9VSLocation & "\runtime\NPC.FLX") <> "" Then
-                My.Computer.FileSystem.DeleteFile(U9VSLocation & "\runtime\NPC.FLX")
-            End If
-            If Dir(U9VSLocation & "\static\TYPENAME.FLX") <> "" Then
-                My.Computer.FileSystem.DeleteFile(U9VSLocation & "\static\TYPENAME.FLX")
-            End If
-            If Dir(U9VSLocation & "\static\text.flx") <> "" Then
-                My.Computer.FileSystem.DeleteFile(U9VSLocation & "\static\text.flx")
-            End If
+        If Dir(U9VSLocation & "\static\BOOKS-EN.FLX") <> "" Then
+            My.Computer.FileSystem.DeleteFile(U9VSLocation & "\static\BOOKS-EN.FLX")
+        End If
+        If Dir(U9VSLocation & "\runtime\NPC.FLX") <> "" Then
+            My.Computer.FileSystem.DeleteFile(U9VSLocation & "\runtime\NPC.FLX")
+        End If
+        If Dir(U9VSLocation & "\static\TYPENAME.FLX") <> "" Then
+            My.Computer.FileSystem.DeleteFile(U9VSLocation & "\static\TYPENAME.FLX")
+        End If
+        If Dir(U9VSLocation & "\static\text.flx") <> "" Then
+            My.Computer.FileSystem.DeleteFile(U9VSLocation & "\static\text.flx")
+        End If
         If DialogInstalled Then
             My.Computer.FileSystem.CopyFile("Files\U9Fanpatch160\originals\text.flx", U9Location & "\static\text.flx", True)
             My.Computer.FileSystem.CopyFile("Files\U9Fanpatch160\originals\TYPENAME.FLX", U9Location & "\static\TYPENAME.FLX", True)
@@ -689,17 +698,51 @@ Public Class U9Form
         End If
         If LanguagePacksDownloaded(LanguageComboBox.SelectedIndex) Then
             CopyDirectory("Files\" & LanguageComboBox.SelectedItem, U9Location)
-            SetGameLocation(U9Location)
+            If (LanguageComboBox.SelectedItem = "Jp") Then
+                ' var newFilePath2 = @"C:\OctoDiffExample\Output\MyPackage.1.0.1.zip";
+                '                var newFileOutputDirectory = Path.GetDirectoryName(newFilePath2);
+                'If (!Directory.Exists(newFileOutputDirectory)) Then
+                '                    Directory.CreateDirectory(newFileOutputDirectory);
+                'var DeltaApplier = New DeltaApplier { SkipHashCheck = false };
+                'Using (var basisStream = New FileStream(signatureBaseFilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                'Using (var deltaStream = New FileStream(deltaFilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                'Using (var newFileStream = New FileStream(newFilePath2, FileMode.Create, FileAccess.ReadWrite, FileShare.Read))
+                '{
+                '	DeltaApplier.Apply(basisStream, New BinaryDeltaReader(deltaStream, New ConsoleProgressReporter()), newFileStream);
+                '}
+                Dim signatureBaseFilePath = U9Location & "\u9.exe"
+                Dim signatureFilePath = "Files\U9JPLanguagePatch\u9.exe.sig"
+                Dim newFilePath2 = "Files\U9JPLanguagePatch\u9.exe"
+                Dim newFileOutputDirectory = Path.GetDirectoryName(newFilePath2)
+                Dim deltaFilePath = "Files\U9JPLanguagePatch\u9.exe.octodiff"
+
+                If Not Directory.Exists(newFileOutputDirectory) Then
+                    Directory.CreateDirectory(newFileOutputDirectory)
+                End If
+                Dim DeltaApplier = New DeltaApplier()
+                DeltaApplier.SkipHashCheck = False
+                Using basisStream = New FileStream(signatureBaseFilePath, FileMode.Open, FileAccess.Read, FileShare.Read)
+                    Using deltaStream = New FileStream(deltaFilePath, FileMode.Open, FileAccess.Read, FileShare.Read)
+                        Using newFileStream = New FileStream(newFilePath2, FileMode.Create, FileAccess.ReadWrite, FileShare.Read)
+                            DeltaApplier.Apply(basisStream, New BinaryDeltaReader(deltaStream, New ConsoleProgressReporter()), newFileStream)
+                        End Using
+                    End Using
+                End Using
+                FileCopy(newFilePath2, signatureBaseFilePath)
+            Else
+                ' If it isn't Japanese version then make sure we have the original version of the exe
+                FileCopy("Files\u9.exe", U9Location & "\u9.exe")
+            End If
+                SetGameLocation(U9Location)
         Else
             LanguagePackDownloadInstallButton.Text = "Downloading"
-            DownloadingLanguagePacks = True
-            ProgressBar1.Visible = True
-            LanguagePacksStatusLabel.Text = "Downloading"
+                DownloadingLanguagePacks = True
+                ProgressBar1.Visible = True
+                LanguagePacksStatusLabel.Text = "Downloading"
 
-            WC.DownloadFileAsync(New Uri("https://www.fenyx4.com/ultima/u9/language-packs/" & LanguageComboBox.SelectedItem & ".zip"), "Files/" & LanguageComboBox.SelectedItem & ".zip")
-        End If
+                WC.DownloadFileAsync(New Uri("https://www.fenyx4.com/ultima/u9/language-packs/" & LanguageComboBox.SelectedItem & ".zip"), "Files/" & LanguageComboBox.SelectedItem & ".zip")
+            End If
     End Sub
-
     Public Sub CopyDirectory(ByVal sourcePath As String, ByVal destinationPath As String)
         Dim sourceDirectoryInfo As New System.IO.DirectoryInfo(sourcePath)
 
