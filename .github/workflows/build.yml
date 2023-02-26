@@ -14,11 +14,11 @@ jobs:
     - name: Setup MSBuild Path
       uses: microsoft/setup-msbuild@v1.1
        
-#    - name: Setup NuGet
-#      uses: NuGet/setup-nuget@v1.0.2
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
      
-#    - name: Restore NuGet Packages
-#      run: nuget restore UltimaPatcher.sln
+    - name: Restore NuGet Packages
+      run: nuget restore UltimaPatcher.sln
  
     - name: Build
       run: msbuild UltimaPatcher.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
