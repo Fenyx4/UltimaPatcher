@@ -135,7 +135,7 @@ Partial Class U9Form
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(821, 649)
+        Me.Button3.Location = New System.Drawing.Point(821, 679)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
         Me.Button3.TabIndex = 24
@@ -489,7 +489,7 @@ Partial Class U9Form
         Me.GroupBox6.Controls.Add(Me.TextBox5)
         Me.GroupBox6.Location = New System.Drawing.Point(19, 550)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(879, 93)
+        Me.GroupBox6.Size = New System.Drawing.Size(879, 123)
         Me.GroupBox6.TabIndex = 26
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Language"
@@ -554,15 +554,16 @@ Partial Class U9Form
         Me.TextBox5.Multiline = True
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.ReadOnly = True
-        Me.TextBox5.Size = New System.Drawing.Size(803, 32)
+        Me.TextBox5.Size = New System.Drawing.Size(803, 62)
         Me.TextBox5.TabIndex = 6
-        Me.TextBox5.Text = "Available language packs. Italian is text only. "
+        Me.TextBox5.Text = "Available language packs. Italian is a fan patch and is text only. These packs ar" &
+    "e ~300 Mb in size and will need to be downloaded before installing."
         '
         'U9Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(912, 679)
+        Me.ClientSize = New System.Drawing.Size(912, 714)
         Me.ControlBox = False
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox5)
