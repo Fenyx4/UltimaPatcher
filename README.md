@@ -32,3 +32,12 @@ Pix has been kind enough to let the code be hosted here and open sourced.
   - 2.0.0: All of the above and sacrifice on last coin, save in towns, spell mix quantity, active character, hit chance fix, diagonal attacks, daemon spawn in Abyss and other gender.
     - https://github.com/Fenyx4/U4DosRandomizer
 * Original EGA Graphics Patch - Natreg Dragon
+
+### Ultima V
+* Upgrade Patch (Version 1.0) - http://exodus.voyd.net/projects/ultima5/
+* Runeless Patch
+* Weblock Conversation Patch - Natreg Dragon
+* Party Transfer from UIV
+
+### Ultima VI
+* 
