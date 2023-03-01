@@ -734,8 +734,10 @@ Public Class U9Form
                         End Using
                     End Using
                 End Using
-                FileCopy(newFilePath2, signatureBaseFilePath)
-                MessageBox.Show("You will need to set your Windows language settings to Japanese for text to work properly.", "Details", MessageBoxButtons.OK)
+                FileCopy(newFilePath2, U9Location & "\u9.jp.exe")
+                FileCopy("Files\U9JPLanguagePatch\u9.bat.exe", U9Location & "\u9.exe")
+                CopyDirectory("Files\Locale.Emulator.2.5.0.1", U9Location)
+                MessageBox.Show("You need to install the Japanese Language Pack for Windows in order for this to work.", "Details", MessageBoxButtons.OK)
             Else
                 ' If it isn't Japanese version then make sure we have the original version of the exe
                 FileCopy("Files\u9.exe", U9Location & "\u9.exe")
