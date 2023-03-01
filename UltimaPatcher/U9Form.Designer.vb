@@ -515,7 +515,7 @@ Partial Class U9Form
         '
         Me.LanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.LanguageComboBox.FormattingEnabled = True
-        Me.LanguageComboBox.Items.AddRange(New Object() {"En", "De", "Fr", "Jp", "It"})
+        Me.LanguageComboBox.Items.AddRange(New Object() {"En", "De", "Es", "Fr", "Jp", "It"})
         Me.LanguageComboBox.Location = New System.Drawing.Point(753, 20)
         Me.LanguageComboBox.Name = "LanguageComboBox"
         Me.LanguageComboBox.Size = New System.Drawing.Size(118, 21)
@@ -556,8 +556,9 @@ Partial Class U9Form
         Me.TextBox5.ReadOnly = True
         Me.TextBox5.Size = New System.Drawing.Size(803, 62)
         Me.TextBox5.TabIndex = 6
-        Me.TextBox5.Text = "Available language packs. Italian is a fan patch and is text only. These packs ar" &
-    "e ~300 Mb in size and will need to be downloaded before installing."
+        Me.TextBox5.Text = "Available language packs. Italian and Spanish are fan patches and are text only. " &
+    "These packs are ~300 Mb in size and will need to be downloaded before installing" &
+    "."
         '
         'U9Form
         '
