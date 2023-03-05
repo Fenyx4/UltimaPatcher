@@ -53,42 +53,84 @@ Public Class U9Form
 
             If DownloadingLanguagePacks Then
                 LanguageComboBox.Enabled = False
-                LanguagePackDownloadInstallButton.Text = "Downloading"
+                DownloadLanguagePacksButton.Text = "Downloading"
                 LanguagePacksStatusLabel.Text = "Downloading"
                 ProgressBar1.Visible = True
+
+                SpeechInstallButton.Visible = False
+                TextInstallButton.Visible = False
             Else
                 If LanguageComboBox.SelectedIndex <> -1 Then
                     If System.IO.Directory.Exists("Files\" & LanguageComboBox.SelectedItem) Then
+                        LanguagePacksDownloaded(LanguageComboBox.SelectedIndex) = True
+                        TextInstallButton.Visible = True
+                        SpeechInstallButton.Visible = True
+
                         If FileComp("Files\" & LanguageComboBox.SelectedItem & "\static\TYPENAME.FLX", U9Location & "\static\TYPENAME.FLX") _
                               Or (FileComp("Files\U9Fanpatch160\TYPENAME.FLX", U9Location & "\static\TYPENAME.FLX") AndAlso LanguageComboBox.SelectedItem = "En") Then
-                            LanguagePacksDownloaded(LanguageComboBox.SelectedIndex) = True
                             LanguageComboBox.Enabled = True
-                            LanguagePackDownloadInstallButton.Enabled = False
-                            LanguagePackDownloadInstallButton.Text = "Install"
+                            TextInstallButton.Enabled = False
+                            TextInstallButton.Text = "Installed"
                             LanguagePacksStatusLabel.Text = "Installed"
                             ProgressBar1.Visible = False
-                        Else
-                            LanguagePacksDownloaded(LanguageComboBox.SelectedIndex) = True
+                        ElseIf Not System.IO.Directory.Exists("Files\" & LanguageComboBox.SelectedItem & "\static") Then
                             LanguageComboBox.Enabled = True
-                            LanguagePackDownloadInstallButton.Enabled = True
-                            LanguagePackDownloadInstallButton.Text = "Install"
+                            TextInstallButton.Enabled = False
+                            TextInstallButton.Text = "Not Available"
+                            LanguagePacksStatusLabel.Text = "(Not Installed)"
+                            ProgressBar1.Visible = False
+                        Else
+                            LanguageComboBox.Enabled = True
+                            TextInstallButton.Enabled = True
+                            TextInstallButton.Text = "Install"
                             LanguagePacksStatusLabel.Text = "(Not Installed)"
                             ProgressBar1.Visible = False
                         End If
+
+                        If FileComp("Files\" & LanguageComboBox.SelectedItem & "\Movies\ambush.dat", U9Location & "\Movies\ambush.dat") Then
+                            LanguageComboBox.Enabled = True
+                            SpeechInstallButton.Enabled = False
+                            SpeechInstallButton.Text = "Installed"
+                            LanguagePacksStatusLabel.Text = "Installed"
+                            ProgressBar1.Visible = False
+                        ElseIf Not System.IO.Directory.Exists("Files\" & LanguageComboBox.SelectedItem & "\Movies") Then
+                            LanguageComboBox.Enabled = True
+                            SpeechInstallButton.Enabled = False
+                            SpeechInstallButton.Text = "Not Available"
+                            LanguagePacksStatusLabel.Text = "(Not Installed)"
+                            ProgressBar1.Visible = False
+                        Else
+                            LanguageComboBox.Enabled = True
+                            SpeechInstallButton.Enabled = True
+                            SpeechInstallButton.Text = "Install"
+                            LanguagePacksStatusLabel.Text = "(Not Installed)"
+                            ProgressBar1.Visible = False
+                        End If
+
+                        DownloadLanguagePacksButton.Visible = False
+                        DownloadLanguagePacksButton.Enabled = False
                     Else
                         If Dir("Files\" & LanguageComboBox.SelectedItem & ".zip") <> "" Then
                             UnZipLanguagePack()
                             LanguagePacksDownloaded(LanguageComboBox.SelectedIndex) = True
-                            LanguagePackDownloadInstallButton.Visible = True
-                            LanguagePackDownloadInstallButton.Enabled = False
+                            DownloadLanguagePacksButton.Visible = False
+                            DownloadLanguagePacksButton.Enabled = False
+                            TextInstallButton.Visible = True
+                            SpeechInstallButton.Visible = True
+                            TextInstallButton.Enabled = True
+                            SpeechInstallButton.Enabled = True
                             ProgressBar1.Visible = False
                             SetGameLocation(U9Location)
                         Else
                             LanguagePacksDownloaded(LanguageComboBox.SelectedIndex) = False
-                            LanguagePackDownloadInstallButton.Visible = True
-                            LanguagePackDownloadInstallButton.Enabled = True
-                            LanguagePackDownloadInstallButton.Text = "Download"
+                            DownloadLanguagePacksButton.Visible = True
+                            DownloadLanguagePacksButton.Enabled = True
+                            DownloadLanguagePacksButton.Text = "Download"
                             LanguagePacksStatusLabel.Text = "(Not Installed)"
+                            TextInstallButton.Visible = False
+                            TextInstallButton.Enabled = False
+                            SpeechInstallButton.Visible = False
+                            SpeechInstallButton.Enabled = False
                             ProgressBar1.Visible = False
                         End If
                     End If
@@ -222,7 +264,7 @@ Public Class U9Form
             End If
 
 
-                LoadingForm = False
+            LoadingForm = False
             Return True
         Else
             Return False
@@ -698,60 +740,98 @@ Public Class U9Form
         SetGameLocation(U9Location)
     End Sub
 
-    Private Sub LanguagePackDownloadInstallButton_Click_1(sender As Object, e As EventArgs) Handles LanguagePackDownloadInstallButton.Click
+    Private Sub DownloadLanguagePacksButton_Click_1(sender As Object, e As EventArgs) Handles DownloadLanguagePacksButton.Click
         If DownloadingLanguagePacks Then
             Exit Sub
         End If
         If LanguagePacksDownloaded(LanguageComboBox.SelectedIndex) Then
-            CopyDirectory("Files\" & LanguageComboBox.SelectedItem, U9Location)
-            If (LanguageComboBox.SelectedItem = "Jp") Then
-                ' var newFilePath2 = @"C:\OctoDiffExample\Output\MyPackage.1.0.1.zip";
-                '                var newFileOutputDirectory = Path.GetDirectoryName(newFilePath2);
-                'If (!Directory.Exists(newFileOutputDirectory)) Then
-                '                    Directory.CreateDirectory(newFileOutputDirectory);
-                'var DeltaApplier = New DeltaApplier { SkipHashCheck = false };
-                'Using (var basisStream = New FileStream(signatureBaseFilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
-                'Using (var deltaStream = New FileStream(deltaFilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
-                'Using (var newFileStream = New FileStream(newFilePath2, FileMode.Create, FileAccess.ReadWrite, FileShare.Read))
-                '{
-                '	DeltaApplier.Apply(basisStream, New BinaryDeltaReader(deltaStream, New ConsoleProgressReporter()), newFileStream);
-                '}
-                Dim signatureBaseFilePath = U9Location & "\u9.exe"
-                Dim signatureFilePath = "Files\U9JPLanguagePatch\u9.exe.sig"
-                Dim newFilePath2 = "Files\U9JPLanguagePatch\u9.exe"
-                Dim newFileOutputDirectory = Path.GetDirectoryName(newFilePath2)
-                Dim deltaFilePath = "Files\U9JPLanguagePatch\u9.exe.octodiff"
+            Exit Sub
+        Else
+            DownloadLanguagePacksButton.Text = "Downloading"
+            DownloadingLanguagePacks = True
+            ProgressBar1.Visible = True
+            LanguagePacksStatusLabel.Text = "Downloading"
 
-                If Not Directory.Exists(newFileOutputDirectory) Then
-                    Directory.CreateDirectory(newFileOutputDirectory)
-                End If
-                Dim DeltaApplier = New DeltaApplier()
-                DeltaApplier.SkipHashCheck = False
-                Using basisStream = New FileStream(signatureBaseFilePath, FileMode.Open, FileAccess.Read, FileShare.Read)
-                    Using deltaStream = New FileStream(deltaFilePath, FileMode.Open, FileAccess.Read, FileShare.Read)
-                        Using newFileStream = New FileStream(newFilePath2, FileMode.Create, FileAccess.ReadWrite, FileShare.Read)
-                            DeltaApplier.Apply(basisStream, New BinaryDeltaReader(deltaStream, New ConsoleProgressReporter()), newFileStream)
+            WC.DownloadFileAsync(New Uri("https://www.fenyx4.com/ultima/u9/language-packs/" & LanguageComboBox.SelectedItem & ".zip"), "Files/" & LanguageComboBox.SelectedItem & ".zip")
+        End If
+    End Sub
+
+    Private Sub SpeechInstallButton_Click_1(sender As Object, e As EventArgs) Handles SpeechInstallButton.Click
+        If DownloadingLanguagePacks Then
+            Exit Sub
+        End If
+        If LanguagePacksDownloaded(LanguageComboBox.SelectedIndex) Then
+            If System.IO.Directory.Exists("Files\" & LanguageComboBox.SelectedItem & "\Movies") Then
+                CopyDirectory("Files\" & LanguageComboBox.SelectedItem & "\Movies", U9Location & "\Movies")
+            End If
+
+            If System.IO.Directory.Exists("Files\" & LanguageComboBox.SelectedItem & "\sound") Then
+                CopyDirectory("Files\" & LanguageComboBox.SelectedItem & "\sound", U9Location & "\sound")
+            End If
+
+            SetGameLocation(U9Location)
+        Else
+            DownloadLanguagePacksButton.Text = "Download"
+            DownloadLanguagePacksButton.Enabled = True
+            DownloadLanguagePacksButton.Visible = True
+
+            SpeechInstallButton.Visible = False
+            TextInstallButton.Visible = False
+            ProgressBar1.Visible = False
+        End If
+    End Sub
+
+    Private Sub TextInstallButton_Click_1(sender As Object, e As EventArgs) Handles TextInstallButton.Click
+        If DownloadingLanguagePacks Then
+            Exit Sub
+        End If
+        If LanguagePacksDownloaded(LanguageComboBox.SelectedIndex) Then
+            If System.IO.Directory.Exists("Files\" & LanguageComboBox.SelectedItem & "\static") Then
+                CopyDirectory("Files\" & LanguageComboBox.SelectedItem & "\static", U9Location & "\static")
+
+                If (LanguageComboBox.SelectedItem = "Jp") Then
+                    Dim signatureBaseFilePath = U9Location & "\u9.exe"
+                    Dim signatureFilePath = "Files\U9JPLanguagePatch\u9.exe.sig"
+                    Dim newFilePath2 = "Files\U9JPLanguagePatch\u9.exe"
+                    Dim newFileOutputDirectory = Path.GetDirectoryName(newFilePath2)
+                    Dim deltaFilePath = "Files\U9JPLanguagePatch\u9.exe.octodiff"
+
+                    If Not Directory.Exists(newFileOutputDirectory) Then
+                        Directory.CreateDirectory(newFileOutputDirectory)
+                    End If
+
+                    Dim DeltaApplier = New DeltaApplier With {
+                    .SkipHashCheck = False
+                }
+                    Using basisStream = New FileStream(signatureBaseFilePath, FileMode.Open, FileAccess.Read, FileShare.Read)
+                        Using deltaStream = New FileStream(deltaFilePath, FileMode.Open, FileAccess.Read, FileShare.Read)
+                            Using newFileStream = New FileStream(newFilePath2, FileMode.Create, FileAccess.ReadWrite, FileShare.Read)
+                                DeltaApplier.Apply(basisStream, New BinaryDeltaReader(deltaStream, New ConsoleProgressReporter()), newFileStream)
+                            End Using
                         End Using
                     End Using
-                End Using
-                FileCopy(newFilePath2, U9Location & "\u9.jp.exe")
-                FileCopy("Files\U9JPLanguagePatch\u9.bat.exe", U9Location & "\u9.exe")
-                CopyDirectory("Files\Locale.Emulator.2.5.0.1", U9Location)
-                MessageBox.Show("You need to install the Japanese Language Pack for Windows in order for this to work.", "Details", MessageBoxButtons.OK)
-            Else
-                ' If it isn't Japanese version then make sure we have the original version of the exe
-                FileCopy("Files\u9.exe", U9Location & "\u9.exe")
+                    FileCopy(newFilePath2, U9Location & "\u9.jp.exe")
+                    FileCopy("Files\U9JPLanguagePatch\u9.bat.exe", U9Location & "\u9.exe")
+                    CopyDirectory("Files\Locale.Emulator.2.5.0.1", U9Location)
+                    MessageBox.Show("You need to install the Japanese Language Pack for Windows in order for this to work.", "Details", MessageBoxButtons.OK)
+                Else
+                    ' If it isn't Japanese version then make sure we have the original version of the exe
+                    FileCopy("Files\u9.exe", U9Location & "\u9.exe")
+                End If
             End If
-                SetGameLocation(U9Location)
-        Else
-            LanguagePackDownloadInstallButton.Text = "Downloading"
-                DownloadingLanguagePacks = True
-                ProgressBar1.Visible = True
-                LanguagePacksStatusLabel.Text = "Downloading"
 
-                WC.DownloadFileAsync(New Uri("https://www.fenyx4.com/ultima/u9/language-packs/" & LanguageComboBox.SelectedItem & ".zip"), "Files/" & LanguageComboBox.SelectedItem & ".zip")
-            End If
+            SetGameLocation(U9Location)
+        Else
+            DownloadLanguagePacksButton.Text = "Download"
+            DownloadLanguagePacksButton.Enabled = True
+            DownloadLanguagePacksButton.Visible = True
+
+            SpeechInstallButton.Visible = False
+            TextInstallButton.Visible = False
+            ProgressBar1.Visible = False
+        End If
     End Sub
+
     Public Sub CopyDirectory(ByVal sourcePath As String, ByVal destinationPath As String)
         Dim sourceDirectoryInfo As New System.IO.DirectoryInfo(sourcePath)
 
@@ -774,4 +854,5 @@ Public Class U9Form
             End If
         Next
     End Sub
+
 End Class
