@@ -118,8 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TextBox1.Text" xml:space="preserve">
-    <value>Ultima Patcher 1.72
-26th Feb 2023
+    <value>Ultima Patcher 1.73
+5th May 2023
 
 This is a utility to simplify patching the GOG releases of the Ultima series with the various fan patches. 
 
