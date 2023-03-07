@@ -66,9 +66,9 @@ Partial Class U9Form
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.DownloadLanguagePacksButton = New System.Windows.Forms.Button()
-        Me.Label15 = New System.Windows.Forms.Label()
+        Me.LanguageSpeechLabel = New System.Windows.Forms.Label()
         Me.TextInstallButton = New System.Windows.Forms.Button()
-        Me.Label11 = New System.Windows.Forms.Label()
+        Me.LanguageTextLabel = New System.Windows.Forms.Label()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.SpeechInstallButton = New System.Windows.Forms.Button()
         Me.LanguageComboBox = New System.Windows.Forms.ComboBox()
@@ -485,9 +485,9 @@ Partial Class U9Form
         'GroupBox6
         '
         Me.GroupBox6.Controls.Add(Me.DownloadLanguagePacksButton)
-        Me.GroupBox6.Controls.Add(Me.Label15)
+        Me.GroupBox6.Controls.Add(Me.LanguageSpeechLabel)
         Me.GroupBox6.Controls.Add(Me.TextInstallButton)
-        Me.GroupBox6.Controls.Add(Me.Label11)
+        Me.GroupBox6.Controls.Add(Me.LanguageTextLabel)
         Me.GroupBox6.Controls.Add(Me.ProgressBar1)
         Me.GroupBox6.Controls.Add(Me.SpeechInstallButton)
         Me.GroupBox6.Controls.Add(Me.LanguageComboBox)
@@ -511,14 +511,14 @@ Partial Class U9Form
         Me.DownloadLanguagePacksButton.Text = "Download"
         Me.DownloadLanguagePacksButton.UseVisualStyleBackColor = True
         '
-        'Label15
+        'LanguageSpeechLabel
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(649, 14)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(47, 13)
-        Me.Label15.TabIndex = 25
-        Me.Label15.Text = "Speech:"
+        Me.LanguageSpeechLabel.AutoSize = True
+        Me.LanguageSpeechLabel.Location = New System.Drawing.Point(649, 14)
+        Me.LanguageSpeechLabel.Name = "LanguageSpeechLabel"
+        Me.LanguageSpeechLabel.Size = New System.Drawing.Size(47, 13)
+        Me.LanguageSpeechLabel.TabIndex = 25
+        Me.LanguageSpeechLabel.Text = "Speech:"
         '
         'TextInstallButton
         '
@@ -529,14 +529,14 @@ Partial Class U9Form
         Me.TextInstallButton.Text = "Not Available"
         Me.TextInstallButton.UseVisualStyleBackColor = True
         '
-        'Label11
+        'LanguageTextLabel
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(556, 14)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(31, 13)
-        Me.Label11.TabIndex = 23
-        Me.Label11.Text = "Text:"
+        Me.LanguageTextLabel.AutoSize = True
+        Me.LanguageTextLabel.Location = New System.Drawing.Point(556, 14)
+        Me.LanguageTextLabel.Name = "LanguageTextLabel"
+        Me.LanguageTextLabel.Size = New System.Drawing.Size(31, 13)
+        Me.LanguageTextLabel.TabIndex = 23
+        Me.LanguageTextLabel.Text = "Text:"
         '
         'ProgressBar1
         '
@@ -685,7 +685,7 @@ Partial Class U9Form
     Friend WithEvents SpeechInstallButton As Button
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents TextInstallButton As Button
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Label15 As Label
+    Friend WithEvents LanguageTextLabel As Label
+    Friend WithEvents LanguageSpeechLabel As Label
     Friend WithEvents DownloadLanguagePacksButton As Button
 End Class
