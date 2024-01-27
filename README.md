@@ -40,9 +40,69 @@ Pix has been kind enough to let the code be hosted here and open sourced.
 * Party Transfer from UIV
 
 ### Ultima VI
+* General MIDI Patch 
+  - This remaps the MT-32 instruments for use with general MIDI. 
+* Run game setup 
+  - Run the original game installer to change setup. If using the General MIDI or MT-32 patch, then use this to swap sound to MT-32/MIDI.
+* Party Transfer 
+  - This sets up Dosbox to mount your Ultima 5 savegame directory as the A drive. You can then transfer your character in game.  
+* MT-32 Emulation 
+  - This can be used to swap out the version of DOSBox supplied to one supporting MT-32 emulation.
 
+### Savage Empire
+* MT-32 Emulation 
+  - This can be used to swap out the version of DOSBox supplied to one supporting MT-32 emulation.
+* Run game setup 
+  - Run the original game installer to change setup.
+* Patch to 2.1
+  - The GOG version of Savage Empire (1.6) has a bug whereby the alternate ending is unavailble. This patches the game to a later release (2.1)
+
+### Martian Dream
+* MT-32 Emulation 
+  - This can be used to swap out the version of DOSBox supplied to one supporting MT-32 emulation.
+* Run game setup 
+  - Run the original game installer to change setup.
+
+### Ultima Underworld
+* General MIDI Patch 
+  - Adds support for General MIDI soundcards.
+* Spanish Translation - https://web.archive.org/web/20210126122612/http://academia.clandlan.net/index.php?page=academia%2Fsearch&search=ultima
+* Portugese Translation
+
+### Ultima 7
+* General MIDI Patch 
+  - This patch remaps the MT-32 instruments for use with general MIDI and improves the sound quality over that offered by the default Soundblaster set-up.
+* Earthquake Patch
+  - This patch fixes the earthquake effect seen in the game and also improves the white noise in the introduction.
+* Fishing Patch - [Natreg Dragon](https://www.facebook.com/groups/UltimaDragons/permalink/10156908034553797/)
+  - This patch fixes fishing so that you can actually catch fish as intended. Also fixes the Eiko/Amanda/Iskander quest so that it is now solvable.
+* MT-32 Emulation
+  - This can be used to swap out the version of DOSBox supplied to one supporting MT-32 emulation.
+
+### Ultima Underworld 2
+* General MIDI Patch 
+  - Adds support for General MIDI soundcards
+
+### Serpent Isle
+* General MIDI Patch - Newton Dragon
+  - This patch remaps the MT-32 instruments for use with general MIDI and improves the sound quality over that offered by the default Soundblaster set-up.
+* Earthquake Patch - ripsaw8080
+  - This patch fixes the earthquake effect seen in the game.
+* Fishing Patch - Natreg Dragon
+  - This patch fixes fishing so that you can actually catch fish as intended.
+* MT-32 Emulation
+  - This can be used to swap out the version of DOSBox supplied to one supporting MT-32 emulation.
 
 ### Ultima IX
+* Forgotten World (1.19H) - https://forgottenworld.ultimacodex.com/
+* Beautiful Britannia R3 - https://forgottenworld.ultimacodex.com/2014/03/02/beautiful-britannia-downloads/
+* Graphics Setting
+* Economy/Monster and Dialog Patches - https://web.archive.org/web/20020605224052/http://www.fansforultima.com/
 * Language Packs
   - Thanks to Cid for tracking a lot of these down and SuicideMachine for making u9.exe work with the Japanese Language Pack
+  - It
+  - De
+  - Es
+  - Fr
+  - Jp
 
