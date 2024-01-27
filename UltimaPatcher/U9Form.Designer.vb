@@ -64,11 +64,24 @@ Partial Class U9Form
         Me.BBStatusLabel = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.DownloadLanguagePacksButton = New System.Windows.Forms.Button()
+        Me.LanguageSpeechLabel = New System.Windows.Forms.Label()
+        Me.TextInstallButton = New System.Windows.Forms.Button()
+        Me.LanguageTextLabel = New System.Windows.Forms.Label()
+        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.SpeechInstallButton = New System.Windows.Forms.Button()
+        Me.LanguageComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.LanguagePacksStatusLabel = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox2
@@ -126,7 +139,7 @@ Partial Class U9Form
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(821, 550)
+        Me.Button3.Location = New System.Drawing.Point(823, 701)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
         Me.Button3.TabIndex = 24
@@ -469,12 +482,135 @@ Partial Class U9Form
         Me.TextBox4.TabIndex = 6
         Me.TextBox4.Text = resources.GetString("TextBox4.Text")
         '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.DownloadLanguagePacksButton)
+        Me.GroupBox6.Controls.Add(Me.LanguageSpeechLabel)
+        Me.GroupBox6.Controls.Add(Me.TextInstallButton)
+        Me.GroupBox6.Controls.Add(Me.LanguageTextLabel)
+        Me.GroupBox6.Controls.Add(Me.ProgressBar1)
+        Me.GroupBox6.Controls.Add(Me.SpeechInstallButton)
+        Me.GroupBox6.Controls.Add(Me.LanguageComboBox)
+        Me.GroupBox6.Controls.Add(Me.Label9)
+        Me.GroupBox6.Controls.Add(Me.LanguagePacksStatusLabel)
+        Me.GroupBox6.Controls.Add(Me.Label13)
+        Me.GroupBox6.Controls.Add(Me.TextBox5)
+        Me.GroupBox6.Location = New System.Drawing.Point(19, 550)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(879, 145)
+        Me.GroupBox6.TabIndex = 26
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Language"
+        '
+        'DownloadLanguagePacksButton
+        '
+        Me.DownloadLanguagePacksButton.Location = New System.Drawing.Point(598, 30)
+        Me.DownloadLanguagePacksButton.Name = "DownloadLanguagePacksButton"
+        Me.DownloadLanguagePacksButton.Size = New System.Drawing.Size(118, 24)
+        Me.DownloadLanguagePacksButton.TabIndex = 22
+        Me.DownloadLanguagePacksButton.Text = "Download"
+        Me.DownloadLanguagePacksButton.UseVisualStyleBackColor = True
+        '
+        'LanguageSpeechLabel
+        '
+        Me.LanguageSpeechLabel.AutoSize = True
+        Me.LanguageSpeechLabel.Location = New System.Drawing.Point(649, 14)
+        Me.LanguageSpeechLabel.Name = "LanguageSpeechLabel"
+        Me.LanguageSpeechLabel.Size = New System.Drawing.Size(47, 13)
+        Me.LanguageSpeechLabel.TabIndex = 25
+        Me.LanguageSpeechLabel.Text = "Speech:"
+        '
+        'TextInstallButton
+        '
+        Me.TextInstallButton.Location = New System.Drawing.Point(559, 30)
+        Me.TextInstallButton.Name = "TextInstallButton"
+        Me.TextInstallButton.Size = New System.Drawing.Size(87, 24)
+        Me.TextInstallButton.TabIndex = 24
+        Me.TextInstallButton.Text = "Not Available"
+        Me.TextInstallButton.UseVisualStyleBackColor = True
+        '
+        'LanguageTextLabel
+        '
+        Me.LanguageTextLabel.AutoSize = True
+        Me.LanguageTextLabel.Location = New System.Drawing.Point(556, 14)
+        Me.LanguageTextLabel.Name = "LanguageTextLabel"
+        Me.LanguageTextLabel.Size = New System.Drawing.Size(31, 13)
+        Me.LanguageTextLabel.TabIndex = 23
+        Me.LanguageTextLabel.Text = "Text:"
+        '
+        'ProgressBar1
+        '
+        Me.ProgressBar1.Location = New System.Drawing.Point(154, 30)
+        Me.ProgressBar1.Name = "ProgressBar1"
+        Me.ProgressBar1.Size = New System.Drawing.Size(399, 22)
+        Me.ProgressBar1.TabIndex = 22
+        Me.ProgressBar1.Tag = "Downloading"
+        '
+        'SpeechInstallButton
+        '
+        Me.SpeechInstallButton.Location = New System.Drawing.Point(652, 30)
+        Me.SpeechInstallButton.Name = "SpeechInstallButton"
+        Me.SpeechInstallButton.Size = New System.Drawing.Size(92, 24)
+        Me.SpeechInstallButton.TabIndex = 17
+        Me.SpeechInstallButton.Text = "Not Available"
+        Me.SpeechInstallButton.UseVisualStyleBackColor = True
+        '
+        'LanguageComboBox
+        '
+        Me.LanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.LanguageComboBox.FormattingEnabled = True
+        Me.LanguageComboBox.Items.AddRange(New Object() {"En", "De", "Es", "Fr", "Jp", "It"})
+        Me.LanguageComboBox.Location = New System.Drawing.Point(753, 30)
+        Me.LanguageComboBox.Name = "LanguageComboBox"
+        Me.LanguageComboBox.Size = New System.Drawing.Size(118, 21)
+        Me.LanguageComboBox.TabIndex = 15
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(6, 68)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(63, 13)
+        Me.Label9.TabIndex = 7
+        Me.Label9.Text = "Description:"
+        '
+        'LanguagePacksStatusLabel
+        '
+        Me.LanguagePacksStatusLabel.AutoSize = True
+        Me.LanguagePacksStatusLabel.Location = New System.Drawing.Point(67, 37)
+        Me.LanguagePacksStatusLabel.Name = "LanguagePacksStatusLabel"
+        Me.LanguagePacksStatusLabel.Size = New System.Drawing.Size(72, 13)
+        Me.LanguagePacksStatusLabel.TabIndex = 14
+        Me.LanguagePacksStatusLabel.Text = "(Not Installed)"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(6, 37)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(40, 13)
+        Me.Label13.TabIndex = 6
+        Me.Label13.Text = "Status:"
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(70, 65)
+        Me.TextBox5.Multiline = True
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.ReadOnly = True
+        Me.TextBox5.Size = New System.Drawing.Size(803, 62)
+        Me.TextBox5.TabIndex = 6
+        Me.TextBox5.Text = "Available language packs. Italian and Spanish are fan patches and are text only. " &
+    "These packs are ~300 Mb in size and will need to be downloaded before installing" &
+    "."
+        '
         'U9Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(912, 577)
+        Me.ClientSize = New System.Drawing.Size(912, 732)
         Me.ControlBox = False
+        Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
@@ -494,6 +630,8 @@ Partial Class U9Form
         Me.GroupBox4.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -538,4 +676,16 @@ Partial Class U9Form
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents BBInstallButton As System.Windows.Forms.Button
     Friend WithEvents FogButton As System.Windows.Forms.Button
+    Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents LanguagePacksStatusLabel As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents LanguageComboBox As ComboBox
+    Friend WithEvents SpeechInstallButton As Button
+    Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents TextInstallButton As Button
+    Friend WithEvents LanguageTextLabel As Label
+    Friend WithEvents LanguageSpeechLabel As Label
+    Friend WithEvents DownloadLanguagePacksButton As Button
 End Class

@@ -57,6 +57,10 @@ Partial Class PleaseWait
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
 
+    Friend Sub SetLabel(label As String)
+        Me.Label1.Text = label
+    End Sub
+
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class

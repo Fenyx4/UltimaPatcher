@@ -40,4 +40,9 @@ Pix has been kind enough to let the code be hosted here and open sourced.
 * Party Transfer from UIV
 
 ### Ultima VI
-* 
+
+
+### Ultima IX
+* Language Packs
+  - Thanks to Cid for tracking a lot of these down and SuicideMachine for making u9.exe work with the Japanese Language Pack
+
