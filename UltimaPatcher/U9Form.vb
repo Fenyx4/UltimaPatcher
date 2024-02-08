@@ -54,7 +54,6 @@ Public Class U9Form
             If DownloadingLanguagePacks Then
                 LanguageComboBox.Enabled = False
                 DownloadLanguagePacksButton.Text = "Downloading"
-                LanguagePacksStatusLabel.Text = "Downloading"
                 ProgressBar1.Visible = True
 
                 SpeechInstallButton.Visible = False
@@ -104,12 +103,6 @@ Public Class U9Form
                             ProgressBar1.Visible = False
                         End If
 
-                        If somethingInstalled Then
-                            LanguagePacksStatusLabel.Text = "Installed"
-                        Else
-                            LanguagePacksStatusLabel.Text = "(Not Installed)"
-                        End If
-
                         DownloadLanguagePacksButton.Visible = False
                         DownloadLanguagePacksButton.Enabled = False
                     Else
@@ -129,7 +122,6 @@ Public Class U9Form
                             DownloadLanguagePacksButton.Visible = True
                             DownloadLanguagePacksButton.Enabled = True
                             DownloadLanguagePacksButton.Text = "Download"
-                            LanguagePacksStatusLabel.Text = "(Not Installed)"
                             TextInstallButton.Visible = False
                             TextInstallButton.Enabled = False
                             SpeechInstallButton.Visible = False
@@ -143,31 +135,31 @@ Public Class U9Form
                     For Each language In LanguageComboBox.Items
                         If System.IO.Directory.Exists("Files\" & language) Then
                             If FileComp("Files\" & language & "\static\TYPENAME.FLX", U9Location & "\static\TYPENAME.FLX") Then
-                                LanguageTextLabel.Text = "Text: " & language
+                                LanguageTextLabel.Text = "Current Text: " & language
                                 textFound = True
                             End If
 
                             If FileComp("Files\" & language & "\Movies\ambush.dat", U9Location & "\Movies\ambush.dat") Then
-                                LanguageSpeechLabel.Text = "Speech: " & language
+                                LanguageSpeechLabel.Text = "Current Speech: " & language
                                 speechFound = True
                             End If
                         End If
                     Next
 
                     If FileComp("Files\U9Fanpatch160\TYPENAME.FLX", U9Location & "\static\TYPENAME.FLX") Then
-                        LanguageTextLabel.Text = "Text: En"
+                        LanguageTextLabel.Text = "Current Text: En"
                         textFound = True
                     End If
 
                     If Not textFound Then
-                            LanguageTextLabel.Text = "Text: Unknown"
-                        End If
+                        LanguageTextLabel.Text = "Current Text: Unknown"
+                    End If
 
-                        If Not speechFound Then
-                            LanguageSpeechLabel.Text = "Speech: Unknown"
-                        End If
+                    If Not speechFound Then
+                        LanguageSpeechLabel.Text = "Current Speech: Unknown"
                     End If
                 End If
+            End If
 
             If DownloadingBB Then
                 BBInstallButton.Visible = False
@@ -782,7 +774,6 @@ Public Class U9Form
             DownloadLanguagePacksButton.Text = "Downloading"
             DownloadingLanguagePacks = True
             ProgressBar1.Visible = True
-            LanguagePacksStatusLabel.Text = "Downloading"
 
             WC.DownloadFileAsync(New Uri("https://www.fenyx4.com/ultima/u9/language-packs/" & LanguageComboBox.SelectedItem & ".zip"), "Files/" & LanguageComboBox.SelectedItem & ".zip")
         End If
