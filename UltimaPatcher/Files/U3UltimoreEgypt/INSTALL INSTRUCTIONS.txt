@@ -1,0 +1,26 @@
+Ultimore: Egypt (IBM PC Version 1.0)
+
+Released 06/03/2023
+
+Original Apple II Version by Joel Fenton
+
+IBM PC adaption by Dameon Master
+UltiExo map editor by Lord Ponsonby
+
+INSTALL INSTRUCTIONS
+
+This scenario requires the 'later' version of Ultima III (which is conveniently found on GOG). New characters will begin with 150 Food and 150 Health. The original version will not work with this scenario, characters in that version begin with 100 Food  and 100 Health. Why? Well mainly it's to do with how the game saves maps, especially dungeons. If you load the dungeons maps up in this mod with the earlier version of Ultima III you'll find the top level a jumbled mess.
+
+Before installing this scenario it is recommended that you backup your existing installation of Ultima III, especially if you already have a game in progress.
+
+To install, simply extract all of the files in this ZIP file into your Ultima III installation directory, overwriting all files as needed. This should include 21 .ULT map files and EXODUS.BIN
+
+For those using the Ultima Upgrade Patch (allowing for 256 colours and improved sound) also copy the EXODUS.BIN file found in the 'PatchedExodus' folder into your install directory. The Ultima Patcher changes the EXODUS.BIN file and so a slightly different version is needed.
+
+For those running the GOG version of the game makes sure that you disable 'Cloud Saves' in GOG Galaxy. Click the sliding toggles button next to 'Play', select 'Manage Installion', select 'Configure...', and uncheck the 'Sync local saves with GOG Galaxy Cloud' box. You will also need to edit the 'dosboxULTIMA3_single.conf' file in your Ultima III install directory. Find the line that reads "mount C "..\cloud_saves" -t overlay" and put a # at the start of the line. If you don't perform these steps GOG will replace your SOSARIA.ULT map with the original each time you load the game. 
+  
+Then, start your copy of Ultima III as you would normally. I'd recommend creating a new party from scratch. 
+
+For more information, updates, and conversation regarding Ultimore and other Ultima III modification head over to my website - https://daemonmaster.com
+
+Thanks again for the download and I hope you have fun! If you encounter any bugs please don't hesitate to leave a comment on the itch.io page - https://daemon-master.itch.io/

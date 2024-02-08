@@ -7,7 +7,6 @@ Public Class Ultima3Form
     Dim EGAVersion As Boolean
     Dim AltEGA As Boolean
     Dim DosboxExeConfig As String
-    Dim SosariaMod As Boolean
     Dim UltimoreInstalled As Boolean
 
 
@@ -64,21 +63,11 @@ Public Class Ultima3Form
                 Catch exp As System.Exception
                     GraphicsModeButton.Visible = False
                 End Try
-
-                Dim bytes = My.Computer.FileSystem.ReadAllBytes(U3Location & "\U3.CFG")
-                If bytes(7) Then
-                    SosariaMod = True
-                Else
-                    SosariaMod = False
-                End If
-
             Else
                 PatchInstalled = False
                 PatchStatus.Text = "Not Installed"
                 PatchButton.Text = "Install Patch"
                 GraphicsModeButton.Visible = False
-
-                SosariaMod = False
             End If
             If FileComp("Files\U3alt_shapes.ega", U3Location & "\shapes.ega") Then
                 AltEGA = True
@@ -89,7 +78,8 @@ Public Class Ultima3Form
                 AltEGAStatusLabel.Text = "Not Installed"
                 AltEGAToggleButton.Text = "Install"
             End If
-            If FileComp("Files\U3UltimoreWorldDivided\EXODUS.BIN", U3Location & "\EXODUS.BIN") OrElse FileComp("Files\U3UltimoreWorldDivided\EXODUS.BIN.UPGRADEPATCHVERSION", U3Location & "\EXODUS.BIN") Then
+            'If FileComp("Files\U3UltimoreWorldDivided\EXODUS.BIN", U3Location & "\EXODUS.BIN") OrElse FileComp("Files\U3UltimoreWorldDivided\EXODUS.BIN.UPGRADEPATCHVERSION", U3Location & "\EXODUS.BIN") Then
+            If System.IO.File.Exists(U3Location & "\DIVIDED\EXODUS.BIN") Then
                 UltimoreInstalled = True
                 UltimoreStatus.Text = "Installed"
                 UltimoreButton.Text = "Uninstall"
@@ -98,12 +88,6 @@ Public Class Ultima3Form
                 UltimoreStatus.Text = "Not Installed"
                 UltimoreButton.Text = "Install"
             End If
-            If SosariaMod Then
-                UltimoreButton.Enabled = False
-            Else
-                UltimoreButton.Enabled = True
-            End If
-
             Return True
         Else
             Return False
@@ -172,7 +156,7 @@ Public Class Ultima3Form
         End Try
 
         SetGameLocation(U3Location)
-        If ultimore And Not UltimoreInstalled And Not SosariaMod Then
+        If ultimore And Not UltimoreInstalled Then
             UltimoreButton_Click(vbNull, e)
         End If
     End Sub
@@ -225,7 +209,7 @@ Public Class Ultima3Form
         End Try
 
         SetGameLocation(U3Location)
-        If ultimore And Not UltimoreInstalled And Not SosariaMod Then
+        If ultimore And Not UltimoreInstalled Then
             UltimoreButton_Click(vbNull, e)
         End If
     End Sub
@@ -260,27 +244,69 @@ Public Class Ultima3Form
     End Sub
 
     Private Sub UltimoreButton_Click(sender As Object, e As EventArgs) Handles UltimoreButton.Click
-        If Not SosariaMod Then
-            If UltimoreInstalled Then
-                Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U3UltimoreWorldDivided\ORIG", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
-                For Each file In fileNames
-                    My.Computer.FileSystem.CopyFile(file, U3Location & "\" & System.IO.Path.GetFileName(file), True)
-                Next
-                If My.Computer.FileSystem.DirectoryExists(U3Location & "\cloud_saves") Then
-                    My.Computer.FileSystem.CopyFile("Files\U3UltimoreWorldDivided\ORIG\SOSARIA.ULT", U3Location & "\cloud_saves\SOSARIA.ULT", True)
-                End If
-            Else
-                Dim fileNames = My.Computer.FileSystem.GetFiles("Files\U3UltimoreWorldDivided", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
-                For Each file In fileNames
-                    My.Computer.FileSystem.CopyFile(file, U3Location & "\" & System.IO.Path.GetFileName(file), True)
-                Next
-                If My.Computer.FileSystem.DirectoryExists(U3Location & "\cloud_saves") Then
-                    My.Computer.FileSystem.CopyFile("Files\U3UltimoreWorldDivided\SOSARIA.ULT", U3Location & "\cloud_saves\SOSARIA.ULT", True)
-                End If
+        If UltimoreInstalled Then
+            If My.Computer.FileSystem.DirectoryExists(U3Location & "\DIVIDED") Then
+                My.Computer.FileSystem.DeleteDirectory(U3Location & "\DIVIDED", FileIO.DeleteDirectoryOption.DeleteAllContents)
+            End If
+            If My.Computer.FileSystem.DirectoryExists(U3Location & "\EGYPT") Then
+                My.Computer.FileSystem.DeleteDirectory(U3Location & "\EGYPT", FileIO.DeleteDirectoryOption.DeleteAllContents)
+            End If
 
-                If PatchInstalled Then
-                    My.Computer.FileSystem.CopyFile("Files\U3UltimoreWorldDivided\EXODUS.BIN.UPGRADEPATCHVERSION", U3Location & "\EXODUS.BIN", True)
+            My.Computer.FileSystem.CopyFile("Files\dosboxULTIMA3_single.conf.orig", U3Location & "\" & System.IO.Path.GetFileName("dosboxULTIMA3_single.conf"), True)
+        Else
+            ' Divided
+            If Not My.Computer.FileSystem.DirectoryExists(U3Location & "\DIVIDED") Then
+                My.Computer.FileSystem.CreateDirectory(U3Location & "\DIVIDED")
+            End If
+
+            Dim fileNames = My.Computer.FileSystem.GetFiles(U3Location, FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+            For Each file In fileNames
+                My.Computer.FileSystem.CopyFile(file, U3Location & "\DIVIDED\" & System.IO.Path.GetFileName(file), True)
+            Next
+
+            fileNames = My.Computer.FileSystem.GetFiles("Files\U3UltimoreWorldDivided", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+            For Each file In fileNames
+                My.Computer.FileSystem.CopyFile(file, U3Location & "\DIVIDED\" & System.IO.Path.GetFileName(file), True)
+            Next
+            If My.Computer.FileSystem.DirectoryExists(U3Location & "\cloud_saves") Then
+                If Not My.Computer.FileSystem.DirectoryExists(U3Location & "\cloud_saves\DIVIDED") Then
+                    My.Computer.FileSystem.CreateDirectory(U3Location & "\cloud_saves\DIVIDED")
                 End If
+            End If
+
+            If PatchInstalled Then
+                My.Computer.FileSystem.CopyFile("Files\U3UltimoreWorldDivided\EXODUS.BIN.UPGRADEPATCHVERSION", U3Location & "\DIVIDED\EXODUS.BIN", True)
+            End If
+
+            ' Egypt
+            If Not My.Computer.FileSystem.DirectoryExists(U3Location & "\EGYPT") Then
+                My.Computer.FileSystem.CreateDirectory(U3Location & "\EGYPT")
+            End If
+
+            fileNames = My.Computer.FileSystem.GetFiles(U3Location, FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+            For Each file In fileNames
+                My.Computer.FileSystem.CopyFile(file, U3Location & "\EGYPT\" & System.IO.Path.GetFileName(file), True)
+            Next
+
+            fileNames = My.Computer.FileSystem.GetFiles("Files\U3UltimoreEgypt", FileIO.SearchOption.SearchTopLevelOnly, "*.*")
+            For Each file In fileNames
+                My.Computer.FileSystem.CopyFile(file, U3Location & "\EGYPT\" & System.IO.Path.GetFileName(file), True)
+            Next
+            If My.Computer.FileSystem.DirectoryExists(U3Location & "\cloud_saves") Then
+                If Not My.Computer.FileSystem.DirectoryExists(U3Location & "\cloud_saves\EGYPT") Then
+                    My.Computer.FileSystem.CreateDirectory(U3Location & "\cloud_saves\EGYPT")
+                End If
+            End If
+
+            If PatchInstalled Then
+                My.Computer.FileSystem.CopyFile("Files\U3UltimoreEgypt\PatchedExodus\EXODUS.BIN", U3Location & "\EGYPT\EXODUS.BIN", True)
+            End If
+
+            ' config
+            My.Computer.FileSystem.CopyFile("Files\dosboxULTIMA3_single.conf.ultimore", U3Location & "\" & System.IO.Path.GetFileName("dosboxULTIMA3_single.conf"), True)
+            If PatchInstalled Then
+                Dim fileReader As String = My.Computer.FileSystem.ReadAllText(U3Location & "\" & System.IO.Path.GetFileName("dosboxULTIMA3_single.conf")).Replace("ultima.com", "ultima3.com")
+                My.Computer.FileSystem.WriteAllText(U3Location & "\" & System.IO.Path.GetFileName("dosboxULTIMA3_single.conf"), fileReader, False)
             End If
         End If
 

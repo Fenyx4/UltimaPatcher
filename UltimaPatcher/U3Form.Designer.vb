@@ -329,13 +329,13 @@ Partial Class Ultima3Form
         'LinkLabel3
         '
         Me.LinkLabel3.AutoSize = True
-        Me.LinkLabel3.Location = New System.Drawing.Point(435, 0)
+        Me.LinkLabel3.Location = New System.Drawing.Point(536, 0)
         Me.LinkLabel3.Name = "LinkLabel3"
-        Me.LinkLabel3.Size = New System.Drawing.Size(261, 13)
+        Me.LinkLabel3.Size = New System.Drawing.Size(146, 13)
         Me.LinkLabel3.TabIndex = 22
         Me.LinkLabel3.TabStop = True
         Me.LinkLabel3.Tag = "https://daemon-master.itch.io/ultimore-a-world-divided"
-        Me.LinkLabel3.Text = "https://daemon-master.itch.io/ultimore-a-world-divided"
+        Me.LinkLabel3.Text = "https://daemon-master.itch.io"
         '
         'UltimoreButton
         '
@@ -381,17 +381,17 @@ Partial Class Ultima3Form
         Me.TextBox3.ReadOnly = True
         Me.TextBox3.Size = New System.Drawing.Size(612, 26)
         Me.TextBox3.TabIndex = 6
-        Me.TextBox3.Text = "Unofficial expansion created by Joel Fenton in 1985 and ported to PC by Daemon Ma" &
-    "ster in 2022."
+        Me.TextBox3.Text = "Unofficial expansions created by Joel Fenton in the 1980s and ported to PC by Dae" &
+    "mon Master in 2020s."
         '
         'Label13
         '
         Me.Label13.AutoSize = True
         Me.Label13.Location = New System.Drawing.Point(6, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(128, 13)
+        Me.Label13.Size = New System.Drawing.Size(160, 13)
         Me.Label13.TabIndex = 4
-        Me.Label13.Text = "Ultimore: A World Divided"
+        Me.Label13.Text = "Ultimore: A World Divided/Egypt"
         '
         'Ultima3Form
         '

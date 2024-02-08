@@ -11,7 +11,8 @@ Pix has been kind enough to let the code be hosted here and open sourced.
 ### Ultima III
 * Upgrade Patch (Version 3.3) - http://exodus.voyd.net/projects/ultima3/
 * Alternative EGA Tileset Patch 
-* Ultimore: A World Divided - https://daemon-master.itch.io/ultimore-a-world-divided
+* Ultimore: A World Divided (1.2) - https://daemon-master.itch.io/ultimore-a-world-divided
+* Ultimore: Egypt (1.0) - https://daemon-master.itch.io/ultimore-egypt
 
 ### Ultima IV
 * Alternative EGA Tileset Patch - http://www.moongates.com/u4/upgrade/Upgrade.htm

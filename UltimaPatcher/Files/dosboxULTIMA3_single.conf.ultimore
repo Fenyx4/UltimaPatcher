@@ -1,0 +1,59 @@
+[ipx]
+# ipx: Enable ipx over UDP/IP emulation.
+
+ipx=false
+
+[autoexec]
+# Lines in this section will be run at startup.
+
+@ECHO OFF
+
+cls
+goto launcher
+
+:launcher
+
+ECHO ---------------------------------------------- 
+ECHO  Ultima 3 Launcher                         
+ECHO ---------------------------------------------- 
+ECHO  1) Original                                   
+ECHO  2) Ultimore: World Divided                    
+ECHO  3) Ultimore: Egypt                            
+ECHO ---------------------------------------------- 
+ECHO  4) exit program                           
+ECHO ---------------------------------------------- 
+
+choice /c1234 /s Which program do you want to run? [1-4]: /n 
+if errorlevel 4 goto exit
+if errorlevel 3 goto egypt
+if errorlevel 2 goto divided
+if errorlevel 1 goto game
+
+
+:game
+mount C ".."
+mount C "..\cloud_saves" -t overlay
+c:
+cls
+ultima.com
+goto exit
+
+:divided
+mount C "..\divided"
+mount C "..\cloud_saves\divided" -t overlay
+c:
+cls
+ultima.com
+goto exit
+
+
+:egypt
+mount C "..\egypt"
+mount C "..\cloud_saves\egypt" -t overlay
+c:
+cls
+ultima.com
+goto exit
+
+:exit
+exit
