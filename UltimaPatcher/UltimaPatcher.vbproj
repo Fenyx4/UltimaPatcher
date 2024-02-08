@@ -381,6 +381,12 @@
     <None Include="Files\dosboxULTIMA2.mt32.conf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Files\dosboxULTIMA3_single.conf.orig">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\dosboxULTIMA3_single.conf.ultimore">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Files\dosboxULTIMA4.conf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -601,6 +607,75 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Files\U3alt_shapes.ega">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\AMBROSIA.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\BRITISH.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\DARDIN.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\DAWN.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\DEATH.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\DEVIL.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\EXODUS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\EXODUS.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\FAWN.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\FIRE.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\GREY.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\LCB.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\M.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\MINE.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\MONTOR_E.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\MONTOR_W.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\MOON.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\P.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\PatchedExodus\EXODUS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\PERINIAN.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\SOSARIA.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\TIME.ULT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\U3UltimoreEgypt\YEW.ULT">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Files\U3UltimoreWorldDivided\AMBROSIA.ULT">
@@ -1245,6 +1320,72 @@
     <None Include="Files\Locale.Emulator.2.5.0.1\LocaleEmulator.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Content Include="Files\U3UltimoreEgypt\Atlantis.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\Cairo.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\CheopsPyramid.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\CitadelOfGibralter.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\CongoDepths.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\GrecianDepths.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\INSTALL INSTRUCTIONS.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\LairOfAnubis.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\Memphis.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\Mirage.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\Oasis.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\PalaceOfThePharaoh.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\Parthenon.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\PyramidOfAnkhentation.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\Rome.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\Sosaria.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\TempleOfIsis.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\Thebes.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\TradersCamp.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\Tripoli.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\WasteOfAnubis.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\U3UltimoreEgypt\WypocIlMeshir.JPEG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Files\U4v102\FIXES.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

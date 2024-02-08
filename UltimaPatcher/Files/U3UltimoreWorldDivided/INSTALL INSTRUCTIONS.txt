@@ -32,9 +32,14 @@ For more information, updates, and conversation regarding Ultimore and other Ult
 
 Thanks again for the download and I hope you have fun! If you encounter any bugs please don't hesitate to leave a comment on the itch.io page.
 
+PATCH NOTES - 1.2
+
+Somehow I managed to publish the mod with the original TIME.ULT dungeon and not "Fenton's Cave". Version 1.2 now includes the proper map.
+Thanks to PKyInOz for discovering this bug.
+
 
 PATCH NOTES - 1.1
 
-Included a new EXODUS.BIN for the 'vanilla' version of the game not using the Ultima Upgrade Patch. I wasn't aware that there was a difference.
+Included a new version of EXODUS.BIN for the Ultima Upgrade version, apparently there are subtle difference in the file format. If you're using the 'vanilla' Ultima game then no changes needed. If you're already running the patched version (improved graphics and sound) rename the EXODUS.BIN to something like EXODUS.BIN.BAK and then rename EXODUS.BIN.UPGRADEPATCHVERSION to simply EXODUS.BIN
 Discovered that GOG cloud saving was automatically replacing the SOSARIA.ULT map and included notes on how to disable it.
 Thanks to Fenyx4 for discover both problems and both solutions.
