@@ -3345,9 +3345,6 @@
     <Content Include="Files\U9Fanpatch160\u9name.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Files\U9JPLanguagePatch\u9.bat.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <Content Include="Files\U9Patch-1.19H\U9Patch-1.19H-readme.TXT">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
